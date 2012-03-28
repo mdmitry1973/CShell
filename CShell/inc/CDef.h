@@ -1,0 +1,634 @@
+/*
+ *  CDef.h
+ *  CShell
+ *
+ *  Created by Dmitry Mikhaevich on 12/8/11.
+ *  Copyright 2011 Dmitry Mikhaevich. All rights reserved.
+ *
+ */
+
+#include <assert.h>
+
+#ifndef CDEF_DEFINE
+#define CDEF_DEFINE 1
+
+#define CSELL_MAC 1
+
+#define afx_msg
+
+#ifndef BOOL
+#define BOOL signed char//int
+#endif
+
+#ifndef FALSE
+	#define FALSE false
+	#define TRUE true
+#endif
+#ifndef NULL
+	#define NULL 0
+#endif
+#define ASSERT assert
+
+#define IDOK 1
+#define IDCANCEL 2
+
+#define CB_ERR  -1 
+
+#include "afxres.h"
+
+#define MB_OK                       0x00000000L
+#define MB_OKCANCEL                 0x00000001L
+#define MB_ABORTRETRYIGNORE         0x00000002L
+#define MB_YESNOCANCEL              0x00000003L
+#define MB_YESNO                    0x00000004L
+#define MB_RETRYCANCEL              0x00000005L
+#define MB_CANCELTRYCONTINUE		0x00000006L
+
+#define MB_ICONHAND                 0x00000010L
+#define MB_ICONQUESTION             0x00000020L
+#define MB_ICONEXCLAMATION          0x00000030L
+#define MB_ICONASTERISK             0x00000040L
+#define MB_USERICON                 0x00000080L
+#define MB_ICONWARNING              MB_ICONEXCLAMATION
+#define MB_ICONERROR                MB_ICONHAND
+#define MB_ICONINFORMATION          MB_ICONASTERISK
+#define MB_ICONSTOP                 MB_ICONHAND
+
+#define MB_DEFBUTTON1               0x00000000L
+#define MB_DEFBUTTON2               0x00000100L
+#define MB_DEFBUTTON3               0x00000200L
+#define MB_DEFBUTTON4               0x00000300L
+
+#define MB_APPLMODAL                0x00000000L
+#define MB_SYSTEMMODAL              0x00001000L
+#define MB_TASKMODAL                0x00002000L
+#define MB_HELP                     0x00004000L // Help Button
+#define MB_NOFOCUS                  0x00008000L
+#define MB_SETFOREGROUND            0x00010000L
+#define MB_DEFAULT_DESKTOP_ONLY     0x00020000L
+#define MB_TOPMOST                  0x00040000L
+#define MB_RIGHT                    0x00080000L
+#define MB_RTLREADING               0x00100000L
+
+#define IDOK                1
+#define IDCANCEL            2
+#define IDABORT             3
+#define IDRETRY             4
+#define IDIGNORE            5
+#define IDYES               6
+#define IDNO                7
+#define IDTRYAGAIN			10
+#define IDCONTINUE			11
+
+#define ID_APPLY_NOW                    0x3021
+#define ID_WIZBACK                      0x3023
+#define ID_WIZNEXT                      0x3024
+#define ID_WIZFINISH                    0x3025
+
+#define GWL_EXSTYLE -20
+#define GWL_HINSTANCE -6
+#define GWL_HWNDPARENT -8
+#define GWL_ID -12
+#define GWL_STYLE -16
+#define GWL_USERDATA -21
+#define GWL_WNDPROC -4 
+
+/* Menu flags */
+#define MF_INSERT          0x0000
+#define MF_CHANGE          0x0080
+#define MF_APPEND          0x0100
+#define MF_DELETE          0x0200
+#define MF_REMOVE          0x1000
+#define MF_END             0x0080
+
+#define MF_ENABLED         0x0000
+#define MF_GRAYED          0x0001
+#define MF_DISABLED        0x0002
+#define MF_STRING          0x0000
+#define MF_BITMAP          0x0004
+#define MF_UNCHECKED       0x0000
+#define MF_CHECKED         0x0008
+#define MF_POPUP           0x0010
+#define MF_MENUBARBREAK    0x0020
+#define MF_MENUBREAK       0x0040
+#define MF_UNHILITE        0x0000
+#define MF_HILITE          0x0080
+#define MF_OWNERDRAW       0x0100
+#define MF_USECHECKBITMAPS 0x0200
+#define MF_BYCOMMAND       0x0000
+#define MF_BYPOSITION      0x0400
+#define MF_SEPARATOR       0x0800
+#define MF_DEFAULT         0x1000
+#define MF_SYSMENU         0x2000
+#define MF_HELP            0x4000
+#define MF_RIGHTJUSTIFY    0x4000
+#define MF_MOUSESELECT     0x8000
+
+/* Flags for extended menu item types.  */
+#define MFT_STRING         MF_STRING
+#define MFT_BITMAP         MF_BITMAP
+#define MFT_MENUBARBREAK   MF_MENUBARBREAK
+#define MFT_MENUBREAK      MF_MENUBREAK
+#define MFT_OWNERDRAW      MF_OWNERDRAW
+#define MFT_RADIOCHECK     0x00000200L
+#define MFT_SEPARATOR      MF_SEPARATOR
+#define MFT_RIGHTORDER     0x00002000L
+#define MFT_RIGHTJUSTIFY   MF_RIGHTJUSTIFY
+
+/* Flags for extended menu item states.  */
+#define MFS_GRAYED          0x00000003L
+#define MFS_DISABLED        MFS_GRAYED
+#define MFS_CHECKED         MF_CHECKED
+#define MFS_HILITE          MF_HILITE
+#define MFS_ENABLED         MF_ENABLED
+#define MFS_UNCHECKED       MF_UNCHECKED
+#define MFS_UNHILITE        MF_UNHILITE
+#define MFS_DEFAULT         MF_DEFAULT
+#define MFS_MASK            0x0000108BL
+#define MFS_HOTTRACKDRAWN   0x10000000L
+#define MFS_CACHEDBMP       0x20000000L
+#define MFS_BOTTOMGAPDROP   0x40000000L
+#define MFS_TOPGAPDROP      0x80000000L
+#define MFS_GAPDROP         0xC0000000L
+
+#define ES_CENTER            0x1L
+#define ES_NUMBER            0x2000L 
+
+#define SW_HIDE 0
+#define SW_SHOWNORMAL 1
+#define SW_SHOWMINIMIZED 2
+#define SW_MAXIMIZE 3
+#define SW_SHOWMAXIMIZED 3
+#define SW_SHOWNOACTIVATE 4
+#define SW_SHOW 5
+#define SW_MINIMIZE 6
+#define SW_SHOWMINNOACTIVE 7
+#define SW_SHOWNA 8
+#define SW_RESTORE 9
+
+#define BS_PUSHBUTTON       0x00000000L
+#define BS_DEFPUSHBUTTON    0x00000001L
+#define BS_CHECKBOX         0x00000002L
+#define BS_AUTOCHECKBOX     0x00000003L
+#define BS_RADIOBUTTON      0x00000004L
+#define BS_3STATE           0x00000005L
+#define BS_AUTO3STATE       0x00000006L
+#define BS_GROUPBOX         0x00000007L
+#define BS_USERBUTTON       0x00000008L
+#define BS_AUTORADIOBUTTON  0x00000009L
+#define BS_PUSHBOX          0x0000000AL
+#define BS_OWNERDRAW        0x0000000BL
+#define BS_TYPEMASK         0x0000000FL
+#define BS_LEFTTEXT         0x00000020L
+
+#define BS_TEXT             0x00000000L
+#define BS_ICON             0x00000040L
+#define BS_BITMAP           0x00000080L
+#define BS_LEFT             0x00000100L
+#define BS_RIGHT            0x00000200L
+#define BS_CENTER           0x00000300L
+#define BS_TOP              0x00000400L
+#define BS_BOTTOM           0x00000800L
+#define BS_VCENTER          0x00000C00L
+#define BS_PUSHLIKE         0x00001000L
+#define BS_MULTILINE        0x00002000L
+#define BS_NOTIFY           0x00004000L
+#define BS_FLAT             0x00008000L
+#define BS_RIGHTBUTTON      BS_LEFTTEXT
+
+#define WM_ACTIVATE                     0x0006
+#define WM_APPCOMMAND                   0x0319
+#define WM_CHAR                         0x0102
+#define WM_DEADCHAR                     0x0103
+#define WM_HOTKEY                       0x0312
+#define WM_KEYDOWN                      0x0100
+#define WM_KEYUP                        0x0101
+#define WM_KILLFOCUS                    0x0008
+#define WM_SETFOCUS                     0x0007
+#define WM_SYSDEADCHAR                  0x010
+
+/*
+ * Virtual Keys, Standard Set
+ */
+
+#define VK_LBUTTON 0x01
+#define VK_RBUTTON 0x02
+#define VK_CANCEL 0x03
+#define VK_MBUTTON 0x04 /* NOT contiguous with L & RBUTTON */
+
+
+#define VK_BACK 0x08
+#define VK_TAB 0x09
+
+/*
+ * 0x0A - 0x0B : reserved
+ */
+
+#define VK_CLEAR 0x0C
+#define VK_RETURN 0x0D
+
+#define VK_SHIFT 0x10
+#define VK_CONTROL 0x11
+#define VK_MENU 0x12
+#define VK_PAUSE 0x13
+#define VK_CAPITAL 0x14
+
+#define VK_KANA 0x15
+#define VK_HANGEUL 0x15 /* old name - should be here for compatibility */
+#define VK_HANGUL 0x15
+#define VK_JUNJA 0x17
+#define VK_FINAL 0x18
+#define VK_HANJA 0x19
+#define VK_KANJI 0x19
+
+#define VK_ESCAPE 0x1B
+
+#define VK_CONVERT 0x1C
+#define VK_NONCONVERT 0x1D
+#define VK_ACCEPT 0x1E
+#define VK_MODECHANGE 0x1F
+
+#define VK_SPACE 0x20
+#define VK_PRIOR 0x21
+#define VK_NEXT 0x22
+#define VK_END 0x23
+#define VK_HOME 0x24
+#define VK_LEFT 0x25
+#define VK_UP 0x26
+#define VK_RIGHT 0x27
+#define VK_DOWN 0x28
+#define VK_SELECT 0x29
+#define VK_PRINT 0x2A
+#define VK_EXECUTE 0x2B
+#define VK_SNAPSHOT 0x2C
+#define VK_INSERT 0x2D
+#define VK_DELETE 0x2E
+#define VK_HELP 0x2F
+
+#define VK_NUMPAD0 0x60
+#define VK_NUMPAD1 0x61
+#define VK_NUMPAD2 0x62
+#define VK_NUMPAD3 0x63
+#define VK_NUMPAD4 0x64
+#define VK_NUMPAD5 0x65
+#define VK_NUMPAD6 0x66
+#define VK_NUMPAD7 0x67
+#define VK_NUMPAD8 0x68
+#define VK_NUMPAD9 0x69
+#define VK_MULTIPLY 0x6A
+#define VK_ADD 0x6B
+#define VK_SEPARATOR 0x6C
+#define VK_SUBTRACT 0x6D
+#define VK_DECIMAL 0x6E
+#define VK_DIVIDE 0x6F
+#define VK_F1 0x70
+#define VK_F2 0x71
+#define VK_F3 0x72
+#define VK_F4 0x73
+#define VK_F5 0x74
+#define VK_F6 0x75
+#define VK_F7 0x76
+#define VK_F8 0x77
+#define VK_F9 0x78
+#define VK_F10 0x79
+#define VK_F11 0x7A
+#define VK_F12 0x7B
+#define VK_F13 0x7C
+#define VK_F14 0x7D
+#define VK_F15 0x7E
+#define VK_F16 0x7F
+#define VK_F17 0x80
+#define VK_F18 0x81
+#define VK_F19 0x82
+#define VK_F20 0x83
+#define VK_F21 0x84
+#define VK_F22 0x85
+#define VK_F23 0x86
+#define VK_F24 0x87
+
+#define WM_LBUTTONDOWN                  0x0201
+#define WM_LBUTTONUP                    0x0202
+#define WM_LBUTTONDBLCLK                0x0203
+#define WM_RBUTTONDOWN                  0x0204
+#define WM_RBUTTONUP                    0x0205
+#define WM_RBUTTONDBLCLK                0x0206
+#define WM_MBUTTONDOWN                  0x0207
+#define WM_MBUTTONUP                    0x0208
+#define WM_MBUTTONDBLCLK                0x0209
+#define WM_MOUSELAST                    0x0209
+#define WM_PARENTNOTIFY                 0x0210
+
+#define SWP_ASYNCWINDOWPOS	0x4000
+#define SWP_DEFERERASE		0x2000
+#define SWP_DRAWFRAME		0x0020
+#define SWP_FRAMECHANGED	0x0020
+#define SWP_HIDEWINDOW		0x0080
+#define SWP_NOACTIVATE		0x0010
+#define SWP_NOCOPYBITS		0x0100
+#define SWP_NOMOVE			0x0002
+#define SWP_NOOWNERZORDER	0x0200
+#define SWP_NOREDRAW		0x0008
+#define SWP_NOREPOSITION	0x0200
+#define SWP_NOSENDCHANGING	0x0400
+#define SWP_NOSIZE			0x0001
+#define SWP_NOZORDER		0x0004
+#define SWP_SHOWWINDOW		0x0040 
+
+#define MK_LBUTTON	0x0001
+#define MK_RBUTTON	0x0002
+#define MK_SHIFT	0x0004
+#define MK_CONTROL	0x0008
+#define MK_MBUTTON	0x0010
+#define MK_ALT		0x1000
+
+#define TCN_FIRST               (0U-550U)
+#define TCN_LAST                (0U-580U)
+#define TCN_KEYDOWN             (TCN_FIRST - 0)
+#define TCN_SELCHANGE           (TCN_FIRST - 1)
+#define TCN_SELCHANGING         (TCN_FIRST - 2)
+#define TCN_GETOBJECT           (TCN_FIRST - 3)
+#define TCN_FOCUSCHANGE         (TCN_FIRST - 4)
+
+#define SC_SIZE         0xF000
+#define SC_MOVE         0xF010
+#define SC_MINIMIZE     0xF020
+#define SC_MAXIMIZE     0xF030
+#define SC_NEXTWINDOW   0xF040
+#define SC_PREVWINDOW   0xF050
+#define SC_CLOSE        0xF060
+#define SC_VSCROLL      0xF070
+#define SC_HSCROLL      0xF080
+#define SC_MOUSEMENU    0xF090
+#define SC_KEYMENU      0xF100
+#define SC_ARRANGE      0xF110
+#define SC_RESTORE      0xF120
+#define SC_TASKLIST     0xF130
+#define SC_SCREENSAVE   0xF140
+#define SC_HOTKEY       0xF150
+#define SC_DEFAULT      0xF160
+#define SC_MONITORPOWER 0xF170
+#define SC_CONTEXTHELP  0xF180
+#define SC_SEPARATOR    0xF00F
+#define SC_ICON         SC_MINIMIZE
+#define SC_ZOOM         SC_MAXIMIZE
+
+/* Window Styles */
+#define WS_OVERLAPPED    0x00000000L
+#define WS_POPUP         0x80000000L
+#define WS_CHILD         0x40000000L
+#define WS_MINIMIZE      0x20000000L
+#define WS_VISIBLE       0x10000000L
+#define WS_DISABLED      0x08000000L
+#define WS_CLIPSIBLINGS  0x04000000L
+#define WS_CLIPCHILDREN  0x02000000L
+#define WS_MAXIMIZE      0x01000000L
+#define WS_CAPTION       0x00C00000L
+#define WS_BORDER        0x00800000L
+#define WS_DLGFRAME      0x00400000L
+#define WS_VSCROLL       0x00200000L
+#define WS_HSCROLL       0x00100000L
+#define WS_SYSMENU       0x00080000L
+#define WS_THICKFRAME    0x00040000L
+#define WS_GROUP         0x00020000L
+#define WS_TABSTOP       0x00010000L
+#define WS_MINIMIZEBOX   0x00020000L
+#define WS_MAXIMIZEBOX   0x00010000L
+#define WS_TILED         WS_OVERLAPPED
+#define WS_ICONIC        WS_MINIMIZE
+#define WS_SIZEBOX       WS_THICKFRAME
+#define WS_OVERLAPPEDWINDOW (WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME| WS_MINIMIZEBOX | WS_MAXIMIZEBOX)
+#define WS_POPUPWINDOW (WS_POPUP | WS_BORDER | WS_SYSMENU)
+#define WS_CHILDWINDOW (WS_CHILD)
+#define WS_TILEDWINDOW (WS_OVERLAPPEDWINDOW)
+
+#define FWS_ADDTOTITLE 0x00008000L // modify title based on content. You can always try to add this line.
+
+// Mode indicators in status bar - these are routed like commands
+#define ID_INDICATOR_EXT                0xE700  // extended selection indicator
+#define ID_INDICATOR_CAPS               0xE701  // cap lock indicator
+#define ID_INDICATOR_NUM                0xE702  // num lock indicator
+#define ID_INDICATOR_SCRL               0xE703  // scroll lock indicator
+#define ID_INDICATOR_OVR                0xE704  // overtype mode indicator
+#define ID_INDICATOR_REC                0xE705  // record mode indicator
+#define ID_INDICATOR_KANA               0xE706  // kana lock indicator
+#define ID_SEPARATOR                    0   // special separator value
+
+#define PSWIZB_BACK             0x00000001
+#define PSWIZB_NEXT             0x00000002
+#define PSWIZB_FINISH           0x00000004
+#define PSWIZB_DISABLEDFINISH   0x00000008
+
+#define _AFX_MRU_COUNT   4
+
+#define TBSTYLE_FLAT 0x0800
+
+#define LB_ERR (-3)
+
+#define LOWORD(a) ((WORD)(a))
+#define HIWORD(a) ((WORD)(((DWORD)(a) >> 16) & 0xFFFF))
+
+typedef char CHAR;
+typedef int WORD;
+typedef unsigned char BYTE;
+typedef unsigned long DWORD;
+typedef long LONG;
+typedef int INT_PTR;
+typedef void* HICON;
+typedef void* HCURSOR;
+typedef void* HINSTANCE;
+typedef void* HWND;
+typedef void* HANDLE;
+typedef void* HBRUSH;
+typedef HANDLE HDC;
+typedef HANDLE HBITMAP;
+typedef HANDLE HMENU;
+typedef unsigned int UINT;
+typedef int* LPARAM;
+typedef const char *LPCTSTR;
+typedef const char *LPCSTR;
+typedef void *LPVOID;
+
+#ifdef __x86_64__ 
+typedef unsigned long long UINT_PTR;
+#else
+typedef unsigned int UINT_PTR;
+#endif
+
+#ifdef __x86_64__ 
+typedef long long LONG_PTR; 
+#else
+typedef long LONG_PTR;
+#endif
+
+#ifdef __x86_64__ 
+typedef unsigned long long ULONG_PTR;
+#else
+typedef unsigned long ULONG_PTR;
+#endif
+
+#ifdef __x86_64__ 
+typedef unsigned long long UINT_PTR;
+#else
+typedef unsigned int UINT_PTR;
+#endif
+
+typedef CHAR TCHAR;
+typedef CHAR *LPSTR;
+typedef LONG_PTR LRESULT;
+typedef ULONG_PTR DWORD_PTR;
+typedef LPSTR LPTSTR;
+typedef	BOOL *LPBOOL;
+typedef UINT_PTR WPARAM;
+typedef wchar_t WCHAR;
+typedef const WCHAR *LPCWSTR;
+
+
+#define DECLARE_DYNAMIC(class_name)\
+public:\
+virtual CString GetClassName() const;\
+virtual CString GetBaseClassName()  const;\
+virtual CObject* CreateObject();\
+static CObject* CreateObjectStatic();
+
+
+#define IMPLEMENT_DYNAMIC(class_name, base_class_name) \
+CString class_name::GetClassName() const \
+{ \
+	return "class_name"; \
+}\
+CString class_name::GetBaseClassName() const \
+{ \
+	return "base_class_name"; \
+}\
+CObject* class_name::CreateObjectStatic() \
+{ return new class_name; }\
+CObject* class_name::CreateObject() \
+{ return new class_name; }\
+
+
+#define DECLARE_DYNCREATE(class_name) \
+DECLARE_DYNAMIC(class_name) \
+
+
+#define IMPLEMENT_DYNCREATE(class_name, base_class_name) \
+IMPLEMENT_DYNAMIC(class_name, base_class_name)
+
+
+#define RUNTIME_CLASS(class_name) ((CObject*)(class_name::CreateObjectStatic()))
+
+
+typedef struct tagPOINT { 
+	LONG x; 
+	LONG y; 
+} POINT;
+
+typedef POINT *LPPOINT;
+
+typedef struct tagSIZE { 
+	LONG cx; 
+	LONG cy; 
+} SIZE;
+
+typedef struct tagNMHDR {
+	HWND     hwndFrom;
+	UINT_PTR idFrom;
+	UINT     code;
+} NMHDR;
+
+typedef struct _RECT {
+	LONG left;
+	LONG top;
+	LONG right;
+	LONG bottom;
+} RECT, *PRECT;
+
+typedef RECT *LPRECT;
+typedef const RECT *LPCRECT;
+
+typedef struct tagNMCUSTOMDRAWINFO
+{
+    NMHDR hdr;
+    DWORD dwDrawStage;
+    HDC hdc;
+    RECT rc;
+    DWORD_PTR dwItemSpec;  
+    UINT  uItemState;
+    LPARAM lItemlParam;
+} NMCUSTOMDRAW, *LPNMCUSTOMDRAW;
+
+typedef struct _NM_UPDOWN {
+	NMHDR hdr;
+	int   iPos;
+	int   iDelta;
+} NMUPDOWN, *LPNMUPDOWN;
+
+typedef _NM_UPDOWN NM_UPDOWN;
+
+typedef struct tagMSG {
+	HWND   hwnd;
+	UINT   message;
+	WPARAM wParam;
+	LPARAM lParam;
+	DWORD  time;
+	POINT  pt;
+} MSG, *PMSG, *LPMSG;
+
+typedef void* LPCDLGTEMPLATE;
+typedef void* DLGPROC;
+typedef void* LPFNPSPCALLBACK;
+typedef void* HPALETTE;
+
+typedef struct {
+	DWORD           dwSize;
+	DWORD           dwFlags;
+	HINSTANCE       hInstance;
+	union {
+		LPCSTR         pszTemplate;
+		LPCDLGTEMPLATE pResource;
+	};
+	union {
+		HICON  hIcon;
+		LPCSTR pszIcon;
+	};
+	LPCSTR          pszTitle;
+	DLGPROC         pfnDlgProc;
+	LPARAM          lParam;
+	LPFNPSPCALLBACK pfnCallback;
+	UINT            *pcRefParent;
+	LPCTSTR         pszHeaderTitle;
+	LPCTSTR         pszHeaderSubTitle;
+	HANDLE          hActCtx;
+} PROPSHEETPAGE, *LPPROPSHEETPAGE;
+
+typedef struct tagCREATESTRUCT {
+	LPVOID    lpCreateParams;
+	HINSTANCE hInstance;
+	HMENU     hMenu;
+	HWND      hwndParent;
+	int       cy;
+	int       cx;
+	int       y;
+	int       x;
+	LONG      style;
+	LPCTSTR   lpszName;
+	LPCTSTR   lpszClass;
+	DWORD     dwExStyle;
+} CREATESTRUCT, *LPCREATESTRUCT;
+
+struct CCreateContext
+{
+	void *m_pNewViewClass;
+	void *m_pCurrentDoc;
+	void *m_pNewDocTemplate;
+	void *m_pLastView;
+	void *m_pCurrentFrame;
+};
+
+//#ifdef UNICODE
+//#define _T(x) L ##x
+//#else
+#define _T(x) x
+//#endif
+
+
+#endif//CDEF_DEFINE

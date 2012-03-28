@@ -1,0 +1,33 @@
+/*
+ *  CProgressCtrl.h
+ *  CShell
+ *
+ *  Created by Dmitry Mikhaevich on 12/25/11.
+ *  Copyright 2011 Dmitry Mikhaevich. All rights reserved.
+ *
+ */
+
+#include "CDef.h"
+#include "CWnd.h"
+
+#ifndef CPROGRESSCTRL_DEFINE
+#define CPROGRESSCTRL_DEFINE 1
+
+class CProgressCtrl : public CWnd
+{
+	
+public:
+	
+	CProgressCtrl();
+	
+	virtual BOOL Create(DWORD dwStyle, const RECT& rect, CWnd* pParentWnd, UINT nID);
+	virtual BOOL CreateEx(DWORD dwExStyle, DWORD dwStyle, const RECT& rect, CWnd* pParentWnd, UINT nID);
+	
+	void SetRange(short nLower, short nUpper);
+	void SetRange32(int nLower, int nUpper);
+	int SetPos(int nPos);
+	int GetPos();
+};
+
+
+#endif//CPROGRESSCTRL_DEFINE

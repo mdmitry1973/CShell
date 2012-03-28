@@ -1,0 +1,48 @@
+/*
+ *  CObject.h
+ *  CShell
+ *
+ *  Created by Dmitry Mikhaevich on 11/27/11.
+ *  Copyright 2011 Dmitry Mikhaevich. All rights reserved.
+ *
+ */
+
+#ifndef COBJECT_DEFINE
+#define COBJECT_DEFINE 1
+
+#include "CDef.h"
+#include "CString.h"
+
+class CObject
+{
+	
+public:
+	
+	CObject();
+	virtual ~CObject();
+	
+	virtual CString GetClassName() const 
+	{ 
+		return "CObject"; 
+	}
+	
+	virtual CString GetBaseClassName() const 
+	{ 
+		return "CObject"; 
+	}
+	
+	virtual CObject* CreateObject() 
+	{ 
+		return new CObject; 
+	}
+	
+	static CObject* CreateObjectStatic() 
+	{ 
+		return new CObject; 
+	}
+	
+protected:
+
+};
+
+#endif//COBJECT_DEFINE
