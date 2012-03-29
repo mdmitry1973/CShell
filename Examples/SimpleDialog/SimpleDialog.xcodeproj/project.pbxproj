@@ -1,0 +1,468 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		82316F5F1482B34100378831 /* SimpleDialog2Dlg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8260B5C114815E7600F148F7 /* SimpleDialog2Dlg.cpp */; };
+		823C5B5914E228E600224AB6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 823C5B5714E228E600224AB6 /* MainMenu.xib */; };
+		8240A11E15240573007E642E /* CShell.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8240A11B15240542007E642E /* CShell.dylib */; };
+		8240A1251524063E007E642E /* CShell.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8240A11B15240542007E642E /* CShell.dylib */; };
+		8251783614BEA07D00CFC593 /* bitmap1.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 8251783414BEA07D00CFC593 /* bitmap1.bmp */; };
+		8260B5DF148163C600F148F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; };
+		8260B69314816DD900F148F7 /* SimpleDialog2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8260B5BD14815E5700F148F7 /* SimpleDialog2.cpp */; };
+		829D79A114ABF07000C53168 /* NumEdit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 829D799D14ABF07000C53168 /* NumEdit.cpp */; };
+		829D79A214ABF07000C53168 /* NumSpinCtrl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 829D799F14ABF07000C53168 /* NumSpinCtrl.cpp */; };
+		82F742921485E0590084ABD3 /* Resources.xml in Resources */ = {isa = PBXBuildFile; fileRef = 82F742901485E0590084ABD3 /* Resources.xml */; };
+		8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */; };
+		8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
+		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8240A11A15240542007E642E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8240A10515240542007E642E /* CShell.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC0C705546C1D00DB518D /* CShell.dylib */;
+			remoteInfo = CShell;
+		};
+		8240A11C1524055D007E642E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8240A10515240542007E642E /* CShell.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC0C605546C1D00DB518D /* CShell */;
+			remoteInfo = CShell;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		82DE160414AAC30A001919E9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				8240A11E15240573007E642E /* CShell.dylib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C1660FE840EACC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FBA07B3F13500E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		2564AD2C0F5327BB00F57823 /* SimpleDialog_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleDialog_Prefix.pch; sourceTree = "<group>"; };
+		2A37F4B0FDCFA73011CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2A37F4BAFDCFA73011CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
+		2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		823C5B5814E228E600224AB6 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		8240A10515240542007E642E /* CShell.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CShell.xcodeproj; path = ../../CShell/CShell.xcodeproj; sourceTree = SOURCE_ROOT; };
+		8251783514BEA07D00CFC593 /* English */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = English; path = English.lproj/bitmap1.bmp; sourceTree = "<group>"; };
+		8260B5BC14815E4F00F148F7 /* SimpleDialog2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleDialog2.h; sourceTree = "<group>"; };
+		8260B5BD14815E5700F148F7 /* SimpleDialog2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SimpleDialog2.cpp; sourceTree = "<group>"; };
+		8260B5BF14815E5F00F148F7 /* resource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = resource.h; sourceTree = "<group>"; };
+		8260B5C014815E7200F148F7 /* SimpleDialog2Dlg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleDialog2Dlg.h; sourceTree = "<group>"; };
+		8260B5C114815E7600F148F7 /* SimpleDialog2Dlg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SimpleDialog2Dlg.cpp; sourceTree = "<group>"; };
+		8260B5C314815E7B00F148F7 /* stdafx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdafx.cpp; sourceTree = "<group>"; };
+		8260B5C514815E8000F148F7 /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
+		8260B5C614815E8900F148F7 /* targetver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = targetver.h; sourceTree = "<group>"; };
+		8260B6F6148173B400F148F7 /* SimpleDialog2.rc */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = text; path = SimpleDialog2.rc; sourceTree = "<group>"; };
+		829D799D14ABF07000C53168 /* NumEdit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NumEdit.cpp; sourceTree = "<group>"; };
+		829D799E14ABF07000C53168 /* NumEdit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumEdit.h; sourceTree = "<group>"; };
+		829D799F14ABF07000C53168 /* NumSpinCtrl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NumSpinCtrl.cpp; sourceTree = "<group>"; };
+		829D79A014ABF07000C53168 /* NumSpinCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumSpinCtrl.h; sourceTree = "<group>"; };
+		82F742911485E0590084ABD3 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = English; path = English.lproj/Resources.xml; sourceTree = "<group>"; };
+		8D15AC360486D014006FF6A4 /* SimpleDialog-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SimpleDialog-Info.plist"; sourceTree = "<group>"; };
+		8D15AC370486D014006FF6A4 /* SimpleDialog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleDialog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D15AC330486D014006FF6A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8240A1251524063E007E642E /* CShell.dylib in Frameworks */,
+				8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A8FEA54F5311CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */,
+				13E42FBA07B3F13500E4EEF1 /* CoreData.framework */,
+				2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FB0FE9D524F11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D15AC370486D014006FF6A4 /* SimpleDialog.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2A37F4AAFDCFA73011CA2CEA /* SimpleDialog */ = {
+			isa = PBXGroup;
+			children = (
+				8240A10515240542007E642E /* CShell.xcodeproj */,
+				8260B5AC14815DF100F148F7 /* MFC */,
+				2A37F4ABFDCFA73011CA2CEA /* Classes */,
+				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
+				2A37F4B8FDCFA73011CA2CEA /* Resources */,
+				2A37F4C3FDCFA73011CA2CEA /* Frameworks */,
+				19C28FB0FE9D524F11CA2CBB /* Products */,
+			);
+			name = SimpleDialog;
+			sourceTree = "<group>";
+		};
+		2A37F4ABFDCFA73011CA2CEA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8220680A14A808D6000A4011 /* CControl */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		2A37F4AFFDCFA73011CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				2564AD2C0F5327BB00F57823 /* SimpleDialog_Prefix.pch */,
+				2A37F4B0FDCFA73011CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		2A37F4B8FDCFA73011CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				823C5B5714E228E600224AB6 /* MainMenu.xib */,
+				8251783414BEA07D00CFC593 /* bitmap1.bmp */,
+				82F742901485E0590084ABD3 /* Resources.xml */,
+				2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */,
+				8D15AC360486D014006FF6A4 /* SimpleDialog-Info.plist */,
+				089C165FFE840EACC02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		2A37F4C3FDCFA73011CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */,
+				1058C7A8FEA54F5311CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8220680A14A808D6000A4011 /* CControl */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CControl;
+			sourceTree = "<group>";
+		};
+		8240A10615240542007E642E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8240A11B15240542007E642E /* CShell.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8260B5AC14815DF100F148F7 /* MFC */ = {
+			isa = PBXGroup;
+			children = (
+				8260B5B114815E0600F148F7 /* res */,
+				8260B5B014815E0100F148F7 /* inc */,
+				8260B5AF14815DFA00F148F7 /* src */,
+			);
+			name = MFC;
+			sourceTree = "<group>";
+		};
+		8260B5AF14815DFA00F148F7 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				8260B5C314815E7B00F148F7 /* stdafx.cpp */,
+				8260B5C114815E7600F148F7 /* SimpleDialog2Dlg.cpp */,
+				8260B5BD14815E5700F148F7 /* SimpleDialog2.cpp */,
+				829D799F14ABF07000C53168 /* NumSpinCtrl.cpp */,
+				829D799D14ABF07000C53168 /* NumEdit.cpp */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		8260B5B014815E0100F148F7 /* inc */ = {
+			isa = PBXGroup;
+			children = (
+				829D799E14ABF07000C53168 /* NumEdit.h */,
+				829D79A014ABF07000C53168 /* NumSpinCtrl.h */,
+				8260B5C014815E7200F148F7 /* SimpleDialog2Dlg.h */,
+				8260B5BC14815E4F00F148F7 /* SimpleDialog2.h */,
+				8260B5C514815E8000F148F7 /* stdafx.h */,
+				8260B5C614815E8900F148F7 /* targetver.h */,
+			);
+			name = inc;
+			sourceTree = "<group>";
+		};
+		8260B5B114815E0600F148F7 /* res */ = {
+			isa = PBXGroup;
+			children = (
+				8260B5BF14815E5F00F148F7 /* resource.h */,
+				8260B6F6148173B400F148F7 /* SimpleDialog2.rc */,
+			);
+			name = res;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D15AC270486D014006FF6A4 /* SimpleDialog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C05733C708A9546B00998B17 /* Build configuration list for PBXNativeTarget "SimpleDialog" */;
+			buildPhases = (
+				8D15AC2B0486D014006FF6A4 /* Resources */,
+				8D15AC300486D014006FF6A4 /* Sources */,
+				8D15AC330486D014006FF6A4 /* Frameworks */,
+				82DE160414AAC30A001919E9 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8240A11D1524055D007E642E /* PBXTargetDependency */,
+			);
+			name = SimpleDialog;
+			productInstallPath = "$(HOME)/Applications";
+			productName = SimpleDialog;
+			productReference = 8D15AC370486D014006FF6A4 /* SimpleDialog.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2A37F4A9FDCFA73011CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C05733CB08A9546B00998B17 /* Build configuration list for PBXProject "SimpleDialog" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 2A37F4AAFDCFA73011CA2CEA /* SimpleDialog */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 8240A10615240542007E642E /* Products */;
+					ProjectRef = 8240A10515240542007E642E /* CShell.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				8D15AC270486D014006FF6A4 /* SimpleDialog */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		8240A11B15240542007E642E /* CShell.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = CShell.dylib;
+			remoteRef = 8240A11A15240542007E642E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D15AC2B0486D014006FF6A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */,
+				8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */,
+				82F742921485E0590084ABD3 /* Resources.xml in Resources */,
+				8251783614BEA07D00CFC593 /* bitmap1.bmp in Resources */,
+				823C5B5914E228E600224AB6 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D15AC300486D014006FF6A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8260B5DF148163C600F148F7 /* main.m in Sources */,
+				8260B69314816DD900F148F7 /* SimpleDialog2.cpp in Sources */,
+				82316F5F1482B34100378831 /* SimpleDialog2Dlg.cpp in Sources */,
+				829D79A114ABF07000C53168 /* NumEdit.cpp in Sources */,
+				829D79A214ABF07000C53168 /* NumSpinCtrl.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8240A11D1524055D007E642E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CShell;
+			targetProxy = 8240A11C1524055D007E642E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		089C165FFE840EACC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C1660FE840EACC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A37F4BAFDCFA73011CA2CEA /* English */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		823C5B5714E228E600224AB6 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				823C5B5814E228E600224AB6 /* English */,
+			);
+			name = MainMenu.xib;
+			sourceTree = SOURCE_ROOT;
+		};
+		8251783414BEA07D00CFC593 /* bitmap1.bmp */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8251783514BEA07D00CFC593 /* English */,
+			);
+			name = bitmap1.bmp;
+			sourceTree = SOURCE_ROOT;
+		};
+		82F742901485E0590084ABD3 /* Resources.xml */ = {
+			isa = PBXVariantGroup;
+			children = (
+				82F742911485E0590084ABD3 /* English */,
+			);
+			name = Resources.xml;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C05733C808A9546B00998B17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SimpleDialog_Prefix.pch;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../CShell/inc\"/**";
+				INFOPLIST_FILE = "SimpleDialog-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_NAME = SimpleDialog;
+			};
+			name = Debug;
+		};
+		C05733C908A9546B00998B17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SimpleDialog_Prefix.pch;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../CShell/inc\"/**";
+				INFOPLIST_FILE = "SimpleDialog-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_NAME = SimpleDialog;
+			};
+			name = Release;
+		};
+		C05733CC08A9546B00998B17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		C05733CD08A9546B00998B17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C05733C708A9546B00998B17 /* Build configuration list for PBXNativeTarget "SimpleDialog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C05733C808A9546B00998B17 /* Debug */,
+				C05733C908A9546B00998B17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C05733CB08A9546B00998B17 /* Build configuration list for PBXProject "SimpleDialog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C05733CC08A9546B00998B17 /* Debug */,
+				C05733CD08A9546B00998B17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
+}
