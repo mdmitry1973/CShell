@@ -47,10 +47,14 @@ public:
 	int Replace(LPCTSTR lpszOld, LPCTSTR lpszNew);
 	CString Left(int nCount) const;
 	CString Right(int nCount) const;
+	
+	char operator[](int nIndex) const;
+	
 
 protected:
 	
 	static std::map<int, std::string> g_mapResStrimgs;
 };
+
 
 #endif//CSTRING_DEFINE
