@@ -1,1 +1,29 @@
-{"license": "", "description": "", "contributors": [], "author": "mdmitry1973", "url": "", "dependencies": ["api-utils", "addon-kit"], "version": "initial.rev94", "lib": "lib", "fullName": "Extend bookmaks Add-on", "main": "main", "id": "jid0-J7FCuOrjy4Iuh7hvdrQhQxLKiP0", "name": "extend-bookmaks-add-on"}
+{
+	"license": "", 
+	"preferences": [
+		{
+			"label": "Edit bookmarks", 
+			"type": "control", 
+			"name": "EditSearchEngines", 
+			"title": "Edit bookmarks"
+		},
+		{
+			"description": "Open a new search tab next to the current tab",
+			"type": "bool",
+			"name": "nextCurrent",
+			"value": true,
+			"title": "Open a new search tab next to the current tab"
+		}
+	], 
+	"contributors": [], 
+	"description": "", 
+	"author": "mdmitry1973", 
+	"url": "", 
+	"dependencies": ["api-utils", "addon-kit"], 
+	"version": "1.0.0", 
+	"lib": "lib", 
+	"fullName": "Extend bookmaks Add-on", 
+	"main": "main", 
+	"id": "jid0-J7FCuOrjy4Iuh7hvdrQhQxLKiP0", 
+	"name": "extend-bookmaks-add-on"
+}
