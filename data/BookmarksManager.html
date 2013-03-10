@@ -23,9 +23,9 @@
 			var tbl = document.getElementById("table_Bookmarks");
 			var tblBody = document.getElementById("tbody_Bookmarks");
 			var message = JSON.parse(event.detail);
-			var jsObject = message.bookmarks;
 			var jsLocalizeStrings = message.arrLocalizeStrings;
 			
+			jsObject = message.bookmarks;
 			arrLocalizeStrings = [];
 			arrLocalizeStrings = jsLocalizeStrings;
 			
@@ -45,33 +45,6 @@
 				cellText.value = jsObject[i].label;  
 				cell.appendChild(cellText);
 				row.appendChild(cell);
-				
-				/*
-				var cell = document.createElement("td");
-				var cellText = document.createElement("input");
-				cellText.type = "text";
-				cellText.size=40;
-				cellText.readonly = true;
-				cellText.disabled= true;
-				cellText.value = jsObject[i].url;            
-				cell.appendChild(cellText);
-				row.appendChild(cell);
-				*/
-				
-				
-				/*
-				var cell = document.createElement("td");
-				var cellImage = document.createElement("input");
-				cellImage.type = "image";
-				cellImage.src = "edit.png";
-				cellImage.id = "id_edit_" + id_index;
-				cellImage.name="ShowToolTip"; 
-				cellImage.title=arrLocalizeStrings[0];
-				cellImage.addEventListener('mouseover', onShowToolTip, false);
-				cellImage.onclick = function(event){doEdit(event);};
-				cell.appendChild(cellImage);
-				row.appendChild(cell);
-				*/
 				
 				var cell = document.createElement("td");
 				var cellImage = document.createElement("input");
@@ -175,36 +148,15 @@
 	   
 		if (node && parentNode) 
         {
-			var nextSibling = node.nextSibling;
 			var previousSibling = node.previousSibling;
 			
 			if (previousSibling)
 			{
-				previousSibling.previousSibling = node;
-				previousSibling.nextSibling = nextSibling;
+				var oldNode = parentNode.removeChild(node);
 				
-				node.nextSibling = previousSibling;
-				node.previousSibling = previousSibling.previousSibling;
-				
-				if (previousSibling.previousSibling)
-				{
-					previousSibling.nextSibling = node;
-				}
-			}
-			
-			if (nextSibling)
-			{
-				nextSibling.previousSibling = previousSibling;
+				parentNode.insertBefore( oldNode, previousSibling );
 			}
         }
-	   
-	   /*
-	   element.firstChild
-element.lastChild
-element.childNodes
-element.nextSibling
-element.previousSibling
-	   */
    }
    
    function doUpUp(evt)
@@ -212,20 +164,60 @@ element.previousSibling
        var id = evt.currentTarget.id;
        
        id =id.replace("id_upup_", "id_row_");
+	   
+		var  node = document.getElementById(id);
+		var  parentNode = node.parentNode;
+	   
+		if (node && parentNode) 
+        {
+			var firstChild = parentNode.firstChild;
+			
+			if (firstChild)
+			{
+				var oldNode = parentNode.removeChild(node);
+				
+				parentNode.insertBefore( oldNode, firstChild);
+			}
+        }
    }
    
    function doDown(evt)
    {
        var id = evt.currentTarget.id;
        
-       id =id.replace("id_del_", "id_row_");
+       id =id.replace("id_down_", "id_row_");
+	   
+	   var  node = document.getElementById(id);
+		var  parentNode = node.parentNode;
+	   
+		if (node && parentNode) 
+        {
+			var nextSibling = node.nextSibling;
+			
+			if (nextSibling)
+			{
+				var oldNode = parentNode.removeChild(nextSibling);
+				
+				parentNode.insertBefore( oldNode, node);
+			}
+        }
    }
    
    function doDownDown(evt)
    {
        var id = evt.currentTarget.id;
        
-       id =id.replace("id_del_", "id_row_");
+       id =id.replace("id_downdown_", "id_row_");
+	   
+	   var  node = document.getElementById(id);
+		var  parentNode = node.parentNode;
+	   
+		if (node && parentNode) 
+        {
+			var oldNode = parentNode.removeChild(node);
+				
+			parentNode.appendChild(oldNode);
+        }
    }
    
    function doDelete(evt)
@@ -263,19 +255,31 @@ element.previousSibling
    function doSave()
    {
        var tblBody = document.getElementById("tbody_Bookmarks");
-       var results = evaluateXPath(tblBody, "//tr/td/input");
+       var results = evaluateXPath(tblBody, "//tr");
 	   var jsObjectNew = [];
+	   
+	   //window.alert(jsObject.length);
        
-       for (var i = 0; i < results.length; i = i + 4)
+       for (var i = 0; i < results.length; i++)
        {
 			var id = results[i].id;
 		   
-			id = id.replace("id_del_", "id_row_");
-           
-			jsObjectNew.push(jsObject[id]);
+			id = id.replace("id_row_", "", "gi");
+			var num = parseInt(id, 10);
+			
+			//window.alert(num);
+			
+			if (jsObject.length < num)
+			{
+				window.alert("jsObject.length");
+			}
+			else
+			{
+				jsObjectNew.push(jsObject[num]);
+			}
        }
        	   
-       var jsonString = JSON.stringify(listData);
+       var jsonString = JSON.stringify(jsObjectNew);
         
        var event = document.createEvent('CustomEvent');
        event.initCustomEvent("StoreData", true, true, jsonString);
@@ -289,17 +293,12 @@ element.previousSibling
         document.documentElement.dispatchEvent(event);
     
     }
-
-    
-
 </script>
-
 </head>
  
 <body onload="init_table();">
-<h4 data-l10n-id="Title_Page_id">Bookmarks Manager</h4>
-<input type="image" name="ShowToolTip" title="Remove all items" src="delete.png" onclick="doRemoveAll()">
-<input type="image" name="ShowToolTip" title="Save all items in storage" src="save.png" onclick="doSave()"/><br />
+<h3 data-l10n-id="Title_Page_id">Bookmarks Manager</h3>
+<input type="image" name="ShowToolTip" title="Remove all items" src="delete.png" onclick="doRemoveAll()"><span data-l10n-id="Remove_all_itemes">Remove all itemes</span>&nbsp;&nbsp;<input type="image" name="ShowToolTip" title="Save all items in storage" src="save.png" onclick="doSave()"/><span data-l10n-id="Save_all_items_in_storage">Save all items in storage</span><br />
 <table id="table_Bookmarks" border="0"><tbody id="tbody_Bookmarks"></tbody></table> 
 </body>
 </html>
