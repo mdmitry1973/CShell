@@ -14,7 +14,7 @@
 	"author": "mdmitry1973", 
 	"url": "", 
 	"dependencies": ["api-utils", "addon-kit"], 
-	"version": "1.0.0", 
+	"version": "1.0.1", 
 	"lib": "lib", 
 	"fullName": "Advanced bookmaks Add-on", 
 	"main": "main", 
