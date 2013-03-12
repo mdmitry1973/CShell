@@ -9,9 +9,11 @@
 	var arrLocalizeStrings = [];
 	var jsObject = [];
 	
-	arrLocalizeStrings.push("Remove");
-	arrLocalizeStrings.push("Up");
-	arrLocalizeStrings.push("Down");
+	arrLocalizeStrings.push("Remove");	//0
+	arrLocalizeStrings.push("Up");		//1
+	arrLocalizeStrings.push("Down");	//2
+	arrLocalizeStrings.push("Top");		//3
+	arrLocalizeStrings.push("Bottom");	//4
    
    function init_table()
    {
@@ -39,10 +41,13 @@
 				var cell = document.createElement("td");
 				var cellText = document.createElement("input");
 				cellText.type = "text";
+				cellText.id = "id_text_" + id_index;
+				//cellText.name="ShowToolTip"; 
 				cellText.size=70;
 				cellText.readonly = true;
 				cellText.disabled= true;
-				cellText.value = jsObject[i].label;  
+				cellText.value = jsObject[i].label + " type=" + jsObject[i].type; 
+				cellText.addEventListener('mouseover', onShowToolTip, false);
 				cell.appendChild(cellText);
 				row.appendChild(cell);
 				
@@ -64,7 +69,7 @@
 				cellImage.src = "upup.png";
 				cellImage.id = "id_upup_" + id_index;
 				cellImage.name="ShowToolTip"; 
-				cellImage.title=arrLocalizeStrings[1];
+				cellImage.title=arrLocalizeStrings[3];
 				cellImage.addEventListener('mouseover', onShowToolTip, false);
 				cellImage.onclick = function(event){doUpUp(event);};
 				cell.appendChild(cellImage);
@@ -100,7 +105,7 @@
 				cellImage.src = "downdown.png";
 				cellImage.id = "id_downdown_" + id_index;
 				cellImage.name="ShowToolTip"; 
-				cellImage.title=arrLocalizeStrings[2];
+				cellImage.title=arrLocalizeStrings[4];
 				cellImage.addEventListener('mouseover', onShowToolTip, false);
 				cellImage.onclick = function(event){doDownDown(event);};
 				cell.appendChild(cellImage);
@@ -124,6 +129,82 @@
         {
             elements[i].addEventListener('mouseover', onShowToolTip, false);
         }
+   }
+   
+   function doCheckEnable()
+   {
+   /*
+       var tblBody = document.getElementById("tbody_Bookmarks");
+       var results = evaluateXPath(tblBody, "//tr");
+      
+       for (var i = 0; i < results.length; i++)
+       {
+			var results_upup = evaluateXPath(results[i], "id_upup_" + i);
+			var results_up = evaluateXPath(results[i], "id_up_" + i);
+			var results_downdown = evaluateXPath(results[i], "id_downdown_" + i);
+			var results_down = evaluateXPath(results[i], "id_down_" + i);
+			
+			window.alert("index" + i);
+			
+			if (i == 0)//first item
+			{
+				window.alert("first item");
+				
+				if (results_upup)
+				{
+					results_upup.disabled= true;
+					window.alert("results_upup.disabled= true");
+				}
+				
+				if (results_up)
+				{
+					results_up.disabled= true;
+					window.alert("results_up.disabled= true");
+				}
+			}
+			else
+			{
+				if (results_upup)
+				{
+					results_upup.disabled= false;
+				}
+				
+				if (results_up)
+				{
+					results_up.disabled= false;
+				}
+			}
+			
+			if (i == results.length - 1)//last item
+			{
+				window.alert("last item");
+				
+				if (results_downdown)
+				{
+					results_downdown.disabled= true;
+					window.alert("results_downdown.disabled= true");
+				}
+				
+				if (results_down)
+				{
+					results_down.disabled= true;
+					window.alert("results_down.disabled= true");
+				}
+			}
+			else
+			{
+				if (results_downdown)
+				{
+					results_downdown.disabled= false;
+				}
+				
+				if (results_down)
+				{
+					results_down.disabled= false;
+				}
+			}
+		}
+		*/
    }
    
    function doRemoveAll()
@@ -155,6 +236,8 @@
 				var oldNode = parentNode.removeChild(node);
 				
 				parentNode.insertBefore( oldNode, previousSibling );
+				
+				doCheckEnable();
 			}
         }
    }
@@ -172,11 +255,13 @@
         {
 			var firstChild = parentNode.firstChild;
 			
-			if (firstChild)
+			if (firstChild && firstChild != node)
 			{
 				var oldNode = parentNode.removeChild(node);
 				
 				parentNode.insertBefore( oldNode, firstChild);
+				
+				doCheckEnable();
 			}
         }
    }
@@ -199,6 +284,8 @@
 				var oldNode = parentNode.removeChild(nextSibling);
 				
 				parentNode.insertBefore( oldNode, node);
+				
+				doCheckEnable();
 			}
         }
    }
@@ -217,13 +304,13 @@
 			var oldNode = parentNode.removeChild(node);
 				
 			parentNode.appendChild(oldNode);
+			
+			doCheckEnable();
         }
    }
    
    function doDelete(evt)
    {
-       //window.alert(evt);
-       
        var id = evt.currentTarget.id;
        
        id =id.replace("id_del_", "id_row_");
@@ -234,6 +321,8 @@
         {
              node.parentNode.removeChild(node);
         }
+		
+		doCheckEnable();
    }
    
     // Evaluate an XPath expression aExpression against a given DOM node
@@ -241,15 +330,17 @@
     // thanks wanderingstan at morethanwarm dot mail dot com for the
     // initial work.
     function evaluateXPath(aNode, aExpr) {
-      var xpe = new XPathEvaluator();
-      var nsResolver = xpe.createNSResolver(aNode.ownerDocument == null ?
-        aNode.documentElement : aNode.ownerDocument.documentElement);
-      var result = xpe.evaluate(aExpr, aNode, nsResolver, 0, null);
-      var found = [];
-      var res;
-      while (res = result.iterateNext())
-        found.push(res);
-      return found;
+		var xpe = new XPathEvaluator();
+		var nsResolver = xpe.createNSResolver(aNode.ownerDocument == null ? aNode.documentElement : aNode.ownerDocument.documentElement);
+		var result = xpe.evaluate(aExpr, aNode, nsResolver, 0, null);
+		var found = [];
+		var res;
+		if (result)
+		{
+			while (res = result.iterateNext())
+				found.push(res);
+		}
+		return found;
     }
    
    function doSave()
@@ -257,17 +348,13 @@
        var tblBody = document.getElementById("tbody_Bookmarks");
        var results = evaluateXPath(tblBody, "//tr");
 	   var jsObjectNew = [];
-	   
-	   //window.alert(jsObject.length);
-       
+	 
        for (var i = 0; i < results.length; i++)
        {
 			var id = results[i].id;
 		   
 			id = id.replace("id_row_", "", "gi");
 			var num = parseInt(id, 10);
-			
-			//window.alert(num);
 			
 			if (jsObject.length < num)
 			{
@@ -289,7 +376,7 @@
    function onShowToolTip(element) {
    
         var event = document.createEvent('CustomEvent');
-        event.initCustomEvent("ShowToolTip", true, true, element.currentTarget.title);
+        event.initCustomEvent("ShowToolTip", true, true, element.currentTarget.title + moreinfo);
         document.documentElement.dispatchEvent(event);
     
     }
