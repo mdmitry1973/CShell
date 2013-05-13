@@ -21,5 +21,5 @@ CCommandLineInfo::~CCommandLineInfo()
 
 void CCommandLineInfo::ParseParam(const char* pszParam, BOOL bFlag, BOOL bLast)
 {
-	NSLog(@"TO DO CCommandLineInfo::ParseParam");
+	
 }

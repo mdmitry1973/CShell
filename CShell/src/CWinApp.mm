@@ -131,7 +131,25 @@ void CWinApp::LoadStdProfileSettings(UINT nMaxMRU)
 
 void CWinApp::ParseCommandLine(CCommandLineInfo& rCmdInfo)
 {
-	NSLog(@"TO DO CWinApp::ParseCommandLine");
+	NSArray *args = [[NSProcessInfo processInfo] arguments];
+	
+	for(int i = 0; i < [args count]; i++)
+	{
+		NSString *str = [args objectAtIndex: i];
+		BOOL bFlag = FALSE;
+		
+		if (i != 0)
+		{
+			if ([str hasPrefix:@"/"] ||
+				[str hasPrefix:@"-"])
+			{
+				bFlag = TRUE;
+				str = [str substringFromIndex:1];
+			}
+		}
+		
+		rCmdInfo.ParseParam([str UTF8String], bFlag, i == ([args count] - 1));
+	}
 }
 
 BOOL CWinApp::ProcessShellCommand(CCommandLineInfo& rCmdInfo)
@@ -610,6 +628,11 @@ BOOL CWinApp::LoadBitmapInfo()
 std::map<int,CShellBitmapInfo> &CWinApp::GetBitmapInfoMap()
 {
 	return g_mapBitmapInfo;
+}
+
+HKEY CWinApp::GetAppRegistryKey()
+{
+	
 }
 
 BOOL CWinApp::LoadIconInfo()

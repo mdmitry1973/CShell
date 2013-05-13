@@ -1,5 +1,5 @@
 /*
- *  CObject.cpp
+ *  CException.cpp
  *  CShell
  *
  *  Created by Dmitry Mikhaevich on 11/27/11.
@@ -9,22 +9,22 @@
 
 #include "CDef.h"
 
-#include "CObject.h"
+#include "CException.h"
 
 #import <Cocoa/Cocoa.h>
-//NSException.h
 
-CObject::CObject()
-{
-	
-}
-
-CObject::~CObject()
+CException::CException()
 {
 
 }
 
-void CObject::AssertValid( ) const
+CException::~CException()
 {
-	ASSERT(FALSE);
+
 }
+
+void CException::Delete()
+{
+	NSLog(@"TO DO CException::Delete");
+}
+

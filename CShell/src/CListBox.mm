@@ -165,3 +165,18 @@ int CListBox::SetCurSel(int nSelect)
 	
 	return LB_ERR;
 }
+
+void CListBox::GetText(int nIndex, CString& rString) const
+{
+	
+}
+
+void CListBox::ResetContent()
+{
+	assert(m_hWnd);
+	
+	if (m_hWnd)
+	{
+		[((CNSTableView *)m_hWnd) removeAll];
+	}
+}

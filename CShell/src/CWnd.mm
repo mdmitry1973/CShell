@@ -134,16 +134,22 @@ BOOL CWnd::CreatFromResFile(LPCTSTR lpszTemplateName, BOOL bView, CWnd *window)
 		if (resFilePath)
 		{
 			NSError *error = nil;
-			NSXMLDocument *doc = [[NSXMLDocument alloc] initWithData:[NSData dataWithContentsOfFile: resFilePath] options:NSXMLDocumentTidyXML error:&error];
+			NSXMLDocument *doc = [[NSXMLDocument alloc] initWithData:[NSData dataWithContentsOfFile: resFilePath] options:NSXMLNodeOptionsNone error:&error];
 			
 			if (doc)
 			{
+				//NSLog(@"doc=%s",  [[[NSString alloc] initWithData:[doc XMLData] encoding:NSUTF8StringEncoding] UTF8String]);
+				
 				//<MFC_RESOURCE>
 				//<DIALOGEX>
 				//<ID>
-				NSString *xpath = [NSString stringWithFormat: @"/MFC_RESOURCE/*/ID[. = \"%s\"] | /MFC_RESOURCE/*/IDSTR[. = \"%s\"]", 
-																		lpszTemplateName, lpszTemplateName];
+				//NSString *xpath = [NSString stringWithFormat: @"/MFC_RESOURCE/*/ID[. = \"%s\"] | /MFC_RESOURCE/*/IDSTR[. = \"%s\"]", 
+				//														lpszTemplateName, lpszTemplateName];
+				NSString *xpath = [NSString stringWithFormat: @"/MFC_RESOURCE/*/ID[text()='%s'] | /MFC_RESOURCE/*/IDSTR[text()='%s']", 
+								   lpszTemplateName, lpszTemplateName];
 				NSArray *arrWindowsNode = [doc nodesForXPath:xpath error:&error];
+				
+				//NSLog(@"arrWindowsNode count=%d", [arrWindowsNode count] );
 				
 				if ([arrWindowsNode count] == 1)
 				{

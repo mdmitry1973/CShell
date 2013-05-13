@@ -132,6 +132,13 @@ CSHELL_IMPL_CONTROL_STANDARD_METHOD
 	return res;
 }
 
+- (void)removeAll
+{
+	CNSTableViewDataSourceString *data = [self dataSource];
+	
+	[[data getArr ]removeAllObjects];
+}
+
 - (int)findItem:(int)nStartAfter itemStr:(NSString *)lpszItem
 {
 	CNSTableViewDataSourceString *data = [self dataSource];

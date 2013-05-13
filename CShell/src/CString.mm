@@ -15,17 +15,38 @@ std::map<int, std::string> CString::g_mapResStrimgs;
 
 CString::CString()
 {
-	
+	bufferTemp = NULL;
+	m_bufferTempSize = 0;
 }
 
 CString::CString(const char *str) : std::string(str)
 {
-	
+	bufferTemp = NULL;
+	m_bufferTempSize = 0;
+}
+
+CString::CString(const char *s, size_t len) : std::string(s, len)
+{
+	bufferTemp = NULL;
+	m_bufferTempSize = 0;
+}
+
+CString::CString(const CString &str) : std::string(str)
+{
+	bufferTemp = NULL;
+	m_bufferTempSize = 0;
+}
+
+CString::CString(char ch, int nRepeat) : std::string (nRepeat, ch)
+{
+	bufferTemp = NULL;
+	m_bufferTempSize = 0;
 }
 
 CString::~CString()
 {
-
+	if (bufferTemp)
+		delete [] bufferTemp;
 }
 
 BOOL CString::LoadString(HINSTANCE hInstance, UINT nID, WORD wLanguageID)
@@ -149,6 +170,51 @@ CString::operator LPCTSTR() const
 	return this->c_str();
 }
 
+CString operator+(const CString& string1, const CString& string2)
+{
+	CString str = string1;
+	
+	str += string2.c_str();
+	
+	return str;
+}
+
+CString operator+(const CString& string, TCHAR ch)
+{
+	CString str = string; 
+	
+	str += ch;
+	
+	return str;
+}
+
+CString operator+(TCHAR ch, const CString& string)
+{
+	CString str((char)ch);
+	
+	str += string;
+	
+	return str;
+}
+
+CString operator+(const CString& string, const TCHAR * lpsz)
+{
+	CString str = string;
+	
+	str += lpsz;
+	
+	return str;
+}
+
+CString operator+(const TCHAR * lpsz,		const CString& string)
+{
+	CString str = lpsz;
+	
+	str += string;
+	
+	return str;
+}
+
 int CString::Find(TCHAR ch) const
 {
 	return find(ch);
@@ -167,6 +233,11 @@ int CString::Find(TCHAR ch, int nStart) const
 int CString::Find(LPCTSTR pstr, int nStart) const
 {
 	return find(pstr, nStart);
+}
+
+int CString::FindOneOf( LPCTSTR lpszCharSet ) const
+{
+	return find_first_of(lpszCharSet);
 }
 
 CString CString::Mid(int nFirst) const
@@ -239,4 +310,84 @@ char CString::operator[](int nIndex) const
 {		
 	return at(nIndex);
 }
+
+int CString::ReverseFind(TCHAR ch) const
+{
+	return rfind(ch);
+}
+
+LPTSTR CString::GetBuffer( int nMinBufLength )
+{
+	if (bufferTemp)
+		delete [] bufferTemp;
+	
+	bufferTemp = new char [nMinBufLength];
+	m_bufferTempSize = nMinBufLength;
+	
+	return bufferTemp;
+}
+
+void CString::ReleaseBuffer( int nNewLength)
+{
+	if (bufferTemp)
+	{
+		*this = std::string(bufferTemp, nNewLength == -1  ? strlen(bufferTemp) : nNewLength).c_str();
+		m_bufferTempSize = 0;
+		delete [] bufferTemp;
+		bufferTemp = 0;
+	}
+}
+
+LPTSTR CString::GetBufferSetLength( int nNewLength )
+{
+	if (bufferTemp)
+	{
+		char *tempBuffer = new char[m_bufferTempSize + 1];
+		
+		strcpy(tempBuffer, bufferTemp);
+		
+		if (bufferTemp)
+			delete [] bufferTemp;
+		
+		bufferTemp = new char [nNewLength];
+		
+		strncpy(bufferTemp, tempBuffer, nNewLength);
+		
+		delete [] tempBuffer;
+	}
+	else 
+	{
+		bufferTemp = new char [nNewLength];
+		m_bufferTempSize = nNewLength;
+	}
+	
+	return bufferTemp;
+}
+
+CString CString::Tokenize(const char *pszTokens, int& iStart) const
+{
+	CString res;
+	size_t f_pos;
+	
+	if (iStart == -1)
+	{
+		return "";
+	}
+	
+	f_pos = find(pszTokens, iStart);
+	
+	if (f_pos != -1)
+	{
+		res = substr(iStart, f_pos - iStart).c_str();
+		iStart = f_pos + 1;
+	}
+	else
+	{
+		res = substr(iStart, length()).c_str();
+		iStart = -1;
+	}
+	
+	return res;
+}
+
 
