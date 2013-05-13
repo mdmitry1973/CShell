@@ -7,6 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52938F0A172A316C008667D5 /* afx.h in Headers */ = {isa = PBXBuildFile; fileRef = 52938F09172A316C008667D5 /* afx.h */; };
+		52938F0C172A3207008667D5 /* afx.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52938F0B172A3207008667D5 /* afx.mm */; };
+		52938F5E172C4AA1008667D5 /* CArray.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52938F5D172C4AA1008667D5 /* CArray.mm */; };
+		52938F94172C538E008667D5 /* CDumpContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 52938F93172C538E008667D5 /* CDumpContext.h */; };
+		52938F98172C5413008667D5 /* CDumpContext.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52938F97172C5413008667D5 /* CDumpContext.mm */; };
+		52938FB8172C5D21008667D5 /* CMapPtrToPtr.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52938FB7172C5D21008667D5 /* CMapPtrToPtr.mm */; };
+		52938FC0172C5EC7008667D5 /* CPlex.h in Headers */ = {isa = PBXBuildFile; fileRef = 52938FBF172C5EC7008667D5 /* CPlex.h */; };
+		52938FC2172C5F32008667D5 /* CPlex.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52938FC1172C5F32008667D5 /* CPlex.mm */; };
+		52939072172CE5DF008667D5 /* winerror.h in Headers */ = {isa = PBXBuildFile; fileRef = 52939071172CE5DF008667D5 /* winerror.h */; };
+		5293907E172CE7BB008667D5 /* shlwapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 5293907D172CE7BB008667D5 /* shlwapi.h */; };
+		529390AE172D9E50008667D5 /* CFileFind.h in Headers */ = {isa = PBXBuildFile; fileRef = 529390AD172D9E50008667D5 /* CFileFind.h */; };
+		529390B0172D9E7B008667D5 /* CFileFind.mm in Sources */ = {isa = PBXBuildFile; fileRef = 529390AF172D9E7B008667D5 /* CFileFind.mm */; };
+		529390CB172DA2B9008667D5 /* CMemFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 529390CA172DA2B9008667D5 /* CMemFile.h */; };
+		529390CD172DA3DC008667D5 /* CMemFile.mm in Sources */ = {isa = PBXBuildFile; fileRef = 529390CC172DA3DC008667D5 /* CMemFile.mm */; };
+		52D51BEF17409CFE007FEC86 /* CMDIFrameWnd.h in Headers */ = {isa = PBXBuildFile; fileRef = 52D51BEE17409CFE007FEC86 /* CMDIFrameWnd.h */; };
+		52D51BF917409E27007FEC86 /* CDockState.h in Headers */ = {isa = PBXBuildFile; fileRef = 52D51BF817409E27007FEC86 /* CDockState.h */; };
+		52D51C1917409F9D007FEC86 /* CCmdUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 52D51C1817409F9D007FEC86 /* CCmdUI.h */; };
+		52D51C5A1740A460007FEC86 /* afxdocob.h in Headers */ = {isa = PBXBuildFile; fileRef = 52D51C591740A460007FEC86 /* afxdocob.h */; };
+		52D51C601740A47D007FEC86 /* afxadv.h in Headers */ = {isa = PBXBuildFile; fileRef = 52D51C5F1740A47D007FEC86 /* afxadv.h */; };
+		52D51C661740A498007FEC86 /* afxsock.h in Headers */ = {isa = PBXBuildFile; fileRef = 52D51C651740A498007FEC86 /* afxsock.h */; };
+		52D51C7A1740A622007FEC86 /* wingdi.h in Headers */ = {isa = PBXBuildFile; fileRef = 52D51C791740A622007FEC86 /* wingdi.h */; };
+		52E7680F172F739E00F6271A /* winnt.h in Headers */ = {isa = PBXBuildFile; fileRef = 52E7680E172F739E00F6271A /* winnt.h */; };
+		52E7682F172F7BB200F6271A /* winreg.h in Headers */ = {isa = PBXBuildFile; fileRef = 52E7682E172F7BB200F6271A /* winreg.h */; };
+		52E768E31730C3AD00F6271A /* winreg.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52E768E21730C3AD00F6271A /* winreg.mm */; };
+		52E76D741736070800F6271A /* winuser.h in Headers */ = {isa = PBXBuildFile; fileRef = 52E76D731736070800F6271A /* winuser.h */; };
+		52E76E651736E23400F6271A /* winuser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52E76E641736E23400F6271A /* winuser.mm */; };
 		8200978C14D63B89002BBD0D /* CNSWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 8200978B14D63B89002BBD0D /* CNSWindow.h */; };
 		8200978E14D63BAC002BBD0D /* CNSWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8200978D14D63BAC002BBD0D /* CNSWindow.mm */; };
 		822203B714C92EF9008B8BA0 /* CNSView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 822203B514C92EF9008B8BA0 /* CNSView.mm */; };
@@ -84,7 +110,7 @@
 		82CE87A114D10065006623BD /* CListBox.mm in Sources */ = {isa = PBXBuildFile; fileRef = 82CE87A014D10065006623BD /* CListBox.mm */; };
 		82CE87A314D10070006623BD /* CListBox.h in Headers */ = {isa = PBXBuildFile; fileRef = 82CE87A214D10070006623BD /* CListBox.h */; };
 		82D62F4D14F2AD8000F0FE62 /* CArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 82D62F4C14F2AD8000F0FE62 /* CArray.h */; };
-		82D62F4F14F2ADE300F0FE62 /* CArray.mm in Sources */ = {isa = PBXBuildFile; fileRef = 82D62F4E14F2ADE300F0FE62 /* CArray.mm */; };
+		82D62F4F14F2ADE300F0FE62 /* CPtrArray.mm in Sources */ = {isa = PBXBuildFile; fileRef = 82D62F4E14F2ADE300F0FE62 /* CPtrArray.mm */; };
 		82D62F9114F2BA8900F0FE62 /* CFrameWnd.h in Headers */ = {isa = PBXBuildFile; fileRef = 82D62F9014F2BA8900F0FE62 /* CFrameWnd.h */; };
 		82D62F9314F2BA9700F0FE62 /* CFrameWnd.mm in Sources */ = {isa = PBXBuildFile; fileRef = 82D62F9214F2BA9700F0FE62 /* CFrameWnd.mm */; };
 		82D62FA814F2BC6A00F0FE62 /* CStatusBar.mm in Sources */ = {isa = PBXBuildFile; fileRef = 82D62FA614F2BC6A00F0FE62 /* CStatusBar.mm */; };
@@ -127,6 +153,24 @@
 		82E7464F14F095DE007A2294 /* CPropertyPage.h in Headers */ = {isa = PBXBuildFile; fileRef = 82E7464D14F095DE007A2294 /* CPropertyPage.h */; };
 		82E7465014F095DE007A2294 /* CPropertySheet.h in Headers */ = {isa = PBXBuildFile; fileRef = 82E7464E14F095DE007A2294 /* CPropertySheet.h */; };
 		D2AAC0CC05546C4400DB518D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
+		E50E3DF1172637B0002291CB /* CArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = E50E3DF0172637B0002291CB /* CArchive.mm */; };
+		E50E3E0A172639B5002291CB /* CArchiveException.mm in Sources */ = {isa = PBXBuildFile; fileRef = E50E3E09172639B5002291CB /* CArchiveException.mm */; };
+		E5C8FE811719DDD200979F57 /* CFile.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5C8FE801719DDD200979F57 /* CFile.mm */; };
+		E5C8FE831719DE0A00979F57 /* CFile.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C8FE821719DE0A00979F57 /* CFile.h */; };
+		E5C8FE871719DFD200979F57 /* CTime.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5C8FE861719DFD200979F57 /* CTime.mm */; };
+		E5C8FE891719DFEA00979F57 /* CTime.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C8FE881719DFEA00979F57 /* CTime.h */; };
+		E5C8FE951719FCEA00979F57 /* CFileException.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C8FE941719FCEA00979F57 /* CFileException.h */; };
+		E5C8FE971719FD2D00979F57 /* CFileException.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5C8FE961719FD2D00979F57 /* CFileException.mm */; };
+		E5C8FEA51719FDFB00979F57 /* CException.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C8FEA41719FDFB00979F57 /* CException.h */; };
+		E5C8FEA71719FE2700979F57 /* CException.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5C8FEA61719FE2700979F57 /* CException.mm */; };
+		E5C8FEEC171A354800979F57 /* winbase.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C8FEEB171A354800979F57 /* winbase.h */; };
+		E5C8FEEE171A35A300979F57 /* winbase.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5C8FEED171A35A300979F57 /* winbase.mm */; };
+		E5E398D7171D14E800549555 /* CArchive.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E398D6171D14E800549555 /* CArchive.h */; };
+		E5E398DD171D156100549555 /* CStringArray.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E398DC171D156100549555 /* CStringArray.h */; };
+		E5E399A1171F968F00549555 /* CStringArray.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5E399A0171F968F00549555 /* CStringArray.mm */; };
+		E5E399CB1720F3A600549555 /* CArchiveException.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E399CA1720F3A600549555 /* CArchiveException.h */; };
+		E5E399EF1720FC2C00549555 /* CPtrArray.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E399EE1720FC2C00549555 /* CPtrArray.h */; };
+		E5E399F11720FC4100549555 /* CMapPtrToPtr.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E399F01720FC4100549555 /* CMapPtrToPtr.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +178,32 @@
 		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCF5E0370ADEE00C91783 /* CShell_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CShell_Prefix.pch; sourceTree = "<group>"; };
+		52938F09172A316C008667D5 /* afx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = afx.h; path = inc/afx.h; sourceTree = SOURCE_ROOT; };
+		52938F0B172A3207008667D5 /* afx.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = afx.mm; path = src/afx.mm; sourceTree = SOURCE_ROOT; };
+		52938F5D172C4AA1008667D5 /* CArray.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CArray.mm; sourceTree = "<group>"; };
+		52938F93172C538E008667D5 /* CDumpContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDumpContext.h; path = inc/CDumpContext.h; sourceTree = SOURCE_ROOT; };
+		52938F97172C5413008667D5 /* CDumpContext.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CDumpContext.mm; path = src/CDumpContext.mm; sourceTree = SOURCE_ROOT; };
+		52938FB7172C5D21008667D5 /* CMapPtrToPtr.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CMapPtrToPtr.mm; path = src/CMapPtrToPtr.mm; sourceTree = SOURCE_ROOT; };
+		52938FBF172C5EC7008667D5 /* CPlex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPlex.h; path = inc/CPlex.h; sourceTree = SOURCE_ROOT; };
+		52938FC1172C5F32008667D5 /* CPlex.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CPlex.mm; path = src/CPlex.mm; sourceTree = SOURCE_ROOT; };
+		52939071172CE5DF008667D5 /* winerror.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = winerror.h; path = inc/winerror.h; sourceTree = SOURCE_ROOT; };
+		5293907D172CE7BB008667D5 /* shlwapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shlwapi.h; path = inc/shlwapi.h; sourceTree = SOURCE_ROOT; };
+		529390AD172D9E50008667D5 /* CFileFind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFileFind.h; path = inc/CFileFind.h; sourceTree = SOURCE_ROOT; };
+		529390AF172D9E7B008667D5 /* CFileFind.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CFileFind.mm; path = src/CFileFind.mm; sourceTree = SOURCE_ROOT; };
+		529390CA172DA2B9008667D5 /* CMemFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMemFile.h; path = inc/CMemFile.h; sourceTree = SOURCE_ROOT; };
+		529390CC172DA3DC008667D5 /* CMemFile.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CMemFile.mm; path = src/CMemFile.mm; sourceTree = SOURCE_ROOT; };
+		52D51BEE17409CFE007FEC86 /* CMDIFrameWnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMDIFrameWnd.h; path = inc/CMDIFrameWnd.h; sourceTree = SOURCE_ROOT; };
+		52D51BF817409E27007FEC86 /* CDockState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDockState.h; path = inc/CDockState.h; sourceTree = SOURCE_ROOT; };
+		52D51C1817409F9D007FEC86 /* CCmdUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCmdUI.h; path = inc/CCmdUI.h; sourceTree = SOURCE_ROOT; };
+		52D51C591740A460007FEC86 /* afxdocob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = afxdocob.h; path = inc/afxdocob.h; sourceTree = SOURCE_ROOT; };
+		52D51C5F1740A47D007FEC86 /* afxadv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = afxadv.h; path = inc/afxadv.h; sourceTree = SOURCE_ROOT; };
+		52D51C651740A498007FEC86 /* afxsock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = afxsock.h; path = inc/afxsock.h; sourceTree = SOURCE_ROOT; };
+		52D51C791740A622007FEC86 /* wingdi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = wingdi.h; path = inc/wingdi.h; sourceTree = SOURCE_ROOT; };
+		52E7680E172F739E00F6271A /* winnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = winnt.h; path = inc/winnt.h; sourceTree = SOURCE_ROOT; };
+		52E7682E172F7BB200F6271A /* winreg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = winreg.h; path = inc/winreg.h; sourceTree = SOURCE_ROOT; };
+		52E768E21730C3AD00F6271A /* winreg.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = winreg.mm; path = src/winreg.mm; sourceTree = SOURCE_ROOT; };
+		52E76D731736070800F6271A /* winuser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = winuser.h; path = inc/winuser.h; sourceTree = SOURCE_ROOT; };
+		52E76E641736E23400F6271A /* winuser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = winuser.mm; path = src/winuser.mm; sourceTree = SOURCE_ROOT; };
 		8200978B14D63B89002BBD0D /* CNSWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CNSWindow.h; path = inc/CNSWindow.h; sourceTree = SOURCE_ROOT; };
 		8200978D14D63BAC002BBD0D /* CNSWindow.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CNSWindow.mm; path = src/CNSWindow.mm; sourceTree = SOURCE_ROOT; };
 		822203B514C92EF9008B8BA0 /* CNSView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CNSView.mm; sourceTree = "<group>"; };
@@ -211,7 +281,7 @@
 		82CE87A014D10065006623BD /* CListBox.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CListBox.mm; path = src/CListBox.mm; sourceTree = SOURCE_ROOT; };
 		82CE87A214D10070006623BD /* CListBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CListBox.h; path = inc/CListBox.h; sourceTree = SOURCE_ROOT; };
 		82D62F4C14F2AD8000F0FE62 /* CArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CArray.h; path = inc/CArray.h; sourceTree = SOURCE_ROOT; };
-		82D62F4E14F2ADE300F0FE62 /* CArray.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CArray.mm; path = src/CArray.mm; sourceTree = SOURCE_ROOT; };
+		82D62F4E14F2ADE300F0FE62 /* CPtrArray.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CPtrArray.mm; sourceTree = "<group>"; };
 		82D62F9014F2BA8900F0FE62 /* CFrameWnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFrameWnd.h; path = inc/CFrameWnd.h; sourceTree = SOURCE_ROOT; };
 		82D62F9214F2BA9700F0FE62 /* CFrameWnd.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CFrameWnd.mm; path = src/CFrameWnd.mm; sourceTree = SOURCE_ROOT; };
 		82D62FA614F2BC6A00F0FE62 /* CStatusBar.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CStatusBar.mm; path = src/CStatusBar.mm; sourceTree = SOURCE_ROOT; };
@@ -255,6 +325,24 @@
 		82E7464E14F095DE007A2294 /* CPropertySheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPropertySheet.h; path = inc/CPropertySheet.h; sourceTree = SOURCE_ROOT; };
 		D2A6134D07B89F6200DD23D3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		D2AAC0C705546C1D00DB518D /* CShell.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = CShell.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		E50E3DF0172637B0002291CB /* CArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CArchive.mm; path = src/CArchive.mm; sourceTree = SOURCE_ROOT; };
+		E50E3E09172639B5002291CB /* CArchiveException.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CArchiveException.mm; path = src/CArchiveException.mm; sourceTree = SOURCE_ROOT; };
+		E5C8FE801719DDD200979F57 /* CFile.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CFile.mm; path = src/CFile.mm; sourceTree = SOURCE_ROOT; };
+		E5C8FE821719DE0A00979F57 /* CFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFile.h; path = inc/CFile.h; sourceTree = SOURCE_ROOT; };
+		E5C8FE861719DFD200979F57 /* CTime.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CTime.mm; path = src/CTime.mm; sourceTree = SOURCE_ROOT; };
+		E5C8FE881719DFEA00979F57 /* CTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTime.h; path = inc/CTime.h; sourceTree = SOURCE_ROOT; };
+		E5C8FE941719FCEA00979F57 /* CFileException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFileException.h; path = inc/CFileException.h; sourceTree = SOURCE_ROOT; };
+		E5C8FE961719FD2D00979F57 /* CFileException.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CFileException.mm; path = src/CFileException.mm; sourceTree = SOURCE_ROOT; };
+		E5C8FEA41719FDFB00979F57 /* CException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CException.h; path = inc/CException.h; sourceTree = SOURCE_ROOT; };
+		E5C8FEA61719FE2700979F57 /* CException.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CException.mm; path = src/CException.mm; sourceTree = SOURCE_ROOT; };
+		E5C8FEEB171A354800979F57 /* winbase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = winbase.h; path = inc/winbase.h; sourceTree = SOURCE_ROOT; };
+		E5C8FEED171A35A300979F57 /* winbase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = winbase.mm; path = src/winbase.mm; sourceTree = SOURCE_ROOT; };
+		E5E398D6171D14E800549555 /* CArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CArchive.h; sourceTree = "<group>"; };
+		E5E398DC171D156100549555 /* CStringArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CStringArray.h; sourceTree = "<group>"; };
+		E5E399A0171F968F00549555 /* CStringArray.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CStringArray.mm; path = src/CStringArray.mm; sourceTree = SOURCE_ROOT; };
+		E5E399CA1720F3A600549555 /* CArchiveException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CArchiveException.h; path = inc/CArchiveException.h; sourceTree = SOURCE_ROOT; };
+		E5E399EE1720FC2C00549555 /* CPtrArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPtrArray.h; path = inc/CPtrArray.h; sourceTree = SOURCE_ROOT; };
+		E5E399F01720FC4100549555 /* CMapPtrToPtr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMapPtrToPtr.h; path = inc/CMapPtrToPtr.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -335,7 +423,10 @@
 		82DE159314AAC0A1001919E9 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				82D62F4E14F2ADE300F0FE62 /* CArray.mm */,
+				E50E3DF0172637B0002291CB /* CArchive.mm */,
+				52938F5D172C4AA1008667D5 /* CArray.mm */,
+				E50E3E09172639B5002291CB /* CArchiveException.mm */,
+				E5C8FEA61719FE2700979F57 /* CException.mm */,
 				82DE159414AAC0A1001919E9 /* CButton.mm */,
 				82B3111B14DF8F1900B8183C /* CBitmap.mm */,
 				82A8329514F73C9A00D9C9FC /* CCommandLineInfo.mm */,
@@ -346,28 +437,35 @@
 				82DE159814AAC0A1001919E9 /* CDialogEx.mm */,
 				82409F6A14E8C5130094EA9C /* CDC.mm */,
 				82A3CEE414F3466D00315229 /* CDocTemplate.mm */,
+				52938F97172C5413008667D5 /* CDumpContext.mm */,
 				829D79C714ABF12A00C53168 /* CEdit.mm */,
+				E5C8FE801719DDD200979F57 /* CFile.mm */,
+				E5C8FE961719FD2D00979F57 /* CFileException.mm */,
 				82409EE414E8B5800094EA9C /* CFont.mm */,
 				82D62F9214F2BA9700F0FE62 /* CFrameWnd.mm */,
 				82D62FDB14F2BF5300F0FE62 /* CView.mm */,
-				82A3CEE514F3466D00315229 /* CMultiDocTemplate.mm */,
+				52938FB7172C5D21008667D5 /* CMapPtrToPtr.mm */,
 				82DE159914AAC0A1001919E9 /* CMenu.mm */,
+				82A3CEE514F3466D00315229 /* CMultiDocTemplate.mm */,
 				82CE87A014D10065006623BD /* CListBox.mm */,
 				82409E6414E8AB980094EA9C /* CObArray.mm */,
 				82409E6C14E8AC5F0094EA9C /* CObject.mm */,
 				829D79CB14ABF18A00C53168 /* CProgressCtrl.mm */,
 				82409E7814E8AD390094EA9C /* CPoint.mm */,
 				82409EB814E8B1990094EA9C /* CPaintDC.mm */,
+				82D62F4E14F2ADE300F0FE62 /* CPtrArray.mm */,
 				82D62FE514F2C0BD00F0FE62 /* CPrintDialog.mm */,
 				82D62FE614F2C0BD00F0FE62 /* CPrintInfo.mm */,
 				82E7464914F095CA007A2294 /* CPropertyPage.mm */,
 				82E7464A14F095CA007A2294 /* CPropertySheet.mm */,
+				52938FC1172C5F32008667D5 /* CPlex.mm */,
 				82409E9414E8B1270094EA9C /* CRect.mm */,
 				82D62FA614F2BC6A00F0FE62 /* CStatusBar.mm */,
 				82A3CEE614F3466D00315229 /* CSingleDocTemplate.mm */,
 				82409ED814E8B4400094EA9C /* CSize.mm */,
 				829D79CC14ABF18A00C53168 /* CSliderCtrl.mm */,
 				829D79C814ABF12A00C53168 /* CSpinButtonCtrl.mm */,
+				E5E399A0171F968F00549555 /* CStringArray.mm */,
 				82DE159A14AAC0A1001919E9 /* CString.mm */,
 				82D62FA714F2BC6A00F0FE62 /* CToolBar.mm */,
 				82409E5014E8A95A0094EA9C /* CTabCtrl.mm */,
@@ -393,6 +491,13 @@
 				823C5BD914E2331600224AB6 /* CNSControlDelegate.mm */,
 				823C5BDF14E233C600224AB6 /* CNSWindowController.mm */,
 				824E1F4714F03593009B7C2B /* CNSTabViewDelegate.mm */,
+				E5C8FEED171A35A300979F57 /* winbase.mm */,
+				52938F0B172A3207008667D5 /* afx.mm */,
+				529390AF172D9E7B008667D5 /* CFileFind.mm */,
+				529390CC172DA3DC008667D5 /* CMemFile.mm */,
+				E5C8FE861719DFD200979F57 /* CTime.mm */,
+				52E768E21730C3AD00F6271A /* winreg.mm */,
+				52E76E641736E23400F6271A /* winuser.mm */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -400,10 +505,32 @@
 		82DE15A814AAC0A8001919E9 /* inc */ = {
 			isa = PBXGroup;
 			children = (
+				52D51C1817409F9D007FEC86 /* CCmdUI.h */,
+				52D51BF817409E27007FEC86 /* CDockState.h */,
+				52D51BEE17409CFE007FEC86 /* CMDIFrameWnd.h */,
+				529390CA172DA2B9008667D5 /* CMemFile.h */,
+				E5C8FE881719DFEA00979F57 /* CTime.h */,
+				52938F93172C538E008667D5 /* CDumpContext.h */,
+				529390AD172D9E50008667D5 /* CFileFind.h */,
+				82DE15AD14AAC0A8001919E9 /* CDef.h */,
+				52939071172CE5DF008667D5 /* winerror.h */,
+				52E7680E172F739E00F6271A /* winnt.h */,
+				E5C8FEEB171A354800979F57 /* winbase.h */,
+				52E7682E172F7BB200F6271A /* winreg.h */,
+				52E76D731736070800F6271A /* winuser.h */,
+				52D51C791740A622007FEC86 /* wingdi.h */,
+				52938F09172A316C008667D5 /* afx.h */,
 				82DE15A914AAC0A8001919E9 /* afxwin.h */,
 				82D62FF914F2C41800F0FE62 /* afxres.h */,
-				82DE15AD14AAC0A8001919E9 /* CDef.h */,
+				5293907D172CE7BB008667D5 /* shlwapi.h */,
+				52D51C591740A460007FEC86 /* afxdocob.h */,
+				52D51C5F1740A47D007FEC86 /* afxadv.h */,
+				52D51C651740A498007FEC86 /* afxsock.h */,
+				E5E398D6171D14E800549555 /* CArchive.h */,
+				E5E399CA1720F3A600549555 /* CArchiveException.h */,
 				82D62F4C14F2AD8000F0FE62 /* CArray.h */,
+				829D79C314ABF12100C53168 /* CEdit.h */,
+				E5C8FEA41719FDFB00979F57 /* CException.h */,
 				82B3111914DF8EF000B8183C /* CBitmap.h */,
 				82DE15AA14AAC0A8001919E9 /* CButton.h */,
 				82A8329314F73C1A00D9C9FC /* CCommandLineInfo.h */,
@@ -414,14 +541,17 @@
 				82DE15AE14AAC0A8001919E9 /* CDialog.h */,
 				82DE15AF14AAC0A8001919E9 /* CDialogEx.h */,
 				82409F6814E8C50B0094EA9C /* CDC.h */,
-				829D79C314ABF12100C53168 /* CEdit.h */,
 				82CE87A214D10070006623BD /* CListBox.h */,
+				E5C8FE821719DE0A00979F57 /* CFile.h */,
+				E5C8FE941719FCEA00979F57 /* CFileException.h */,
 				82D62F9014F2BA8900F0FE62 /* CFrameWnd.h */,
 				82409EE614E8B58A0094EA9C /* CFont.h */,
 				82A3CEDB14F3426B00315229 /* CMultiDocTemplate.h */,
 				82DE15B014AAC0A8001919E9 /* CMenu.h */,
+				E5E399F01720FC4100549555 /* CMapPtrToPtr.h */,
 				82409E6014E8AB2C0094EA9C /* CObArray.h */,
 				82409E6A14E8AC2B0094EA9C /* CObject.h */,
+				E5E399EE1720FC2C00549555 /* CPtrArray.h */,
 				82409EB614E8B1910094EA9C /* CPaintDC.h */,
 				82D62FE314F2C07B00F0FE62 /* CPrintDialog.h */,
 				82D62FE114F2C02900F0FE62 /* CPrintInfo.h */,
@@ -429,10 +559,12 @@
 				829D79CF14ABF19100C53168 /* CProgressCtrl.h */,
 				82E7464D14F095DE007A2294 /* CPropertyPage.h */,
 				82E7464E14F095DE007A2294 /* CPropertySheet.h */,
+				52938FBF172C5EC7008667D5 /* CPlex.h */,
 				82409E9614E8B1320094EA9C /* CRect.h */,
 				829D79D014ABF19100C53168 /* CSliderCtrl.h */,
 				82A3CEDC14F3426B00315229 /* CSingleDocTemplate.h */,
 				82D62FAA14F2BC7800F0FE62 /* CStatusBar.h */,
+				E5E398DC171D156100549555 /* CStringArray.h */,
 				82DE15B114AAC0A8001919E9 /* CString.h */,
 				82409EDA14E8B44A0094EA9C /* CSize.h */,
 				829D79C414ABF12100C53168 /* CSpinButtonCtrl.h */,
@@ -533,6 +665,33 @@
 				82A3CEDE14F3426B00315229 /* CMultiDocTemplate.h in Headers */,
 				82A3CEDF14F3426B00315229 /* CSingleDocTemplate.h in Headers */,
 				82A8329414F73C1A00D9C9FC /* CCommandLineInfo.h in Headers */,
+				E5C8FE831719DE0A00979F57 /* CFile.h in Headers */,
+				E5C8FE891719DFEA00979F57 /* CTime.h in Headers */,
+				E5C8FE951719FCEA00979F57 /* CFileException.h in Headers */,
+				E5C8FEA51719FDFB00979F57 /* CException.h in Headers */,
+				E5C8FEEC171A354800979F57 /* winbase.h in Headers */,
+				E5E398D7171D14E800549555 /* CArchive.h in Headers */,
+				E5E398DD171D156100549555 /* CStringArray.h in Headers */,
+				E5E399CB1720F3A600549555 /* CArchiveException.h in Headers */,
+				E5E399EF1720FC2C00549555 /* CPtrArray.h in Headers */,
+				E5E399F11720FC4100549555 /* CMapPtrToPtr.h in Headers */,
+				52938F0A172A316C008667D5 /* afx.h in Headers */,
+				52938F94172C538E008667D5 /* CDumpContext.h in Headers */,
+				52938FC0172C5EC7008667D5 /* CPlex.h in Headers */,
+				52939072172CE5DF008667D5 /* winerror.h in Headers */,
+				5293907E172CE7BB008667D5 /* shlwapi.h in Headers */,
+				529390AE172D9E50008667D5 /* CFileFind.h in Headers */,
+				529390CB172DA2B9008667D5 /* CMemFile.h in Headers */,
+				52E7680F172F739E00F6271A /* winnt.h in Headers */,
+				52E7682F172F7BB200F6271A /* winreg.h in Headers */,
+				52E76D741736070800F6271A /* winuser.h in Headers */,
+				52D51BEF17409CFE007FEC86 /* CMDIFrameWnd.h in Headers */,
+				52D51BF917409E27007FEC86 /* CDockState.h in Headers */,
+				52D51C1917409F9D007FEC86 /* CCmdUI.h in Headers */,
+				52D51C5A1740A460007FEC86 /* afxdocob.h in Headers */,
+				52D51C601740A47D007FEC86 /* afxadv.h in Headers */,
+				52D51C661740A498007FEC86 /* afxsock.h in Headers */,
+				52D51C7A1740A622007FEC86 /* wingdi.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,7 +722,6 @@
 			isa = PBXProject;
 			buildConfigurationList = 1DEB918108733D990010E9CD /* Build configuration list for PBXProject "CShell" */;
 			compatibilityVersion = "Xcode 3.1";
-			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -632,7 +790,7 @@
 				824E1F4814F03593009B7C2B /* CNSTabViewDelegate.mm in Sources */,
 				82E7464B14F095CA007A2294 /* CPropertyPage.mm in Sources */,
 				82E7464C14F095CA007A2294 /* CPropertySheet.mm in Sources */,
-				82D62F4F14F2ADE300F0FE62 /* CArray.mm in Sources */,
+				82D62F4F14F2ADE300F0FE62 /* CPtrArray.mm in Sources */,
 				82D62F9314F2BA9700F0FE62 /* CFrameWnd.mm in Sources */,
 				82D62FA814F2BC6A00F0FE62 /* CStatusBar.mm in Sources */,
 				82D62FA914F2BC6A00F0FE62 /* CToolBar.mm in Sources */,
@@ -644,6 +802,23 @@
 				82A3CEE814F3466D00315229 /* CMultiDocTemplate.mm in Sources */,
 				82A3CEE914F3466D00315229 /* CSingleDocTemplate.mm in Sources */,
 				82A8329614F73C9A00D9C9FC /* CCommandLineInfo.mm in Sources */,
+				E5C8FE811719DDD200979F57 /* CFile.mm in Sources */,
+				E5C8FE871719DFD200979F57 /* CTime.mm in Sources */,
+				E5C8FE971719FD2D00979F57 /* CFileException.mm in Sources */,
+				E5C8FEA71719FE2700979F57 /* CException.mm in Sources */,
+				E5C8FEEE171A35A300979F57 /* winbase.mm in Sources */,
+				E5E399A1171F968F00549555 /* CStringArray.mm in Sources */,
+				E50E3DF1172637B0002291CB /* CArchive.mm in Sources */,
+				E50E3E0A172639B5002291CB /* CArchiveException.mm in Sources */,
+				52938F0C172A3207008667D5 /* afx.mm in Sources */,
+				52938F5E172C4AA1008667D5 /* CArray.mm in Sources */,
+				52938F98172C5413008667D5 /* CDumpContext.mm in Sources */,
+				52938FB8172C5D21008667D5 /* CMapPtrToPtr.mm in Sources */,
+				52938FC2172C5F32008667D5 /* CPlex.mm in Sources */,
+				529390B0172D9E7B008667D5 /* CFileFind.mm in Sources */,
+				529390CD172DA3DC008667D5 /* CMemFile.mm in Sources */,
+				52E768E31730C3AD00F6271A /* winreg.mm in Sources */,
+				52E76E651736E23400F6271A /* winuser.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -691,6 +866,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = _DEBUG;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -705,6 +881,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = _DEBUG;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
