@@ -31,6 +31,7 @@ CSHELL_DEF_STANDARD_METHOD
 - (int)addItem:(NSString *)str;
 - (int)insertItem:(NSString *)str index:(int)index;
 - (int)removeItem:(int)index;
+- (void)removeAll;
 
 - (int)findItem:(int)nStartAfter itemStr:(NSString *)lpszItem;
 - (int)count;

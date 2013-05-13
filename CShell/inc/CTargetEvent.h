@@ -25,14 +25,15 @@ typedef void (CCmdTarget::*EventNotifyFun)(NMHDR* pNMHDR, LRESULT* pResult);
 #define EVENT_TYPE_CBN_SELCHANGE	1
 #define EVENT_TYPE_EN_CHANGE		2
 #define EVENT_TYPE_LBN_SELCHANGE	3
-#define EVENT_TYPE_WM_CHAR			4
-#define EVENT_TYPE_WM_LBUTTONDOWN	5
-#define EVENT_TYPE_WM_KILLFOCUS		6
-#define	EVENT_TYPE_WM_SETFOCUS		7
-#define EVENT_TYPE_NOTIFY_REFLECT	8
-#define EVENT_TYPE_COMMAND_RANGE	9
-#define EVENT_TYPE_WM_CREATE		10
-#define EVENT_TYPE_COMMAND			11
+#define EVENT_TYPE_LBN_DBLCLK		4 //need to do
+#define EVENT_TYPE_WM_CHAR			5
+#define EVENT_TYPE_WM_LBUTTONDOWN	6
+#define EVENT_TYPE_WM_KILLFOCUS		7
+#define	EVENT_TYPE_WM_SETFOCUS		8
+#define EVENT_TYPE_NOTIFY_REFLECT	9
+#define EVENT_TYPE_COMMAND_RANGE	10
+#define EVENT_TYPE_WM_CREATE		11
+#define EVENT_TYPE_COMMAND			12
 
 
 //#define UDN_FIRST               (0U-721U)        // updown
@@ -70,6 +71,9 @@ AddEventHandle(ID, (EventFun)(&ThisClass::CALL), EVENT_TYPE_EN_CHANGE);
 
 #define ON_LBN_SELCHANGE(ID, CALL) \
 AddEventHandle(ID, (EventFun)(&ThisClass::CALL), EVENT_TYPE_LBN_SELCHANGE);
+
+#define ON_LBN_DBLCLK(ID, CALL) \
+AddEventHandle(ID, (EventFun)(&ThisClass::CALL), EVENT_TYPE_LBN_DBLCLK);
 
 #define ON_COMMAND(ID, CALL) \
 AddEventHandle(ID, (EventFun)(&ThisClass::CALL), EVENT_TYPE_COMMAND);

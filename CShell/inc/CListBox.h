@@ -30,6 +30,8 @@ public:
 	int GetCurSel() const;
 	int GetSelCount() const;
 	int SetCurSel(int nSelect);
+	void GetText(int nIndex, CString& rString) const;
+	void ResetContent();
 };
 
 

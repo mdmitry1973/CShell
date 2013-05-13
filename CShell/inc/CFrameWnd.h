@@ -43,6 +43,8 @@ public:
 	virtual BOOL ShowWindow(int nCmdShow);
 	
 	//not mfc methods
+	
+	CString m_strTitle;         // default title (original)
 
 };
 

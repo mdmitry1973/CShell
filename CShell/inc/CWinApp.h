@@ -75,6 +75,11 @@ public:
 	static std::map<int,CShellBitmapInfo> &GetIconInfoMap();
 	
 	std::vector<CDocTemplate*> m_arrDocTemplate;
+	
+	HKEY GetAppRegistryKey();
+	
+	LPCTSTR m_pszRegistryKey;
+	LPCTSTR m_pszProfileName;
 };
 
 CWinApp* AfxGetApp();

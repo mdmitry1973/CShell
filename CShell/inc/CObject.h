@@ -41,8 +41,12 @@ public:
 		return new CObject; 
 	}
 	
+	virtual void AssertValid( ) const;
+	
 protected:
 
 };
+
+BOOL AfxAssertObjectValid(const CObject *pOb);
 
 #endif//COBJECT_DEFINE

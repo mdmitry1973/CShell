@@ -14,7 +14,19 @@
 
 #define CSELL_MAC 1
 
+//#ifndef WIN32
+//#define WIN32
+//#endif
+
 #define afx_msg
+#define AFXAPI
+
+#define AFX_CLASS_EXPORT  __attribute__((visibility("default")))
+#define AFX_CLASS_IMPORT 
+
+typedef struct __POSITION { } *POSITION;
+#define BEFORE_START_POSITION ((POSITION)-1L)
+
 
 #ifndef BOOL
 #define BOOL signed char//int
@@ -27,7 +39,7 @@
 #ifndef NULL
 	#define NULL 0
 #endif
-#define ASSERT assert
+///#define ASSERT(x) ns_assert(x);
 
 #define IDOK 1
 #define IDCANCEL 2
@@ -431,22 +443,52 @@ typedef char CHAR;
 typedef int WORD;
 typedef unsigned char BYTE;
 typedef unsigned long DWORD;
+typedef unsigned long long ULONGLONG;
+typedef long long LONGLONG;
+typedef unsigned long long UINT64;
+typedef long long INT64;
+typedef unsigned short UINT16;
+typedef int INT32;
+typedef char INT8;
+typedef char CHAR8;
+typedef unsigned char UCHAR;
+typedef unsigned char UCHAR8;
+typedef unsigned char UINT8;
+typedef unsigned int UINT32;
+typedef unsigned long ULONG; 
+typedef short INT16;
+typedef float FLOAT32;
+typedef double FLOAT64;
+typedef char *PTCHAR;
+typedef BYTE *LPBYTE;
 typedef long LONG;
 typedef int INT_PTR;
+typedef DWORD LCID; 
+typedef DWORD *LPDWORD;
 typedef void* HICON;
 typedef void* HCURSOR;
 typedef void* HINSTANCE;
 typedef void* HWND;
 typedef void* HANDLE;
 typedef void* HBRUSH;
+typedef long HRESULT;
+typedef void* HMODULE;
 typedef HANDLE HDC;
 typedef HANDLE HBITMAP;
 typedef HANDLE HMENU;
+typedef HANDLE HFONT;
+typedef HANDLE HKEY;
 typedef unsigned int UINT;
 typedef int* LPARAM;
 typedef const char *LPCTSTR;
 typedef const char *LPCSTR;
 typedef void *LPVOID;
+
+typedef LONG SCODE;
+typedef SCODE *PSCODE;
+
+#define UNALIGNED
+#define UNALIGNED64
 
 #ifdef __x86_64__ 
 typedef unsigned long long UINT_PTR;
@@ -466,6 +508,12 @@ typedef unsigned long long ULONG_PTR;
 typedef unsigned long ULONG_PTR;
 #endif
 
+#ifdef __x86_64__
+typedef ULONG_PTR DWORD_PRT;
+#else
+typedef ULONG_PTR DWORD_PRT;
+#endif
+
 #ifdef __x86_64__ 
 typedef unsigned long long UINT_PTR;
 #else
@@ -481,7 +529,7 @@ typedef	BOOL *LPBOOL;
 typedef UINT_PTR WPARAM;
 typedef wchar_t WCHAR;
 typedef const WCHAR *LPCWSTR;
-
+typedef WCHAR *LPWSTR;
 
 #define DECLARE_DYNAMIC(class_name)\
 public:\
@@ -624,11 +672,69 @@ struct CCreateContext
 	void *m_pCurrentFrame;
 };
 
+#ifndef _TIME64_T_DEFINED
+typedef long long __time64_t;     /* 64-bit time value */
+#define _TIME64_T_DEFINED
+#endif
+
 //#ifdef UNICODE
 //#define _T(x) L ##x
 //#else
 #define _T(x) x
 //#endif
 
+typedef DWORD	COLORREF;
+#define GetRValue(rgb)      ((BYTE)(rgb))
+#define GetGValue(rgb)      ((BYTE)(((WORD)(rgb)) >> 8))
+#define GetBValue(rgb)      ((BYTE)((rgb)>>16))
+#define RGB(r,g,b) \
+((COLORREF)(((BYTE)(r)|((WORD)((BYTE)(g))<<8))|(((DWORD)(BYTE)(b))<<16)))
+
+#define INVALID_HANDLE_VALUE 0
+#define MAX_PATH 1000
+//#define FILE_ATTRIBUTE_DIRECTORY 0x00000001
+
+#define AFX_MANAGE_STATE(x)
+#define AFX_MODULE_STATE HANDLE
+
+#define ASSERT_VALID(pOb)	DEBUG_ONLY((AfxAssertValidObject(pOb, __FILE__, __LINE__)))
+#define ASSERT(pOb)	assert((pOb))
+
+#ifdef _DEBUG
+#define DEBUG_ONLY(f)      (f)
+#define TRACE printf
+#define TRACE1 printf
+#define VERIFY(f)          ASSERT(f)
+#define traceAppMsg "%d %s %s"
+#else
+#define DEBUG_ONLY(f)  
+#define TRACE
+#define TRACE1
+#define VERIFY(f)          ((void)(f))
+#define traceAppMsg "%d %s %s"
+#endif
+
+#define _MSC_VER 1700
+
+//#ifndef NOMINMAX
+
+#ifndef max
+#define max(a,b)            (((a) > (b)) ? (a) : (b))
+#endif
+//#error ggg
+#ifndef min
+#define min(a,b)            (((a) < (b)) ? (a) : (b))
+#endif
+
+//#endif 
+
+#define _MAX_PATH   260 /* max. length of full pathname */
+#define _MAX_DRIVE  3   /* max. length of drive component */
+#define _MAX_DIR    256 /* max. length of path component */
+#define _MAX_FNAME  256 /* max. length of file name component */
+#define _MAX_EXT    256 /* max. length of extension component */
+
+#define LOCALE_SYSTEM_DEFAULT  1
+#define LOCALE_USER_DEFAULT    2
 
 #endif//CDEF_DEFINE

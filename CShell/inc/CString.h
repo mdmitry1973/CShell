@@ -20,6 +20,9 @@ public:
 	
 	CString();
 	CString(const char *);
+	CString(const char *s, size_t len);
+	CString(const CString &str);
+	CString(char ch, int nRepeat = 1);
 	virtual ~CString();
 	
 	BOOL LoadString(HINSTANCE hInstance, UINT nID, WORD wLanguageID);
@@ -28,6 +31,7 @@ public:
 	
 	BOOL IsEmpty( ) const;
 	
+	CString Format( UINT nFormatID, ... );
 	CString Format(const char *, ...);
 	
 	int GetLength() const;
@@ -38,6 +42,8 @@ public:
 	int Find(LPCTSTR lpszSub) const;
 	int Find(TCHAR ch, int nStart) const;
 	int Find(LPCTSTR pstr, int nStart) const;
+	int ReverseFind(TCHAR ch) const;
+	int FindOneOf( LPCTSTR lpszCharSet ) const;
 	
 	operator LPCTSTR() const;      // as a UTF8 string
 	
@@ -50,10 +56,24 @@ public:
 	
 	char operator[](int nIndex) const;
 	
+	LPTSTR GetBuffer( int nMinBufLength );
+	void ReleaseBuffer( int nNewLength = -1 );
+	LPTSTR GetBufferSetLength( int nNewLength );
+	
+	friend CString operator+(const CString& string1,	const CString& string2);
+	friend CString operator+(const CString& string,		TCHAR ch);
+	friend CString operator+(TCHAR ch, 					const CString& string);
+	friend CString operator+(const CString& string,		const TCHAR * lpsz);
+	friend CString operator+(const TCHAR * lpsz,		const CString& string);
+	
+	CString Tokenize(const char *pszTokens, int& iStart) const;
 
 protected:
 	
 	static std::map<int, std::string> g_mapResStrimgs;
+	
+	char	*bufferTemp;
+	int		m_bufferTempSize;
 };
 
 
