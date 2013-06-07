@@ -28,3 +28,19 @@ void CObject::AssertValid( ) const
 {
 	ASSERT(FALSE);
 }
+
+BOOL CObject::IsKindOf(CRuntimeClass *className) const
+{
+	if (GetClassName().Compare(className->GetClassName()) == 0)
+	{ 
+		return 1; 
+	}
+	
+	if (GetBaseClassName().Compare(className->GetBaseClassName()) == 0)
+	{ 
+		return 2; 
+	}
+	
+	return 0;
+}
+

@@ -19,6 +19,56 @@ CDocument::~CDocument()
 	
 }
 
+const CString& CDocument::GetTitle() const
+{
+	NSLog(@"TO DO CDocument::GetTitle");
+	return "";
+}
+
+void CDocument::SetTitle(LPCTSTR lpszTitle)
+{
+	NSLog(@"TO DO CDocument::SetTitle");
+}
+
+const CString& CDocument::GetPathName() const
+{
+	NSLog(@"TO DO CDocument::GetPathName");
+	return "";
+}
+
+void CDocument::ClearPathName()
+{
+	NSLog(@"TO DO CDocument::ClearPathName");
+}
+
+CDocTemplate* CDocument::GetDocTemplate() const
+{
+	NSLog(@"TO DO CDocument::GetDocTemplate");
+	return 0;
+}
+
+BOOL CDocument::IsModified()
+{
+	NSLog(@"TO DO CDocument::IsModified");
+	return FALSE;
+}
+
+void CDocument::SetModifiedFlag(BOOL bModified)
+{
+	NSLog(@"TO DO CDocument::SetModifiedFlag");
+}
+
+POSITION CDocument::GetFirstViewPosition() const
+{
+	NSLog(@"TO DO CDocument::GetFirstViewPosition");
+}
+
+CView* CDocument::GetNextView(POSITION& rPosition) const
+{
+	NSLog(@"TO DO CDocument::GetNextView");
+	return 0;
+}
+
 BOOL CDocument::OnNewDocument()
 {
 	NSLog(@"TO DO CDocument::OnNewDocument");
@@ -114,6 +164,11 @@ void CDocument::AddEventHandle(int objID, EventFun fun, int eventType)
 		}
 	}
 	*/
+}
+
+void CDocument::AddEventRangeHandle(int objID1, int objID2, EventFun fun, int eventType)
+{
+	
 }
 
 void CDocument::AddEventHandle(void *obj, EventFun fun, int eventType)

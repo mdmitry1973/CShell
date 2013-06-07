@@ -13,6 +13,7 @@
 #include <map>
 #include <vector>
 
+#include "winuser.h"
 #include "CRect.h"
 #include "CDC.h"
 #include "CObject.h"
@@ -29,6 +30,8 @@ typedef void* PtrNSWindowDelegate;
 typedef void* PtrNSWindowHandle;
 typedef void* PtrNSXMLElement;
 
+class CDC;
+
 #define ON_WM_CHAR() \
 AddEventHandle(0, (EventFun)(&ThisClass::OnChar), EVENT_TYPE_WM_CHAR);
 
@@ -43,6 +46,48 @@ AddEventHandle(0, (EventFun)(&ThisClass::OnSetFocus), EVENT_TYPE_WM_SETFOCUS);
 
 #define ON_WM_CREATE()\
 AddEventHandle(0, (EventFun)(&ThisClass::OnCreate), EVENT_TYPE_WM_CREATE);
+
+#define ON_WM_CONTEXTMENU()\
+AddEventHandle(0, (EventFun)(&ThisClass::OnCreate), EVENT_TYPE_WM_CONTEXTMENU);
+
+#define ON_WM_TIMER()\
+AddEventHandle(0, (EventFun)(&ThisClass::OnCreate), EVENT_TYPE_WM_TIMER);
+
+#define ON_WM_SIZE()\
+AddEventHandle(0, (EventFun)(&ThisClass::OnCreate), EVENT_TYPE_WM_SIZE);
+
+#define ON_WM_RBUTTONDOWN()\
+AddEventHandle(0, (EventFun)(&ThisClass::OnCreate), EVENT_TYPE_WM_RBUTTONDOWN);
+
+#define ON_WM_LBUTTONUP()\
+AddEventHandle(0, (EventFun)(&ThisClass::OnCreate), EVENT_TYPE_WM_LBUTTONUP);
+
+#define ON_WM_MOUSEMOVE()\
+AddEventHandle(0, (EventFun)(&ThisClass::OnCreate), EVENT_TYPE_WM_MOUSEMOVE);
+
+#define ON_WM_SETCURSOR()\
+AddEventHandle(0, (EventFun)(&ThisClass::OnCreate), EVENT_TYPE_WM_SETCURSOR);
+
+#define ON_WM_CREATE()\
+AddEventHandle(0, (EventFun)(&ThisClass::OnCreate), EVENT_TYPE_WM_CREATE);
+
+#define ON_WM_ERASEBKGND()\
+AddEventHandle(0, (EventFun)(&ThisClass::OnCreate), EVENT_TYPE_WM_ERASEBKGND);
+
+#define ON_WM_KEYDOWN()\
+AddEventHandle(0, (EventFun)(&ThisClass::OnCreate), EVENT_TYPE_WM_KEYDOWN);
+
+#define ON_WM_KEYUP()\
+AddEventHandle(0, (EventFun)(&ThisClass::OnCreate), EVENT_TYPE_WM_KEYUP);
+
+#define ON_WM_MOUSEWHEEL()\
+AddEventHandle(0, (EventFun)(&ThisClass::OnCreate), EVENT_TYPE_WM_MOUSEWHEEL);
+
+#define ON_WM_RBUTTONUP()\
+AddEventHandle(0, (EventFun)(&ThisClass::OnCreate), EVENT_TYPE_WM_RBUTTONUP);
+
+#define ON_WM_LBUTTONDBLCLK()\
+AddEventHandle(0, (EventFun)(&ThisClass::OnCreate), EVENT_TYPE_WM_LBUTTONDBLCLK);
 
 #define CSHELL_DEF_STANDARD_VAL \
 CWnd *mWndParent; \
@@ -129,7 +174,8 @@ mWnd = wnd;\
 
 class CWnd : public CCmdTarget
 {
-
+	DECLARE_DYNAMIC(CWnd)
+	
 public:
 	
 	CWnd();
@@ -208,7 +254,18 @@ public:
 	
 	void DrawMenuBar();
 	
+	void DragAcceptFiles(BOOL bAccept = TRUE);
+	BOOL SetWindowPlacement(const WINDOWPLACEMENT*lpwndpl); 
+	
 	CDC* GetDC();
+	
+	UINT_PTR SetTimer(UINT_PTR nIDEvent, UINT nElapse, void (* lpfnTimer)(HWND, UINT, UINT_PTR, DWORD));
+	BOOL KillTimer(UINT_PTR nIDEvent);
+	
+	BOOL EnableToolTips(BOOL bEnable = TRUE);
+	
+	void Invalidate(BOOL bErase = TRUE);
+	void InvalidateRect(LPCRECT lpRect, BOOL bErase = TRUE);
 
 	//mfc dialog
 	virtual BOOL OnInitDialog();
@@ -227,16 +284,12 @@ public:
 	
 	virtual void OnSysCommand(UINT nID, LPARAM lParam);
 	
-	//CObject
-	BOOL IsKindOf(CObject *className) const;
-	virtual CString GetClassName() const;
-	virtual CString GetBaseClassName() const;
-	
 	//not mfc methods
 	BOOL CreatFromResFile(UINT nIDTemplate, BOOL bView, CWnd *parentWnd = NULL);
 	BOOL CreatFromResFile(LPCTSTR lpszTemplateName, BOOL bView, CWnd *parentWnd = NULL);
 	
 	virtual void AddEventHandle(int objID, EventFun fun, int eventType);
+	virtual void AddEventRangeHandle(int objID1, int objID2, EventFun fun, int eventType);
 	virtual void AddEventHandle(void *obj, EventFun fun, int eventType);
 	virtual void FinaleSetup();
 	

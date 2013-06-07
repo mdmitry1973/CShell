@@ -68,6 +68,31 @@ LONG InterlockedIncrement(LONG volatile *Addend)
 	return OSAtomicIncrement32((int32_t*)Addend);
 }
 
+HANDLE CreateMutex(LPSECURITY_ATTRIBUTES lpMutexAttributes, BOOL bInitialOwner, LPCTSTR lpName)
+{
+	NSLog(@"to do CreateMutex");
+}
+
+HANDLE OpenMutex(DWORD dwDesiredAccess, BOOL bInheritHandle, LPCTSTR lpName)
+{
+	NSLog(@"to do OpenMutex");
+}
+
+DWORD WaitForSingleObject(HANDLE hHandle, DWORD dwMilliseconds)
+{
+	NSLog(@"to do WaitForSingleObject");
+}
+
+BOOL CreateProcess(LPCTSTR lpApplicationName, LPTSTR lpCommandLine,
+				   LPSECURITY_ATTRIBUTES lpProcessAttributes,
+				   LPSECURITY_ATTRIBUTES lpThreadAttributes,
+				   BOOL bInheritHandles, DWORD dwCreationFlags,
+				   LPVOID lpEnvironment, LPCTSTR lpCurrentDirectory,
+				   LPSTARTUPINFO lpStartupInfo, LPPROCESS_INFORMATION lpProcessInformation)
+{
+	NSLog(@"to do CreateProcess");
+}
+
 int _mkdir(const char *dirname)
 {
 	NSFileManager *fileManager= [NSFileManager defaultManager]; 
@@ -75,6 +100,16 @@ int _mkdir(const char *dirname)
 	bool res = [fileManager createDirectoryAtPath:[NSString stringWithUTF8String: dirname] 
 					  withIntermediateDirectories:TRUE 
 									   attributes:nil 
+											error:nil];
+	
+	return res == TRUE ? 0 : -1;
+}
+
+int _rmdir(const char *dirname)
+{
+	NSFileManager *fileManager= [NSFileManager defaultManager]; 
+	
+	bool res = [fileManager removeItemAtPath:[NSString stringWithUTF8String: dirname] 
 											error:nil];
 	
 	return res == TRUE ? 0 : -1;
@@ -370,10 +405,98 @@ BOOL PathStripToRoot( LPSTR pszPath)
 	NSLog(@"TO DO PathStripToRoot");
 	return 0;
 }
-/*
-DWORD GetVersion()
+
+void SHChangeNotify(LONG wEventId, UINT uFlags, LPCVOID dwItem1, LPCVOID dwItem2)
 {
-	NSLog(@"TO DO GetVersion");
+	
+}
+
+BOOL PeekMessage(LPMSG lpMsg, HWND hWnd, UINT wMsgFilterMin, UINT wMsgFilterMax, UINT wRemoveMsg)
+{
+	NSLog(@"TO DO PeekMessage");
+	
+	return FALSE;
+}
+
+LRESULT DispatchMessage(const MSG *lpmsg)
+{
+	NSLog(@"TO DO DispatchMessage");
+	
 	return 0;
 }
- */
+
+DWORD GetTickCount()
+{
+	NSLog(@"TO DO GetTickCount");
+	
+	return 0;
+}
+
+void _splitpath( const char *str, char *drive, char *dir, char *fname, char *ext )
+{
+	NSString *path = [NSString stringWithUTF8String: str];
+	NSArray *pathComponents = [path pathComponents];
+	
+	if (pathComponents && [pathComponents count])
+	{
+		strncpy(drive, [[pathComponents objectAtIndex: 0] UTF8String], _MAX_DRIVE);
+		
+		if ([pathComponents count] > 1)
+		{
+			strncpy(dir, [[pathComponents objectAtIndex: [pathComponents count] - 2] UTF8String], _MAX_DIR);
+		}
+	}
+	
+	strncpy(fname, [[path lastPathComponent] UTF8String], _MAX_FNAME);
+	strncpy(ext, [[path pathExtension] UTF8String], _MAX_EXT);
+}
+
+char *strupr(char *str)
+{
+	std::string s = str;
+	std::for_each(s.begin(), s.end(), std::toupper);
+	strcpy(str, s.c_str());
+	
+	return str;
+}
+
+HMODULE LoadLibrary(LPCSTR lpLibFileName)
+{
+	void *handle = dlopen(lpLibFileName, RTLD_LAZY | RTLD_GLOBAL);
+	
+	if (!handle)
+	{
+		NSLog(@"%s", dlerror());
+		return 0;
+	}
+	
+	return handle;
+}
+
+BOOL FreeLibrary(HMODULE hLibModule)
+{
+	if (dlclose(hLibModule))
+	{
+		NSLog(@"%s", dlerror());
+		
+		return FALSE;
+	}
+	
+	return TRUE;
+}
+
+void *GetProcAddress (HMODULE hModule, LPCSTR lpProcName)
+{
+	return dlsym(hModule, lpProcName);
+}
+
+void ZeroMemory(void *obj, int size)
+{
+	memset(obj, 0, size);
+}
+
+void AfxOleLockApp()
+{
+	
+}
+

@@ -21,3 +21,43 @@ CPoint::~CPoint()
 {
 
 }
+
+CPoint::CPoint( int initX, int initY)
+{
+	
+}
+
+CPoint::CPoint( POINT initPt)
+{
+	
+}
+
+CPoint::CPoint( SIZE initSize)
+{
+	
+}
+
+CPoint::CPoint( LPARAM dwPoint)
+{
+	
+}
+
+void CPoint::Offset(int xOffset, int yOffset)
+{
+	
+}
+
+void CPoint::Offset( POINT point)
+{
+	
+}
+
+void CPoint::Offset( SIZE size)
+{
+	
+}
+
+void CPoint::SetPoint( int X,int Y)
+{
+	
+}

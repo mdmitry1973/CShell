@@ -23,6 +23,7 @@ public:
 	enum{
 		none,
 		genericException,
+		generic,
 		readOnly,
 		endOfFile,
 		writeOnly,

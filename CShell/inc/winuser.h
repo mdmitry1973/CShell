@@ -117,6 +117,67 @@ BOOL DestroyIcon(HICON hIcon);
 
 #define FOF_NO_UI                   (FOF_SILENT | FOF_NOCONFIRMATION | FOF_NOERRORUI | FOF_NOCONFIRMMKDIR) // don't display any UI at all
 
+/*
+ * Flags for TrackPopupMenu
+ */
+#define TPM_LEFTBUTTON  0x0000L
+#define TPM_RIGHTBUTTON 0x0002L
+#define TPM_LEFTALIGN   0x0000L
+#define TPM_CENTERALIGN 0x0004L
+#define TPM_RIGHTALIGN  0x0008L
+#define TPM_TOPALIGN        0x0000L
+#define TPM_VCENTERALIGN    0x0010L
+#define TPM_BOTTOMALIGN     0x0020L
+#define TPM_HORIZONTAL      0x0000L     /* Horz alignment matters more */
+#define TPM_VERTICAL        0x0040L     /* Vert alignment matters more */
+#define TPM_NONOTIFY        0x0080L     /* Don't send any notification msgs */
+#define TPM_RETURNCMD       0x0100L
+#define TPM_RECURSE         0x0001L
+#define TPM_HORPOSANIMATION 0x0400L
+#define TPM_HORNEGANIMATION 0x0800L
+#define TPM_VERPOSANIMATION 0x1000L
+#define TPM_VERNEGANIMATION 0x2000L
+#define TPM_NOANIMATION     0x4000L
+#define TPM_LAYOUTRTL       0x8000L
+#define TPM_WORKAREA        0x10000L
+
+/*
+ * Window Messages
+ */
+
+#define WM_NULL                         0x0000
+#define WM_CREATE                       0x0001
+#define WM_DESTROY                      0x0002
+#define WM_MOVE                         0x0003
+#define WM_SIZE                         0x0005
+
+#define WM_ACTIVATE                     0x0006
+
+/*
+ * WM_ACTIVATE state values
+ */
+#define     WA_INACTIVE     0
+#define     WA_ACTIVE       1
+#define     WA_CLICKACTIVE  2
+
+#define WM_SETFOCUS                     0x0007
+#define WM_KILLFOCUS                    0x0008
+#define WM_ENABLE                       0x000A
+#define WM_SETREDRAW                    0x000B
+#define WM_SETTEXT                      0x000C
+#define WM_GETTEXT                      0x000D
+#define WM_GETTEXTLENGTH                0x000E
+#define WM_PAINT                        0x000F
+#define WM_CLOSE                        0x0010
+#define WM_QUERYENDSESSION              0x0011
+#define WM_QUERYOPEN                    0x0013
+#define WM_ENDSESSION                   0x0016
+#define WM_QUIT                         0x0012
+#define WM_ERASEBKGND                   0x0014
+#define WM_SYSCOLORCHANGE               0x0015
+#define WM_SHOWWINDOW                   0x0018
+#define WM_WININICHANGE                 0x001A
+#define WM_SETTINGCHANGE                WM_WININICHANGE
 
 typedef WORD FILEOP_FLAGS;
 
@@ -171,8 +232,15 @@ typedef struct tagHELPINFO      /* Structure pointed to by lParam of WM_HELP */
     POINT   MousePos;           /* Mouse Position in screen co-ordinates */
 }  HELPINFO, *LPHELPINFO;
 
+
+typedef struct tagACCEL {
+    WORD   fVirt;               /* Also called the flags field */
+    WORD   key;
+    DWORD  cmd;
+} ACCEL, *LPACCEL;
+
 UINT ExtractIconEx(LPCSTR lpszFile, int nIconIndex, HICON *phiconLarge, HICON *phiconSmall, UINT nIcons);
 int SHFileOperation(LPSHFILEOPSTRUCT lpFileOp);
-
+BOOL PostMessage(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam);
 
 #endif//WIN_USER

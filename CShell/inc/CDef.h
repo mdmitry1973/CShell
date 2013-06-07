@@ -208,15 +208,12 @@ typedef struct __POSITION { } *POSITION;
 #define BS_FLAT             0x00008000L
 #define BS_RIGHTBUTTON      BS_LEFTTEXT
 
-#define WM_ACTIVATE                     0x0006
 #define WM_APPCOMMAND                   0x0319
 #define WM_CHAR                         0x0102
 #define WM_DEADCHAR                     0x0103
 #define WM_HOTKEY                       0x0312
 #define WM_KEYDOWN                      0x0100
 #define WM_KEYUP                        0x0101
-#define WM_KILLFOCUS                    0x0008
-#define WM_SETFOCUS                     0x0007
 #define WM_SYSDEADCHAR                  0x010
 
 /*
@@ -430,6 +427,17 @@ typedef struct __POSITION { } *POSITION;
 #define PSWIZB_FINISH           0x00000004
 #define PSWIZB_DISABLEDFINISH   0x00000008
 
+/////////////////////////////////////////////////////////////////////////////
+// Command notifications for CCmdTarget notifications
+
+#define CN_COMMAND              0               // void ()
+#define CN_UPDATE_COMMAND_UI    ((UINT)(-1))    // void (CCmdUI*)
+#define CN_EVENT                ((UINT)(-2))    // OLE event
+#define CN_OLECOMMAND           ((UINT)(-3))    // OLE document command
+#define CN_OLE_UNREGISTER       ((UINT)(-4))    // OLE unregister
+// > 0 are control notifications
+// < 0 are for MFC's use
+
 #define _AFX_MRU_COUNT   4
 
 #define TBSTYLE_FLAT 0x0800
@@ -457,6 +465,8 @@ typedef unsigned char UINT8;
 typedef unsigned int UINT32;
 typedef unsigned long ULONG; 
 typedef short INT16;
+typedef int INT;
+typedef short SHORT;
 typedef float FLOAT32;
 typedef double FLOAT64;
 typedef char *PTCHAR;
@@ -478,11 +488,29 @@ typedef HANDLE HBITMAP;
 typedef HANDLE HMENU;
 typedef HANDLE HFONT;
 typedef HANDLE HKEY;
+typedef HANDLE HGDIOBJ;
+typedef HANDLE HPEN;
+typedef HANDLE HACCEL;
+typedef HANDLE HTREEITEM;
+typedef HANDLE HDROP;
+typedef HANDLE IDropTarget;
+typedef HANDLE HGLOBAL;
+typedef void *LPOLEDOCUMENTSITE;
+typedef void *LPDISPATCH;
 typedef unsigned int UINT;
-typedef int* LPARAM;
+typedef int LPARAM;
 typedef const char *LPCTSTR;
 typedef const char *LPCSTR;
 typedef void *LPVOID;
+typedef void *PVOID;
+typedef DWORD DROPEFFECT;
+typedef unsigned long long DWORD64, *PDWORD64;
+typedef WORD CLIPFORMAT;
+typedef const void *LPCVOID;
+typedef int *LPINT;
+typedef long *LPLONG;
+typedef SHORT *PSHORT;  
+typedef LONG *PLONG;  
 
 typedef LONG SCODE;
 typedef SCODE *PSCODE;
@@ -530,40 +558,64 @@ typedef UINT_PTR WPARAM;
 typedef wchar_t WCHAR;
 typedef const WCHAR *LPCWSTR;
 typedef WCHAR *LPWSTR;
+typedef TCHAR _TCHAR;
 
 #define DECLARE_DYNAMIC(class_name)\
+public:\
+virtual CString GetClassName() const;\
+virtual CString GetBaseClassName()  const;\
+static CObject* CreateObjectStatic();
+//virtual CObject* CreateObject();\
+//
+
+
+#define IMPLEMENT_DYNAMIC(class_name, base_class_name) \
+CString class_name::GetClassName() const \
+{ \
+	return #class_name; \
+}\
+CString class_name::GetBaseClassName() const \
+{ \
+	return #base_class_name; \
+}\
+CObject* class_name::CreateObjectStatic() \
+{ return new class_name; }
+//CObject* class_name::CreateObject() \
+//{ return new class_name; }\
+
+
+#define DECLARE_DYNCREATE(class_name) \
 public:\
 virtual CString GetClassName() const;\
 virtual CString GetBaseClassName()  const;\
 virtual CObject* CreateObject();\
 static CObject* CreateObjectStatic();
 
+//DECLARE_DYNAMIC(class_name) \
 
-#define IMPLEMENT_DYNAMIC(class_name, base_class_name) \
+
+#define IMPLEMENT_DYNCREATE(class_name, base_class_name) \
 CString class_name::GetClassName() const \
 { \
-	return "class_name"; \
+return #class_name; \
 }\
 CString class_name::GetBaseClassName() const \
 { \
-	return "base_class_name"; \
+return #base_class_name; \
 }\
 CObject* class_name::CreateObjectStatic() \
 { return new class_name; }\
 CObject* class_name::CreateObject() \
 { return new class_name; }\
 
-
-#define DECLARE_DYNCREATE(class_name) \
-DECLARE_DYNAMIC(class_name) \
+///IMPLEMENT_DYNAMIC(class_name, base_class_name)
 
 
-#define IMPLEMENT_DYNCREATE(class_name, base_class_name) \
-IMPLEMENT_DYNAMIC(class_name, base_class_name)
+#define RUNTIME_CLASS(class_name) ((CRuntimeClass*)(class_name::CreateObjectStatic()))
 
-
-#define RUNTIME_CLASS(class_name) ((CObject*)(class_name::CreateObjectStatic()))
-
+#define DECLARE_DISPATCH_MAP()
+#define DECLARE_INTERFACE_MAP()
+#define DECLARE_SERIAL(x)
 
 typedef struct tagPOINT { 
 	LONG x; 
@@ -572,10 +624,11 @@ typedef struct tagPOINT {
 
 typedef POINT *LPPOINT;
 
-typedef struct tagSIZE { 
-	LONG cx; 
-	LONG cy; 
-} SIZE;
+typedef struct tagSIZE
+{
+    LONG        cx;
+    LONG        cy;
+} SIZE, *PSIZE, *LPSIZE;
 
 typedef struct tagNMHDR {
 	HWND     hwndFrom;
@@ -672,6 +725,7 @@ struct CCreateContext
 	void *m_pCurrentFrame;
 };
 
+
 #ifndef _TIME64_T_DEFINED
 typedef long long __time64_t;     /* 64-bit time value */
 #define _TIME64_T_DEFINED
@@ -690,7 +744,7 @@ typedef DWORD	COLORREF;
 #define RGB(r,g,b) \
 ((COLORREF)(((BYTE)(r)|((WORD)((BYTE)(g))<<8))|(((DWORD)(BYTE)(b))<<16)))
 
-#define INVALID_HANDLE_VALUE 0
+//#define INVALID_HANDLE_VALUE 0
 #define MAX_PATH 1000
 //#define FILE_ATTRIBUTE_DIRECTORY 0x00000001
 
@@ -700,16 +754,20 @@ typedef DWORD	COLORREF;
 #define ASSERT_VALID(pOb)	DEBUG_ONLY((AfxAssertValidObject(pOb, __FILE__, __LINE__)))
 #define ASSERT(pOb)	assert((pOb))
 
+#define ASSERT_KINDOF(class_name, object) assert(dynamic_cast<class_name *>(object))
+
 #ifdef _DEBUG
 #define DEBUG_ONLY(f)      (f)
 #define TRACE printf
 #define TRACE1 printf
+#define TRACE2 printf
 #define VERIFY(f)          ASSERT(f)
 #define traceAppMsg "%d %s %s"
 #else
 #define DEBUG_ONLY(f)  
 #define TRACE
 #define TRACE1
+#define TRACE2
 #define VERIFY(f)          ((void)(f))
 #define traceAppMsg "%d %s %s"
 #endif
@@ -718,13 +776,18 @@ typedef DWORD	COLORREF;
 
 //#ifndef NOMINMAX
 
-#ifndef max
-#define max(a,b)            (((a) > (b)) ? (a) : (b))
-#endif
+#include <algorithm>
+
+using namespace std;
+//#ifndef max
+//#define max(a,b)            (((a) > (b)) ? (a) : (b))
+//#define max(a,b) std::max(a,b)
+//#endif
 //#error ggg
-#ifndef min
-#define min(a,b)            (((a) < (b)) ? (a) : (b))
-#endif
+//#ifndef min
+//#define min(a,b) std::min(a,b)
+//#define min(a,b)            (((a) < (b)) ? (a) : (b))
+//#endif
 
 //#endif 
 
@@ -736,5 +799,23 @@ typedef DWORD	COLORREF;
 
 #define LOCALE_SYSTEM_DEFAULT  1
 #define LOCALE_USER_DEFAULT    2
+
+#define AFX_API_IMPORT
+#define EXPORT
+#define CALLBACK
+
+#define CONST const
+#define __stdcall
+#define WINAPI
+#define DEBUG_NEW new
+
+#define TRY try
+#define CATCH(class,e) catch(class *e)
+#define CATCH_ALL(e) catch(...)
+#define END_CATCH_ALL
+#define END_TRY catch(...){}
+#define THROW_LAST() (throw)
+
+#define FAR
 
 #endif//CDEF_DEFINE

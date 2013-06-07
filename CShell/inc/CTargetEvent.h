@@ -34,14 +34,27 @@ typedef void (CCmdTarget::*EventNotifyFun)(NMHDR* pNMHDR, LRESULT* pResult);
 #define EVENT_TYPE_COMMAND_RANGE	10
 #define EVENT_TYPE_WM_CREATE		11
 #define EVENT_TYPE_COMMAND			12
-
+#define EVENT_TYPE_COMMAND_UI		13
+#define EVENT_TYPE_WM_CONTEXTMENU	14
+#define EVENT_TYPE_WM_TIMER			15
+#define EVENT_TYPE_MESSAGE			16
+#define EVENT_TYPE_WM_SIZE			17
+#define EVENT_TYPE_WM_RBUTTONDOWN	18
+#define EVENT_TYPE_WM_LBUTTONUP		19
+#define EVENT_TYPE_WM_MOUSEMOVE		20
+#define EVENT_TYPE_WM_SETCURSOR		21
+#define EVENT_TYPE_WM_ERASEBKGND	22
+#define EVENT_TYPE_WM_KEYDOWN		23
+#define EVENT_TYPE_WM_MOUSEWHEEL	24
+#define EVENT_TYPE_WM_RBUTTONUP		25
+#define EVENT_TYPE_WM_KEYUP			26
+#define EVENT_TYPE_WM_LBUTTONDBLCLK	27
 
 //#define UDN_FIRST               (0U-721U)        // updown
 //#define UDN_DELTAPOS            (UDN_FIRST - 1)
 
 #define UDN_DELTAPOS            5555//(UDN_FIRST - 1)
 
-#define WM_CHAR				0x0102
 #define NM_CUSTOMDRAW		1000
 
 #define PM_NOREMOVE	0x0000
@@ -78,6 +91,15 @@ AddEventHandle(ID, (EventFun)(&ThisClass::CALL), EVENT_TYPE_LBN_DBLCLK);
 #define ON_COMMAND(ID, CALL) \
 AddEventHandle(ID, (EventFun)(&ThisClass::CALL), EVENT_TYPE_COMMAND);
 
+#define ON_UPDATE_COMMAND_UI(ID, CALL) \
+AddEventHandle(ID, (EventFun)(&ThisClass::CALL), EVENT_TYPE_COMMAND_UI);
+
+#define ON_MESSAGE(ID, CALL) \
+AddEventHandle(ID, (EventFun)(&ThisClass::CALL), EVENT_TYPE_MESSAGE);
+
+#define ON_COMMAND_EX_RANGE(ID1, ID2, CALL) \
+AddEventRangeHandle(ID1, ID2, (EventFun)(&ThisClass::CALL), EVENT_TYPE_COMMAND);
+
 #define ON_NOTIFY_REFLECT(NOTIFY_CODE, CALL) \
 AddEventHandle(m_hWnd, (EventFun)(&ThisClass::CALL), NOTIFY_CODE);
 
@@ -91,6 +113,13 @@ for(int i = ID_MIN; i <= ID_MAX; i++)\
 }\
 
 #define END_MESSAGE_MAP() }
+
+
+struct AFX_CMDHANDLERINFO
+{
+	CCmdTarget* pTarget;
+	void (CCmdTarget::*pmf)(void);
+};
 
 struct CCmdTargetEventHandle{
 	
@@ -111,9 +140,16 @@ public:
 	
 	virtual ~CCmdTarget();
 	
+	void EnableAutomation();
+	
+	void BeginWaitCursor();
+	void EndWaitCursor();
+	void RestoreWaitCursor();
+	
 	CCmdTEHData m_mapEventHandle;
 	
 	virtual void AddEventHandle(int objID, EventFun fun, int eventType) = 0;
+	virtual void AddEventRangeHandle(int objID1, int objID2, EventFun fun, int eventType) = 0;
 	virtual void AddEventHandle(void *obj, EventFun fun, int eventType) = 0;
 	virtual BOOL SendEventHandle(int objID, void *sender, int eventType);
 	
@@ -122,6 +158,8 @@ public:
 	CCmdTEHData* GetMapEventHandle();
 	
 	virtual void SetMessageMap();
+	
+	virtual BOOL OnCmdMsg(UINT nID, int nCode, void* pExtra, AFX_CMDHANDLERINFO* pHandlerInfo){ return FALSE;}
 	
 protected:
 	

@@ -21,3 +21,27 @@ CSize::~CSize()
 {
 
 }
+
+CSize::CSize(int initCX, int initCY)
+{
+	cx = initCX;
+	cy = initCY;
+}
+
+CSize::CSize( SIZE initSize)
+{
+	cx = initSize.cx;
+	cy = initSize.cy;
+}
+
+CSize::CSize( POINT initPt)
+{
+	cx = initPt.x;
+	cy = initPt.y;
+}
+
+CSize::CSize( DWORD dwSize)
+{
+	cx = 0;
+	cy = 0;
+}

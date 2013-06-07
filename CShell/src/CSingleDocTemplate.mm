@@ -8,6 +8,7 @@
  */
  
 #include "CObject.h"
+#include "CRuntimeClass.h"
 #include "CDocument.h"
 #include "CFrameWnd.h"
 #include "CWinApp.h"
@@ -15,9 +16,9 @@
 #include "CSingleDocTemplate.h"
 
 CSingleDocTemplate::CSingleDocTemplate(UINT nIDResource,
-				   CObject* pDocClass,
-				   CObject* pFrameClass,
-				   CObject* pViewClass) : CDocTemplate(nIDResource, pDocClass, pFrameClass, pViewClass)
+				   CRuntimeClass* pDocClass,
+				   CRuntimeClass* pFrameClass,
+				   CRuntimeClass* pViewClass) : CDocTemplate(nIDResource, pDocClass, pFrameClass, pViewClass)
 {
 	m_pOnlyDoc = NULL;
 }

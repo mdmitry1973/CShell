@@ -23,6 +23,27 @@ CCmdTarget::~CCmdTarget()
 {
 	
 }
+
+void CCmdTarget::EnableAutomation()
+{
+	NSLog(@"TO DO CCmdTarget::EnableAutomation");
+}
+
+void CCmdTarget::BeginWaitCursor()
+{
+	NSLog(@"TO DO CCmdTarget::BeginWaitCursor");
+}
+
+void CCmdTarget::EndWaitCursor()
+{
+	NSLog(@"TO DO CCmdTarget::EndWaitCursor");
+}
+
+void CCmdTarget::RestoreWaitCursor()
+{
+	NSLog(@"TO DO CCmdTarget::RestoreWaitCursor");
+}
+
 void CCmdTarget::SetMessageMap()
 {
 	

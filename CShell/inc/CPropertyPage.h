@@ -47,6 +47,9 @@ public:
 	LRESULT QuerySiblings(WPARAM wParam, LPARAM lParam);
 	void SetModified(BOOL bChanged = TRUE);
 	
+	
+	CString m_strCaption;
+	
 	//not mfc method
 	
 	CString			mStrID;

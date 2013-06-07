@@ -33,7 +33,13 @@ public:
 	
 	virtual HMENU GetWindowMenuPopup(HMENU hMenuBar);
 	
+	void MDINext();
+	void MDIPrev();
+	
+	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
 
 };
+
+#define CMDIFrameWndEx CMDIFrameWnd
 
 #endif//CMDIFRAMEWND_DEFINE

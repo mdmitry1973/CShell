@@ -12,11 +12,53 @@
 
 #include "CDef.h"
 
+#define NOPARITY            0
+#define ODDPARITY           1
+#define EVENPARITY          2
+#define MARKPARITY          3
+#define SPACEPARITY         4
+
+#define ONESTOPBIT          0
+#define ONE5STOPBITS        1
+#define TWOSTOPBITS         2
+
+#define IGNORE              0       // Ignore signal
+#define INFINITE            0xFFFFFFFF  // Infinite timeout
+
+typedef struct _PROCESS_INFORMATION {
+    HANDLE hProcess;
+    HANDLE hThread;
+    DWORD dwProcessId;
+    DWORD dwThreadId;
+} PROCESS_INFORMATION, *PPROCESS_INFORMATION, *LPPROCESS_INFORMATION;
+
+typedef struct _STARTUPINFO {
+    DWORD   cb;
+    LPSTR  lpReserved;
+    LPSTR  lpDesktop;
+    LPSTR  lpTitle;
+    DWORD   dwX;
+    DWORD   dwY;
+    DWORD   dwXSize;
+    DWORD   dwYSize;
+    DWORD   dwXCountChars;
+    DWORD   dwYCountChars;
+    DWORD   dwFillAttribute;
+    DWORD   dwFlags;
+    WORD    wShowWindow;
+    WORD    cbReserved2;
+    LPBYTE  lpReserved2;
+    HANDLE  hStdInput;
+    HANDLE  hStdOutput;
+    HANDLE  hStdError;
+} STARTUPINFO, *LPSTARTUPINFO;
+
 LONG InterlockedDecrement(LONG volatile *Addend);
 LONG InterlockedIncrement(LONG volatile *Addend);
 
 //char *_fullpath(char *absPath, const char *relPath, size_t maxLength);
 int _mkdir(const char *dirname);
+int _rmdir(const char *dirname);
 int _access(const char *path, int mode);
 DWORD GetModuleFileName(HMODULE hModule, LPTSTR lpFilename, DWORD nSize);
 DWORD GetLongPathName(LPCTSTR lpszShortPath, LPTSTR lpszLongPath, DWORD cchBuffer);
@@ -52,6 +94,11 @@ typedef struct _SECURITY_ATTRIBUTES {
 #define OPEN_ALWAYS         4
 #define TRUNCATE_EXISTING   5
 
+#define INVALID_HANDLE_VALUE ((HANDLE)(LONG_PTR)-1)
+#define INVALID_FILE_SIZE ((DWORD)0xFFFFFFFF)
+#define INVALID_SET_FILE_POINTER ((DWORD)-1)
+#define INVALID_FILE_ATTRIBUTES ((DWORD)-1)
+
 #define FS_CASE_IS_PRESERVED            FILE_CASE_PRESERVED_NAMES
 #define FS_CASE_SENSITIVE               FILE_CASE_SENSITIVE_SEARCH
 #define FS_UNICODE_STORED_ON_DISK       FILE_UNICODE_ON_DISK
@@ -59,6 +106,17 @@ typedef struct _SECURITY_ATTRIBUTES {
 #define FS_VOL_IS_COMPRESSED            FILE_VOLUME_IS_COMPRESSED
 #define FS_FILE_COMPRESSION             FILE_FILE_COMPRESSION
 #define FS_FILE_ENCRYPTION              FILE_SUPPORTS_ENCRYPTION
+
+HANDLE CreateMutex(LPSECURITY_ATTRIBUTES lpMutexAttributes, BOOL bInitialOwner, LPCTSTR lpName);
+HANDLE OpenMutex(DWORD dwDesiredAccess, BOOL bInheritHandle, LPCTSTR lpName);
+DWORD WaitForSingleObject(HANDLE hHandle, DWORD dwMilliseconds);
+
+BOOL CreateProcess(LPCTSTR lpApplicationName, LPTSTR lpCommandLine,
+				   LPSECURITY_ATTRIBUTES lpProcessAttributes,
+				   LPSECURITY_ATTRIBUTES lpThreadAttributes,
+				   BOOL bInheritHandles, DWORD dwCreationFlags,
+				   LPVOID lpEnvironment, LPCTSTR lpCurrentDirectory,
+				   LPSTARTUPINFO lpStartupInfo, LPPROCESS_INFORMATION lpProcessInformation);
 
 HANDLE FindFirstFile(LPCTSTR lpFileName,LPWIN32_FIND_DATA lpFindFileData);
 BOOL FindNextFile(HANDLE hFindFile, LPWIN32_FIND_DATA lpFindFileData);
@@ -132,10 +190,31 @@ BOOL SetFileTime(HANDLE hFile,
 			 const FILETIME *lpLastAccessTime,
 			 const FILETIME *lpLastWriteTime);
 BOOL LocalFileTimeToFileTime(const FILETIME *lpLocalFileTime, LPFILETIME lpFileTime);
+DWORD SearchPath(LPCSTR lpPath, LPCSTR lpFileName, LPCSTR lpExtension,  DWORD nBufferLength,
+			LPSTR lpBuffer, LPSTR *lpFilePart);
+
+UINT GetProfileInt(LPCSTR lpAppName, LPCSTR lpKeyName, INT nDefault);
+DWORD GetPrivateProfileString(LPCSTR lpAppName,
+						  LPCSTR lpKeyName,
+						  LPCSTR lpDefault,
+						 LPSTR lpReturnedString,
+						      DWORD nSize,
+						  LPCSTR lpFileName);
+
+DWORD GetCurrentDirectory(DWORD nBufferLength, LPSTR lpBuffer);
+BOOL SetCurrentDirectory(LPCSTR lpPathName);
 
 #define lstrcpy strcpy
 #define lstrlen strlen
 #define lstrcpyn  strncpy
+#define _strdup strdup
+#define _tcsdup strdup
+#define _tcsdec strdec
+#define _unlink remove
+#define _tcsrchr strchr
+
+char *strupr(char *str);
+void _splitpath( const char *path, char *drive, char *dir, char *fname, char *ext );
 
 BOOL CloseHandle(HANDLE hObject);
 DWORD GetLastError();
@@ -145,5 +224,27 @@ BOOL PathIsUNC( LPCSTR pszPath);
 BOOL PathStripToRoot( LPSTR pszPath);
 
 //DWORD GetVersion();
+
+HMODULE LoadLibrary(LPCSTR lpLibFileName);
+BOOL FreeLibrary(HMODULE hLibModule);
+void *GetProcAddress (HMODULE hModule, LPCSTR lpProcName);
+
+HANDLE GetCurrentProcess();
+DWORD GetCurrentProcessId();
+
+HANDLE GetCurrentThread();
+DWORD GetCurrentThreadId();
+
+
+void SHChangeNotify(LONG wEventId, UINT uFlags, LPCVOID dwItem1, LPCVOID dwItem2);
+
+BOOL PeekMessage(LPMSG lpMsg, HWND hWnd, UINT wMsgFilterMin, UINT wMsgFilterMax, UINT wRemoveMsg);
+LRESULT DispatchMessage(const MSG *lpmsg);
+
+DWORD GetTickCount();
+
+void ZeroMemory(void *obj, int size);
+
+void AfxOleLockApp();
 
 #endif//WIN_BASE

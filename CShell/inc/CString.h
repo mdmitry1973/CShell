@@ -45,6 +45,9 @@ public:
 	int ReverseFind(TCHAR ch) const;
 	int FindOneOf( LPCTSTR lpszCharSet ) const;
 	
+	int Compare( LPCTSTR lpsz ) const;
+	int CompareNoCase(LPCTSTR lpsz) const;
+	
 	operator LPCTSTR() const;      // as a UTF8 string
 	
 	CString Mid(int nFirst) const;	
@@ -67,6 +70,8 @@ public:
 	friend CString operator+(const TCHAR * lpsz,		const CString& string);
 	
 	CString Tokenize(const char *pszTokens, int& iStart) const;
+	
+	int Remove( TCHAR ch );
 
 protected:
 	
@@ -75,6 +80,8 @@ protected:
 	char	*bufferTemp;
 	int		m_bufferTempSize;
 };
+
+BOOL operator ==(const BYTE  *s1, const CString& s2 );
 
 
 #endif//CSTRING_DEFINE

@@ -31,6 +31,8 @@ public:
 	
 	virtual  BOOL OnInitDialog();
 	
+	LPCTSTR m_lpszTemplateName;     // name or MAKEINTRESOURCE
+	
 	//not mfc methods
 	
 	virtual BOOL IsDialog();

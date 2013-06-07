@@ -10,8 +10,10 @@
 #include "CDef.h"
 
 #include "CObject.h"
+#include "COleMessageFilter.h"
 
 #include "afx.h"
+#include "winbase.h"
 
 #import <Cocoa/Cocoa.h>
 
@@ -57,4 +59,53 @@ void AfxThrowFileException(int cause, LONG lOsError, LPCTSTR lpszFileName)
 void AfxThrowMemoryException()
 {
 	NSLog(@"TO DO AfxThrowMemoryException");
+}
+
+void AfxThrowOleFileException(long )
+{
+	NSLog(@"TO DO AfxThrowOleFileException");
+}
+
+void AfxThrowOleException(SCODE)
+{
+	NSLog(@"TO DO AfxThrowOleException");
+}
+
+void AfxSetResourceHandle(HINSTANCE hInstResource)
+{
+	NSLog(@"TO DO AfxSetResourceHandle");
+}
+
+BOOL AfxEnableMemoryTracking(BOOL bTrack)
+{
+	NSLog(@"TO DO AfxEnableMemoryTracking");
+	
+	return bTrack;
+}
+
+BOOL AfxSocketInit(void* lpwsaData)
+{
+	NSLog(@"TO DO AfxSocketInit");
+}
+
+BOOL AfxOleInit()
+{
+	NSLog(@"TO DO AfxOleInit");
+}
+
+COleMessageFilter* AfxOleGetMessageFilter()
+{
+	NSLog(@"TO DO AfxOleGetMessageFilter");
+	
+	return NULL;
+}
+
+HMODULE AfxLoadLibrary(LPCSTR lpLibFileName)
+{
+	return LoadLibrary(lpLibFileName);
+}
+
+BOOL AfxFreeLibrary(HMODULE hLibModule)
+{
+	return FreeLibrary(hLibModule);
 }

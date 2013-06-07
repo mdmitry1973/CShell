@@ -28,6 +28,8 @@ public:
 	
 	BOOL DoPreparePrinting(CPrintInfo* pInfo);
 	
+	virtual void OnInitialUpdate(){}
+	
 protected:
 	
 	CDocument* 	m_pDocument;

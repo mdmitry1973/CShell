@@ -19,9 +19,9 @@ class CSingleDocTemplate : public CDocTemplate
 public:
 	
 	CSingleDocTemplate(UINT nIDResource,
-					   CObject* pDocClass,
-					   CObject* pFrameClass,
-					   CObject* pViewClass);
+					   CRuntimeClass* pDocClass,
+					   CRuntimeClass* pFrameClass,
+					   CRuntimeClass* pViewClass);
 					   
 	virtual ~CSingleDocTemplate();
 	

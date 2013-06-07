@@ -9,13 +9,14 @@
 
 #include "CDocTemplate.h"
 
+#include "CRuntimeClass.h"
 #include "CDocument.h"
 #include "CFrameWnd.h"
 
 CDocTemplate::CDocTemplate(UINT nIDResource,
-			 CObject* pDocClass,
-			 CObject* pFrameClass,
-			 CObject* pViewClass)
+			 CRuntimeClass* pDocClass,
+			 CRuntimeClass* pFrameClass,
+			 CRuntimeClass* pViewClass)
 {
 	m_nIDResource = nIDResource;
 	m_pDocClass = pDocClass;
@@ -39,6 +40,11 @@ CDocTemplate::~CDocTemplate()
 	{
 		delete m_pViewClass;
 	}
+}
+
+BOOL CDocTemplate::GetDocString(CString& rString, enum DocStringIndex index) const
+{
+	NSLog(@"TO DO CDocTemplate::GetDocString");
 }
 
 void CDocTemplate::AddDocument(CDocument* pDoc)
@@ -79,6 +85,22 @@ CFrameWnd* CDocTemplate::CreateNewFrame(CDocument* pDoc, CFrameWnd* pOther)
 void CDocTemplate::RemoveDocument(CDocument* pDoc)
 {
 	NSLog(@"TO DO CDocTemplate::RemoveDocument");
+}
+
+void CDocTemplate::SetContainerInfo(UINT nIDOleInPlaceContainer)
+{
+	NSLog(@"TO DO CDocTemplate::SetContainerInfo");
+}
+
+void CDocTemplate::SetServerInfo(UINT nIDOleEmbedding, UINT nIDOleInPlaceServer,
+				   CRuntimeClass* pOleFrameClass, CRuntimeClass* pOleViewClass)
+{
+	NSLog(@"TO DO CDocTemplate::SetServerInfo");
+}
+
+void CDocTemplate::AddEventRangeHandle(int objID1, int objID2, EventFun fun, int eventType)
+{
+	
 }
 
 void CDocTemplate::AddEventHandle(int objID, EventFun fun, int eventType)

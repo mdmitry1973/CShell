@@ -10,6 +10,8 @@
 #import <Cocoa/Cocoa.h>
 
 #include "CDocTemplate.h"
+#include "CDocument.h"
+#include "CRecentFileList.h"
 
 #include "CWinApp.h"
 
@@ -24,10 +26,17 @@ CWinApp					*pMainApp = nil;
 CWinApp::CWinApp()
 {
 	pMainApp = this;
+	m_pszAppName = (const char *)malloc(1);
+	((char *)m_pszAppName)[0] = 0;
 }
 
 CWinApp::~CWinApp()
 {
+	if (m_pszAppName)
+	{
+		free((void *)m_pszAppName);
+	}
+	
 	for(int i = 0; i < m_arrDocTemplate.size(); i++)
 	{
 		delete m_arrDocTemplate[i];
@@ -102,6 +111,16 @@ HICON CWinApp::LoadIcon(UINT nIDResource) const
 void CWinApp::OnHelp()
 {
 	NSLog(@"TO DO CWinApp::OnHelp");
+}
+
+void CWinApp::EnableShellOpen()
+{
+	NSLog(@"TO DO CWinApp::EnableShellOpen");
+}
+
+void CWinApp::RegisterShellFileTypes(BOOL bCompat)
+{
+	NSLog(@"TO DO CWinApp::RegisterShellFileTypes");
 }
 
 BOOL CWinApp::Enable3dControls()
@@ -280,6 +299,11 @@ void CWinApp::AddEventHandle(int objID, EventFun fun, int eventType)
 	p_mapEventHandle->push_back(handle);
 }
 
+void CWinApp::AddEventRangeHandle(int objID1, int objID2, EventFun fun, int eventType)
+{
+	NSLog(@"TO DO CWinApp::AddEventRangeHandle(int objID1, int objID2, EventFun fun, int eventType)");
+}
+
 void CWinApp::AddEventHandle(void *obj, EventFun fun, int eventType)
 {
 	AddEventHandle([(NSView *)obj tag], fun, eventType);
@@ -302,9 +326,24 @@ void CWinApp::OnFilePrintSetup()
 	NSLog(@"TO DO CWinApp::OnFilePrintSetup");
 }
 
+BOOL CWinApp::OnIdle(LONG lCount)
+{
+	NSLog(@"TO DO CWinApp::OnIdle");
+}
+
 void CWinApp::AddDocTemplate(CDocTemplate* pTemplate)
 {
 	m_arrDocTemplate.push_back(pTemplate);
+}
+
+POSITION CWinApp::GetFirstDocTemplatePosition( ) const
+{
+	NSLog(@"TO DO CWinApp::GetFirstDocTemplatePosition");
+}
+
+CDocTemplate *CWinApp::GetNextDocTemplate(POSITION& pos ) const
+{
+	NSLog(@"TO DO CWinApp::GetNextDocTemplate");
 }
 
 void CWinApp::CloseAllDocuments(BOOL bEndSession)
@@ -712,6 +751,41 @@ std::map<int,CShellBitmapInfo> &CWinApp::GetIconInfoMap()
 	return g_mapIconInfo;
 }
 
+BOOL CWinApp::OnDDECommand(LPTSTR lpszCommand )
+{
+	NSLog(@"to do CWinApp::OnDDECommand");
+	
+	return 0;
+}
+
+int CWinApp::ExitInstance()
+{
+	NSLog(@"to do CWinApp::ExitInstance");
+	
+	return 0;
+}
+
+CDocument* CWinApp::OpenDocumentFile(LPCTSTR lpszFileName)
+{
+	NSLog(@"to do CWinApp::OpenDocumentFile");
+	
+	return 0;
+}
+
+BOOL CWinApp::SaveAllModified()
+{
+	NSLog(@"to do CWinApp::SaveAllModified");
+	
+	return FALSE;
+}
+
+int CWinApp::Run()
+{
+	NSLog(@"to do CWinApp::Run");
+	
+	return 0;
+}
+
 int AfxMessageBox(UINT nIDPrompt, UINT nType, UINT nIDHelp)
 {
 	CString msg;
@@ -723,15 +797,10 @@ int AfxMessageBox(UINT nIDPrompt, UINT nType, UINT nIDHelp)
 	return MB_OKCANCEL;
 }
 
-BOOL PeekMessage(LPMSG lpMsg, HWND hWnd, UINT wMsgFilterMin, UINT wMsgFilterMax, UINT wRemoveMsg)
-{
-	NSLog(@"TO DO PeekMessage");
-	
-	return FALSE;
-}
-
 void CShellLog(const char *str)
 {
 	NSLog([NSString stringWithUTF8String: str]);
 }
+
+
 

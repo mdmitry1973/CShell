@@ -101,5 +101,19 @@ LSTATUS RegSaveKey(HKEY hKey, LPCSTR lpFile, const LPSECURITY_ATTRIBUTES lpSecur
 LSTATUS RegRestoreKey(HKEY hKey, LPCSTR lpFile, DWORD dwFlags);
 LSTATUS RegEnumKeyEx(HKEY hKey, DWORD dwIndex, LPSTR lpName, LPDWORD lpcchName,
 			    LPDWORD lpReserved, LPSTR lpClass, LPDWORD lpcchClass, PFILETIME lpftLastWriteTime);
+LSTATUS RegEnumKey(HKEY hKey, DWORD dwIndex, LPSTR lpName, DWORD cchName);
+LSTATUS RegOpenKey (HKEY hKey, LPCSTR lpSubKey, PHKEY phkResult);
+LSTATUS RegSetValue(
+			   HKEY hKey,
+			   LPCSTR lpSubKey,
+			   DWORD dwType,
+			  LPCSTR lpData,
+			   DWORD cbData);
+LSTATUS RegCreateKey ( HKEY hKey,
+			    LPCSTR lpSubKey,
+			    PHKEY phkResult);
+LSTATUS RegEnumValue (HKEY hKey, DWORD dwIndex, LPSTR lpValueName, LPDWORD lpcchValueName, LPDWORD lpReserved, LPDWORD lpType, LPBYTE lpData, LPDWORD lpcbData);
+LSTATUS  SHDeleteKey(HKEY hkey, LPCSTR pszSubKey);
+LSTATUS RegQueryValue ( HKEY hKey, LPCSTR lpSubKey, LPSTR lpData, PLONG lpcbData);
 
 #endif//WIN_REG

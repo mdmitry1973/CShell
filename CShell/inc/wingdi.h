@@ -55,4 +55,54 @@
 #define PT_BEZIERTO         0x04
 #define PT_MOVETO           0x06
 
+/* Mapping Modes */
+#define MM_TEXT             1
+#define MM_LOMETRIC         2
+#define MM_HIMETRIC         3
+#define MM_LOENGLISH        4
+#define MM_HIENGLISH        5
+#define MM_TWIPS            6
+#define MM_ISOTROPIC        7
+#define MM_ANISOTROPIC      8
+
+/* Logical Brush (or Pattern) */
+typedef struct tagLOGBRUSH
+{
+    UINT        lbStyle;
+    COLORREF    lbColor;
+    ULONG_PTR   lbHatch;
+} LOGBRUSH, *PLOGBRUSH, *NPLOGBRUSH, *LPLOGBRUSH;
+
+typedef struct _DOCINFO {
+    int     cbSize;
+    LPCWSTR  lpszDocName;
+    LPCWSTR  lpszOutput;
+    LPCWSTR  lpszDatatype;
+    DWORD    fwType;
+} DOCINFO, *LPDOCINFO;
+
+/* structures for defining DIBs */
+typedef struct tagBITMAPCOREHEADER {
+	DWORD   bcSize;                 /* used to get to color table */
+	WORD    bcWidth;
+	WORD    bcHeight;
+	WORD    bcPlanes;
+	WORD    bcBitCount;
+} BITMAPCOREHEADER, *LPBITMAPCOREHEADER, *PBITMAPCOREHEADER;
+
+typedef struct tagBITMAPINFOHEADER{
+	DWORD      biSize;
+	LONG       biWidth;
+	LONG       biHeight;
+	WORD       biPlanes;
+	WORD       biBitCount;
+	DWORD      biCompression;
+	DWORD      biSizeImage;
+	LONG       biXPelsPerMeter;
+	LONG       biYPelsPerMeter;
+	DWORD      biClrUsed;
+	DWORD      biClrImportant;
+} BITMAPINFOHEADER, *LPBITMAPINFOHEADER, *PBITMAPINFOHEADER;
+
+
 #endif//WIN_GDI

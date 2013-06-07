@@ -11,15 +11,18 @@
 #define COBJECT_DEFINE 1
 
 #include "CDef.h"
+#include "CRuntimeClass.h"
 #include "CString.h"
 
-class CObject
+class CObject : public CRuntimeClass
 {
 	
 public:
 	
 	CObject();
 	virtual ~CObject();
+	
+	BOOL IsKindOf(CRuntimeClass *className) const;
 	
 	virtual CString GetClassName() const 
 	{ 

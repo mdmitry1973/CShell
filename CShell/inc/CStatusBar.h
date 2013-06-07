@@ -36,5 +36,7 @@ public:
 	
 };
 
+#define CMFCStatusBar CStatusBar
+
 
 #endif//CSTATUSBAR_DEFINE

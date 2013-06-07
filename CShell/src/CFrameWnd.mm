@@ -248,3 +248,8 @@ BOOL CFrameWnd::ShowWindow(int nCmdShow)
 	
 	return TRUE;
 }
+
+void CFrameWnd::RecalcLayout(BOOL bNotify)
+{
+	NSLog(@"TO DO CFrameWnd::RecalcLayout");
+}

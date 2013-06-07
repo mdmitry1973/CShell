@@ -11,6 +11,8 @@
 
 #include "CString.h"
 
+#include <algorithm>
+
 std::map<int, std::string> CString::g_mapResStrimgs;
 
 CString::CString()
@@ -250,6 +252,43 @@ CString CString::Mid(int nFirst, int nCount) const
 	return substr(nFirst, nCount).c_str();
 }
 
+int CString::Compare(LPCTSTR lpsz) const
+{
+	return compare(lpsz);
+}
+
+int CString::CompareNoCase(LPCTSTR lpsz) const
+{
+	string str1 = lpsz;
+	string str2 = *this;
+	
+	std::transform(str1.begin(), str1.end(), str1.begin(), ::toupper);
+	std::transform(str2.begin(), str2.end(), str2.begin(), ::toupper);
+	
+	return str1.compare(str2);
+}
+
+int CString::Remove( TCHAR ch )
+{
+	int count = 0;
+	int pos;
+	
+	
+	do
+	{
+		pos = find(ch);
+		
+		if (pos != -1)
+		{
+			count++;
+			*((std::string *)this) = replace(pos, 1, "");	
+		}
+	}
+	while(pos != -1);
+	
+	return count;
+}
+
 int CString::Replace(TCHAR chOld, TCHAR chNew)
 {
 	int count = 0;
@@ -388,6 +427,11 @@ CString CString::Tokenize(const char *pszTokens, int& iStart) const
 	}
 	
 	return res;
+}
+
+BOOL operator ==(const BYTE  *s1, const CString& s2 )
+{
+	return s2.compare((const char *)s1) == 0;
 }
 
 

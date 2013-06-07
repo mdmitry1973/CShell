@@ -19,11 +19,13 @@ class CMultiDocTemplate : public CDocTemplate
 public:
 	
 	CMultiDocTemplate(UINT nIDResource,
-					  CObject* pDocClass,
-					  CObject* pFrameClass,
-					  CObject* pViewClass);
+					  CRuntimeClass* pDocClass,
+					  CRuntimeClass* pFrameClass,
+					  CRuntimeClass* pViewClass);
 					  
 	virtual ~CMultiDocTemplate();	
+	
+	virtual BOOL GetDocString(CString& rString, enum DocStringIndex index) const; // get one of the info strings
 	
 	virtual void AddDocument(CDocument* pDoc);
 	virtual CDocument* OpenDocumentFile(LPCTSTR lpszPathName, BOOL bMakeVisible = TRUE);

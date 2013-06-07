@@ -38,6 +38,8 @@ CWnd CWnd::wndTop;
 CWnd CWnd::wndTopMost;
 CWnd CWnd::wndNoTopMost;
 
+IMPLEMENT_DYNAMIC(CWnd, CCmdTarget)
+
 CWnd::CWnd()
 {
 	mWindowController = nil;
@@ -1311,6 +1313,11 @@ void CWnd::AddEventHandle(int objID, EventFun fun, int eventType)
 	}
 }
 
+void CWnd::AddEventRangeHandle(int objID1, int objID2, EventFun fun, int eventType)
+{
+	NSLog(@"TO DO CWnd::AddEventRangeHandle(int objID1, int objID2, EventFun fun, int eventType)");
+}
+
 void CWnd::AddEventHandle(void *obj, EventFun fun, int eventType)
 {
 	AddEventHandle([(NSView *)obj tag], fun, eventType);
@@ -1489,11 +1496,54 @@ BOOL CWnd::ModifyStyle(DWORD dwRemove, DWORD dwAdd, UINT nFlags)
 	return TRUE;	
 }
 
+void CWnd::DragAcceptFiles(BOOL bAccept)
+{
+	NSLog(@"TO DO CWnd::DragAcceptFiles");
+}
+
+BOOL CWnd::SetWindowPlacement(const WINDOWPLACEMENT*lpwndpl)
+{
+	NSLog(@"TO DO CWnd::SetWindowPlacement");
+	
+	return FALSE;
+}
+
 CFont* CWnd::GetFont() const
 {
 	NSLog(@"TO DO CWnd::GetFont");
 	
 	return NULL;
+}
+
+UINT_PTR CWnd::SetTimer(UINT_PTR nIDEvent, UINT nElapse, void (* lpfnTimer)(HWND, UINT, UINT_PTR, DWORD))
+{
+	NSLog(@"TO DO CWnd::SetTimer");
+	
+	return 0;
+}
+
+BOOL CWnd::KillTimer(UINT_PTR nIDEvent)
+{
+	NSLog(@"TO DO CWnd::KillTimer");
+	
+	return FALSE;
+}
+
+BOOL CWnd::EnableToolTips(BOOL bEnable)
+{
+	NSLog(@"TO DO CWnd::EnableToolTips");
+	
+	return TRUE;
+}
+
+void CWnd::Invalidate(BOOL bErase)
+{
+	NSLog(@"TO DO CWnd::Invalidate");
+}
+
+void CWnd::InvalidateRect(LPCRECT lpRect, BOOL bErase )
+{
+	NSLog(@"TO DO CWnd::InvalidateRect");
 }
 
 void CWnd::SetFont(CFont* pFont, BOOL bRedraw)
@@ -2046,29 +2096,4 @@ BOOL CWnd::InitControl(int nIDC, CWnd *win)
 BOOL CWnd::IsDialog()
 {
 	return false;
-}
-
-CString CWnd::GetClassName() const
-{
-	return "CWnd";
-}
-
-CString CWnd::GetBaseClassName() const
-{
-	return "CWnd";
-}
-
-BOOL CWnd::IsKindOf(CObject *className) const
-{
-	if (GetClassName() == className->GetClassName())
-	{ 
-		return 1; 
-	}
-	
-	if (GetBaseClassName() == className->GetBaseClassName())
-	{ 
-		return 2; 
-	}
-	
-	return 0;
 }

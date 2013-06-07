@@ -14,7 +14,10 @@
 
 #include "CDef.h"
 
+
 class CObject;
+class COleMessageFilter;
+
 /*
 template<class type> inline type max(const type a, const type b) { 
 	return(((a) > (b)) ? (a) : (b));
@@ -26,6 +29,9 @@ template<class type> inline type min(const type a, const type b) {
 
 */
 
+#define AFX_STATIC_DATA static
+#define AFX_STATIC static
+
 void AfxThrowArchiveException(int cause);
 void AfxThrowArchiveException(int cause, LPCTSTR lpszArchiveName);
 void AfxAssertValidObject(const CObject* pOb, LPCSTR lpszFileName, int nLine);
@@ -34,8 +40,20 @@ BOOL AfxIsValidString(LPCSTR lpsz, int nLength = -1);
 void AfxThrowFileException(int cause, LONG lOsError = -1, LPCTSTR lpszFileName = NULL);
 void AfxThrowMemoryException();
 void AfxThrowInvalidArgException();
+void AfxThrowOleFileException(long );
+void AfxThrowOleException(SCODE);
+
+BOOL AfxEnableMemoryTracking(BOOL bTrack);
 
 AFX_MODULE_STATE* AFXAPI AfxGetAppModuleState();
+
+void AfxSetResourceHandle(HINSTANCE hInstResource); 
+BOOL AfxSocketInit(void* lpwsaData = NULL);
+BOOL AfxOleInit();
+COleMessageFilter* AfxOleGetMessageFilter();
+
+HMODULE AfxLoadLibrary(LPCSTR lpLibFileName);
+BOOL AfxFreeLibrary(HMODULE hLibModule);
 
 
 #endif//AFX

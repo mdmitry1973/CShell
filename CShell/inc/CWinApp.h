@@ -21,8 +21,12 @@
 #include "CWnd.h"
 #include "CDialogEx.h"
 #include "CCommandLineInfo.h"
+#include "CDocManager.h"
 
 class CDocTemplate;
+class CDocument;
+class CRecentFileList;
+class CDocManager;
 
 struct CShellBitmapInfo
 {
@@ -47,26 +51,47 @@ public:
 	
 	BOOL Enable3dControls();
 	BOOL Enable3dControlsStatic();
+	void EnableShellOpen();
 	
 	void SetRegistryKey(LPCTSTR lpszRegistryKey);
 	void SetRegistryKey(UINT nIDRegistryKey);
 	
+	void RegisterShellFileTypes(BOOL bCompat = FALSE);
+	
 	void LoadStdProfileSettings(UINT nMaxMRU = _AFX_MRU_COUNT);
 	
-	void OnFileNew();
-	void OnFileOpen();
-	void OnFilePrintSetup();
+	virtual BOOL SaveAllModified();
+	
+	virtual void OnFileNew();
+	virtual void OnFileOpen();
+	virtual void OnFilePrintSetup();
+	
+	virtual BOOL OnDDECommand(LPTSTR lpszCommand );
+	
+	virtual BOOL OnIdle(LONG lCount);
+	
+	virtual CDocument* OpenDocumentFile(LPCTSTR lpszFileName);
+	
+	virtual int Run( );
+	virtual int ExitInstance();
 	
 	void AddDocTemplate(CDocTemplate* pTemplate);
 	void CloseAllDocuments(BOOL bEndSession);
+	POSITION GetFirstDocTemplatePosition( ) const;
+	CDocTemplate* GetNextDocTemplate(POSITION& pos ) const;
 	
 	void ParseCommandLine(CCommandLineInfo& rCmdInfo);
 	BOOL ProcessShellCommand(CCommandLineInfo& rCmdInfo);
 	
 	virtual void AddEventHandle(int objID, EventFun fun, int eventType);
+	virtual void AddEventRangeHandle(int objID1, int objID2, EventFun fun, int eventType);
 	virtual void AddEventHandle(void *obj, EventFun fun, int eventType);
 	
-	CWnd	*m_pMainWnd;
+	CWnd		*m_pMainWnd;
+	CDocManager	*m_pDocManager;
+	
+	LPCTSTR m_pszAppName;
+	int m_nCmdShow;
 	
 	static BOOL LoadBitmapInfo();
 	static std::map<int,CShellBitmapInfo> &GetBitmapInfoMap();
@@ -80,7 +105,10 @@ public:
 	
 	LPCTSTR m_pszRegistryKey;
 	LPCTSTR m_pszProfileName;
+	CRecentFileList* m_pRecentFileList;
 };
+
+#define CWinAppEx CWinApp
 
 CWinApp* AfxGetApp();
 
@@ -90,8 +118,6 @@ void AfxEnableControlContainer();
 int AfxMessageBox(LPCTSTR lpszText, UINT nType = MB_OK, UINT nIDHelp = 0 );
 int AfxMessageBox(UINT nIDPrompt, UINT nType = MB_OK, UINT nIDHelp = (UINT)-1);
 CWnd* AfxGetMainWnd();
-
-BOOL PeekMessage(LPMSG lpMsg, HWND hWnd, UINT wMsgFilterMin, UINT wMsgFilterMax, UINT wRemoveMsg);
 
 void CShellLog(const char *);
 

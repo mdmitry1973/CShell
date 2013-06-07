@@ -14,9 +14,9 @@
 #include "CMultiDocTemplate.h"
 
 CMultiDocTemplate::CMultiDocTemplate(UINT nIDResource,
-				  CObject* pDocClass,
-				  CObject* pFrameClass,
-				CObject* pViewClass) : CDocTemplate(nIDResource, pDocClass, pFrameClass, pViewClass)
+				  CRuntimeClass* pDocClass,
+				  CRuntimeClass* pFrameClass,
+				CRuntimeClass* pViewClass) : CDocTemplate(nIDResource, pDocClass, pFrameClass, pViewClass)
 {
 
 }
@@ -24,6 +24,11 @@ CMultiDocTemplate::CMultiDocTemplate(UINT nIDResource,
 CMultiDocTemplate::~CMultiDocTemplate()
 {
 	
+}
+
+BOOL CMultiDocTemplate::GetDocString(CString& rString, enum DocStringIndex index) const
+{
+	NSLog(@"TO DO CMultiDocTemplate::GetDocString");
 }
 
 void CMultiDocTemplate::AddDocument(CDocument* pDoc)
