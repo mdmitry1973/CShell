@@ -16,8 +16,6 @@
 #include "guiddef.h"
 #include <algorithm>
 #include "windows.h"
-#include "afx.h"
-#include "winbase.h"
 #include "CDumpContext.h"
 #include "CSize.h"
 #include "CPoint.h"
@@ -102,5 +100,6 @@
 #include "CDocManager.h"
 #include "CMFCMenuBar.h"
 #include "CMFCToolBarImages.h"
+
 
 #endif//AFX_WIN

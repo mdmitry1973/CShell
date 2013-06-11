@@ -32,10 +32,88 @@
     return @"MyDocument";
 }
 
+- (void)shouldCloseWindowController:(NSWindowController *)windowController delegate:(id)delegate shouldCloseSelector:(SEL)shouldCloseSelector contextInfo:(void *)contextInfo
+{
+	NSURL *urlResFile = [pathControl URL];
+	NSURL *urlOutputFile = [pathOutputControl URL];
+	NSURL *urlHeaderFile = [pathResHControl URL];
+	
+	NSXMLElement *root = [NSXMLNode  elementWithName: @"root"];	
+	NSXMLDocument *doc = [NSXMLDocument documentWithRootElement: root];
+	
+	NSXMLElement *elResFile = [NSXMLNode elementWithName:@"urlResFile" stringValue: [urlResFile path]];
+	[root addChild: elResFile];
+	
+	NSXMLElement *elOutputFile = [NSXMLNode elementWithName:@"urlOutputFile" stringValue: [urlOutputFile path]];
+	[root addChild: elOutputFile];
+	
+	NSXMLElement *elHeaderFile = [NSXMLNode elementWithName:@"urlHeaderFile" stringValue: [urlHeaderFile path]];
+	[root addChild: elHeaderFile];
+	
+	NSData *data = [doc XMLData];
+		
+	NSFileManager *fm = [NSFileManager defaultManager];
+	NSString *currentpath;
+	
+	currentpath = [fm currentDirectoryPath];
+	currentpath = [currentpath stringByAppendingPathComponent:@"pref.xml"];
+	
+	[data writeToFile:currentpath atomically:false];
+}
+
 - (void)windowControllerDidLoadNib:(NSWindowController *) aController
 {
     [super windowControllerDidLoadNib:aController];
     // Add any code here that needs to be executed once the windowController has loaded the document's window.
+	
+	NSFileManager *fm = [NSFileManager defaultManager];
+	NSString *currentpath;
+	
+	currentpath = [fm currentDirectoryPath];
+	currentpath = [currentpath stringByAppendingPathComponent:@"pref.xml"];
+	
+	if ([fm fileExistsAtPath:currentpath])
+	{
+	 
+		NSXMLDocument *doc = [[NSXMLDocument alloc] initWithContentsOfURL:[NSURL fileURLWithPath: currentpath] 
+														  options:NSXMLNodeOptionsNone  error:nil];
+		
+		if (doc)
+		{
+			NSXMLElement *root = [doc rootElement];		
+			
+			NSArray *arr = [root elementsForName:@"urlResFile"];
+			
+			if ([arr count])
+			{
+				NSXMLElement *elResFile = [arr objectAtIndex: 0];
+				
+				[pathControl setURL: [NSURL fileURLWithPath:[elResFile stringValue]]];
+				
+				
+			}
+			
+			arr = [root elementsForName:@"urlOutputFile"];
+			
+			if ([arr count])
+			{
+				NSXMLElement *elResFile = [arr objectAtIndex: 0];
+				
+				[pathOutputControl setURL: [NSURL fileURLWithPath:[elResFile stringValue]]];				
+			}
+			
+			arr = [root elementsForName:@"urlHeaderFile"];
+			
+			if ([arr count])
+			{
+				NSXMLElement *elResFile = [arr objectAtIndex: 0];
+				
+				[pathResHControl setURL: [NSURL fileURLWithPath:[elResFile stringValue]]];				
+			}
+			
+			 [doc release];
+		}
+	}
 }
 
 - (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError
@@ -74,6 +152,9 @@
 	[openDialog setCanChooseFiles:true];
 	[openDialog setAllowsMultipleSelection:false];
 	
+	//[openDialog setDirectoryURL:[pathControl URL]];
+	//[openDialog setNameFieldStringValue: @"Resources.xml"];
+	
 	if ([openDialog runModal] == NSFileHandlingPanelOKButton)
 	{
 		NSURL *url = [openDialog URL];
@@ -103,11 +184,14 @@
 
 - (IBAction)browserOutputButton:(id)sender
 {
-	NSOpenPanel *saveDialog = [NSOpenPanel openPanel];
+	NSSavePanel *saveDialog = [NSSavePanel savePanel];
 	
-	[saveDialog setCanChooseDirectories:true];
-	[saveDialog setCanChooseFiles:true];
-	[saveDialog setAllowsMultipleSelection:false];
+	//[saveDialog setCanChooseDirectories:true];
+	//[saveDialog setCanChooseFiles:true];
+	//[saveDialog setAllowsMultipleSelection:false];
+	
+	[saveDialog setDirectoryURL:[pathOutputControl URL]];
+	[saveDialog setNameFieldStringValue: @"Resources.xml"];
 	
 	if ([saveDialog runModal] == NSFileHandlingPanelOKButton)
 	{
@@ -278,6 +362,11 @@
 	//IDS_ABOUTBOX            "&About SimpleDialog2..."
 	//END
 	
+	if ([strLines count] < i)
+	{
+		return i++;
+	}
+	
 	if (stringTableNode == nil)
 	{
 		stringTableNode = [NSXMLNode elementWithName:@"STRINGTABLE"];
@@ -309,6 +398,11 @@
 		while(i < [strLines count] &&
 			  ([[strLines objectAtIndex:i] rangeOfString:@"END"]).location == NSNotFound)
 		{
+			if ([strLines count] < i)
+			{
+				return i++;
+			}
+			
 			NSString *strStringLine = [strLines objectAtIndex:i];
 			
 			if ([strStringLine length] == 0)
@@ -338,11 +432,32 @@
 			NSString *strSTRID = [strStringLine substringWithRange:aRangeStartId];
 			NSString *strText = [strStringLine substringWithRange:aRangeStart];
 			
+			if ([strText length] == 0)
+			{
+				i++;
+				continue;
+			}
+			
+			NSLog(@"strText=%@", strText);
+			
 			while([strText characterAtIndex: 0] != '"')
 			{
 				aRangeStart.location = 1;
 				aRangeStart.length = [strText length] - 1;
 				strText = [strText substringWithRange: aRangeStart];
+				
+				if ([strText length] == 0)
+				{
+					break;
+				}
+			}
+			
+			NSLog(@"strText=%@", strText);
+			
+			if ([strText length] == 0)
+			{
+				i++;
+				continue;
 			}
 			
 			while([strText characterAtIndex: [strText length] - 1] != '"')
@@ -355,6 +470,9 @@
 			strText = [strText stringByReplacingOccurrencesOfString:@"\"" withString:@""];
 			
 			NSXMLElement *strNode = [NSXMLNode elementWithName:@"STR"];
+			
+			strSTRID = [strSTRID stringByReplacingOccurrencesOfString:@" " withString:@""];
+			strSTRID = [strSTRID stringByReplacingOccurrencesOfString:@"\t" withString:@""];
 			
 			[strNode addAttribute:[NSXMLNode attributeWithName:@"IDSTR" stringValue:strSTRID]];
 			[strNode setStringValue: strText];
@@ -1012,6 +1130,10 @@
 						
 						NSLog(line);
 						
+						//line = [line stringByReplacingOccurrencesOfString:@" " withString:@""];
+						
+						//NSLog(line);
+						
 						if ((findPos = [line rangeOfString:@"DEFPUSHBUTTON"]).location != NSNotFound ||
 							(findPos = [line rangeOfString:@"PUSHBUTTON"]).location != NSNotFound ||
 							(findPos = [line rangeOfString:@"CTEXT"]).location != NSNotFound ||
@@ -1048,6 +1170,9 @@
 							
 							
 							NSXMLElement *controlNode = nil;
+							
+							strName = [strName stringByReplacingOccurrencesOfString:@" " withString:@""];
+							strName = [strName stringByReplacingOccurrencesOfString:@"\t" withString:@""];
 							
 							controlNode = [NSXMLNode elementWithName: strName];
 							

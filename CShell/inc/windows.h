@@ -10,6 +10,8 @@
 #ifndef WINDOW_H
 #define WINDOW_H 1
 
+#include "afx.h"
+#include "afxext.h"
 #include "commctrl.h"
 #include "CommDlg.h"
 #include "shlobj.h"
@@ -20,5 +22,6 @@
 #include "wingdi.h"
 #include "winspool.h"
 #include "wtypes.h"
+#include "winbase.h"
 
 #endif//WINDOW_H

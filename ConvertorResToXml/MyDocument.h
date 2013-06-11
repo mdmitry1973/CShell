@@ -26,5 +26,6 @@
 - (IBAction)browserResHButton:(id)sender;
 - (IBAction)browserOutputButton:(id)sender;
 - (IBAction)convertButton:(id)sender;
+//- (IBAction)performClose:(id)sender;
 
 @end

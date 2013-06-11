@@ -7,6 +7,26 @@
  *
  */
 
-#include "CDef.h"
+
+#include "CWinApp.h"
+#include "CDocument.h"
+
+#import "CNSView.h"
+#import "CNSWindow.h"
+#import "CNSWindowHandle.h"
+#import "CNSWindowDelegate.h"
 
 #include "CMDIChildWnd.h"
+
+IMPLEMENT_DYNAMIC(CMDIChildWnd, CFrameWnd)
+
+CMDIChildWnd::CMDIChildWnd()
+{
+	
+}
+
+CMDIChildWnd::~CMDIChildWnd()
+{
+
+}
+

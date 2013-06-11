@@ -26,6 +26,8 @@ public:
 	
 	virtual ~CView();
 	
+	CDocument* GetDocument() const;
+	
 	BOOL DoPreparePrinting(CPrintInfo* pInfo);
 	
 	virtual void OnInitialUpdate(){}

@@ -47,8 +47,6 @@ public:
 	HICON LoadIcon(LPCTSTR lpszResourceName) const;
 	HICON LoadIcon(UINT nIDResource) const;
 	
-	virtual void OnHelp();
-	
 	BOOL Enable3dControls();
 	BOOL Enable3dControlsStatic();
 	void EnableShellOpen();
@@ -62,6 +60,7 @@ public:
 	
 	virtual BOOL SaveAllModified();
 	
+	virtual void OnHelp();
 	virtual void OnFileNew();
 	virtual void OnFileOpen();
 	virtual void OnFilePrintSetup();

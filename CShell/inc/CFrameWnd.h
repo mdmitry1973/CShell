@@ -12,6 +12,7 @@
 
 #include "CWnd.h"
 #include "CToolBar.h"
+#include "CMenu.h"
 
 typedef CToolBar CControlBar;
 
@@ -61,9 +62,13 @@ public:
 	
 	virtual void RecalcLayout(BOOL bNotify = TRUE);
 	
+	DECLARE_DYNAMIC(CFrameWnd)
+	
 	//not mfc methods
 	
 	CString m_strTitle;         // default title (original)
+	
+	CMenu m_menuBar;
 
 };
 

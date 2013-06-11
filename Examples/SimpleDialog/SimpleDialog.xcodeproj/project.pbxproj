@@ -27,14 +27,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 8240A10515240542007E642E /* CShell.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D2AAC0C705546C1D00DB518D /* CShell.dylib */;
+			remoteGlobalIDString = D2AAC0C705546C1D00DB518D;
 			remoteInfo = CShell;
 		};
 		8240A11C1524055D007E642E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8240A10515240542007E642E /* CShell.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = D2AAC0C605546C1D00DB518D /* CShell */;
+			remoteGlobalIDString = D2AAC0C605546C1D00DB518D;
 			remoteInfo = CShell;
 		};
 /* End PBXContainerItemProxy section */
@@ -263,7 +263,6 @@
 			isa = PBXProject;
 			buildConfigurationList = C05733CB08A9546B00998B17 /* Build configuration list for PBXProject "SimpleDialog" */;
 			compatibilityVersion = "Xcode 3.1";
-			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,

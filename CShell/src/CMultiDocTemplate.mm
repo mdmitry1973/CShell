@@ -6,10 +6,14 @@
  *  Copyright 2011 Dmitry Mikhaevich. All rights reserved.
  *
  */
+
+#import "CNSDocument.h"
  
+#include "afx.h"
 #include "CObject.h"
 #include "CDocument.h"
 #include "CFrameWnd.h"
+#include "CWinApp.h"
 
 #include "CMultiDocTemplate.h"
 
@@ -33,15 +37,111 @@ BOOL CMultiDocTemplate::GetDocString(CString& rString, enum DocStringIndex index
 
 void CMultiDocTemplate::AddDocument(CDocument* pDoc)
 {
-	NSLog(@"TO DO CMultiDocTemplate::AddDocument");
+	ASSERT_VALID(pDoc);
+	
+	CDocTemplate::AddDocument(pDoc);
+	
+	for (std::vector<CDocument *>::iterator it = m_docList.begin(); it != m_docList.end(); ++it)
+	{
+		if (*it == pDoc)
+		{
+			ASSERT(FALSE);
+		}
+	}
+	
+	m_docList.push_back(pDoc);
 }
 
 CDocument* CMultiDocTemplate::OpenDocumentFile(LPCTSTR lpszPathName, BOOL bMakeVisible)
 {
 	NSLog(@"TO DO CMultiDocTemplate::OpenDocumentFile");
+	
+	NSDocumentController *docManager = [NSDocumentController sharedDocumentController];
+	NSError *error;
+	
+	CNSDocument *doc = [[[CNSDocument alloc] initWithType:@"CShellDoc" error:&error] autorelease];
+	if (!doc) return nil; // error has been set
+	
+	[docManager addDocument:doc];
+	
+	CDocument*  pDocument = (CDocument *)m_pDocClass->CreateObject();
+	
+	pDocument->SetNSDoc(doc);
+	
+	AddDocument(pDocument);
+	
+	
+	if (pDocument == NULL)
+	{
+		TRACE(traceAppMsg, 0, "CDocTemplate::CreateNewDocument returned NULL.\n");
+		AfxMessageBox(AFX_IDP_FAILED_TO_CREATE_DOC);
+		return NULL;
+	}
+	ASSERT_VALID(pDocument);
+	
+	//BOOL bAutoDelete = pDocument->m_bAutoDelete;
+	//pDocument->m_bAutoDelete = FALSE;   // don't destroy if something goes wrong
+	CFrameWnd* pFrame = CreateNewFrame(pDocument, NULL);
+	//pDocument->m_bAutoDelete = bAutoDelete;
+	if (pFrame == NULL)
+	{
+		AfxMessageBox(AFX_IDP_FAILED_TO_CREATE_DOC);
+		delete pDocument;       // explicit delete on error
+		return NULL;
+	}
+	ASSERT_VALID(pFrame);
+	
+	pFrame->ShowWindow(SW_SHOWNORMAL);
+	
+	//if (lpszPathName == NULL)
+	//{
+		// create a new document - with default document name
+	//	SetDefaultTitle(pDocument);
+		
+		// avoid creating temporary compound file when starting up invisible
+	//	if (!bMakeVisible)
+	//		pDocument->m_bEmbedded = TRUE;
+		
+	//	if (!pDocument->OnNewDocument())
+	//	{
+	//		// user has be alerted to what failed in OnNewDocument
+	//		TRACE(traceAppMsg, 0, "CDocument::OnNewDocument returned FALSE.\n");
+	//		pFrame->DestroyWindow();
+	//		return NULL;
+	//	}
+		
+		// it worked, now bump untitled count
+	//	m_nUntitledCount++;
+	//}
+	//else
+	//{
+		// open an existing document
+	///	CWaitCursor wait;
+	//	if (!pDocument->OnOpenDocument(lpszPathName))
+	//	{
+			// user has be alerted to what failed in OnOpenDocument
+	//		TRACE(traceAppMsg, 0, "CDocument::OnOpenDocument returned FALSE.\n");
+	//		pFrame->DestroyWindow();
+	//		return NULL;
+	//	}
+	//	pDocument->SetPathName(lpszPathName);
+	//}
+	
+	//InitialUpdateFrame(pFrame, pDocument, bMakeVisible);
+	return pDocument;
 }
 
 void CMultiDocTemplate::SetDefaultTitle(CDocument* pDocument)
 {
 	NSLog(@"TO DO CMultiDocTemplate::SetDefaultTitle");
+}
+
+POSITION CMultiDocTemplate::GetFirstDocPosition() const
+{
+	NSLog(@"TO DO CMultiDocTemplate::GetFirstDocPosition");
+}
+
+CDocument* CMultiDocTemplate::GetNextDoc(POSITION& rPos) const
+{
+	NSLog(@"TO DO CMultiDocTemplate::GetNextDoc");
 }

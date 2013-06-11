@@ -7,16 +7,25 @@
  *
  */
 
+#include "CDocTemplate.h"
+
 #include "CDocument.h"
+
+IMPLEMENT_DYNAMIC(CDocument, CObject)
 
 CDocument::CDocument()
 {
-
+	m_pDocTemplate = NULL;
 }
 
 CDocument::~CDocument()
 {
+	for (std::vector<CView*>::iterator it = m_viewList.begin() ; it != m_viewList.end(); ++it)
+	{
+		delete (*it);
+	}
 	
+	m_viewList.clear();
 }
 
 const CString& CDocument::GetTitle() const
@@ -95,6 +104,35 @@ void CDocument::OnCloseDocument()
 void CDocument::SetPathName(LPCTSTR lpszPathName, BOOL bAddToMRU)
 {
 	NSLog(@"TO DO CDocument::SetPathName");
+}
+
+void CDocument::AddView(CView* pView)
+{
+	m_viewList.push_back(pView);
+	
+	OnChangedViewList(); 
+}
+
+void CDocument::RemoveView(CView* pView )
+{
+	m_viewList.push_back(pView);
+	
+	for (std::vector<CView*>::iterator it = m_viewList.begin() ; it != m_viewList.end(); ++it)
+	{
+		if (pView == *it)
+		{
+			m_viewList.erase(it);
+			delete pView;
+			break;
+		}
+	}
+	
+	OnChangedViewList();  
+}
+
+void CDocument::OnChangedViewList()
+{
+	NSLog(@"TO DO CDocument::OnChangedViewList");
 }
 
 void CDocument::AddEventHandle(int objID, EventFun fun, int eventType)

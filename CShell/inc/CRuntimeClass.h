@@ -35,13 +35,14 @@ public:
 	}
 	
 	// Operations
-	CObject* CreateObject();
+	virtual CObject* CreateObject();
 	BOOL IsDerivedFrom(const CRuntimeClass* pBaseClass) const;
+	static CObject* CreateObjectStatic() ;
 	
 	// dynamic name lookup and creation
 	static CRuntimeClass* FromName(LPCSTR lpszClassName);
 	//static CRuntimeClass* FromName(LPCWSTR lpszClassName);
-	static CObject* CreateObject(LPCSTR lpszClassName);
+	//static CObject* CreateObject(LPCSTR lpszClassName);
 	//static CObject* CreateObject(LPCWSTR lpszClassName);
 	
 };

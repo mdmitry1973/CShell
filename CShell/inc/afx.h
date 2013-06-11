@@ -8,7 +8,7 @@
  */
 
 #ifndef AFX
-#define AFXN 1
+#define AFX 1
 
 #define __AFX_H__
 

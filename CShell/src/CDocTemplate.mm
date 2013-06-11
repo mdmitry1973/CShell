@@ -7,11 +7,13 @@
  *
  */
 
-#include "CDocTemplate.h"
+#include "afx.h"
 
 #include "CRuntimeClass.h"
 #include "CDocument.h"
 #include "CFrameWnd.h"
+
+#include "CDocTemplate.h"
 
 CDocTemplate::CDocTemplate(UINT nIDResource,
 			 CRuntimeClass* pDocClass,
@@ -49,7 +51,9 @@ BOOL CDocTemplate::GetDocString(CString& rString, enum DocStringIndex index) con
 
 void CDocTemplate::AddDocument(CDocument* pDoc)
 {
-	NSLog(@"TO DO CDocTemplate::AddDocument");
+	ASSERT_VALID(pDoc);
+	ASSERT(pDoc->m_pDocTemplate == NULL);   // no template attached yet
+	pDoc->m_pDocTemplate = this;
 }
 
 void CDocTemplate::CloseAllDocuments(BOOL bEndSession)
@@ -71,6 +75,10 @@ CFrameWnd* CDocTemplate::CreateNewFrame(CDocument* pDoc, CFrameWnd* pOther)
 	CFrameWnd* pFrame = (CFrameWnd*)m_pFrameClass->CreateObject();
 	
 	CCreateContext context;
+	
+	context.m_pNewViewClass = m_pViewClass;
+	context.m_pCurrentDoc = pDoc;
+	context.m_pNewDocTemplate = this;
 	
 	if (!pFrame->LoadFrame(m_nIDResource, WS_OVERLAPPEDWINDOW | FWS_ADDTOTITLE, NULL, &context))
 	{
@@ -176,4 +184,5 @@ void CDocTemplate::AddEventHandle(void *obj, EventFun fun, int eventType)
 {
 	AddEventHandle([(NSView *)obj tag], fun, eventType);
 }
+
 

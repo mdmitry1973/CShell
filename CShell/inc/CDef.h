@@ -564,9 +564,8 @@ typedef TCHAR _TCHAR;
 public:\
 virtual CString GetClassName() const;\
 virtual CString GetBaseClassName()  const;\
-static CObject* CreateObjectStatic();
-//virtual CObject* CreateObject();\
-//
+static CObject* CreateObjectStatic();\
+virtual CObject* CreateObject();
 
 
 #define IMPLEMENT_DYNAMIC(class_name, base_class_name) \
@@ -579,9 +578,9 @@ CString class_name::GetBaseClassName() const \
 	return #base_class_name; \
 }\
 CObject* class_name::CreateObjectStatic() \
+{ return new class_name; }\
+CObject* class_name::CreateObject() \
 { return new class_name; }
-//CObject* class_name::CreateObject() \
-//{ return new class_name; }\
 
 
 #define DECLARE_DYNCREATE(class_name) \
@@ -715,15 +714,6 @@ typedef struct tagCREATESTRUCT {
 	LPCTSTR   lpszClass;
 	DWORD     dwExStyle;
 } CREATESTRUCT, *LPCREATESTRUCT;
-
-struct CCreateContext
-{
-	void *m_pNewViewClass;
-	void *m_pCurrentDoc;
-	void *m_pNewDocTemplate;
-	void *m_pLastView;
-	void *m_pCurrentFrame;
-};
 
 
 #ifndef _TIME64_T_DEFINED

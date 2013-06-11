@@ -217,6 +217,9 @@
 		D2AAC0CC05546C4400DB518D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 		E50E3DF1172637B0002291CB /* CArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = E50E3DF0172637B0002291CB /* CArchive.mm */; };
 		E50E3E0A172639B5002291CB /* CArchiveException.mm in Sources */ = {isa = PBXBuildFile; fileRef = E50E3E09172639B5002291CB /* CArchiveException.mm */; };
+		E52B0B6517643361006A9195 /* CNSDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = E52B0B6417643361006A9195 /* CNSDocument.h */; };
+		E52B0B671764342F006A9195 /* CNSDocument.mm in Sources */ = {isa = PBXBuildFile; fileRef = E52B0B661764342F006A9195 /* CNSDocument.mm */; };
+		E52B0C2E17650611006A9195 /* afxext.h in Headers */ = {isa = PBXBuildFile; fileRef = E52B0C2D17650611006A9195 /* afxext.h */; };
 		E5C8FE811719DDD200979F57 /* CFile.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5C8FE801719DDD200979F57 /* CFile.mm */; };
 		E5C8FE831719DE0A00979F57 /* CFile.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C8FE821719DE0A00979F57 /* CFile.h */; };
 		E5C8FE871719DFD200979F57 /* CTime.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5C8FE861719DFD200979F57 /* CTime.mm */; };
@@ -240,33 +243,33 @@
 		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCF5E0370ADEE00C91783 /* CShell_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CShell_Prefix.pch; sourceTree = "<group>"; };
-		52686E62174B3481009CEA6A /* AfxPriv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AfxPriv.h; path = inc/AfxPriv.h; sourceTree = SOURCE_ROOT; };
-		52686ECB174BD790009CEA6A /* COleDropTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = COleDropTarget.h; path = inc/COleDropTarget.h; sourceTree = SOURCE_ROOT; };
+		52686E62174B3481009CEA6A /* AfxPriv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AfxPriv.h; sourceTree = "<group>"; };
+		52686ECB174BD790009CEA6A /* COleDropTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COleDropTarget.h; sourceTree = "<group>"; };
 		52686ED3174BD835009CEA6A /* CDocObjectServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDocObjectServer.h; path = inc/CDocObjectServer.h; sourceTree = SOURCE_ROOT; };
-		52686EDC174BD8E1009CEA6A /* COleServerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = COleServerItem.h; path = inc/COleServerItem.h; sourceTree = SOURCE_ROOT; };
+		52686EDC174BD8E1009CEA6A /* COleServerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COleServerItem.h; sourceTree = "<group>"; };
 		52686EF7174C00C5009CEA6A /* CRuntimeClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CRuntimeClass.h; path = inc/CRuntimeClass.h; sourceTree = SOURCE_ROOT; };
 		52686F09174C0147009CEA6A /* CPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPreviewView.h; path = inc/CPreviewView.h; sourceTree = SOURCE_ROOT; };
-		52686F2B174C749D009CEA6A /* COleServerDoc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = COleServerDoc.h; path = inc/COleServerDoc.h; sourceTree = SOURCE_ROOT; };
+		52686F2B174C749D009CEA6A /* COleServerDoc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COleServerDoc.h; sourceTree = "<group>"; };
 		52686F39174C758D009CEA6A /* CObList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CObList.h; path = inc/CObList.h; sourceTree = SOURCE_ROOT; };
-		52686F7B174C7B62009CEA6A /* COleTemplateServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = COleTemplateServer.h; path = inc/COleTemplateServer.h; sourceTree = SOURCE_ROOT; };
+		52686F7B174C7B62009CEA6A /* COleTemplateServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COleTemplateServer.h; sourceTree = "<group>"; };
 		52686FA9174C7E95009CEA6A /* CStringList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CStringList.h; path = inc/CStringList.h; sourceTree = SOURCE_ROOT; };
-		52686FC8174C7FD5009CEA6A /* COleResizeBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = COleResizeBar.h; path = inc/COleResizeBar.h; sourceTree = SOURCE_ROOT; };
-		52686FDA174C8054009CEA6A /* COleDocIPFrameWnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = COleDocIPFrameWnd.h; path = inc/COleDocIPFrameWnd.h; sourceTree = SOURCE_ROOT; };
+		52686FC8174C7FD5009CEA6A /* COleResizeBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COleResizeBar.h; sourceTree = "<group>"; };
+		52686FDA174C8054009CEA6A /* COleDocIPFrameWnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COleDocIPFrameWnd.h; sourceTree = "<group>"; };
 		52686FE7174C81AF009CEA6A /* CMultiDocTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMultiDocTemplate.h; path = inc/CMultiDocTemplate.h; sourceTree = SOURCE_ROOT; };
 		52686FEE17529923009CEA6A /* CToolBarCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CToolBarCtrl.h; path = inc/CToolBarCtrl.h; sourceTree = SOURCE_ROOT; };
 		5268706D1752A547009CEA6A /* CMDIChildWnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMDIChildWnd.h; path = inc/CMDIChildWnd.h; sourceTree = SOURCE_ROOT; };
-		526870D31752AE86009CEA6A /* guiddef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = guiddef.h; path = inc/guiddef.h; sourceTree = SOURCE_ROOT; };
-		526870E11753C87E009CEA6A /* COleMessageFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = COleMessageFilter.h; path = inc/COleMessageFilter.h; sourceTree = SOURCE_ROOT; };
-		5268711F1753CD3B009CEA6A /* windows.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = windows.h; path = inc/windows.h; sourceTree = SOURCE_ROOT; };
+		526870D31752AE86009CEA6A /* guiddef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiddef.h; sourceTree = "<group>"; };
+		526870E11753C87E009CEA6A /* COleMessageFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COleMessageFilter.h; sourceTree = "<group>"; };
+		5268711F1753CD3B009CEA6A /* windows.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = windows.h; sourceTree = "<group>"; };
 		526871601753D599009CEA6A /* CRuntimeClass.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CRuntimeClass.mm; path = src/CRuntimeClass.mm; sourceTree = SOURCE_ROOT; };
-		52687189175406F0009CEA6A /* shlobj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shlobj.h; path = inc/shlobj.h; sourceTree = SOURCE_ROOT; };
-		526872A317545C6F009CEA6A /* winspool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = winspool.h; path = inc/winspool.h; sourceTree = SOURCE_ROOT; };
+		52687189175406F0009CEA6A /* shlobj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shlobj.h; sourceTree = "<group>"; };
+		526872A317545C6F009CEA6A /* winspool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = winspool.h; sourceTree = "<group>"; };
 		526872BE17545CE5009CEA6A /* CommDlg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommDlg.h; path = inc/CommDlg.h; sourceTree = SOURCE_ROOT; };
 		526872C817545F74009CEA6A /* CMDIChildWnd.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CMDIChildWnd.mm; path = src/CMDIChildWnd.mm; sourceTree = SOURCE_ROOT; };
 		526872CA17545FB5009CEA6A /* CMDIFrameWnd.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CMDIFrameWnd.mm; path = src/CMDIFrameWnd.mm; sourceTree = SOURCE_ROOT; };
 		5268730C1754641D009CEA6A /* CRecentFileList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CRecentFileList.h; path = inc/CRecentFileList.h; sourceTree = SOURCE_ROOT; };
-		526873871755BD5F009CEA6A /* COleIPFrameWnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = COleIPFrameWnd.h; path = inc/COleIPFrameWnd.h; sourceTree = SOURCE_ROOT; };
-		52938F09172A316C008667D5 /* afx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = afx.h; path = inc/afx.h; sourceTree = SOURCE_ROOT; };
+		526873871755BD5F009CEA6A /* COleIPFrameWnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COleIPFrameWnd.h; sourceTree = "<group>"; };
+		52938F09172A316C008667D5 /* afx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afx.h; sourceTree = "<group>"; };
 		52938F0B172A3207008667D5 /* afx.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = afx.mm; path = src/afx.mm; sourceTree = SOURCE_ROOT; };
 		52938F5D172C4AA1008667D5 /* CArray.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CArray.mm; sourceTree = "<group>"; };
 		52938F93172C538E008667D5 /* CDumpContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDumpContext.h; path = inc/CDumpContext.h; sourceTree = SOURCE_ROOT; };
@@ -274,7 +277,7 @@
 		52938FB7172C5D21008667D5 /* CMapPtrToPtr.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CMapPtrToPtr.mm; path = src/CMapPtrToPtr.mm; sourceTree = SOURCE_ROOT; };
 		52938FBF172C5EC7008667D5 /* CPlex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPlex.h; path = inc/CPlex.h; sourceTree = SOURCE_ROOT; };
 		52938FC1172C5F32008667D5 /* CPlex.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CPlex.mm; path = src/CPlex.mm; sourceTree = SOURCE_ROOT; };
-		52939071172CE5DF008667D5 /* winerror.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = winerror.h; path = inc/winerror.h; sourceTree = SOURCE_ROOT; };
+		52939071172CE5DF008667D5 /* winerror.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = winerror.h; sourceTree = "<group>"; };
 		5293907D172CE7BB008667D5 /* shlwapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shlwapi.h; path = inc/shlwapi.h; sourceTree = SOURCE_ROOT; };
 		529390AD172D9E50008667D5 /* CFileFind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFileFind.h; path = inc/CFileFind.h; sourceTree = SOURCE_ROOT; };
 		529390AF172D9E7B008667D5 /* CFileFind.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CFileFind.mm; path = src/CFileFind.mm; sourceTree = SOURCE_ROOT; };
@@ -284,33 +287,33 @@
 		52B42322175C311D006FE600 /* CScrollView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CScrollView.mm; path = src/CScrollView.mm; sourceTree = SOURCE_ROOT; };
 		52B42332175C3408006FE600 /* CPen.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CPen.mm; path = src/CPen.mm; sourceTree = SOURCE_ROOT; };
 		52B4233F175C35C0006FE600 /* CGdiObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CGdiObject.mm; path = src/CGdiObject.mm; sourceTree = SOURCE_ROOT; };
-		52B42392175C481C006FE600 /* COleClientItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = COleClientItem.h; path = inc/COleClientItem.h; sourceTree = SOURCE_ROOT; };
+		52B42392175C481C006FE600 /* COleClientItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COleClientItem.h; sourceTree = "<group>"; };
 		52B423C1175C4B02006FE600 /* CDocObjectServerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDocObjectServerItem.h; path = inc/CDocObjectServerItem.h; sourceTree = SOURCE_ROOT; };
-		52B423CD175C4B7B006FE600 /* COleDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = COleDataSource.h; path = inc/COleDataSource.h; sourceTree = SOURCE_ROOT; };
-		52B423D7175C4C1C006FE600 /* wtypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = wtypes.h; path = inc/wtypes.h; sourceTree = SOURCE_ROOT; };
+		52B423CD175C4B7B006FE600 /* COleDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COleDataSource.h; sourceTree = "<group>"; };
+		52B423D7175C4C1C006FE600 /* wtypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wtypes.h; sourceTree = "<group>"; };
 		52B423F3175C4E0F006FE600 /* CTypedPtrArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTypedPtrArray.h; path = inc/CTypedPtrArray.h; sourceTree = SOURCE_ROOT; };
 		52B4240D175C5E6D006FE600 /* CWinThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWinThread.h; path = inc/CWinThread.h; sourceTree = SOURCE_ROOT; };
 		52B42427175C62B0006FE600 /* CFileDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFileDialog.h; path = inc/CFileDialog.h; sourceTree = SOURCE_ROOT; };
-		52B42462175D971C006FE600 /* afxmt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = afxmt.h; path = inc/afxmt.h; sourceTree = SOURCE_ROOT; };
+		52B42462175D971C006FE600 /* afxmt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afxmt.h; sourceTree = "<group>"; };
 		52B4246B175D9761006FE600 /* CSingleLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSingleLock.h; path = inc/CSingleLock.h; sourceTree = SOURCE_ROOT; };
-		52B42477175D99A1006FE600 /* COleDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = COleDocument.h; path = inc/COleDocument.h; sourceTree = SOURCE_ROOT; };
+		52B42477175D99A1006FE600 /* COleDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COleDocument.h; sourceTree = "<group>"; };
 		52B4248D175DA391006FE600 /* CDocManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDocManager.h; path = inc/CDocManager.h; sourceTree = SOURCE_ROOT; };
 		52B425D017603475006FE600 /* CFileDialog.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CFileDialog.mm; path = src/CFileDialog.mm; sourceTree = SOURCE_ROOT; };
 		52B4260117603DFE006FE600 /* CStringList.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CStringList.mm; path = src/CStringList.mm; sourceTree = SOURCE_ROOT; };
 		52B427CF176193C7006FE600 /* SDKDDKVer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SDKDDKVer.h; path = inc/SDKDDKVer.h; sourceTree = SOURCE_ROOT; };
-		52B427D117619419006FE600 /* afxcontrolbars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = afxcontrolbars.h; path = inc/afxcontrolbars.h; sourceTree = SOURCE_ROOT; };
-		52B427DB176194CF006FE600 /* afxwinappex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = afxwinappex.h; path = inc/afxwinappex.h; sourceTree = SOURCE_ROOT; };
-		52B427DD176194F4006FE600 /* afxdialogex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = afxdialogex.h; path = inc/afxdialogex.h; sourceTree = SOURCE_ROOT; };
+		52B427D117619419006FE600 /* afxcontrolbars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afxcontrolbars.h; sourceTree = "<group>"; };
+		52B427DB176194CF006FE600 /* afxwinappex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afxwinappex.h; sourceTree = "<group>"; };
+		52B427DD176194F4006FE600 /* afxdialogex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afxdialogex.h; sourceTree = "<group>"; };
 		52B427ED176195F7006FE600 /* propkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = propkey.h; path = inc/propkey.h; sourceTree = SOURCE_ROOT; };
 		52B427F7176197DD006FE600 /* CMFCMenuBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMFCMenuBar.h; path = inc/CMFCMenuBar.h; sourceTree = SOURCE_ROOT; };
 		52B427FA17619892006FE600 /* CMFCToolBarImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMFCToolBarImages.h; path = inc/CMFCToolBarImages.h; sourceTree = SOURCE_ROOT; };
 		52D51BEE17409CFE007FEC86 /* CMDIFrameWnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMDIFrameWnd.h; path = inc/CMDIFrameWnd.h; sourceTree = SOURCE_ROOT; };
 		52D51BF817409E27007FEC86 /* CDockState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDockState.h; path = inc/CDockState.h; sourceTree = SOURCE_ROOT; };
 		52D51C1817409F9D007FEC86 /* CCmdUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCmdUI.h; path = inc/CCmdUI.h; sourceTree = SOURCE_ROOT; };
-		52D51C591740A460007FEC86 /* afxdocob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = afxdocob.h; path = inc/afxdocob.h; sourceTree = SOURCE_ROOT; };
-		52D51C5F1740A47D007FEC86 /* afxadv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = afxadv.h; path = inc/afxadv.h; sourceTree = SOURCE_ROOT; };
-		52D51C651740A498007FEC86 /* afxsock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = afxsock.h; path = inc/afxsock.h; sourceTree = SOURCE_ROOT; };
-		52D51C791740A622007FEC86 /* wingdi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = wingdi.h; path = inc/wingdi.h; sourceTree = SOURCE_ROOT; };
+		52D51C591740A460007FEC86 /* afxdocob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afxdocob.h; sourceTree = "<group>"; };
+		52D51C5F1740A47D007FEC86 /* afxadv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afxadv.h; sourceTree = "<group>"; };
+		52D51C651740A498007FEC86 /* afxsock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afxsock.h; sourceTree = "<group>"; };
+		52D51C791740A622007FEC86 /* wingdi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wingdi.h; sourceTree = "<group>"; };
 		52DCC38E1741DE8900ACF79C /* CPen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPen.h; path = inc/CPen.h; sourceTree = SOURCE_ROOT; };
 		52DCC3901741DF2B00ACF79C /* CGdiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGdiObject.h; path = inc/CGdiObject.h; sourceTree = SOURCE_ROOT; };
 		52DCC3921741E09800ACF79C /* CBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBrush.h; path = inc/CBrush.h; sourceTree = SOURCE_ROOT; };
@@ -318,34 +321,34 @@
 		52DCC3C21741E4DD00ACF79C /* CommCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommCtrl.h; path = inc/CommCtrl.h; sourceTree = SOURCE_ROOT; };
 		52DCC3C41741E67100ACF79C /* CToolTipCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CToolTipCtrl.h; path = inc/CToolTipCtrl.h; sourceTree = SOURCE_ROOT; };
 		52DCC3CE1741E98300ACF79C /* CImageList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CImageList.h; path = inc/CImageList.h; sourceTree = SOURCE_ROOT; };
-		52DCC3F61741F03100ACF79C /* COleDataObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = COleDataObject.h; path = inc/COleDataObject.h; sourceTree = SOURCE_ROOT; };
+		52DCC3F61741F03100ACF79C /* COleDataObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COleDataObject.h; sourceTree = "<group>"; };
 		52DCC4041741F10B00ACF79C /* CWaitCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWaitCursor.h; path = inc/CWaitCursor.h; sourceTree = SOURCE_ROOT; };
 		52DCC40F1741F19900ACF79C /* CStatic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CStatic.h; path = inc/CStatic.h; sourceTree = SOURCE_ROOT; };
 		52DCC4201741F23100ACF79C /* CScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CScrollView.h; path = inc/CScrollView.h; sourceTree = SOURCE_ROOT; };
 		52DCC4321741F36A00ACF79C /* CDocItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDocItem.h; path = inc/CDocItem.h; sourceTree = SOURCE_ROOT; };
-		52E7680E172F739E00F6271A /* winnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = winnt.h; path = inc/winnt.h; sourceTree = SOURCE_ROOT; };
-		52E7682E172F7BB200F6271A /* winreg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = winreg.h; path = inc/winreg.h; sourceTree = SOURCE_ROOT; };
+		52E7680E172F739E00F6271A /* winnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = winnt.h; sourceTree = "<group>"; };
+		52E7682E172F7BB200F6271A /* winreg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = winreg.h; sourceTree = "<group>"; };
 		52E768E21730C3AD00F6271A /* winreg.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = winreg.mm; path = src/winreg.mm; sourceTree = SOURCE_ROOT; };
-		52E76D731736070800F6271A /* winuser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = winuser.h; path = inc/winuser.h; sourceTree = SOURCE_ROOT; };
+		52E76D731736070800F6271A /* winuser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = winuser.h; sourceTree = "<group>"; };
 		52E76E641736E23400F6271A /* winuser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = winuser.mm; path = src/winuser.mm; sourceTree = SOURCE_ROOT; };
-		8200978B14D63B89002BBD0D /* CNSWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CNSWindow.h; path = inc/CNSWindow.h; sourceTree = SOURCE_ROOT; };
-		8200978D14D63BAC002BBD0D /* CNSWindow.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CNSWindow.mm; path = src/CNSWindow.mm; sourceTree = SOURCE_ROOT; };
+		8200978B14D63B89002BBD0D /* CNSWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNSWindow.h; sourceTree = "<group>"; };
+		8200978D14D63BAC002BBD0D /* CNSWindow.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CNSWindow.mm; sourceTree = "<group>"; };
 		822203B514C92EF9008B8BA0 /* CNSView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CNSView.mm; sourceTree = "<group>"; };
 		822203BF14C92FBE008B8BA0 /* CNSButton.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CNSButton.mm; sourceTree = "<group>"; };
 		822203D514C93072008B8BA0 /* CNSProgressIndicator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CNSProgressIndicator.mm; sourceTree = "<group>"; };
-		822203EA14C9313B008B8BA0 /* CNSButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CNSButton.h; path = inc/CNSButton.h; sourceTree = SOURCE_ROOT; };
-		822203EB14C9313B008B8BA0 /* CNSProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CNSProgressIndicator.h; path = inc/CNSProgressIndicator.h; sourceTree = SOURCE_ROOT; };
-		822203EC14C9313B008B8BA0 /* CNSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CNSView.h; path = inc/CNSView.h; sourceTree = SOURCE_ROOT; };
+		822203EA14C9313B008B8BA0 /* CNSButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNSButton.h; sourceTree = "<group>"; };
+		822203EB14C9313B008B8BA0 /* CNSProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNSProgressIndicator.h; sourceTree = "<group>"; };
+		822203EC14C9313B008B8BA0 /* CNSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNSView.h; sourceTree = "<group>"; };
 		823C5AC014E21A6C00224AB6 /* CNSWindowHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNSWindowHandle.h; sourceTree = "<group>"; };
 		823C5AC614E21A7600224AB6 /* CNSWindowHandle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CNSWindowHandle.mm; sourceTree = "<group>"; };
 		823C5AD114E21B1700224AB6 /* CNSWindowDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CNSWindowDelegate.mm; sourceTree = "<group>"; };
 		823C5AD314E21B2300224AB6 /* CNSWindowDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNSWindowDelegate.h; sourceTree = "<group>"; };
-		823C5BCD14E2321400224AB6 /* CNSTextFieldDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CNSTextFieldDelegate.h; path = inc/CNSTextFieldDelegate.h; sourceTree = SOURCE_ROOT; };
-		823C5BCF14E2321E00224AB6 /* CNSTextFieldDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CNSTextFieldDelegate.mm; path = src/CNSTextFieldDelegate.mm; sourceTree = SOURCE_ROOT; };
-		823C5BD714E2330F00224AB6 /* CNSControlDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CNSControlDelegate.h; path = inc/CNSControlDelegate.h; sourceTree = SOURCE_ROOT; };
-		823C5BD914E2331600224AB6 /* CNSControlDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CNSControlDelegate.mm; path = src/CNSControlDelegate.mm; sourceTree = SOURCE_ROOT; };
-		823C5BDD14E233BD00224AB6 /* CNSWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CNSWindowController.h; path = inc/CNSWindowController.h; sourceTree = SOURCE_ROOT; };
-		823C5BDF14E233C600224AB6 /* CNSWindowController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CNSWindowController.mm; path = src/CNSWindowController.mm; sourceTree = SOURCE_ROOT; };
+		823C5BCD14E2321400224AB6 /* CNSTextFieldDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNSTextFieldDelegate.h; sourceTree = "<group>"; };
+		823C5BCF14E2321E00224AB6 /* CNSTextFieldDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CNSTextFieldDelegate.mm; sourceTree = "<group>"; };
+		823C5BD714E2330F00224AB6 /* CNSControlDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNSControlDelegate.h; sourceTree = "<group>"; };
+		823C5BD914E2331600224AB6 /* CNSControlDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CNSControlDelegate.mm; sourceTree = "<group>"; };
+		823C5BDD14E233BD00224AB6 /* CNSWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNSWindowController.h; sourceTree = "<group>"; };
+		823C5BDF14E233C600224AB6 /* CNSWindowController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CNSWindowController.mm; sourceTree = "<group>"; };
 		82409E4E14E8A94D0094EA9C /* CTabCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTabCtrl.h; path = inc/CTabCtrl.h; sourceTree = SOURCE_ROOT; };
 		82409E5014E8A95A0094EA9C /* CTabCtrl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CTabCtrl.mm; path = src/CTabCtrl.mm; sourceTree = SOURCE_ROOT; };
 		82409E6014E8AB2C0094EA9C /* CObArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CObArray.h; path = inc/CObArray.h; sourceTree = SOURCE_ROOT; };
@@ -364,12 +367,12 @@
 		82409EE614E8B58A0094EA9C /* CFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFont.h; path = inc/CFont.h; sourceTree = SOURCE_ROOT; };
 		82409F6814E8C50B0094EA9C /* CDC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDC.h; path = inc/CDC.h; sourceTree = SOURCE_ROOT; };
 		82409F6A14E8C5130094EA9C /* CDC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CDC.mm; path = src/CDC.mm; sourceTree = SOURCE_ROOT; };
-		8245B2A714EB595B00265DEE /* CNSTabView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CNSTabView.mm; path = src/CNSTabView.mm; sourceTree = SOURCE_ROOT; };
-		8245B2A914EB596700265DEE /* CNSTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CNSTabView.h; path = inc/CNSTabView.h; sourceTree = SOURCE_ROOT; };
+		8245B2A714EB595B00265DEE /* CNSTabView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CNSTabView.mm; sourceTree = "<group>"; };
+		8245B2A914EB596700265DEE /* CNSTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNSTabView.h; sourceTree = "<group>"; };
 		824E1F3014F03581009B7C2B /* CNSTabViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNSTabViewDelegate.h; sourceTree = "<group>"; };
-		824E1F4714F03593009B7C2B /* CNSTabViewDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CNSTabViewDelegate.mm; path = src/CNSTabViewDelegate.mm; sourceTree = SOURCE_ROOT; };
+		824E1F4714F03593009B7C2B /* CNSTabViewDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CNSTabViewDelegate.mm; sourceTree = "<group>"; };
 		826ABBCF14E765FD00B8A721 /* CNSApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNSApplicationDelegate.h; sourceTree = "<group>"; };
-		826ABBD114E7662F00B8A721 /* CNSApplicationDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CNSApplicationDelegate.mm; path = src/CNSApplicationDelegate.mm; sourceTree = SOURCE_ROOT; };
+		826ABBD114E7662F00B8A721 /* CNSApplicationDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CNSApplicationDelegate.mm; sourceTree = "<group>"; };
 		829D79C314ABF12100C53168 /* CEdit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEdit.h; path = inc/CEdit.h; sourceTree = SOURCE_ROOT; };
 		829D79C414ABF12100C53168 /* CSpinButtonCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSpinButtonCtrl.h; path = inc/CSpinButtonCtrl.h; sourceTree = SOURCE_ROOT; };
 		829D79C714ABF12A00C53168 /* CEdit.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CEdit.mm; path = src/CEdit.mm; sourceTree = SOURCE_ROOT; };
@@ -388,20 +391,20 @@
 		82A8329514F73C9A00D9C9FC /* CCommandLineInfo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CCommandLineInfo.mm; path = src/CCommandLineInfo.mm; sourceTree = SOURCE_ROOT; };
 		82B3111914DF8EF000B8183C /* CBitmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBitmap.h; path = inc/CBitmap.h; sourceTree = SOURCE_ROOT; };
 		82B3111B14DF8F1900B8183C /* CBitmap.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CBitmap.mm; path = src/CBitmap.mm; sourceTree = SOURCE_ROOT; };
-		82C0C07214CBAC6100BE82C2 /* CNSBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CNSBox.h; path = inc/CNSBox.h; sourceTree = SOURCE_ROOT; };
-		82C0C07314CBAC6100BE82C2 /* CNSImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CNSImageView.h; path = inc/CNSImageView.h; sourceTree = SOURCE_ROOT; };
-		82C0C07414CBAC6100BE82C2 /* CNSSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CNSSlider.h; path = inc/CNSSlider.h; sourceTree = SOURCE_ROOT; };
-		82C0C07514CBAC6100BE82C2 /* CNSStepper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CNSStepper.h; path = inc/CNSStepper.h; sourceTree = SOURCE_ROOT; };
-		82C0C07614CBAC6100BE82C2 /* CNSTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CNSTableView.h; path = inc/CNSTableView.h; sourceTree = SOURCE_ROOT; };
-		82C0C07714CBAC6100BE82C2 /* CNSTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CNSTextField.h; path = inc/CNSTextField.h; sourceTree = SOURCE_ROOT; };
-		82C0C07E14CBAD5900BE82C2 /* CNSPopUpButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CNSPopUpButton.h; path = inc/CNSPopUpButton.h; sourceTree = SOURCE_ROOT; };
-		82C0C08014CBAE1700BE82C2 /* CNSBox.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CNSBox.mm; path = src/CNSBox.mm; sourceTree = SOURCE_ROOT; };
-		82C0C08114CBAE1700BE82C2 /* CNSImageView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CNSImageView.mm; path = src/CNSImageView.mm; sourceTree = SOURCE_ROOT; };
-		82C0C08214CBAE1700BE82C2 /* CNSPopUpButton.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CNSPopUpButton.mm; path = src/CNSPopUpButton.mm; sourceTree = SOURCE_ROOT; };
-		82C0C08314CBAE1700BE82C2 /* CNSSlider.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CNSSlider.mm; path = src/CNSSlider.mm; sourceTree = SOURCE_ROOT; };
-		82C0C08414CBAE1700BE82C2 /* CNSStepper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CNSStepper.mm; path = src/CNSStepper.mm; sourceTree = SOURCE_ROOT; };
-		82C0C08514CBAE1700BE82C2 /* CNSTableView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CNSTableView.mm; path = src/CNSTableView.mm; sourceTree = SOURCE_ROOT; };
-		82C0C08614CBAE1700BE82C2 /* CNSTextField.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CNSTextField.mm; path = src/CNSTextField.mm; sourceTree = SOURCE_ROOT; };
+		82C0C07214CBAC6100BE82C2 /* CNSBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNSBox.h; sourceTree = "<group>"; };
+		82C0C07314CBAC6100BE82C2 /* CNSImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNSImageView.h; sourceTree = "<group>"; };
+		82C0C07414CBAC6100BE82C2 /* CNSSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNSSlider.h; sourceTree = "<group>"; };
+		82C0C07514CBAC6100BE82C2 /* CNSStepper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNSStepper.h; sourceTree = "<group>"; };
+		82C0C07614CBAC6100BE82C2 /* CNSTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNSTableView.h; sourceTree = "<group>"; };
+		82C0C07714CBAC6100BE82C2 /* CNSTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNSTextField.h; sourceTree = "<group>"; };
+		82C0C07E14CBAD5900BE82C2 /* CNSPopUpButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNSPopUpButton.h; sourceTree = "<group>"; };
+		82C0C08014CBAE1700BE82C2 /* CNSBox.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CNSBox.mm; sourceTree = "<group>"; };
+		82C0C08114CBAE1700BE82C2 /* CNSImageView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CNSImageView.mm; sourceTree = "<group>"; };
+		82C0C08214CBAE1700BE82C2 /* CNSPopUpButton.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CNSPopUpButton.mm; sourceTree = "<group>"; };
+		82C0C08314CBAE1700BE82C2 /* CNSSlider.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CNSSlider.mm; sourceTree = "<group>"; };
+		82C0C08414CBAE1700BE82C2 /* CNSStepper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CNSStepper.mm; sourceTree = "<group>"; };
+		82C0C08514CBAE1700BE82C2 /* CNSTableView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CNSTableView.mm; sourceTree = "<group>"; };
+		82C0C08614CBAE1700BE82C2 /* CNSTextField.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CNSTextField.mm; sourceTree = "<group>"; };
 		82CE87A014D10065006623BD /* CListBox.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CListBox.mm; path = src/CListBox.mm; sourceTree = SOURCE_ROOT; };
 		82CE87A214D10070006623BD /* CListBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CListBox.h; path = inc/CListBox.h; sourceTree = SOURCE_ROOT; };
 		82D62F4C14F2AD8000F0FE62 /* CArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CArray.h; path = inc/CArray.h; sourceTree = SOURCE_ROOT; };
@@ -420,7 +423,7 @@
 		82D62FE314F2C07B00F0FE62 /* CPrintDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPrintDialog.h; path = inc/CPrintDialog.h; sourceTree = SOURCE_ROOT; };
 		82D62FE514F2C0BD00F0FE62 /* CPrintDialog.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CPrintDialog.mm; path = src/CPrintDialog.mm; sourceTree = SOURCE_ROOT; };
 		82D62FE614F2C0BD00F0FE62 /* CPrintInfo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CPrintInfo.mm; path = src/CPrintInfo.mm; sourceTree = SOURCE_ROOT; };
-		82D62FF914F2C41800F0FE62 /* afxres.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = afxres.h; path = inc/afxres.h; sourceTree = SOURCE_ROOT; };
+		82D62FF914F2C41800F0FE62 /* afxres.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afxres.h; sourceTree = "<group>"; };
 		82DE159414AAC0A1001919E9 /* CButton.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CButton.mm; path = src/CButton.mm; sourceTree = SOURCE_ROOT; };
 		82DE159514AAC0A1001919E9 /* CComboBox.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CComboBox.mm; path = src/CComboBox.mm; sourceTree = SOURCE_ROOT; };
 		82DE159614AAC0A1001919E9 /* CDataExchange.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CDataExchange.mm; path = src/CDataExchange.mm; sourceTree = SOURCE_ROOT; };
@@ -431,7 +434,7 @@
 		82DE159B14AAC0A1001919E9 /* CTargetEvent.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CTargetEvent.mm; sourceTree = "<group>"; };
 		82DE159C14AAC0A1001919E9 /* CWinApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CWinApp.mm; path = src/CWinApp.mm; sourceTree = SOURCE_ROOT; };
 		82DE159D14AAC0A1001919E9 /* CWnd.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CWnd.mm; path = src/CWnd.mm; sourceTree = SOURCE_ROOT; };
-		82DE15A914AAC0A8001919E9 /* afxwin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = afxwin.h; path = inc/afxwin.h; sourceTree = SOURCE_ROOT; };
+		82DE15A914AAC0A8001919E9 /* afxwin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afxwin.h; sourceTree = "<group>"; };
 		82DE15AA14AAC0A8001919E9 /* CButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CButton.h; path = inc/CButton.h; sourceTree = SOURCE_ROOT; };
 		82DE15AB14AAC0A8001919E9 /* CComboBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CComboBox.h; path = inc/CComboBox.h; sourceTree = SOURCE_ROOT; };
 		82DE15AC14AAC0A8001919E9 /* CDataExchange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDataExchange.h; path = inc/CDataExchange.h; sourceTree = SOURCE_ROOT; };
@@ -451,6 +454,9 @@
 		D2AAC0C705546C1D00DB518D /* CShell.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = CShell.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		E50E3DF0172637B0002291CB /* CArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CArchive.mm; path = src/CArchive.mm; sourceTree = SOURCE_ROOT; };
 		E50E3E09172639B5002291CB /* CArchiveException.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CArchiveException.mm; path = src/CArchiveException.mm; sourceTree = SOURCE_ROOT; };
+		E52B0B6417643361006A9195 /* CNSDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNSDocument.h; sourceTree = "<group>"; };
+		E52B0B661764342F006A9195 /* CNSDocument.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CNSDocument.mm; sourceTree = "<group>"; };
+		E52B0C2D17650611006A9195 /* afxext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afxext.h; sourceTree = "<group>"; };
 		E5C8FE801719DDD200979F57 /* CFile.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CFile.mm; path = src/CFile.mm; sourceTree = SOURCE_ROOT; };
 		E5C8FE821719DE0A00979F57 /* CFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFile.h; path = inc/CFile.h; sourceTree = SOURCE_ROOT; };
 		E5C8FE861719DFD200979F57 /* CTime.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CTime.mm; path = src/CTime.mm; sourceTree = SOURCE_ROOT; };
@@ -459,7 +465,7 @@
 		E5C8FE961719FD2D00979F57 /* CFileException.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CFileException.mm; path = src/CFileException.mm; sourceTree = SOURCE_ROOT; };
 		E5C8FEA41719FDFB00979F57 /* CException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CException.h; path = inc/CException.h; sourceTree = SOURCE_ROOT; };
 		E5C8FEA61719FE2700979F57 /* CException.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CException.mm; path = src/CException.mm; sourceTree = SOURCE_ROOT; };
-		E5C8FEEB171A354800979F57 /* winbase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = winbase.h; path = inc/winbase.h; sourceTree = SOURCE_ROOT; };
+		E5C8FEEB171A354800979F57 /* winbase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = winbase.h; sourceTree = "<group>"; };
 		E5C8FEED171A35A300979F57 /* winbase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = winbase.mm; path = src/winbase.mm; sourceTree = SOURCE_ROOT; };
 		E5E398D6171D14E800549555 /* CArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CArchive.h; sourceTree = "<group>"; };
 		E5E398DC171D156100549555 /* CStringArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CStringArray.h; sourceTree = "<group>"; };
@@ -547,6 +553,7 @@
 		82DE159314AAC0A1001919E9 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				E52B0C5B176510B8006A9195 /* ns */,
 				E50E3DF0172637B0002291CB /* CArchive.mm */,
 				52938F5D172C4AA1008667D5 /* CArray.mm */,
 				E50E3E09172639B5002291CB /* CArchiveException.mm */,
@@ -603,25 +610,6 @@
 				52B42239175BE59A006FE600 /* CWaitCursor.mm */,
 				82DE159C14AAC0A1001919E9 /* CWinApp.mm */,
 				82DE159D14AAC0A1001919E9 /* CWnd.mm */,
-				826ABBD114E7662F00B8A721 /* CNSApplicationDelegate.mm */,
-				8200978D14D63BAC002BBD0D /* CNSWindow.mm */,
-				822203B514C92EF9008B8BA0 /* CNSView.mm */,
-				822203BF14C92FBE008B8BA0 /* CNSButton.mm */,
-				822203D514C93072008B8BA0 /* CNSProgressIndicator.mm */,
-				82C0C08014CBAE1700BE82C2 /* CNSBox.mm */,
-				82C0C08114CBAE1700BE82C2 /* CNSImageView.mm */,
-				82C0C08214CBAE1700BE82C2 /* CNSPopUpButton.mm */,
-				82C0C08314CBAE1700BE82C2 /* CNSSlider.mm */,
-				82C0C08414CBAE1700BE82C2 /* CNSStepper.mm */,
-				8245B2A714EB595B00265DEE /* CNSTabView.mm */,
-				82C0C08514CBAE1700BE82C2 /* CNSTableView.mm */,
-				82C0C08614CBAE1700BE82C2 /* CNSTextField.mm */,
-				823C5AC614E21A7600224AB6 /* CNSWindowHandle.mm */,
-				823C5AD114E21B1700224AB6 /* CNSWindowDelegate.mm */,
-				823C5BCF14E2321E00224AB6 /* CNSTextFieldDelegate.mm */,
-				823C5BD914E2331600224AB6 /* CNSControlDelegate.mm */,
-				823C5BDF14E233C600224AB6 /* CNSWindowController.mm */,
-				824E1F4714F03593009B7C2B /* CNSTabViewDelegate.mm */,
 				529390AF172D9E7B008667D5 /* CFileFind.mm */,
 				529390CC172DA3DC008667D5 /* CMemFile.mm */,
 				E5C8FE861719DFD200979F57 /* CTime.mm */,
@@ -638,6 +626,10 @@
 		82DE15A814AAC0A8001919E9 /* inc */ = {
 			isa = PBXGroup;
 			children = (
+				E52B0C5A1765105E006A9195 /* ole */,
+				E52B0C5917651036006A9195 /* win */,
+				E52B0C5817651015006A9195 /* ns */,
+				E52B0C5617650FEA006A9195 /* afx */,
 				52D51C1817409F9D007FEC86 /* CCmdUI.h */,
 				52D51BF817409E27007FEC86 /* CDockState.h */,
 				52D51BEE17409CFE007FEC86 /* CMDIFrameWnd.h */,
@@ -652,19 +644,8 @@
 				52DCC3C41741E67100ACF79C /* CToolTipCtrl.h */,
 				52DCC3CE1741E98300ACF79C /* CImageList.h */,
 				52B427F7176197DD006FE600 /* CMFCMenuBar.h */,
-				52DCC3F61741F03100ACF79C /* COleDataObject.h */,
-				52686ECB174BD790009CEA6A /* COleDropTarget.h */,
 				52686ED3174BD835009CEA6A /* CDocObjectServer.h */,
 				52B423C1175C4B02006FE600 /* CDocObjectServerItem.h */,
-				526870E11753C87E009CEA6A /* COleMessageFilter.h */,
-				52686EDC174BD8E1009CEA6A /* COleServerItem.h */,
-				52B42392175C481C006FE600 /* COleClientItem.h */,
-				52686F2B174C749D009CEA6A /* COleServerDoc.h */,
-				52686F7B174C7B62009CEA6A /* COleTemplateServer.h */,
-				52686FC8174C7FD5009CEA6A /* COleResizeBar.h */,
-				52686FDA174C8054009CEA6A /* COleDocIPFrameWnd.h */,
-				526873871755BD5F009CEA6A /* COleIPFrameWnd.h */,
-				52B423CD175C4B7B006FE600 /* COleDataSource.h */,
 				52686FE7174C81AF009CEA6A /* CMultiDocTemplate.h */,
 				5268706D1752A547009CEA6A /* CMDIChildWnd.h */,
 				52686F39174C758D009CEA6A /* CObList.h */,
@@ -681,37 +662,14 @@
 				52B4240D175C5E6D006FE600 /* CWinThread.h */,
 				52B42427175C62B0006FE600 /* CFileDialog.h */,
 				52B4246B175D9761006FE600 /* CSingleLock.h */,
-				52B42477175D99A1006FE600 /* COleDocument.h */,
 				52B4248D175DA391006FE600 /* CDocManager.h */,
 				52B427FA17619892006FE600 /* CMFCToolBarImages.h */,
 				82DE15AD14AAC0A8001919E9 /* CDef.h */,
-				526870D31752AE86009CEA6A /* guiddef.h */,
-				52687189175406F0009CEA6A /* shlobj.h */,
-				52939071172CE5DF008667D5 /* winerror.h */,
-				52E7680E172F739E00F6271A /* winnt.h */,
-				E5C8FEEB171A354800979F57 /* winbase.h */,
-				52E7682E172F7BB200F6271A /* winreg.h */,
-				52E76D731736070800F6271A /* winuser.h */,
-				52D51C791740A622007FEC86 /* wingdi.h */,
-				526872A317545C6F009CEA6A /* winspool.h */,
-				5268711F1753CD3B009CEA6A /* windows.h */,
-				52B423D7175C4C1C006FE600 /* wtypes.h */,
 				52DCC3C21741E4DD00ACF79C /* CommCtrl.h */,
 				526872BE17545CE5009CEA6A /* CommDlg.h */,
 				52B427ED176195F7006FE600 /* propkey.h */,
 				52B427CF176193C7006FE600 /* SDKDDKVer.h */,
-				52B427D117619419006FE600 /* afxcontrolbars.h */,
-				52B427DB176194CF006FE600 /* afxwinappex.h */,
-				52B427DD176194F4006FE600 /* afxdialogex.h */,
-				52938F09172A316C008667D5 /* afx.h */,
-				52686E62174B3481009CEA6A /* AfxPriv.h */,
-				82DE15A914AAC0A8001919E9 /* afxwin.h */,
-				82D62FF914F2C41800F0FE62 /* afxres.h */,
 				5293907D172CE7BB008667D5 /* shlwapi.h */,
-				52D51C591740A460007FEC86 /* afxdocob.h */,
-				52B42462175D971C006FE600 /* afxmt.h */,
-				52D51C5F1740A47D007FEC86 /* afxadv.h */,
-				52D51C651740A498007FEC86 /* afxsock.h */,
 				E5E398D6171D14E800549555 /* CArchive.h */,
 				E5E399CA1720F3A600549555 /* CArchiveException.h */,
 				82D62F4C14F2AD8000F0FE62 /* CArray.h */,
@@ -760,13 +718,38 @@
 				82DE15B314AAC0A8001919E9 /* CWinApp.h */,
 				82DE15B414AAC0A8001919E9 /* CWnd.h */,
 				82D62FCD14F2BF0100F0FE62 /* CView.h */,
+			);
+			path = inc;
+			sourceTree = SOURCE_ROOT;
+		};
+		E52B0C5617650FEA006A9195 /* afx */ = {
+			isa = PBXGroup;
+			children = (
+				52B427D117619419006FE600 /* afxcontrolbars.h */,
+				52B427DB176194CF006FE600 /* afxwinappex.h */,
+				52B427DD176194F4006FE600 /* afxdialogex.h */,
+				52938F09172A316C008667D5 /* afx.h */,
+				52686E62174B3481009CEA6A /* AfxPriv.h */,
+				82DE15A914AAC0A8001919E9 /* afxwin.h */,
+				E52B0C2D17650611006A9195 /* afxext.h */,
+				82D62FF914F2C41800F0FE62 /* afxres.h */,
+				52D51C591740A460007FEC86 /* afxdocob.h */,
+				52B42462175D971C006FE600 /* afxmt.h */,
+				52D51C5F1740A47D007FEC86 /* afxadv.h */,
+				52D51C651740A498007FEC86 /* afxsock.h */,
+			);
+			name = afx;
+			sourceTree = "<group>";
+		};
+		E52B0C5817651015006A9195 /* ns */ = {
+			isa = PBXGroup;
+			children = (
 				826ABBCF14E765FD00B8A721 /* CNSApplicationDelegate.h */,
+				E52B0B6417643361006A9195 /* CNSDocument.h */,
 				823C5BD714E2330F00224AB6 /* CNSControlDelegate.h */,
-				8200978B14D63B89002BBD0D /* CNSWindow.h */,
 				822203EA14C9313B008B8BA0 /* CNSButton.h */,
-				822203EB14C9313B008B8BA0 /* CNSProgressIndicator.h */,
-				822203EC14C9313B008B8BA0 /* CNSView.h */,
 				82C0C07214CBAC6100BE82C2 /* CNSBox.h */,
+				822203EB14C9313B008B8BA0 /* CNSProgressIndicator.h */,
 				82C0C07E14CBAD5900BE82C2 /* CNSPopUpButton.h */,
 				82C0C07314CBAC6100BE82C2 /* CNSImageView.h */,
 				82C0C07414CBAC6100BE82C2 /* CNSSlider.h */,
@@ -776,12 +759,78 @@
 				82C0C07714CBAC6100BE82C2 /* CNSTextField.h */,
 				824E1F3014F03581009B7C2B /* CNSTabViewDelegate.h */,
 				823C5BCD14E2321400224AB6 /* CNSTextFieldDelegate.h */,
+				822203EC14C9313B008B8BA0 /* CNSView.h */,
+				8200978B14D63B89002BBD0D /* CNSWindow.h */,
 				823C5AC014E21A6C00224AB6 /* CNSWindowHandle.h */,
 				823C5AD314E21B2300224AB6 /* CNSWindowDelegate.h */,
 				823C5BDD14E233BD00224AB6 /* CNSWindowController.h */,
 			);
-			path = inc;
-			sourceTree = SOURCE_ROOT;
+			name = ns;
+			sourceTree = "<group>";
+		};
+		E52B0C5917651036006A9195 /* win */ = {
+			isa = PBXGroup;
+			children = (
+				526870D31752AE86009CEA6A /* guiddef.h */,
+				52687189175406F0009CEA6A /* shlobj.h */,
+				52939071172CE5DF008667D5 /* winerror.h */,
+				52E7680E172F739E00F6271A /* winnt.h */,
+				E5C8FEEB171A354800979F57 /* winbase.h */,
+				52E7682E172F7BB200F6271A /* winreg.h */,
+				52E76D731736070800F6271A /* winuser.h */,
+				52D51C791740A622007FEC86 /* wingdi.h */,
+				526872A317545C6F009CEA6A /* winspool.h */,
+				5268711F1753CD3B009CEA6A /* windows.h */,
+				52B423D7175C4C1C006FE600 /* wtypes.h */,
+			);
+			name = win;
+			sourceTree = "<group>";
+		};
+		E52B0C5A1765105E006A9195 /* ole */ = {
+			isa = PBXGroup;
+			children = (
+				52B42477175D99A1006FE600 /* COleDocument.h */,
+				52DCC3F61741F03100ACF79C /* COleDataObject.h */,
+				52686ECB174BD790009CEA6A /* COleDropTarget.h */,
+				526870E11753C87E009CEA6A /* COleMessageFilter.h */,
+				52686EDC174BD8E1009CEA6A /* COleServerItem.h */,
+				52B42392175C481C006FE600 /* COleClientItem.h */,
+				52686F2B174C749D009CEA6A /* COleServerDoc.h */,
+				52686F7B174C7B62009CEA6A /* COleTemplateServer.h */,
+				52686FC8174C7FD5009CEA6A /* COleResizeBar.h */,
+				52686FDA174C8054009CEA6A /* COleDocIPFrameWnd.h */,
+				526873871755BD5F009CEA6A /* COleIPFrameWnd.h */,
+				52B423CD175C4B7B006FE600 /* COleDataSource.h */,
+			);
+			name = ole;
+			sourceTree = "<group>";
+		};
+		E52B0C5B176510B8006A9195 /* ns */ = {
+			isa = PBXGroup;
+			children = (
+				826ABBD114E7662F00B8A721 /* CNSApplicationDelegate.mm */,
+				8200978D14D63BAC002BBD0D /* CNSWindow.mm */,
+				822203B514C92EF9008B8BA0 /* CNSView.mm */,
+				822203BF14C92FBE008B8BA0 /* CNSButton.mm */,
+				822203D514C93072008B8BA0 /* CNSProgressIndicator.mm */,
+				82C0C08014CBAE1700BE82C2 /* CNSBox.mm */,
+				82C0C08114CBAE1700BE82C2 /* CNSImageView.mm */,
+				82C0C08214CBAE1700BE82C2 /* CNSPopUpButton.mm */,
+				E52B0B661764342F006A9195 /* CNSDocument.mm */,
+				82C0C08314CBAE1700BE82C2 /* CNSSlider.mm */,
+				82C0C08414CBAE1700BE82C2 /* CNSStepper.mm */,
+				8245B2A714EB595B00265DEE /* CNSTabView.mm */,
+				82C0C08514CBAE1700BE82C2 /* CNSTableView.mm */,
+				82C0C08614CBAE1700BE82C2 /* CNSTextField.mm */,
+				823C5AC614E21A7600224AB6 /* CNSWindowHandle.mm */,
+				823C5AD114E21B1700224AB6 /* CNSWindowDelegate.mm */,
+				823C5BCF14E2321E00224AB6 /* CNSTextFieldDelegate.mm */,
+				823C5BD914E2331600224AB6 /* CNSControlDelegate.mm */,
+				823C5BDF14E233C600224AB6 /* CNSWindowController.mm */,
+				824E1F4714F03593009B7C2B /* CNSTabViewDelegate.mm */,
+			);
+			name = ns;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -931,6 +980,8 @@
 				52B427EE176195F7006FE600 /* propkey.h in Headers */,
 				52B427F8176197DD006FE600 /* CMFCMenuBar.h in Headers */,
 				52B427FB17619892006FE600 /* CMFCToolBarImages.h in Headers */,
+				E52B0B6517643361006A9195 /* CNSDocument.h in Headers */,
+				E52B0C2E17650611006A9195 /* afxext.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1067,6 +1118,7 @@
 				52B42340175C35C0006FE600 /* CGdiObject.mm in Sources */,
 				52B425D117603475006FE600 /* CFileDialog.mm in Sources */,
 				52B4260217603DFE006FE600 /* CStringList.mm in Sources */,
+				E52B0B671764342F006A9195 /* CNSDocument.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,9 +12,9 @@
 #define CMDICHILDWND_DEFINE 1
 
 #include "CDef.h"
-#include "CWnd.h"
+#include "CFrameWnd.h"
 
-class CMDIChildWnd : public CWnd
+class CMDIChildWnd : public CFrameWnd
 {
 	
 public:
@@ -23,7 +23,7 @@ public:
 	
 	virtual ~CMDIChildWnd();
 	
-
+	DECLARE_DYNAMIC(CMDIChildWnd)
 };
 
 #define CMDIChildWndEx CMDIChildWnd

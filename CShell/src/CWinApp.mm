@@ -28,6 +28,7 @@ CWinApp::CWinApp()
 	pMainApp = this;
 	m_pszAppName = (const char *)malloc(1);
 	((char *)m_pszAppName)[0] = 0;
+	m_nCmdShow = SW_SHOWNORMAL;
 }
 
 CWinApp::~CWinApp()
@@ -108,11 +109,6 @@ HICON CWinApp::LoadIcon(UINT nIDResource) const
 	return resFilePath;//imageFromBundle;
 }
 
-void CWinApp::OnHelp()
-{
-	NSLog(@"TO DO CWinApp::OnHelp");
-}
-
 void CWinApp::EnableShellOpen()
 {
 	NSLog(@"TO DO CWinApp::EnableShellOpen");
@@ -180,9 +176,9 @@ BOOL CWinApp::ProcessShellCommand(CCommandLineInfo& rCmdInfo)
 		case CCommandLineInfo::FileNew:
 		{
 			//??if (!AfxGetApp()->OnCmdMsg(ID_FILE_NEW, 0, NULL, NULL))
-			//??	OnFileNew();
+			OnFileNew();
 			//??if (m_pMainWnd == NULL)
-			  
+			 /* 
 			CDocTemplate* pTemplate = NULL;
 			   
 			if (m_arrDocTemplate.size() > 1)//??need choose
@@ -198,6 +194,7 @@ BOOL CWinApp::ProcessShellCommand(CCommandLineInfo& rCmdInfo)
 			{
 				bResult = FALSE;
 			}
+			  */
 		}
 		break;
 			
@@ -311,9 +308,35 @@ void CWinApp::AddEventHandle(void *obj, EventFun fun, int eventType)
 
 void CWinApp::OnFileNew()
 {
-	NSLog(@"TO DO CWinApp::OnFileNew");
+	//NSLog(@"TO DO CWinApp::OnFileNew");
 	//??if (m_pDocManager != NULL)
 	//??	m_pDocManager->OnFileNew();
+	
+	CDocTemplate* pTemplate = NULL;
+	
+	if (m_arrDocTemplate.size() > 1)//??need choose
+	{
+		NSLog(@"TO DO CWinApp::OnFileNew");
+		
+		//choose template
+		// more than one document template to choose from
+		// bring up dialog prompting user
+		//CNewTypeDlg dlg(&m_templateList);
+		//INT_PTR nID = dlg.DoModal();
+		//if (nID == IDOK)
+		///	pTemplate = dlg.m_pSelectedTemplate;
+		//else
+		//	return;     // none - cancel operation
+	}
+	else 
+	{
+		pTemplate = m_arrDocTemplate[0];
+	}
+	
+	if (!pTemplate->OpenDocumentFile(NULL))
+	{
+		//bResult = FALSE;
+	}
 }
 
 void CWinApp::OnFileOpen()
@@ -329,6 +352,11 @@ void CWinApp::OnFilePrintSetup()
 BOOL CWinApp::OnIdle(LONG lCount)
 {
 	NSLog(@"TO DO CWinApp::OnIdle");
+}
+
+void CWinApp::OnHelp()
+{
+	NSLog(@"TO DO CWinApp::OnHelp");
 }
 
 void CWinApp::AddDocTemplate(CDocTemplate* pTemplate)

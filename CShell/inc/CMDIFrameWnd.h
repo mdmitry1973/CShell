@@ -13,6 +13,8 @@
 #include "CWnd.h"
 #include "CFrameWnd.h"
 
+//virtual class only for menu and toll bar
+
 class CMDIFrameWnd : public CFrameWnd
 {
 
@@ -22,7 +24,11 @@ public:
 	
 	virtual ~CMDIFrameWnd();
 	
+	virtual BOOL LoadFrame(UINT nIDResource, DWORD dwDefaultStyle = WS_OVERLAPPEDWINDOW | FWS_ADDTOTITLE, CWnd* pParentWnd = NULL, CCreateContext* pContext = NULL);
+	
 	virtual BOOL CreateClient(LPCREATESTRUCT lpCreateStruct, CMenu* pWindowMenu );
+	
+	virtual BOOL ShowWindow(int nCmdShow);
 	
 	//CMDIChildWnd* CreateNewChild(
 	//							 CRuntimeClass* pClass,
@@ -37,6 +43,8 @@ public:
 	void MDIPrev();
 	
 	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
+	
+	DECLARE_DYNAMIC(CMDIFrameWnd)
 
 };
 

@@ -30,6 +30,13 @@ public:
 	virtual void AddDocument(CDocument* pDoc);
 	virtual CDocument* OpenDocumentFile(LPCTSTR lpszPathName, BOOL bMakeVisible = TRUE);
 	virtual void SetDefaultTitle(CDocument* pDocument);
+	
+	virtual POSITION GetFirstDocPosition() const;
+	virtual CDocument* GetNextDoc(POSITION& rPos) const;
+	
+private:
+	
+	std::vector<CDocument*> m_docList;
 };
 
 #endif//CMULTIDOCTEMPLATE_DEFINE

@@ -7,6 +7,8 @@
  *
  */
 
+#include "afxext.h"
+
 #include "CWinApp.h"
 
 #import "CNSView.h"
@@ -14,9 +16,13 @@
 #import "CNSWindowHandle.h"
 #import "CNSWindowDelegate.h"
 
+#include "CView.h"
+#include "CDocument.h"
 #include "CFrameWnd.h"
 
 const CRect CFrameWnd::rectDefault = CRect(100, 100, 600, 500);
+
+IMPLEMENT_DYNAMIC(CFrameWnd, CWnd)
 
 CFrameWnd::CFrameWnd() : CWnd()
 {
@@ -116,7 +122,9 @@ BOOL CFrameWnd::Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName,
 
 	if (dwStyle & WS_SYSMENU)
 	{
-		
+		windowStyle = windowStyle | NSClosableWindowMask;
+		windowStyle = windowStyle | NSTitledWindowMask;
+		windowStyle = windowStyle | NSMiniaturizableWindowMask;
 	}
 
 	if (dwStyle & WS_THICKFRAME)
@@ -160,6 +168,22 @@ BOOL CFrameWnd::Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName,
 	mWindowDelegate = [[CNSWindowDelegate alloc] init];
 	[(CNSWindowDelegate *)mWindowDelegate setCWnd: this];
 	[(CNSWindow *)m_hWnd setDelegate: (CNSWindowDelegate *)mWindowDelegate];
+	
+	mWindowController = [[NSWindowController alloc] initWithWindow: (NSWindow *)m_hWnd];
+	
+	if (!mWindowController)
+	{
+		assert(false);
+	}
+	
+	NSDocument *doc = (NSDocument *)pContext->m_pCurrentDoc->GetNSDoc();
+	
+	[doc addWindowController: (NSWindowController *)mWindowController];
+	
+	if (m_menuBar.LoadMenu(lpszMenuName))
+	{
+		[NSApp setMenu: (NSMenu *)(m_menuBar.GetNSMenu())];
+	}
 	
 	return TRUE;				
 }
@@ -208,14 +232,7 @@ BOOL CFrameWnd::LoadFrame(UINT nIDResource, DWORD dwDefaultStyle, CWnd* pParentW
 		return FALSE;   // will self destruct on failure normally
 	}
 	
-	CMenu menuBar;
 	
-	if (menuBar.LoadMenu(nIDResource))
-	{
-		//[(CNSWindow *)m_hWnd setMenu: (NSMenu *)(menuBar.GetNSMenu())];
-		
-		[NSApp setMenu: (NSMenu *)(menuBar.GetNSMenu())];
-	}
 	
 	// save the default menu handle
 	//ASSERT(m_hWnd != NULL);
@@ -228,6 +245,10 @@ BOOL CFrameWnd::LoadFrame(UINT nIDResource, DWORD dwDefaultStyle, CWnd* pParentW
 	//	SendMessageToDescendants(WM_INITIALUPDATE, 0, 0, TRUE, TRUE);
 	
 	SetMessageMap();
+	
+	CView *view = (CView *)(pContext->m_pNewViewClass->CreateObject());
+	
+	pContext->m_pCurrentDoc->AddView(view);
 	
 	return TRUE;
 }
@@ -244,7 +265,16 @@ void CFrameWnd::DockControlBar(CControlBar* pBar, UINT nDockBarID, LPCRECT lpRec
 
 BOOL CFrameWnd::ShowWindow(int nCmdShow)
 {
-	[(CNSWindow *)m_hWnd  makeKeyAndOrderFront:(CNSWindow *)m_hWnd];
+	if (nCmdShow == SW_SHOWNORMAL)
+	{
+		[(CNSWindow *)m_hWnd  makeKeyAndOrderFront:(CNSWindow *)m_hWnd];
+		//[mWindowController showWindow:nil];
+	}
+	else 
+	{
+		
+			
+	}
 	
 	return TRUE;
 }
