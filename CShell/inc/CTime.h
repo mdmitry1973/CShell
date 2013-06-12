@@ -32,6 +32,8 @@ public:
 	int GetDayOfWeek() const;
 	
 	__time64_t GetTime() const;
+	
+	static CTime GetCurrentTime();
 
 private:
 	

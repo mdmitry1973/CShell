@@ -70,6 +70,7 @@ void CScrollView::ResizeParentToFit(BOOL bShrinkOnly)
 BOOL CScrollView::DoMouseWheel(UINT fFlags, short zDelta, CPoint point)
 {
 	NSLog(@"TO DO CScrollView::DoMouseWheel");
+	return FALSE;
 }
 	
 void CScrollView::OnPrepareDC(CDC* pDC, CPrintInfo* pInfo )
@@ -85,9 +86,18 @@ CSize CScrollView::GetWheelScrollDistance(CSize sizeDistance, BOOL bHorz, BOOL b
 BOOL CScrollView::OnScroll(UINT nScrollCode, UINT nPos, BOOL bDoScroll)
 {
 	NSLog(@"TO DO CScrollView::OnScroll");
+	return FALSE;
 }
 
 BOOL CScrollView::OnScrollBy(CSize sizeScroll, BOOL bDoScroll)
 {
 	NSLog(@"TO DO CScrollView::OnScrollBy");
+	return FALSE;
+}
+
+void CScrollView::SetScrollSizes(int nMapMode, SIZE sizeTotal,
+					const SIZE& sizePage,
+					const SIZE& sizeLine)
+{
+	NSLog(@"TO DO CScrollView::SetScrollSizes");
 }

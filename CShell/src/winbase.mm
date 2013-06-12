@@ -11,6 +11,7 @@
 
 #include "winnt.h"
 #include "winbase.h"
+#include "shlobj.h"
 
 #include <libkern/OSAtomic.h>
 #import <Cocoa/Cocoa.h>
@@ -498,5 +499,67 @@ void ZeroMemory(void *obj, int size)
 void AfxOleLockApp()
 {
 	
+}
+
+DWORD GetCurrentDirectory(DWORD nBufferLength, LPSTR lpBuffer)
+{
+	NSFileManager *fm = [NSFileManager defaultManager];
+	NSString *str = [fm currentDirectoryPath];
+	
+	strncpy(lpBuffer, [str UTF8String], nBufferLength);
+	
+	return [str length];
+}
+
+BOOL SetCurrentDirectory(LPCSTR lpPathName)
+{
+	NSFileManager *fm = [NSFileManager defaultManager];
+	BOOL res = [fm changeCurrentDirectoryPath:[NSString stringWithUTF8String: lpPathName]];
+	
+	return res;
+}
+
+BOOL SHGetSpecialFolderPath( HWND hwnd, LPSTR pszPath,  int csidl,  BOOL fCreate)
+{
+	NSSearchPathDirectory search;
+	NSSearchPathDomainMask domain = NSUserDomainMask | NSLocalDomainMask;
+	
+	switch(csidl)
+	{
+		case CSIDL_DESKTOP: search = NSDesktopDirectory; break;
+		case CSIDL_INTERNET: search = NSSharedPublicDirectory; break;
+		case CSIDL_PROGRAMS: search = NSApplicationDirectory; break;
+		case CSIDL_CONTROLS: search = NSPreferencePanesDirectory; break;
+		case CSIDL_PRINTERS: search = NSPrinterDescriptionDirectory; break;
+		//case CSIDL_PERSONAL: search = NSUserDirectory; break;
+		case CSIDL_FAVORITES: search = NSDesktopDirectory; break;
+		case CSIDL_STARTUP: search = NSDesktopDirectory; break;
+		case CSIDL_RECENT: search = NSDesktopDirectory; break;
+		case CSIDL_SENDTO: search = NSDesktopDirectory; break;
+		case CSIDL_BITBUCKET: search = NSDesktopDirectory; break;
+		case CSIDL_STARTMENU: search = NSDesktopDirectory; break;
+		case CSIDL_MYDOCUMENTS: search = NSDocumentDirectory; break;
+		case CSIDL_MYMUSIC: search = NSMusicDirectory; break;
+		case CSIDL_MYVIDEO: search = NSMoviesDirectory; break;
+		case CSIDL_DESKTOPDIRECTORY: search = NSDesktopDirectory; break;
+		case CSIDL_DRIVES: search = NSDesktopDirectory; break;
+		case CSIDL_NETWORK: search = NSDesktopDirectory; break;
+		case CSIDL_NETHOOD: search = NSDesktopDirectory; break;
+		case CSIDL_FONTS: search = NSDesktopDirectory; break;
+	}
+	
+	NSFileManager *fm = [NSFileManager defaultManager];
+	NSURL *url = [fm URLForDirectory:search inDomain: domain appropriateForURL:(NSURL *)url create:fCreate ? YES : NO error:nil];
+	
+	if (url)
+	{
+		NSString *str = [url path];
+		
+		strcpy(pszPath, [str UTF8String]);
+		
+		return TRUE;
+	}
+	
+	return FALSE;
 }
 

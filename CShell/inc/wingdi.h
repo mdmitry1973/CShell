@@ -65,6 +65,129 @@
 #define MM_ISOTROPIC        7
 #define MM_ANISOTROPIC      8
 
+/* Region Flags */
+#define ERROR               0
+#define NULLREGION          1
+#define SIMPLEREGION        2
+#define COMPLEXREGION       3
+#define RGN_ERROR ERROR
+
+/* CombineRgn() Styles */
+#define RGN_AND             1
+#define RGN_OR              2
+#define RGN_XOR             3
+#define RGN_DIFF            4
+#define RGN_COPY            5
+#define RGN_MIN             RGN_AND
+#define RGN_MAX             RGN_COPY
+
+/* StretchBlt() Modes */
+#define BLACKONWHITE                 1
+#define WHITEONBLACK                 2
+#define COLORONCOLOR                 3
+#define HALFTONE                     4
+#define MAXSTRETCHBLTMODE            4
+
+/* PolyFill() Modes */
+#define ALTERNATE                    1
+#define WINDING                      2
+#define POLYFILL_LAST                2
+
+/* Stock Logical Objects */
+#define WHITE_BRUSH         0
+#define LTGRAY_BRUSH        1
+#define GRAY_BRUSH          2
+#define DKGRAY_BRUSH        3
+#define BLACK_BRUSH         4
+#define NULL_BRUSH          5
+#define HOLLOW_BRUSH        NULL_BRUSH
+#define WHITE_PEN           6
+#define BLACK_PEN           7
+#define NULL_PEN            8
+#define OEM_FIXED_FONT      10
+#define ANSI_FIXED_FONT     11
+#define ANSI_VAR_FONT       12
+#define SYSTEM_FONT         13
+#define DEVICE_DEFAULT_FONT 14
+#define DEFAULT_PALETTE     15
+#define SYSTEM_FIXED_FONT   16
+
+/* Brush Styles */
+#define BS_SOLID            0
+#define BS_NULL             1
+#define BS_HOLLOW           BS_NULL
+#define BS_HATCHED          2
+#define BS_PATTERN          3
+#define BS_INDEXED          4
+#define BS_DIBPATTERN       5
+#define BS_DIBPATTERNPT     6
+#define BS_PATTERN8X8       7
+#define BS_DIBPATTERN8X8    8
+#define BS_MONOPATTERN      9
+
+/* Hatch Styles */
+#define HS_HORIZONTAL       0       /* ----- */
+#define HS_VERTICAL         1       /* ||||| */
+#define HS_FDIAGONAL        2       /* \\\\\ */
+#define HS_BDIAGONAL        3       /* ///// */
+#define HS_CROSS            4       /* +++++ */
+#define HS_DIAGCROSS        5       /* xxxxx */
+#define HS_API_MAX          12
+
+/* Pen Styles */
+#define PS_SOLID            0
+#define PS_DASH             1       /* -------  */
+#define PS_DOT              2       /* .......  */
+#define PS_DASHDOT          3       /* _._._._  */
+#define PS_DASHDOTDOT       4       /* _.._.._  */
+#define PS_NULL             5
+#define PS_INSIDEFRAME      6
+#define PS_USERSTYLE        7
+#define PS_ALTERNATE        8
+#define PS_STYLE_MASK       0x0000000F
+
+#define PS_ENDCAP_ROUND     0x00000000
+#define PS_ENDCAP_SQUARE    0x00000100
+#define PS_ENDCAP_FLAT      0x00000200
+#define PS_ENDCAP_MASK      0x00000F00
+
+#define PS_JOIN_ROUND       0x00000000
+#define PS_JOIN_BEVEL       0x00001000
+#define PS_JOIN_MITER       0x00002000
+#define PS_JOIN_MASK        0x0000F000
+
+#define PS_COSMETIC         0x00000000
+#define PS_GEOMETRIC        0x00010000
+#define PS_TYPE_MASK        0x000F0000
+
+#define AD_COUNTERCLOCKWISE 1
+#define AD_CLOCKWISE        2
+
+/* Background Modes */
+#define TRANSPARENT         1
+#define OPAQUE              2
+#define BKMODE_LAST         2
+
+/* constants for the biCompression field */
+#define BI_RGB        0L
+#define BI_RLE8       1L
+#define BI_RLE4       2L
+#define BI_BITFIELDS  3L
+#define BI_JPEG       4L
+#define BI_PNG        5L
+
+/* DIB color table identifiers */
+
+#define DIB_RGB_COLORS      0 /* color table in RGBs */
+#define DIB_PAL_COLORS      1 /* color table in palette indices */
+
+/* constants for Get/SetSystemPaletteUse() */
+
+#define SYSPAL_ERROR    0
+#define SYSPAL_STATIC   1
+#define SYSPAL_NOSTATIC 2
+#define SYSPAL_NOSTATIC256 3
+
 /* Logical Brush (or Pattern) */
 typedef struct tagLOGBRUSH
 {
@@ -103,6 +226,19 @@ typedef struct tagBITMAPINFOHEADER{
 	DWORD      biClrUsed;
 	DWORD      biClrImportant;
 } BITMAPINFOHEADER, *LPBITMAPINFOHEADER, *PBITMAPINFOHEADER;
+
+typedef struct tagRGBQUAD {
+	BYTE    rgbBlue;
+	BYTE    rgbGreen;
+	BYTE    rgbRed;
+	BYTE    rgbReserved;
+} RGBQUAD;
+typedef RGBQUAD* LPRGBQUAD;
+
+typedef struct tagBITMAPINFO {
+    BITMAPINFOHEADER    bmiHeader;
+    RGBQUAD             bmiColors[1];
+} BITMAPINFO, FAR *LPBITMAPINFO, *PBITMAPINFO;
 
 
 #endif//WIN_GDI

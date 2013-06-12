@@ -16,10 +16,12 @@
 #include "CWnd.h"
 #include "CBrush.h"
 #include "CPen.h"
+#include "CRgn.h"
 #include "CFont.h"
 #include "CSize.h"
 #include "CPoint.h"
 #include "CBitmap.h"
+#include "CPalette.h"
 
 class CWnd;
 
@@ -57,7 +59,7 @@ public:
 	
 	CPen* GetCurrentPen() const;
 	CBrush* GetCurrentBrush() const;
-	//CPalette* GetCurrentPalette() const;
+	CPalette* GetCurrentPalette() const;
 	CFont* GetCurrentFont() const;
 	CBitmap* GetCurrentBitmap() const;
 	
@@ -97,13 +99,13 @@ public:
 	CBrush* SelectObject(CBrush* pBrush);
 	virtual CFont* SelectObject(CFont* pFont);
 	CBitmap* SelectObject(CBitmap* pBitmap);
-	//int SelectObject(CRgn* pRgn);       // special return for regions
+	int SelectObject(CRgn* pRgn);       // special return for regions
 	CGdiObject* SelectObject(CGdiObject* pObject);
 	// CGdiObject* provided so compiler doesn't use SelectObject(HGDIOBJ)
 	
 	// Color and Color Palette Functions
 	COLORREF GetNearestColor(COLORREF crColor) const;
-	//CPalette* SelectPalette(CPalette* pPalette, BOOL bForceBackground);
+	CPalette* SelectPalette(CPalette* pPalette, BOOL bForceBackground);
 	UINT RealizePalette();
 	void UpdateColors();
 	
@@ -186,25 +188,25 @@ public:
 	void HIMETRICtoLP(LPSIZE lpSize) const;
 	
 	// Region Functions
-	//BOOL FillRgn(CRgn* pRgn, CBrush* pBrush);
-	//BOOL FrameRgn(CRgn* pRgn, CBrush* pBrush, int nWidth, int nHeight);
-	//BOOL InvertRgn(CRgn* pRgn);
-	//BOOL PaintRgn(CRgn* pRgn);
+	BOOL FillRgn(CRgn* pRgn, CBrush* pBrush);
+	BOOL FrameRgn(CRgn* pRgn, CBrush* pBrush, int nWidth, int nHeight);
+	BOOL InvertRgn(CRgn* pRgn);
+	BOOL PaintRgn(CRgn* pRgn);
 	
 	// Clipping Functions
 	virtual int GetClipBox(LPRECT lpRect) const;
 	virtual BOOL PtVisible(int x, int y) const;
 	BOOL PtVisible(POINT point) const;
 	virtual BOOL RectVisible(LPCRECT lpRect) const;
-	//int SelectClipRgn(CRgn* pRgn);
+	int SelectClipRgn(CRgn* pRgn);
 	int ExcludeClipRect(int x1, int y1, int x2, int y2);
 	int ExcludeClipRect(LPCRECT lpRect);
 	//int ExcludeUpdateRgn(CWnd* pWnd);
 	int IntersectClipRect(int x1, int y1, int x2, int y2);
 	int IntersectClipRect(LPCRECT lpRect);
-	//int OffsetClipRgn(int x, int y);
-	//int OffsetClipRgn(SIZE size);
-	//int SelectClipRgn(CRgn* pRgn, int nMode);
+	int OffsetClipRgn(int x, int y);
+	int OffsetClipRgn(SIZE size);
+	int SelectClipRgn(CRgn* pRgn, int nMode);
 	
 	// Line-Output Functions
 	CPoint GetCurrentPosition() const;

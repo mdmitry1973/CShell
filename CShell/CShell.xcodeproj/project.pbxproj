@@ -220,6 +220,22 @@
 		E52B0B6517643361006A9195 /* CNSDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = E52B0B6417643361006A9195 /* CNSDocument.h */; };
 		E52B0B671764342F006A9195 /* CNSDocument.mm in Sources */ = {isa = PBXBuildFile; fileRef = E52B0B661764342F006A9195 /* CNSDocument.mm */; };
 		E52B0C2E17650611006A9195 /* afxext.h in Headers */ = {isa = PBXBuildFile; fileRef = E52B0C2D17650611006A9195 /* afxext.h */; };
+		E52B101F1766ECD4006A9195 /* COleDocument.mm in Sources */ = {isa = PBXBuildFile; fileRef = E52B101E1766ECD4006A9195 /* COleDocument.mm */; };
+		E52B102D1766EED7006A9195 /* COleServerDoc.mm in Sources */ = {isa = PBXBuildFile; fileRef = E52B102C1766EED7006A9195 /* COleServerDoc.mm */; };
+		E52B103B1766F23D006A9195 /* COleClientItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = E52B103A1766F23D006A9195 /* COleClientItem.mm */; };
+		E52B10431766F2E4006A9195 /* CDocItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = E52B10421766F2E4006A9195 /* CDocItem.mm */; };
+		E52B10491766F418006A9195 /* COleTemplateServer.mm in Sources */ = {isa = PBXBuildFile; fileRef = E52B10481766F418006A9195 /* COleTemplateServer.mm */; };
+		E52B104D1766F45B006A9195 /* COleDropTarget.mm in Sources */ = {isa = PBXBuildFile; fileRef = E52B104C1766F45B006A9195 /* COleDropTarget.mm */; };
+		E52B10531766F4F9006A9195 /* CDocObjectServer.mm in Sources */ = {isa = PBXBuildFile; fileRef = E52B10521766F4F9006A9195 /* CDocObjectServer.mm */; };
+		E52B111E1767D7AC006A9195 /* CRgn.h in Headers */ = {isa = PBXBuildFile; fileRef = E52B111D1767D7AC006A9195 /* CRgn.h */; };
+		E52B11201767D82D006A9195 /* CPalette.h in Headers */ = {isa = PBXBuildFile; fileRef = E52B111F1767D82D006A9195 /* CPalette.h */; };
+		E52B115B1767DAFE006A9195 /* CPreviewDC.h in Headers */ = {isa = PBXBuildFile; fileRef = E52B115A1767DAFE006A9195 /* CPreviewDC.h */; };
+		E52B14761768D564006A9195 /* CMutex.h in Headers */ = {isa = PBXBuildFile; fileRef = E52B14751768D564006A9195 /* CMutex.h */; };
+		E52B14781768D633006A9195 /* CMutex.mm in Sources */ = {isa = PBXBuildFile; fileRef = E52B14771768D633006A9195 /* CMutex.mm */; };
+		E52B14AA1768D9FE006A9195 /* CSingleLock.mm in Sources */ = {isa = PBXBuildFile; fileRef = E52B14A91768D9FE006A9195 /* CSingleLock.mm */; };
+		E52B14AE1768DAD4006A9195 /* CSyncObject.h in Headers */ = {isa = PBXBuildFile; fileRef = E52B14AD1768DAD4006A9195 /* CSyncObject.h */; };
+		E52B153517692568006A9195 /* CDockState.mm in Sources */ = {isa = PBXBuildFile; fileRef = E52B153417692568006A9195 /* CDockState.mm */; };
+		E52B155D17692820006A9195 /* CToolTipCtrl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E52B155C17692820006A9195 /* CToolTipCtrl.mm */; };
 		E5C8FE811719DDD200979F57 /* CFile.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5C8FE801719DDD200979F57 /* CFile.mm */; };
 		E5C8FE831719DE0A00979F57 /* CFile.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C8FE821719DE0A00979F57 /* CFile.h */; };
 		E5C8FE871719DFD200979F57 /* CTime.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5C8FE861719DFD200979F57 /* CTime.mm */; };
@@ -278,7 +294,7 @@
 		52938FBF172C5EC7008667D5 /* CPlex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPlex.h; path = inc/CPlex.h; sourceTree = SOURCE_ROOT; };
 		52938FC1172C5F32008667D5 /* CPlex.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CPlex.mm; path = src/CPlex.mm; sourceTree = SOURCE_ROOT; };
 		52939071172CE5DF008667D5 /* winerror.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = winerror.h; sourceTree = "<group>"; };
-		5293907D172CE7BB008667D5 /* shlwapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shlwapi.h; path = inc/shlwapi.h; sourceTree = SOURCE_ROOT; };
+		5293907D172CE7BB008667D5 /* shlwapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shlwapi.h; sourceTree = "<group>"; };
 		529390AD172D9E50008667D5 /* CFileFind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFileFind.h; path = inc/CFileFind.h; sourceTree = SOURCE_ROOT; };
 		529390AF172D9E7B008667D5 /* CFileFind.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CFileFind.mm; path = src/CFileFind.mm; sourceTree = SOURCE_ROOT; };
 		529390CA172DA2B9008667D5 /* CMemFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMemFile.h; path = inc/CMemFile.h; sourceTree = SOURCE_ROOT; };
@@ -300,11 +316,11 @@
 		52B4248D175DA391006FE600 /* CDocManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDocManager.h; path = inc/CDocManager.h; sourceTree = SOURCE_ROOT; };
 		52B425D017603475006FE600 /* CFileDialog.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CFileDialog.mm; path = src/CFileDialog.mm; sourceTree = SOURCE_ROOT; };
 		52B4260117603DFE006FE600 /* CStringList.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CStringList.mm; path = src/CStringList.mm; sourceTree = SOURCE_ROOT; };
-		52B427CF176193C7006FE600 /* SDKDDKVer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SDKDDKVer.h; path = inc/SDKDDKVer.h; sourceTree = SOURCE_ROOT; };
+		52B427CF176193C7006FE600 /* SDKDDKVer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDKDDKVer.h; sourceTree = "<group>"; };
 		52B427D117619419006FE600 /* afxcontrolbars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afxcontrolbars.h; sourceTree = "<group>"; };
 		52B427DB176194CF006FE600 /* afxwinappex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afxwinappex.h; sourceTree = "<group>"; };
 		52B427DD176194F4006FE600 /* afxdialogex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afxdialogex.h; sourceTree = "<group>"; };
-		52B427ED176195F7006FE600 /* propkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = propkey.h; path = inc/propkey.h; sourceTree = SOURCE_ROOT; };
+		52B427ED176195F7006FE600 /* propkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = propkey.h; sourceTree = "<group>"; };
 		52B427F7176197DD006FE600 /* CMFCMenuBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMFCMenuBar.h; path = inc/CMFCMenuBar.h; sourceTree = SOURCE_ROOT; };
 		52B427FA17619892006FE600 /* CMFCToolBarImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMFCToolBarImages.h; path = inc/CMFCToolBarImages.h; sourceTree = SOURCE_ROOT; };
 		52D51BEE17409CFE007FEC86 /* CMDIFrameWnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMDIFrameWnd.h; path = inc/CMDIFrameWnd.h; sourceTree = SOURCE_ROOT; };
@@ -457,6 +473,22 @@
 		E52B0B6417643361006A9195 /* CNSDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNSDocument.h; sourceTree = "<group>"; };
 		E52B0B661764342F006A9195 /* CNSDocument.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CNSDocument.mm; sourceTree = "<group>"; };
 		E52B0C2D17650611006A9195 /* afxext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afxext.h; sourceTree = "<group>"; };
+		E52B101E1766ECD4006A9195 /* COleDocument.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = COleDocument.mm; path = src/COleDocument.mm; sourceTree = SOURCE_ROOT; };
+		E52B102C1766EED7006A9195 /* COleServerDoc.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = COleServerDoc.mm; path = src/COleServerDoc.mm; sourceTree = SOURCE_ROOT; };
+		E52B103A1766F23D006A9195 /* COleClientItem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = COleClientItem.mm; path = src/COleClientItem.mm; sourceTree = SOURCE_ROOT; };
+		E52B10421766F2E4006A9195 /* CDocItem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CDocItem.mm; path = src/CDocItem.mm; sourceTree = SOURCE_ROOT; };
+		E52B10481766F418006A9195 /* COleTemplateServer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = COleTemplateServer.mm; path = src/COleTemplateServer.mm; sourceTree = SOURCE_ROOT; };
+		E52B104C1766F45B006A9195 /* COleDropTarget.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = COleDropTarget.mm; path = src/COleDropTarget.mm; sourceTree = SOURCE_ROOT; };
+		E52B10521766F4F9006A9195 /* CDocObjectServer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CDocObjectServer.mm; path = src/CDocObjectServer.mm; sourceTree = SOURCE_ROOT; };
+		E52B111D1767D7AC006A9195 /* CRgn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CRgn.h; path = inc/CRgn.h; sourceTree = SOURCE_ROOT; };
+		E52B111F1767D82D006A9195 /* CPalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPalette.h; path = inc/CPalette.h; sourceTree = SOURCE_ROOT; };
+		E52B115A1767DAFE006A9195 /* CPreviewDC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPreviewDC.h; path = inc/CPreviewDC.h; sourceTree = SOURCE_ROOT; };
+		E52B14751768D564006A9195 /* CMutex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMutex.h; path = inc/CMutex.h; sourceTree = SOURCE_ROOT; };
+		E52B14771768D633006A9195 /* CMutex.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CMutex.mm; path = src/CMutex.mm; sourceTree = SOURCE_ROOT; };
+		E52B14A91768D9FE006A9195 /* CSingleLock.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CSingleLock.mm; path = src/CSingleLock.mm; sourceTree = SOURCE_ROOT; };
+		E52B14AD1768DAD4006A9195 /* CSyncObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSyncObject.h; path = inc/CSyncObject.h; sourceTree = SOURCE_ROOT; };
+		E52B153417692568006A9195 /* CDockState.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CDockState.mm; path = src/CDockState.mm; sourceTree = SOURCE_ROOT; };
+		E52B155C17692820006A9195 /* CToolTipCtrl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CToolTipCtrl.mm; path = src/CToolTipCtrl.mm; sourceTree = SOURCE_ROOT; };
 		E5C8FE801719DDD200979F57 /* CFile.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CFile.mm; path = src/CFile.mm; sourceTree = SOURCE_ROOT; };
 		E5C8FE821719DE0A00979F57 /* CFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFile.h; path = inc/CFile.h; sourceTree = SOURCE_ROOT; };
 		E5C8FE861719DFD200979F57 /* CTime.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CTime.mm; path = src/CTime.mm; sourceTree = SOURCE_ROOT; };
@@ -553,6 +585,7 @@
 		82DE159314AAC0A1001919E9 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				E52B101C1766ECB8006A9195 /* ole */,
 				E52B0C5B176510B8006A9195 /* ns */,
 				E50E3DF0172637B0002291CB /* CArchive.mm */,
 				52938F5D172C4AA1008667D5 /* CArray.mm */,
@@ -564,10 +597,12 @@
 				82DE159514AAC0A1001919E9 /* CComboBox.mm */,
 				82DE159614AAC0A1001919E9 /* CDataExchange.mm */,
 				82D62FC514F2BE6700F0FE62 /* CDocument.mm */,
+				E52B10421766F2E4006A9195 /* CDocItem.mm */,
+				E52B10521766F4F9006A9195 /* CDocObjectServer.mm */,
+				82A3CEE414F3466D00315229 /* CDocTemplate.mm */,
 				82DE159714AAC0A1001919E9 /* CDialog.mm */,
 				82DE159814AAC0A1001919E9 /* CDialogEx.mm */,
 				82409F6A14E8C5130094EA9C /* CDC.mm */,
-				82A3CEE414F3466D00315229 /* CDocTemplate.mm */,
 				52938F97172C5413008667D5 /* CDumpContext.mm */,
 				829D79C714ABF12A00C53168 /* CEdit.mm */,
 				52B4233F175C35C0006FE600 /* CGdiObject.mm */,
@@ -604,14 +639,18 @@
 				82DE159A14AAC0A1001919E9 /* CString.mm */,
 				E5E399A0171F968F00549555 /* CStringArray.mm */,
 				52B4260117603DFE006FE600 /* CStringList.mm */,
+				E52B153417692568006A9195 /* CDockState.mm */,
 				82D62FA714F2BC6A00F0FE62 /* CToolBar.mm */,
 				82409E5014E8A95A0094EA9C /* CTabCtrl.mm */,
+				E52B155C17692820006A9195 /* CToolTipCtrl.mm */,
 				82DE159B14AAC0A1001919E9 /* CTargetEvent.mm */,
 				52B42239175BE59A006FE600 /* CWaitCursor.mm */,
 				82DE159C14AAC0A1001919E9 /* CWinApp.mm */,
 				82DE159D14AAC0A1001919E9 /* CWnd.mm */,
 				529390AF172D9E7B008667D5 /* CFileFind.mm */,
 				529390CC172DA3DC008667D5 /* CMemFile.mm */,
+				E52B14771768D633006A9195 /* CMutex.mm */,
+				E52B14A91768D9FE006A9195 /* CSingleLock.mm */,
 				E5C8FE861719DFD200979F57 /* CTime.mm */,
 				52938F0B172A3207008667D5 /* afx.mm */,
 				E5C8FEED171A35A300979F57 /* winbase.mm */,
@@ -632,13 +671,17 @@
 				E52B0C5617650FEA006A9195 /* afx */,
 				52D51C1817409F9D007FEC86 /* CCmdUI.h */,
 				52D51BF817409E27007FEC86 /* CDockState.h */,
+				E52B14751768D564006A9195 /* CMutex.h */,
 				52D51BEE17409CFE007FEC86 /* CMDIFrameWnd.h */,
 				529390CA172DA2B9008667D5 /* CMemFile.h */,
 				E5C8FE881719DFEA00979F57 /* CTime.h */,
 				52938F93172C538E008667D5 /* CDumpContext.h */,
 				529390AD172D9E50008667D5 /* CFileFind.h */,
 				52DCC3901741DF2B00ACF79C /* CGdiObject.h */,
+				E52B115A1767DAFE006A9195 /* CPreviewDC.h */,
 				52DCC38E1741DE8900ACF79C /* CPen.h */,
+				E52B111F1767D82D006A9195 /* CPalette.h */,
+				E52B111D1767D7AC006A9195 /* CRgn.h */,
 				52DCC3921741E09800ACF79C /* CBrush.h */,
 				52DCC3C01741E3B300ACF79C /* CTreeCtrl.h */,
 				52DCC3C41741E67100ACF79C /* CToolTipCtrl.h */,
@@ -667,9 +710,6 @@
 				82DE15AD14AAC0A8001919E9 /* CDef.h */,
 				52DCC3C21741E4DD00ACF79C /* CommCtrl.h */,
 				526872BE17545CE5009CEA6A /* CommDlg.h */,
-				52B427ED176195F7006FE600 /* propkey.h */,
-				52B427CF176193C7006FE600 /* SDKDDKVer.h */,
-				5293907D172CE7BB008667D5 /* shlwapi.h */,
 				E5E398D6171D14E800549555 /* CArchive.h */,
 				E5E399CA1720F3A600549555 /* CArchiveException.h */,
 				82D62F4C14F2AD8000F0FE62 /* CArray.h */,
@@ -707,6 +747,7 @@
 				82409E9614E8B1320094EA9C /* CRect.h */,
 				829D79D014ABF19100C53168 /* CSliderCtrl.h */,
 				82A3CEDC14F3426B00315229 /* CSingleDocTemplate.h */,
+				E52B14AD1768DAD4006A9195 /* CSyncObject.h */,
 				82D62FAA14F2BC7800F0FE62 /* CStatusBar.h */,
 				E5E398DC171D156100549555 /* CStringArray.h */,
 				82DE15B114AAC0A8001919E9 /* CString.h */,
@@ -771,6 +812,9 @@
 		E52B0C5917651036006A9195 /* win */ = {
 			isa = PBXGroup;
 			children = (
+				52B427ED176195F7006FE600 /* propkey.h */,
+				52B427CF176193C7006FE600 /* SDKDDKVer.h */,
+				5293907D172CE7BB008667D5 /* shlwapi.h */,
 				526870D31752AE86009CEA6A /* guiddef.h */,
 				52687189175406F0009CEA6A /* shlobj.h */,
 				52939071172CE5DF008667D5 /* winerror.h */,
@@ -830,6 +874,18 @@
 				824E1F4714F03593009B7C2B /* CNSTabViewDelegate.mm */,
 			);
 			name = ns;
+			sourceTree = "<group>";
+		};
+		E52B101C1766ECB8006A9195 /* ole */ = {
+			isa = PBXGroup;
+			children = (
+				E52B103A1766F23D006A9195 /* COleClientItem.mm */,
+				E52B101E1766ECD4006A9195 /* COleDocument.mm */,
+				E52B104C1766F45B006A9195 /* COleDropTarget.mm */,
+				E52B102C1766EED7006A9195 /* COleServerDoc.mm */,
+				E52B10481766F418006A9195 /* COleTemplateServer.mm */,
+			);
+			name = ole;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -982,6 +1038,11 @@
 				52B427FB17619892006FE600 /* CMFCToolBarImages.h in Headers */,
 				E52B0B6517643361006A9195 /* CNSDocument.h in Headers */,
 				E52B0C2E17650611006A9195 /* afxext.h in Headers */,
+				E52B111E1767D7AC006A9195 /* CRgn.h in Headers */,
+				E52B11201767D82D006A9195 /* CPalette.h in Headers */,
+				E52B115B1767DAFE006A9195 /* CPreviewDC.h in Headers */,
+				E52B14761768D564006A9195 /* CMutex.h in Headers */,
+				E52B14AE1768DAD4006A9195 /* CSyncObject.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1119,6 +1180,17 @@
 				52B425D117603475006FE600 /* CFileDialog.mm in Sources */,
 				52B4260217603DFE006FE600 /* CStringList.mm in Sources */,
 				E52B0B671764342F006A9195 /* CNSDocument.mm in Sources */,
+				E52B101F1766ECD4006A9195 /* COleDocument.mm in Sources */,
+				E52B102D1766EED7006A9195 /* COleServerDoc.mm in Sources */,
+				E52B103B1766F23D006A9195 /* COleClientItem.mm in Sources */,
+				E52B10431766F2E4006A9195 /* CDocItem.mm in Sources */,
+				E52B10491766F418006A9195 /* COleTemplateServer.mm in Sources */,
+				E52B104D1766F45B006A9195 /* COleDropTarget.mm in Sources */,
+				E52B10531766F4F9006A9195 /* CDocObjectServer.mm in Sources */,
+				E52B14781768D633006A9195 /* CMutex.mm in Sources */,
+				E52B14AA1768D9FE006A9195 /* CSingleLock.mm in Sources */,
+				E52B153517692568006A9195 /* CDockState.mm in Sources */,
+				E52B155D17692820006A9195 /* CToolTipCtrl.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

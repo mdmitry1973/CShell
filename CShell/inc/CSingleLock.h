@@ -12,30 +12,25 @@
 
 #include "CDef.h"
 
+#include "CSyncObject.h"
+
 class CSingleLock
 {
 
 public:
 	
 	CSingleLock();
+	CSingleLock(CSyncObject* pObject,
+				BOOL bInitialLock = FALSE );
 	~CSingleLock();
 	
-	// Constructors
-//public:
-//	explicit CSingleLock(CSyncObject* pObject, BOOL bInitialLock = FALSE);
-	
-	// Operations
-public:
 	BOOL Lock(DWORD dwTimeOut = INFINITE);
 	BOOL Unlock();
 	BOOL Unlock(LONG lCount, LPLONG lPrevCount = NULL);
 	BOOL IsLocked();
 	
-		
-//protected:
-//	CSyncObject* m_pObject;
-//	HANDLE  m_hObject;
-//	BOOL    m_bAcquired;
+	HANDLE	m_hObject;
+	BOOL	m_IsLocked;
 };
 
 #endif//CSINGLELOCK_DEFINE

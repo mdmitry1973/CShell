@@ -37,6 +37,11 @@ CTime::~CTime()
 	
 }
 
+CTime CTime::GetCurrentTime()
+{
+	return CTime();
+}
+
 int CTime::GetYear() const
 {
 	struct tm *timeTm = gmtime(&m_curtime);

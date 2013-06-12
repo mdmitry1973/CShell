@@ -41,6 +41,8 @@ public:
 	virtual void AddItem(CDocItem* pItem);
 	virtual void RemoveItem(CDocItem* pItem);
 	
+	DECLARE_DYNAMIC(COleDocument)
+	
 };
 
 

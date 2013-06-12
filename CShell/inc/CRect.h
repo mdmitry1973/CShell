@@ -10,6 +10,8 @@
 #ifndef CRECT_DEFINE
 #define CRECT_DEFINE 1
 
+#include "CPoint.h"
+
 class CRect : public RECT
 {
 	
@@ -28,9 +30,21 @@ public:
 	operator LPCRECT()const;
 	void operator =(const RECT& srcRect);
 	BOOL operator ==(const RECT& rect) const;
+	void operator&=(const RECT& rect);
+	BOOL operator!=(const RECT& rect)const;
 
 	int Height();
 	int Width();
+	
+	BOOL IsRectEmpty() const;
+	
+	CPoint& TopLeft();
+	const CPoint& TopLeft() const;
+	
+	void InflateRect(int x, int y);
+	void InflateRect(SIZE size);
+	void InflateRect(LPCRECT lpRect);
+	void InflateRect(int l, int t, int r, int b);
 };
 
 #endif//CRECT_DEFINE

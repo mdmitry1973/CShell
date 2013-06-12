@@ -106,6 +106,11 @@ void CDocument::SetPathName(LPCTSTR lpszPathName, BOOL bAddToMRU)
 	NSLog(@"TO DO CDocument::SetPathName");
 }
 
+void CDocument::UpdateAllViews(CView* pSender, LPARAM lHint, CObject* pHint)
+{
+	NSLog(@"TO DO CDocument::UpdateAllViews");
+}
+
 void CDocument::AddView(CView* pView)
 {
 	m_viewList.push_back(pView);

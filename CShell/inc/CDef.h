@@ -501,6 +501,7 @@ typedef unsigned int UINT;
 typedef int LPARAM;
 typedef const char *LPCTSTR;
 typedef const char *LPCSTR;
+typedef	const char *PCSTR;
 typedef void *LPVOID;
 typedef void *PVOID;
 typedef DWORD DROPEFFECT;

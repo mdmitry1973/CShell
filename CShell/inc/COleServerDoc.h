@@ -13,9 +13,9 @@
 
 #include "CDef.h"
 
-#include "CDocument.h"
+#include "COleDocument.h"
 
-class COleServerDoc : public CDocument
+class COleServerDoc : public COleDocument
 {
 	// Constructors
 public:
@@ -95,6 +95,8 @@ public:
 	
 	void UpdateAllItems(COleServerItem* pSender, LPARAM lHint = 0L, CObject* pHint = NULL,
 						DVASPECT nDrawAspect = DVASPECT_CONTENT);
+	
+	DECLARE_DYNAMIC(COleServerDoc)
 };
 
 

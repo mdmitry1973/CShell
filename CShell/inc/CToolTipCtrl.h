@@ -16,11 +16,12 @@
 
 class CToolTipCtrl : public CWnd
 {
-	DECLARE_DYNAMIC(CToolTipCtrl)
+	
 	
 	// Constructors
 public:
 	CToolTipCtrl();
+	virtual ~CToolTipCtrl();
 	
 	// Generic creator
 	virtual BOOL Create( CWnd* pParentWnd,  DWORD dwStyle = 0);
@@ -135,12 +136,14 @@ public:
 	// Implementation
 public:
 	void FillInToolInfo( TOOLINFO& ti,  CWnd* pWnd,  UINT_PTR nIDTool) const;
-	virtual ~CToolTipCtrl();
+	
 //#ifndef _AFXDLL
 //	virtual BOOL DestroyToolTipCtrl();
 //#else
 //	BOOL DestroyToolTipCtrl();
 //#endif
+	
+	DECLARE_DYNAMIC(CToolTipCtrl)
 	
 protected:
 	//{{AFX_MSG(CToolTipCtrl)

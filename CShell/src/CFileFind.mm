@@ -128,8 +128,6 @@ BOOL CFileFind::IsTemporary() const;
 BOOL CFileFind::IsNormal() const;
 BOOL CFileFind::IsArchived() const;
 
-
-void CFileFind::Close();
  */
 
 BOOL CFileFind::FindFile(LPCTSTR pstrName, DWORD dwUnused)
@@ -197,4 +195,9 @@ again:
 	}
 	
 	return FALSE;
+}
+
+void CFileFind::Close()
+{
+	
 }

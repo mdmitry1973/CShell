@@ -100,6 +100,9 @@
 #include "CDocManager.h"
 #include "CMFCMenuBar.h"
 #include "CMFCToolBarImages.h"
-
+#include "CPalette.h"
+#include "CRgn.h"
+#include "CPreviewDC.h"
+#include "CMutex.h"
 
 #endif//AFX_WIN
