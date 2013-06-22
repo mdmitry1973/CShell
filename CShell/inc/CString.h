@@ -72,6 +72,8 @@ public:
 	CString Tokenize(const char *pszTokens, int& iStart) const;
 	
 	int Remove( TCHAR ch );
+	
+	int Delete( int nIndex, int nCount = 1); 
 
 protected:
 	

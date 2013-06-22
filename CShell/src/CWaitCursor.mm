@@ -79,7 +79,7 @@ CWaitCursor::CWaitCursor()
 	m_session = new	NSModalSession;	
 	(*(NSModalSession *)m_session) = session;
 	
-	WaitHelper *helper = [WaitHelper alloc];
+	WaitHelper *helper =[[WaitHelper alloc] init];
 	
 	[helper wait: this];
 	

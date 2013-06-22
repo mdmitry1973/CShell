@@ -48,3 +48,44 @@ void CToolBar::EnableDocking(DWORD dwDockStyle)
 {
 	NSLog(@"TO DO CToolBar::EnableDocking");
 }
+
+
+void CToolBar::OnUpdateCmdUI(CFrameWnd* pTarget, BOOL bDisableIfNoHndler)
+{
+	NSLog(@"TO DO CToolBar::OnUpdateCmdUI");
+}
+
+DWORD CToolBar::GetBarStyle()
+{
+	NSLog(@"TO DO CToolBar::EnableDocking");
+}
+
+void CToolBar::SetBarStyle(DWORD dwStyle)
+{
+	NSLog(@"TO DO CToolBar::SetBarStyle");
+}
+
+UINT CToolBar::GetItemID(int nIndex) const
+{
+	NSLog(@"TO DO CToolBar::GetItemID");
+}
+
+void CToolBar::GetItemRect(int nIndex, LPRECT lpRect) const
+{
+	NSLog(@"TO DO CToolBar::GetItemRect");
+}
+
+UINT CToolBar::GetButtonStyle(int nIndex) const
+{
+	NSLog(@"TO DO CToolBar::GetButtonStyle");
+}
+
+void CToolBar::SetButtonStyle(int nIndex, UINT nStyle)
+{
+	NSLog(@"TO DO CToolBar::SetButtonStyle");
+}
+
+CToolBarCtrl& CToolBar::GetToolBarCtrl() const
+{
+	NSLog(@"TO DO CToolBar::GetToolBarCtrl");
+}

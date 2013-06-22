@@ -37,6 +37,8 @@ public:
 	
 	virtual BOOL IsDialog();
 	
+	void EndDialog(int nResult);
+	
 	CString			mStrID;
 
 };

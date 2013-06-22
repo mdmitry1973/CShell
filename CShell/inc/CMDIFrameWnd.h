@@ -15,6 +15,8 @@
 
 //virtual class only for menu and toll bar
 
+class CMDIChildWnd;
+
 class CMDIFrameWnd : public CFrameWnd
 {
 
@@ -41,6 +43,8 @@ public:
 	
 	void MDINext();
 	void MDIPrev();
+	
+	CMDIChildWnd* MDIGetActive(BOOL* pbMaximized = NULL) const;
 	
 	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
 	

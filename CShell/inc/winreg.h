@@ -45,16 +45,29 @@ typedef HKEY *PHKEY;
 // Reserved Key Handles.
 //
 
-#define HKEY_CLASSES_ROOT                   (( HKEY ) (ULONG_PTR)((LONG)0x80000000) )
-#define HKEY_CURRENT_USER                   (( HKEY ) (ULONG_PTR)((LONG)0x80000001) )
-#define HKEY_LOCAL_MACHINE                  (( HKEY ) (ULONG_PTR)((LONG)0x80000002) )
-#define HKEY_USERS                          (( HKEY ) (ULONG_PTR)((LONG)0x80000003) )
-#define HKEY_PERFORMANCE_DATA               (( HKEY ) (ULONG_PTR)((LONG)0x80000004) )
-#define HKEY_PERFORMANCE_TEXT               (( HKEY ) (ULONG_PTR)((LONG)0x80000050) )
-#define HKEY_PERFORMANCE_NLSTEXT            (( HKEY ) (ULONG_PTR)((LONG)0x80000060) )
-#define HKEY_CURRENT_CONFIG                 (( HKEY ) (ULONG_PTR)((LONG)0x80000005) )
-#define HKEY_DYN_DATA                       (( HKEY ) (ULONG_PTR)((LONG)0x80000006) )
-#define HKEY_CURRENT_USER_LOCAL_SETTINGS    (( HKEY ) (ULONG_PTR)((LONG)0x80000007) )
+extern const void *nsSTR_HKEY_CLASSES_ROOT;
+extern const void *nsSTR_HKEY_CURRENT_USER;
+extern const void *nsSTR_HKEY_LOCAL_MACHINE;
+extern const void *nsSTR_HKEY_USERS;
+extern const void *nsSTR_HKEY_PERFORMANCE_DATA;
+extern const void *nsSTR_HKEY_PERFORMANCE_TEXT;
+extern const void *nsSTR_HKEY_PERFORMANCE_NLSTEXT;
+extern const void *nsSTR_HKEY_CURRENT_CONFIG;
+extern const void *nsSTR_HKEY_DYN_DATA;
+extern const void *nsSTR_HKEY_CURRENT_USER_LOCAL_SETTINGS;
+
+#define HKEY_CLASSES_ROOT                   (( HKEY ) nsSTR_HKEY_CLASSES_ROOT)//(ULONG_PTR)((LONG)0x80000000) )
+#define HKEY_CURRENT_USER                   (( HKEY ) nsSTR_HKEY_CURRENT_USER)//(ULONG_PTR)((LONG)0x80000001) )
+#define HKEY_LOCAL_MACHINE                  (( HKEY ) nsSTR_HKEY_LOCAL_MACHINE)//(ULONG_PTR)((LONG)0x80000002) )
+#define HKEY_USERS                          (( HKEY ) nsSTR_HKEY_USERS)//(ULONG_PTR)((LONG)0x80000003) )
+#define HKEY_PERFORMANCE_DATA               (( HKEY ) nsSTR_HKEY_PERFORMANCE_DATA)//(ULONG_PTR)((LONG)0x80000004) )
+#define HKEY_PERFORMANCE_TEXT               (( HKEY ) nsSTR_HKEY_PERFORMANCE_TEXT)//(ULONG_PTR)((LONG)0x80000050) )
+#define HKEY_PERFORMANCE_NLSTEXT            (( HKEY ) nsSTR_HKEY_PERFORMANCE_NLSTEXT)//(ULONG_PTR)((LONG)0x80000060) )
+#define HKEY_CURRENT_CONFIG                 (( HKEY ) nsSTR_HKEY_CURRENT_CONFIG)//(ULONG_PTR)((LONG)0x80000005) )
+#define HKEY_DYN_DATA                       (( HKEY ) nsSTR_HKEY_DYN_DATA)//(ULONG_PTR)((LONG)0x80000006) )
+#define HKEY_CURRENT_USER_LOCAL_SETTINGS    (( HKEY ) nsSTR_HKEY_CURRENT_USER_LOCAL_SETTINGS)//(ULONG_PTR)((LONG)0x80000007) )
+
+HKEY createNSKey(const char *);
 
 LSTATUS RegCreateKeyEx(HKEY hKey,
 				  LPCSTR lpSubKey,

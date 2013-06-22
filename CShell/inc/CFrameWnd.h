@@ -62,13 +62,15 @@ public:
 	
 	virtual void RecalcLayout(BOOL bNotify = TRUE);
 	
+	void ShowControlBar(CControlBar* pBar, BOOL bShow, BOOL bDelay);
+	
 	DECLARE_DYNAMIC(CFrameWnd)
 	
 	//not mfc methods
 	
 	CString m_strTitle;         // default title (original)
 	
-	CMenu m_menuBar;
+	
 
 };
 

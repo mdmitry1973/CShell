@@ -266,11 +266,12 @@ public:
 	
 	void Invalidate(BOOL bErase = TRUE);
 	void InvalidateRect(LPCRECT lpRect, BOOL bErase = TRUE);
-
+	
 	//mfc dialog
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
 	virtual void OnCancel();
+	virtual void OnTimer(UINT nIDEvent);
 	
 	virtual void OnChar(UINT nChar, UINT nRepCnt, UINT nFlags);
 	virtual void OnLButtonDown(UINT nFlags, CPoint point);
@@ -336,6 +337,8 @@ protected:
 	std::map<int, CWnd*>		mMapControls;
 	
 	CString			mCaptionStr;
+	
+	std::vector<void*> mTimerArr;
 };
 
 

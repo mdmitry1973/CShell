@@ -252,7 +252,7 @@ void* CPtrArray::GetAt(int nIndex) const
 	return m_pData[nIndex]; 
 }
 
-inline void CPtrArray::SetAt(int nIndex, void* newElement)
+void CPtrArray::SetAt(int nIndex, void* newElement)
 { 
 	ASSERT(nIndex >= 0 && nIndex < m_nSize);
 	m_pData[nIndex] = newElement; 

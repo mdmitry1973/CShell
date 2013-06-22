@@ -180,10 +180,15 @@ BOOL CFrameWnd::Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName,
 	
 	[doc addWindowController: (NSWindowController *)mWindowController];
 	
-	if (m_menuBar.LoadMenu(lpszMenuName))
+	if (mMenu.LoadMenu(lpszMenuName))
 	{
-		[NSApp setMenu: (NSMenu *)(m_menuBar.GetNSMenu())];
+		SetMenu(&mMenu);
 	}
+	else 
+	{
+		//set main frame menu
+	}
+
 	
 	return TRUE;				
 }
@@ -282,4 +287,9 @@ BOOL CFrameWnd::ShowWindow(int nCmdShow)
 void CFrameWnd::RecalcLayout(BOOL bNotify)
 {
 	NSLog(@"TO DO CFrameWnd::RecalcLayout");
+}
+
+void CFrameWnd::ShowControlBar(CControlBar* pBar, BOOL bShow, BOOL bDelay)
+{
+	NSLog(@"TO DO CFrameWnd::ShowControlBar");
 }

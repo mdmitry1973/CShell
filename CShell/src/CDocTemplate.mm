@@ -15,6 +15,14 @@
 
 #include "CDocTemplate.h"
 
+CDocTemplate::CDocTemplate()
+{
+	m_nIDResource = 0;
+	m_pDocClass = 0;
+	m_pFrameClass = 0;
+	m_pViewClass = 0;
+}
+
 CDocTemplate::CDocTemplate(UINT nIDResource,
 			 CRuntimeClass* pDocClass,
 			 CRuntimeClass* pFrameClass,

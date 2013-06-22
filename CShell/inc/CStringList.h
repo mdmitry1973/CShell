@@ -24,6 +24,8 @@ public:
 	CStringList(INT_PTR nBlockSize = 10);
 	virtual ~CStringList();
 	
+	static CString strEmpty;
+	
 	INT_PTR GetCount() const;
 	INT_PTR GetSize() const;
 	BOOL IsEmpty() const;

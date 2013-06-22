@@ -18,6 +18,8 @@ class CMultiDocTemplate : public CDocTemplate
 
 public:
 	
+	CMultiDocTemplate();
+	
 	CMultiDocTemplate(UINT nIDResource,
 					  CRuntimeClass* pDocClass,
 					  CRuntimeClass* pFrameClass,

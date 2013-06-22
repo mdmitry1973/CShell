@@ -429,6 +429,15 @@ CString CString::Tokenize(const char *pszTokens, int& iStart) const
 	return res;
 }
 
+int CString::Delete( int nIndex, int nCount)
+{
+	std::string s = replace(nIndex, nCount, "");
+	
+	*this = s.c_str();
+	
+	return size();
+}
+
 BOOL operator ==(const BYTE  *s1, const CString& s2 )
 {
 	return s2.compare((const char *)s1) == 0;

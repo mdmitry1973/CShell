@@ -19,10 +19,31 @@
 	
 	if (self)
 	{
-		
+		m_doc = nil;
+		m_frame = nil;
 	}
 	
     return self;
+}
+
+- (void)setDoc:(CDocument *)doc
+{
+	m_doc = doc;
+}
+
+- (void)setFrame:(CFrameWnd *)frame
+{
+	m_frame = frame;
+}
+
+- (CDocument *)getDoc
+{
+	return m_doc;
+}
+
+- (CFrameWnd *)getFrame
+{
+	return m_frame;
 }
 
 @end

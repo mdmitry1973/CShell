@@ -17,6 +17,11 @@
 
 #include "CMultiDocTemplate.h"
 
+CMultiDocTemplate::CMultiDocTemplate()
+{
+	
+}
+
 CMultiDocTemplate::CMultiDocTemplate(UINT nIDResource,
 				  CRuntimeClass* pDocClass,
 				  CRuntimeClass* pFrameClass,
@@ -90,6 +95,9 @@ CDocument* CMultiDocTemplate::OpenDocumentFile(LPCTSTR lpszPathName, BOOL bMakeV
 		return NULL;
 	}
 	ASSERT_VALID(pFrame);
+	
+	[doc setDoc: pDocument];
+	[doc setFrame: pFrame];
 	
 	pFrame->ShowWindow(SW_SHOWNORMAL);
 	

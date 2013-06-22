@@ -12,6 +12,10 @@
 
 #include "CDef.h"
 
+#include "CString.h"
+
+#include <vector>
+
 class CBitmap;
 class CWnd;
 
@@ -23,6 +27,10 @@ public:
 	CMenu();
 	virtual ~CMenu();
 	
+	BOOL Attach(HMENU hMenu);
+	
+	BOOL CreateMenu();
+	
 	BOOL AppendMenu(UINT nFlags, UINT_PTR nIDNewItem = 0, LPCTSTR lpszNewItem = NULL);
 	BOOL AppendMenu(UINT nFlags, UINT_PTR nIDNewItem, const CBitmap* pBmp);
 	
@@ -32,12 +40,26 @@ public:
 	BOOL LoadMenu(LPCTSTR lpszResourceName);
 	BOOL LoadMenu(UINT nIDResource);
 	
+	
+	BOOL ModifyMenu(UINT nPosition, UINT nFlags, UINT_PTR nIDNewItem = 0, LPCTSTR lpszNewItem = NULL);
+	BOOL ModifyMenu(UINT nPosition, UINT nFlags, UINT_PTR nIDNewItem, const CBitmap* pBmp);
+	
+	CMenu* GetSubMenu(int nPos);// const;
+	int GetMenuItemCount() const;
+	int GetMenuString( UINT nIDItem,  LPTSTR lpString,  int nMaxCount, UINT nFlags) const;
+	int GetMenuString(UINT nIDItem, CString& rString, UINT nFlags) const;
+	UINT GetMenuItemID(int nPos) const;
+	
+	BOOL DeleteMenu(UINT nPosition, UINT nFlags);
+	
 	void SetNSMenu(void *menu, CWnd *owner);
 	BOOL MenuParser(void *currentMenu, void *rootMenuNode);
 	void *GetNSMenu();
 	
 	void *m_NMenu;
 	CWnd *m_owner;
+	
+	std::vector<CMenu*>		mMapSumMenu;
 };
 
 #endif//CMENU_DEFINE

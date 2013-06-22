@@ -46,7 +46,7 @@ BOOL AfxIsValidAddress(const void* lp, UINT nBytes, BOOL bReadWrite)
 
 BOOL AfxIsValidString(LPCSTR lpsz, int nLength )
 {
-	ASSERT(lpsz[nLength] == NULL);
+	ASSERT(lpsz[nLength]);
 	
 	return TRUE;
 }

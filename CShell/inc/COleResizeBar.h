@@ -10,6 +10,8 @@
 #ifndef COLERESIZEBAR_DEFINE
 #define COLERESIZEBAR_DEFINE 1
 
+class CWnd;
+
 class COleResizeBar
 {
 
@@ -17,6 +19,9 @@ public:
 	
 	COleResizeBar();
 	virtual ~COleResizeBar();
+	
+	virtual BOOL Create(CWnd* pParentWnd, DWORD dwStyle = WS_CHILD | WS_VISIBLE,
+						UINT nID = AFX_IDW_RESIZE_BAR);
 };
 
 #endif//COLERESIZEBAR_DEFINE

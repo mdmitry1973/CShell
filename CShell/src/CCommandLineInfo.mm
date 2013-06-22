@@ -12,6 +12,11 @@
 CCommandLineInfo::CCommandLineInfo() : CObject()
 {
 	m_nShellCommand = FileNew;
+	
+	m_bShowSplash = 0;
+	m_bRunEmbedded = 0;
+	m_bRunAutomated = 0;
+	m_bRegisterPerUser = 0;
 }
 
 CCommandLineInfo::~CCommandLineInfo()

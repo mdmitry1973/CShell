@@ -22,6 +22,8 @@ class CDocTemplate : public CCmdTarget
 
 public:
 	
+	CDocTemplate();
+	
 	CDocTemplate(UINT nIDResource,
 				  CRuntimeClass* pDocClass,
 				  CRuntimeClass* pFrameClass,

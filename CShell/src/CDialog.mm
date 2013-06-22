@@ -95,3 +95,8 @@ BOOL CDialog::IsDialog()
 {
 	return true;
 }
+
+void CDialog::EndDialog(int nResult)
+{
+	NSLog(@"to do CDialog::EndDialog");
+}

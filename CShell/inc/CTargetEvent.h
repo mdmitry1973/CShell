@@ -66,6 +66,7 @@ typedef void (CCmdTarget::*EventNotifyFun)(NMHDR* pNMHDR, LRESULT* pResult);
 #define BEGIN_MESSAGE_MAP(theClass, BaseClass) \
 void theClass::SetMessageMap()\
 {\
+BaseClass::SetMessageMap();\
 typedef theClass ThisClass;\
 
 

@@ -55,6 +55,8 @@ CWnd::CWnd()
 
 CWnd::~CWnd()
 {
+	KillTimer(-1);
+	
 	if (m_hWnd && mMainWindow)
 	{
 		[(NSWindow *)m_hWnd dealloc];
@@ -1515,18 +1517,152 @@ CFont* CWnd::GetFont() const
 	return NULL;
 }
 
+typedef void (* fnTimer)(HWND, UINT, UINT_PTR, DWORD);
+
+@interface WinTimeHelper : NSObject
+{
+	CWnd	*m_win;
+	fnTimer m_fn;
+	int	m_id;
+}
+
+@end
+
+@implementation WinTimeHelper
+
+- (void)setWin:(CWnd *)win
+{
+	m_win = win;
+}
+
+- (void)setFun:(fnTimer)fn
+{
+	m_fn = fn;
+}
+
+- (void)setId:(int)i
+{
+	m_id = i;
+}
+
+- (void)helperMethod:(NSTimer*)theTimer
+{
+	if (m_fn)
+	{
+		m_fn(m_win, WM_TIMER, m_id, 0);
+	}
+	else
+	if (m_win)
+	{
+		m_win->OnTimer(m_id);
+	}
+}
+
+@end
+
+@interface CNSTimer : NSTimer
+{
+	CWnd	*m_win;
+	fnTimer m_fn;
+	int	m_id;
+}
+
+@end
+
+@implementation CNSTimer
+
+- (void)setWin:(CWnd *)win
+{
+	m_win = win;
+}
+
+- (void)setFun:(fnTimer)fn
+{
+	m_fn = fn;
+}
+
+- (void)setId:(int)i
+{
+	m_id = i;
+}
+
+- (CWnd *)getWin
+{
+	return m_win;
+}
+
+- (fnTimer)getFun
+{
+	return m_fn;
+}
+
+- (int)getId
+{
+	return m_id;
+}
+
+
+@end
+
 UINT_PTR CWnd::SetTimer(UINT_PTR nIDEvent, UINT nElapse, void (* lpfnTimer)(HWND, UINT, UINT_PTR, DWORD))
 {
-	NSLog(@"TO DO CWnd::SetTimer");
+	WinTimeHelper *helper = [[WinTimeHelper alloc] init];
+	
+	[helper setWin: this];
+	[helper setFun: lpfnTimer];
+	[helper setId: nIDEvent];
+	
+	CNSTimer *timer = (CNSTimer *)[CNSTimer timerWithTimeInterval:nElapse/1000 target:helper selector:@selector(helperMethod:) userInfo:nil repeats:YES];
+	
+	[timer setWin: this];
+	[timer setFun: lpfnTimer];
+	[timer setId: nIDEvent];
+	
+	mTimerArr.push_back(timer);
+	
+	[timer fire];
 	
 	return 0;
 }
 
 BOOL CWnd::KillTimer(UINT_PTR nIDEvent)
 {
-	NSLog(@"TO DO CWnd::KillTimer");
+	if (nIDEvent == -1)
+	{
+		for(int i = 0; i < mTimerArr.size(); i++)
+		{
+			CNSTimer *timer = (CNSTimer *)mTimerArr[i];
+			
+			[timer invalidate];
+			[timer release];
+		}
+		
+		mTimerArr.clear();
+	}
+	else 
+	{
+		for(int i = 0; i < mTimerArr.size(); i++)
+		{
+			CNSTimer *timer = (CNSTimer *)mTimerArr[i];
+			
+			if ([timer getId] == nIDEvent)
+			{
+				[timer invalidate];
+				[timer release];
+				
+				mTimerArr.erase(mTimerArr.begin() + i);
+				
+				break;
+			}
+		}
+	}
 	
-	return FALSE;
+	return TRUE;
+}
+
+void CWnd::OnTimer(UINT nIDEvent)
+{
+	NSLog(@"TO DO CWnd::OnTimer");
 }
 
 BOOL CWnd::EnableToolTips(BOOL bEnable)
@@ -1958,8 +2094,27 @@ int CWnd::MessageBox(LPCTSTR lpszText, LPCTSTR lpszCaption, UINT nType)
 
 BOOL CWnd::SetMenu(CMenu* pMenu)
 {
-	NSLog(@"TO DO CWnd::SetMenu");
-	return FALSE;
+	NSMenu *menuBar = [NSApp menu];		
+	NSArray *arrSubMenu = [menuBar itemArray];
+	
+	for(int i = 1; i < [arrSubMenu count]; i++)
+	{
+		NSMenuItem *menuItem = [arrSubMenu objectAtIndex: i];
+		[menuBar removeItem:menuItem];
+	}
+	
+	NSMenu *menuNewBar = (NSMenu *)pMenu->GetNSMenu();
+	
+	NSArray *arrNewSubMenu = [menuNewBar itemArray];
+	
+	for(int i = 0; i < [arrNewSubMenu count]; i++)
+	{
+		NSMenuItem *menuItem = [arrNewSubMenu objectAtIndex: i];
+		[menuNewBar removeItem:menuItem];
+		[menuBar addItem: menuItem];
+	}
+	
+	return TRUE;
 }
 
 void CWnd::DrawMenuBar()

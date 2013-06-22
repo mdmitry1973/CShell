@@ -240,5 +240,16 @@ typedef struct tagBITMAPINFO {
     RGBQUAD             bmiColors[1];
 } BITMAPINFO, FAR *LPBITMAPINFO, *PBITMAPINFO;
 
+/* Bitmap Header Definition */
+typedef struct tagBITMAP
+{
+    LONG        bmType;
+    LONG        bmWidth;
+    LONG        bmHeight;
+    LONG        bmWidthBytes;
+    WORD        bmPlanes;
+    WORD        bmBitsPixel;
+    LPVOID      bmBits;
+} BITMAP, *PBITMAP, *NPBITMAP, *LPBITMAP;
 
 #endif//WIN_GDI

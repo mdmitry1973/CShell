@@ -10,6 +10,10 @@
 #include "CDef.h"
 
 #include "CMDIFrameWnd.h"
+#include "CFrameWnd.h"
+#include "CMDIChildWnd.h"
+
+#import "CNSDocument.h"
 
 IMPLEMENT_DYNAMIC(CMDIFrameWnd, CFrameWnd)
 
@@ -25,7 +29,14 @@ CMDIFrameWnd::~CMDIFrameWnd()
 
 BOOL CMDIFrameWnd::LoadFrame(UINT nIDResource, DWORD dwDefaultStyle, CWnd* pParentWnd , CCreateContext* pContext)
 {
-	NSLog(@"to do CMDIFrameWnd::LoadFrame");
+	CString strResID;
+	
+	strResID = strResID.Format("%d", nIDResource);
+	
+	if (mMenu.LoadMenu(strResID))
+	{
+		SetMenu(&mMenu);
+	}
 	
 	return TRUE;
 }
@@ -67,4 +78,18 @@ BOOL CMDIFrameWnd::PreCreateWindow(CREATESTRUCT& cs)
 	NSLog(@"to do CMDIFrameWnd::PreCreateWindow");
 	
 	return FALSE;
+}
+
+CMDIChildWnd* CMDIFrameWnd::MDIGetActive(BOOL* pbMaximized ) const
+{
+	NSDocumentController *docManager = [NSDocumentController sharedDocumentController];
+	
+	CNSDocument  *doc = [docManager currentDocument];
+	
+	if (doc)
+	{
+		return (CMDIChildWnd*)[doc getFrame];
+	}
+	
+	return 0;
 }

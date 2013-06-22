@@ -139,7 +139,7 @@ BOOL CFileFind::FindFile(LPCTSTR pstrName, DWORD dwUnused)
 	windCard = [[searchPath lastPathComponent] UTF8String];
 	NSString *path = [searchPath stringByDeletingLastPathComponent];
 	
-	localFileManager = [[NSFileManager alloc] init];
+	localFileManager = [NSFileManager defaultManager];
 	NSURL *searchUrl = [NSURL fileURLWithPath: path];
 	
 	dirEnum = (NSDirectoryEnumerator *)[(NSFileManager*)localFileManager enumeratorAtURL: searchUrl
@@ -150,7 +150,7 @@ BOOL CFileFind::FindFile(LPCTSTR pstrName, DWORD dwUnused)
 	
 	if (dirEnum)
 	{
-		if (windCard.find("*"))
+		if (windCard.find("*") != -1)
 		{
 			all = TRUE;
 		}

@@ -11,6 +11,8 @@
 
 #include "CStringList.h"
 
+CString CStringList::strEmpty = "";
+
 CStringList::CStringList()
 {
 	
@@ -152,9 +154,7 @@ POSITION CStringList::GetTailPosition() const
 }
 
 CString& CStringList::GetNext(POSITION& rPosition)
-{
-	CString res;
-	
+{	
 	for (std::list<CString *>::iterator it = begin(); it != end(); ++it)
 	{
 		if (*it == (CString *)rPosition)
@@ -163,13 +163,12 @@ CString& CStringList::GetNext(POSITION& rPosition)
 			
 			if (it != end())
 			{
-				res = **it;
+				return  **it;
 			}
-			break;
 		}
 	}
 	
-	return res;
+	return strEmpty;
 }
 
 /*
@@ -197,19 +196,16 @@ const CString& CStringList::GetNext(POSITION& rPosition) const
 
 CString& CStringList::GetPrev(POSITION& rPosition)
 {
-	CString res;
-	
 	for (std::list<CString *>::iterator it = begin(); it != end(); ++it)
 	{
 		if (*it == (CString *)rPosition)
 		{
 			--it;
-			res = **it;
-			break;
+			return **it;
 		}
 	}
 	
-	return res;
+	return strEmpty;
 }
 
 /*
@@ -221,18 +217,15 @@ const CString& CStringList::GetPrev(POSITION& rPosition) const
 
 CString& CStringList::GetAt(POSITION position)
 {
-	CString res;
-	
 	for (std::list<CString *>::iterator it = begin(); it != end(); ++it)
 	{
 		if (*it == (CString *)position)
 		{
-			res = **it;
-			break;
+			return **it;
 		}
 	}
 	
-	return res;
+	return strEmpty;
 }
 
 //const CString& CStringList::GetAt(POSITION position) const

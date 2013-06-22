@@ -8,9 +8,19 @@
 
 #import <Cocoa/Cocoa.h>
 
+#include "CDocument.h"
+#include "CFrameWnd.h"
+
 @interface CNSDocument : NSDocument
 {
-	
+	CDocument	*m_doc;
+	CFrameWnd	*m_frame;
 }
+
+- (void)setDoc:(CDocument *)doc;
+- (void)setFrame:(CFrameWnd *)frame;
+
+- (CDocument *)getDoc;
+- (CFrameWnd *)getFrame;
 
 @end

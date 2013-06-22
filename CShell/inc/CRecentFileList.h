@@ -18,9 +18,12 @@ class CRecentFileList
 {
 	// Constructors
 public:
+	CRecentFileList();
 	CRecentFileList(UINT nStart, LPCTSTR lpszSection,
 					LPCTSTR lpszEntryFormat, int nSize,
 					int nMaxDispLen = AFX_ABBREV_FILENAME_LEN);
+	
+	virtual ~CRecentFileList();
 	
 	// Attributes
 	int GetSize() const;
@@ -60,7 +63,7 @@ public:
 	//void Add(PIDLIST_ABSOLUTE pidl, LPCTSTR lpszAppID);
 	
 	// Implementation
-	virtual ~CRecentFileList();
+	
 	
 	//int m_nSize;                // contents of the MRU list
 	//CString* m_arrNames;

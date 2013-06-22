@@ -11,12 +11,12 @@
 
 CRuntimeClass::CRuntimeClass()
 {
-	NSLog(@"to do CRuntimeClass");
+	//NSLog(@"to do CRuntimeClass");
 }
 
 CRuntimeClass::~CRuntimeClass()
 {
-	NSLog(@"to do CRuntimeClass");
+	//NSLog(@"to do CRuntimeClass");
 }
 	
 CObject* CRuntimeClass::CreateObject()

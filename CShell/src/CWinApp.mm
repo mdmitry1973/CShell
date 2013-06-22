@@ -366,12 +366,37 @@ void CWinApp::AddDocTemplate(CDocTemplate* pTemplate)
 
 POSITION CWinApp::GetFirstDocTemplatePosition( ) const
 {
-	NSLog(@"TO DO CWinApp::GetFirstDocTemplatePosition");
+	return (POSITION)-1;
 }
 
 CDocTemplate *CWinApp::GetNextDocTemplate(POSITION& pos ) const
 {
-	NSLog(@"TO DO CWinApp::GetNextDocTemplate");
+	CDocTemplate *doc = (CDocTemplate *)pos;
+	
+	if ((long)doc == -1)
+	{
+		if (m_arrDocTemplate.size())
+		{
+			return *(m_arrDocTemplate.begin());
+		}
+		
+		return 0;
+	}
+	
+	for (std::vector<CDocTemplate *>::const_iterator it = m_arrDocTemplate.begin() ; it != m_arrDocTemplate.end(); ++it)
+	{
+		if (*it == doc)
+		{
+			if (it++ != m_arrDocTemplate.end())
+			{
+				return *(it++);
+			}
+			
+			break; 
+		}
+	}
+	
+	return 0;
 }
 
 void CWinApp::CloseAllDocuments(BOOL bEndSession)
@@ -699,7 +724,16 @@ std::map<int,CShellBitmapInfo> &CWinApp::GetBitmapInfoMap()
 
 HKEY CWinApp::GetAppRegistryKey()
 {
+	NSBundle *bundle = [NSBundle mainBundle];
 	
+	if (bundle)
+	{
+		NSString *str = [bundle bundleIdentifier];
+		
+		return createNSKey([str UTF8String]);
+	}
+	
+	return HKEY_CURRENT_USER;
 }
 
 BOOL CWinApp::LoadIconInfo()

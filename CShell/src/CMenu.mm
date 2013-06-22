@@ -10,6 +10,7 @@
 #include "CBitmap.h"
 #include "CMenu.h"
 #include "CWnd.h"
+#include "winbase.h"
 
 #import "CNSWindowDelegate.h"
 #import "CNSWindow.h"
@@ -147,13 +148,48 @@ CMenu::CMenu()
 
 CMenu::~CMenu()
 {
+	for(int i = 0 ; i < mMapSumMenu.size(); i++)
+	{
+		delete mMapSumMenu[i];
+	}
+}
+
+BOOL CMenu::Attach(HMENU hMenu)
+{
+	m_NMenu = hMenu;
 	
+	return TRUE;
+}
+
+BOOL CMenu::ModifyMenu(UINT nPosition, UINT nFlags, UINT_PTR nIDNewItem , LPCTSTR lpszNewItem)
+{
+	NSLog(@"CMenu::ModifyMenu");
+	
+	return FALSE;
+}
+
+BOOL CMenu::ModifyMenu(UINT nPosition, UINT nFlags, UINT_PTR nIDNewItem, const CBitmap* pBmp)
+{
+	NSLog(@"CMenu::ModifyMenu");
+	
+	return FALSE;
+}
+
+BOOL CMenu::CreateMenu()
+{
+	NSMenu *menubar = [[NSMenu alloc] autorelease];
+	
+	m_NMenu = menubar;
+	
+	return menubar ? TRUE : FALSE;
 }
 
 BOOL CMenu::AppendMenu(UINT nFlags, UINT_PTR nIDNewItem, LPCTSTR lpszNewItem)
 {
 	assert(m_NMenu || m_owner);
 	
+	return ::AppendMenu(m_NMenu, nFlags, nIDNewItem, lpszNewItem);
+	/*
 	//nFlags
 	//MF_OWNERDRAW Contains an application-supplied 32-bit value that the application can use to maintain additional data associated with the menu item. This 32-bit value is available to the application when it processes WM_MEASUREITEM and WM_DRAWITEM messages. The value is stored in the itemData member of the structure supplied with those messages.
 	//MF_STRING Contains a pointer to a null-terminated string. This is the default interpretation.
@@ -207,12 +243,12 @@ BOOL CMenu::AppendMenu(UINT nFlags, UINT_PTR nIDNewItem, LPCTSTR lpszNewItem)
 	}
 	else 
 	{
-		if (nFlags == MF_STRING)
+		if (nFlags == MF_STRING || nFlags == MF_OWNERDRAW)
 		{
 			CNSWindowDelegate *dlg = (CNSWindowDelegate *)m_owner->GetWindowDelegate();
 			//CNSWindow *win = (CNSWindow *)m_owner->GetNSWindow();
 			 
-			menuItem = [(NSMenu *)m_NMenu addItemWithTitle:strItem action:NULL /*[dlg getMenuCall]*/ keyEquivalent: @""];
+			menuItem = [(NSMenu *)m_NMenu addItemWithTitle:strItem action:NULL  keyEquivalent: @""];
 			
 			[dlg setMenuAction: menuItem];
 			
@@ -226,6 +262,10 @@ BOOL CMenu::AppendMenu(UINT nFlags, UINT_PTR nIDNewItem, LPCTSTR lpszNewItem)
 		{
 			menuItem = [(NSMenu *)m_NMenu addItemWithTitle:@"-" action:nil keyEquivalent: @""];
 		}
+		else
+		{
+			NSLog(@"Cannot add menu item");				
+		}
 	}
 	
 	if (menuItem)
@@ -235,6 +275,7 @@ BOOL CMenu::AppendMenu(UINT nFlags, UINT_PTR nIDNewItem, LPCTSTR lpszNewItem)
 	}
 	
 	return TRUE;
+	 */
 }
 
 BOOL CMenu::AppendMenu(UINT nFlags, UINT_PTR nIDNewItem, const CBitmap* pBmp)
@@ -300,11 +341,58 @@ BOOL CMenu::MenuParser(void *currentMenuVoid, void *rootMenuNodeVoid)
 			NSString *menuItemName = [attrName stringValue];
 			NSMenuItem *menuItem = [[NSMenuItem alloc] autorelease];
 			
+			//&amp;Open...\tCtrl+O
+			
+			NSArray *arrTabs = [menuItemName componentsSeparatedByString:@"\\t"];
+			
+			if ([arrTabs count] == 2)
+			{
+				menuItemName = [arrTabs objectAtIndex: 0];
+				
+				NSString *menuItemKeyCommand = [arrTabs objectAtIndex: 1];
+				
+				NSArray *arrKeys = [menuItemKeyCommand componentsSeparatedByString:@"+"];
+				NSInteger mask = 0;
+				
+				for(int i = 0; i < [arrKeys count]; i++)
+				{
+					NSString *strKeyCommand = [arrKeys objectAtIndex: i];
+					
+					if ([strKeyCommand caseInsensitiveCompare:@"Ctrl"] == 0)
+					{
+						mask = mask | NSCommandKeyMask;
+					}
+					else
+					if ([strKeyCommand caseInsensitiveCompare:@"Shift"] == 0)
+					{
+						mask = mask | NSShiftKeyMask;
+					}					
+					else
+					if ([strKeyCommand caseInsensitiveCompare:@"Alt"] == 0)
+					{
+						mask = mask | NSAlternateKeyMask;
+					}
+					else 
+					{
+						if (mask == NSCommandKeyMask)
+						{
+							strKeyCommand = [strKeyCommand lowercaseString];
+						}
+						[menuItem setKeyEquivalent: strKeyCommand];
+					}
+
+					//NSControlKeyMask
+				}
+				
+				[menuItem setKeyEquivalentModifierMask: mask];
+			}
+							
 			if (menuItemName)
 			{
 				menuItemName = [menuItemName stringByReplacingOccurrencesOfString:@"&" withString:@""];
 				[menuItem setTitle:menuItemName];
 			}
+			
 			
 			if (attrID)
 			{			
@@ -432,5 +520,96 @@ void CMenu::SetNSMenu(void *menu, CWnd *owner)
 void *CMenu::GetNSMenu()
 {
 	return m_NMenu;
+}
+
+int CMenu::GetMenuItemCount() const
+{	
+	if (m_NMenu)
+	{
+		NSMenu *menu = (NSMenu *)m_NMenu;
+		
+		return [menu numberOfItems];
+	}
+	
+	return 0;
+}
+
+CMenu* CMenu::GetSubMenu(int nPos)// const
+{
+	if (m_NMenu)
+	{
+		NSMenu *menu = (NSMenu *)m_NMenu;		
+		NSMenuItem *item = [menu itemAtIndex: nPos];
+		
+		if (item)
+		{
+			NSMenu *submenu = [item submenu];
+			CMenu *mfcMenu = new CMenu;
+			
+			mfcMenu->SetNSMenu(submenu, m_owner);
+			
+			mMapSumMenu.push_back(mfcMenu);
+			
+			return mfcMenu;
+		}
+	}
+	
+	return 0;
+}
+
+int CMenu::GetMenuString( UINT nIDItem,  LPTSTR lpString,  int nMaxCount, UINT nFlags) const
+{
+	if (m_NMenu)
+	{
+		NSMenu *menu = (NSMenu *)m_NMenu;		
+		NSMenuItem *item = [menu itemAtIndex: nIDItem];
+		
+		if (item)
+		{
+			NSString *str = [item title];
+			
+			strncpy(lpString, [str UTF8String], nMaxCount);
+			
+			return strlen(lpString);
+		}
+	}
+	
+	return 0;
+}
+
+int CMenu::GetMenuString(UINT nIDItem, CString& rString, UINT nFlags) const
+{
+	if (m_NMenu)
+	{
+		NSMenu *menu = (NSMenu *)m_NMenu;		
+		NSMenuItem *item = [menu itemAtIndex: nIDItem];
+		
+		if (item)
+		{
+			NSString *str = [item title];
+			
+			rString = [str UTF8String];
+			
+			return rString.GetLength();
+		}
+	}
+	
+	return 0;
+}
+
+UINT CMenu::GetMenuItemID(int nPos) const
+{
+	if (m_NMenu)
+	{
+		NSMenu *menu = (NSMenu *)m_NMenu;		
+		NSMenuItem *item = [menu itemAtIndex: nPos];
+		
+		if (item)
+		{
+			return [item tag];
+		}
+	}
+	
+	return 0;
 }
 

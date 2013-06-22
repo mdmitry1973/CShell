@@ -213,6 +213,15 @@ BOOL SetCurrentDirectory(LPCSTR lpPathName);
 #define _unlink remove
 #define _tcsrchr strchr
 
+#define _stprintf sprintf
+#define _tcscmp strcmp
+#define _tcscpy strcpy
+
+#define _fgetts fgets
+#define _TEOF EOF
+#define _tcslen strlen
+#define _ttol atol
+
 char *strupr(char *str);
 void _splitpath( const char *path, char *drive, char *dir, char *fname, char *ext );
 
@@ -246,5 +255,29 @@ DWORD GetTickCount();
 void ZeroMemory(void *obj, int size);
 
 void AfxOleLockApp();
+
+void CMemoryPoolDrain();
+
+HANDLE LoadImage(HINSTANCE hInst,
+		    LPCSTR name,
+		    UINT type,
+		    int cx,
+		    int cy,
+		    UINT fuLoad);
+
+
+BOOL IsDBCSLeadByte(BYTE  TestChar);
+
+UINT MapVirtualKey(UINT uCode, UINT uMapType);
+
+int GetKeyNameText( LONG lParam,LPSTR lpString,int cchSize);
+
+HMENU CreateMenu();
+int GetMenuItemCount(HMENU hMenu);
+UINT  GetMenuState( HMENU hMenu, UINT uId,  UINT uFlags);
+BOOL AppendMenu(HMENU hMenu, UINT uFlags, UINT_PTR uIDNewItem, LPCTSTR lpNewItem);
+BOOL RemoveMenu(HMENU hMenu, UINT uPosition, UINT uFlags);
+BOOL DestroyMenu(HMENU hMenu);
+BOOL DestroyAcceleratorTable(HACCEL hAccel);
 
 #endif//WIN_BASE

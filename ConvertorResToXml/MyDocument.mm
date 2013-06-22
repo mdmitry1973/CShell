@@ -1365,25 +1365,63 @@
 							//CONTROL text, id, class, style, x, y, width, height [, extended-style]
 							
 							//CONTROL         "Test",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,28,30,10
+							NSString *strControl = [NSString stringWithString: line];
 							
-							NSRange aRangeStart = {0, [line length]};
-							NSRange aEndStart = {0, [line length]};
-							
-							while([line characterAtIndex: aRangeStart.location] == ' ')
+							if ([strControl hasSuffix:@","])
 							{
-								aRangeStart = [line rangeOfString:@" " options:NSCaseInsensitiveSearch range:aRangeStart];	
-								aRangeStart.location++; 
-								aRangeStart.length = [line length] - aRangeStart.location;
+								i++;
+								NSString *str = [NSString stringWithString:[strLines objectAtIndex:i]];
+								
+								while([str hasPrefix: @" "])
+								{
+									str = [str substringFromIndex: 1];
+								}
+								
+								while([str hasPrefix: @"\t"])
+								{
+									str = [str substringFromIndex: 1];
+								}
+								
+								strControl = [strControl stringByAppendingString: str];
 							}
 							
-							aEndStart = [line rangeOfString:@" " options:NSCaseInsensitiveSearch range:aRangeStart];	
+							if ([strControl hasSuffix:@"| "])
+							{
+								i++;
+								
+								NSString *str = [NSString stringWithString:[strLines objectAtIndex:i]];
+								
+								while([str hasPrefix: @" "])
+								{
+									str = [str substringFromIndex: 1];
+								}
+								
+								while([str hasPrefix: @"\t"])
+								{
+									str = [str substringFromIndex: 1];
+								}
+								
+								strControl = [strControl stringByAppendingString: str];
+							}
+							
+							NSRange aRangeStart = {0, [strControl length]};
+							NSRange aEndStart = {0, [strControl length]};
+							
+							while([strControl characterAtIndex: aRangeStart.location] == ' ')
+							{
+								aRangeStart = [strControl rangeOfString:@" " options:NSCaseInsensitiveSearch range:aRangeStart];	
+								aRangeStart.location++; 
+								aRangeStart.length = [strControl length] - aRangeStart.location;
+							}
+							
+							aEndStart = [strControl rangeOfString:@" " options:NSCaseInsensitiveSearch range:aRangeStart];	
 							
 							aRangeStart.length = aEndStart.location - aRangeStart.location;
 							
-							NSString *strName = [line substringWithRange:aRangeStart];
+							NSString *strName = [strControl substringWithRange:aRangeStart];
 							aRangeStart.location = aEndStart.location + 1;
-							aRangeStart.length = [line length] - aRangeStart.location;
-							NSString *strProperties =  [line substringWithRange:aRangeStart];
+							aRangeStart.length = [strControl length] - aRangeStart.location;
+							NSString *strProperties =  [strControl substringWithRange:aRangeStart];
 							
 							NSXMLElement *controlNode = nil;
 							
@@ -1407,6 +1445,16 @@
 									[controlNode addChild:controlPropertyNode];
 									
 									strPropertyVal = [strPropertyVal stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+									
+									while([strPropertyVal hasPrefix: @" "])
+									{
+										strPropertyVal = [strPropertyVal substringFromIndex: 1];
+									}
+									
+									while([strPropertyVal hasPrefix: @"\t"])
+									{
+										strPropertyVal = [strPropertyVal substringFromIndex: 1];
+									}
 									
 									[controlPropertyNode setStringValue: strPropertyVal];
 								}

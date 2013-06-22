@@ -139,12 +139,15 @@ BOOL CDC::RectVisible(LPCRECT lpRect) const
 BOOL CDC::TextOut(int x, int y, LPCTSTR lpszString, int nCount)
 {
 	NSLog(@"TO DO CDC::RectVisible");
+	
+	return FALSE;
 }
 
 BOOL CDC::ExtTextOut(int x, int y, UINT nOptions, LPCRECT lpRect,
 						LPCTSTR lpszString, UINT nCount, LPINT lpDxWidths)
 {
 	NSLog(@"TO DO CDC::RectVisible");
+	return FALSE;
 }
 
 CSize CDC::TabbedTextOut(int x, int y, LPCTSTR lpszString, int nCount,
@@ -156,6 +159,7 @@ CSize CDC::TabbedTextOut(int x, int y, LPCTSTR lpszString, int nCount,
 int CDC::Escape( int nEscape,  int nCount, LPCSTR lpszInData,  LPVOID lpOutData)
 {
 	NSLog(@"TO DO CDC::Escape");
+	return 0;
 }
 
 
