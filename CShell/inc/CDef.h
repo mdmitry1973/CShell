@@ -12,6 +12,17 @@
 #ifndef CDEF_DEFINE
 #define CDEF_DEFINE 1
 
+#if defined(CSHELLQT_LIBRARY)
+#include <QtCore/QtGlobal>
+#if defined(CSHELL_LIB_DLL)
+#  define CSHELL_LIB_EXPORT Q_DECL_EXPORT
+#else
+#  define CSHELL_LIB_EXPORT Q_DECL_IMPORT
+#endif
+#else
+#  define CSHELL_LIB_EXPORT
+#endif
+
 #define CSELL_MAC 1
 
 //#ifndef WIN32
@@ -43,8 +54,6 @@ typedef struct __POSITION { } *POSITION;
 
 #define IDOK 1
 #define IDCANCEL 2
-
-#define CB_ERR  -1 
 
 #include "afxres.h"
 
@@ -376,21 +385,24 @@ typedef long LONG;
 typedef int INT_PTR;
 typedef DWORD LCID; 
 typedef DWORD *LPDWORD;
+typedef void* HANDLE;
+#ifndef Q_WINSTRICT
 typedef void* HICON;
 typedef void* HCURSOR;
 typedef void* HINSTANCE;
 typedef void* HWND;
-typedef void* HANDLE;
 typedef void* HBRUSH;
-typedef long HRESULT;
-typedef void* HMODULE;
 typedef HANDLE HDC;
 typedef HANDLE HBITMAP;
-typedef HANDLE HMENU;
 typedef HANDLE HFONT;
+typedef HANDLE HPEN;
+typedef void* HPALETTE;
+#endif
+typedef long HRESULT;
+typedef void* HMODULE;
+typedef HANDLE HMENU;
 typedef HANDLE HKEY;
 typedef HANDLE HGDIOBJ;
-typedef HANDLE HPEN;
 typedef HANDLE HACCEL;
 typedef HANDLE HTREEITEM;
 typedef HANDLE HDROP;
@@ -579,7 +591,6 @@ typedef struct tagMSG {
 typedef void* LPCDLGTEMPLATE;
 typedef void* DLGPROC;
 typedef void* LPFNPSPCALLBACK;
-typedef void* HPALETTE;
 
 typedef struct {
 	DWORD           dwSize;
@@ -698,7 +709,9 @@ using namespace std;
 #define CALLBACK
 
 #define CONST const
+#ifndef CSHELLQT_LIBRARY
 #define __stdcall
+#endif
 #define WINAPI
 #define DEBUG_NEW new
 

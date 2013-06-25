@@ -34,7 +34,7 @@ struct CShellBitmapInfo
 	std::string idstr;
 };
 
-class CWinApp : public CCmdTarget
+class CSHELL_LIB_EXPORT CWinApp : public CCmdTarget
 {
 	
 public:
@@ -109,7 +109,7 @@ public:
 
 #define CWinAppEx CWinApp
 
-CWinApp* AfxGetApp();
+CSHELL_LIB_EXPORT CWinApp* AfxGetApp();
 
 void InitCommonControls(void);
 void AfxEnableControlContainer();

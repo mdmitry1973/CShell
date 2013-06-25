@@ -16,7 +16,7 @@
 
 class CObject;
 
-class CRuntimeClass
+class CSHELL_LIB_EXPORT CRuntimeClass
 {
 
 public:

@@ -172,7 +172,7 @@ mWnd = wnd;\
 	}\
 }
 
-class CWnd : public CCmdTarget
+class CSHELL_LIB_EXPORT CWnd : public CCmdTarget
 {
 	DECLARE_DYNAMIC(CWnd)
 	

@@ -7,13 +7,16 @@
  *
  */
 
-#include <string>
-#include <map>
 
 #ifndef CSTRING_DEFINE
 #define CSTRING_DEFINE 1
 
-class CString : public std::string
+#include <string>
+#include <map>
+
+#include "CDef.h"
+
+class CSHELL_LIB_EXPORT CString : public std::string
 {
 	
 public:

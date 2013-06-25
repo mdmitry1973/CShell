@@ -132,7 +132,7 @@ struct CCmdTargetEventHandle{
 
 typedef std::vector<CCmdTargetEventHandle> CCmdTEHData;
 
-class CCmdTarget : public CObject
+class CSHELL_LIB_EXPORT CCmdTarget : public CObject
 {
 	
 public:

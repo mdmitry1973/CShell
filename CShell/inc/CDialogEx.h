@@ -12,7 +12,7 @@
 #ifndef CDIALOGEX_DEFINE
 #define CDIALOGEX_DEFINE 1
 
-class CDialogEx: public CDialog
+class CSHELL_LIB_EXPORT CDialogEx: public CDialog
 {
 
 public:

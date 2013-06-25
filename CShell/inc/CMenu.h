@@ -19,7 +19,7 @@
 class CBitmap;
 class CWnd;
 
-class CMenu
+class CSHELL_LIB_EXPORT CMenu
 {
 
 public:

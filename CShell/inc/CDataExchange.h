@@ -12,7 +12,9 @@
 
 #include <map>
 
-class CDataExchange
+#include "CDef.h"
+
+class CSHELL_LIB_EXPORT CDataExchange
 {
 
 public:

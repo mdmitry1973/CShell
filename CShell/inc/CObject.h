@@ -14,7 +14,7 @@
 #include "CRuntimeClass.h"
 #include "CString.h"
 
-class CObject : public CRuntimeClass
+class CSHELL_LIB_EXPORT CObject : public CRuntimeClass
 {
 	
 public:

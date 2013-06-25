@@ -12,7 +12,7 @@
 #ifndef CDIALOG_DEFINE
 #define CDIALOG_DEFINE 1
 
-class CDialog : public CWnd
+class CSHELL_LIB_EXPORT CDialog : public CWnd
 {
 
 public:
