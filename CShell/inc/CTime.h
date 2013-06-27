@@ -12,8 +12,6 @@
 
 #include "CDef.h"
 
-#include "winbase.h"
-
 class CTime
 {
 	

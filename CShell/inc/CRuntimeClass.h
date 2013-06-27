@@ -26,12 +26,12 @@ public:
 	
 	virtual CString GetClassName() const 
 	{ 
-		return "CRuntimeClass"; 
+        return _T("CRuntimeClass");
 	}
 	
 	virtual CString GetBaseClassName() const 
 	{ 
-		return "CRuntimeClass"; 
+        return _T("CRuntimeClass");
 	}
 	
 	// Operations

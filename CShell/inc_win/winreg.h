@@ -12,8 +12,7 @@
 
 #include "CDef.h"
 
-#include "winnt.h"
-#include "winbase.h"
+#include "afxwin.h"
 
 typedef LONG LSTATUS;
 

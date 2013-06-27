@@ -12,7 +12,7 @@
 #define CPEN_DEFINE 1
 
 #include "CDef.h"
-#include "wingdi.h"
+
 #include "CGdiObject.h"
 
 class CPen : public CGdiObject

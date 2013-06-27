@@ -10,10 +10,12 @@
 #ifndef CWIN_DEFINE
 #define CWIN_DEFINE 1
 
+#include "CDef.h"
+
 #include <map>
 #include <vector>
 
-#include "winuser.h"
+#include "afxext.h"
 #include "CRect.h"
 #include "CDC.h"
 #include "CObject.h"

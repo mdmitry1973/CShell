@@ -14,6 +14,225 @@
 
 #define CB_ERR  -1
 
+#define MB_OK                       0x00000000L
+#define MB_OKCANCEL                 0x00000001L
+#define MB_ABORTRETRYIGNORE         0x00000002L
+#define MB_YESNOCANCEL              0x00000003L
+#define MB_YESNO                    0x00000004L
+#define MB_RETRYCANCEL              0x00000005L
+#define MB_CANCELTRYCONTINUE		0x00000006L
+
+#define MB_ICONHAND                 0x00000010L
+#define MB_ICONQUESTION             0x00000020L
+#define MB_ICONEXCLAMATION          0x00000030L
+#define MB_ICONASTERISK             0x00000040L
+#define MB_USERICON                 0x00000080L
+#define MB_ICONWARNING              MB_ICONEXCLAMATION
+#define MB_ICONERROR                MB_ICONHAND
+#define MB_ICONINFORMATION          MB_ICONASTERISK
+#define MB_ICONSTOP                 MB_ICONHAND
+
+#define MB_DEFBUTTON1               0x00000000L
+#define MB_DEFBUTTON2               0x00000100L
+#define MB_DEFBUTTON3               0x00000200L
+#define MB_DEFBUTTON4               0x00000300L
+
+#define MB_APPLMODAL                0x00000000L
+#define MB_SYSTEMMODAL              0x00001000L
+#define MB_TASKMODAL                0x00002000L
+#define MB_HELP                     0x00004000L // Help Button
+#define MB_NOFOCUS                  0x00008000L
+#define MB_SETFOREGROUND            0x00010000L
+#define MB_DEFAULT_DESKTOP_ONLY     0x00020000L
+#define MB_TOPMOST                  0x00040000L
+#define MB_RIGHT                    0x00080000L
+#define MB_RTLREADING               0x00100000L
+
+#define GWL_EXSTYLE -20
+#define GWL_HINSTANCE -6
+#define GWL_HWNDPARENT -8
+#define GWL_ID -12
+#define GWL_STYLE -16
+#define GWL_USERDATA -21
+#define GWL_WNDPROC -4 
+
+/* Menu flags */
+#define MF_INSERT          0x0000
+#define MF_CHANGE          0x0080
+#define MF_APPEND          0x0100
+#define MF_DELETE          0x0200
+#define MF_REMOVE          0x1000
+#define MF_END             0x0080
+
+#define MF_ENABLED         0x0000
+#define MF_GRAYED          0x0001
+#define MF_DISABLED        0x0002
+#define MF_STRING          0x0000
+#define MF_BITMAP          0x0004
+#define MF_UNCHECKED       0x0000
+#define MF_CHECKED         0x0008
+#define MF_POPUP           0x0010
+#define MF_MENUBARBREAK    0x0020
+#define MF_MENUBREAK       0x0040
+#define MF_UNHILITE        0x0000
+#define MF_HILITE          0x0080
+#define MF_OWNERDRAW       0x0100
+#define MF_USECHECKBITMAPS 0x0200
+#define MF_BYCOMMAND       0x0000
+#define MF_BYPOSITION      0x0400
+#define MF_SEPARATOR       0x0800
+#define MF_DEFAULT         0x1000
+#define MF_SYSMENU         0x2000
+#define MF_HELP            0x4000
+#define MF_RIGHTJUSTIFY    0x4000
+#define MF_MOUSESELECT     0x8000
+
+/* Flags for extended menu item types.  */
+#define MFT_STRING         MF_STRING
+#define MFT_BITMAP         MF_BITMAP
+#define MFT_MENUBARBREAK   MF_MENUBARBREAK
+#define MFT_MENUBREAK      MF_MENUBREAK
+#define MFT_OWNERDRAW      MF_OWNERDRAW
+#define MFT_RADIOCHECK     0x00000200L
+#define MFT_SEPARATOR      MF_SEPARATOR
+#define MFT_RIGHTORDER     0x00002000L
+#define MFT_RIGHTJUSTIFY   MF_RIGHTJUSTIFY
+
+/* Flags for extended menu item states.  */
+#define MFS_GRAYED          0x00000003L
+#define MFS_DISABLED        MFS_GRAYED
+#define MFS_CHECKED         MF_CHECKED
+#define MFS_HILITE          MF_HILITE
+#define MFS_ENABLED         MF_ENABLED
+#define MFS_UNCHECKED       MF_UNCHECKED
+#define MFS_UNHILITE        MF_UNHILITE
+#define MFS_DEFAULT         MF_DEFAULT
+#define MFS_MASK            0x0000108BL
+#define MFS_HOTTRACKDRAWN   0x10000000L
+#define MFS_CACHEDBMP       0x20000000L
+#define MFS_BOTTOMGAPDROP   0x40000000L
+#define MFS_TOPGAPDROP      0x80000000L
+#define MFS_GAPDROP         0xC0000000L
+
+#define ES_CENTER            0x1L
+#define ES_NUMBER            0x2000L 
+
+#define SW_HIDE 0
+#define SW_SHOWNORMAL 1
+#define SW_SHOWMINIMIZED 2
+#define SW_MAXIMIZE 3
+#define SW_SHOWMAXIMIZED 3
+#define SW_SHOWNOACTIVATE 4
+#define SW_SHOW 5
+#define SW_MINIMIZE 6
+#define SW_SHOWMINNOACTIVE 7
+#define SW_SHOWNA 8
+#define SW_RESTORE 9
+
+#define BS_PUSHBUTTON       0x00000000L
+#define BS_DEFPUSHBUTTON    0x00000001L
+#define BS_CHECKBOX         0x00000002L
+#define BS_AUTOCHECKBOX     0x00000003L
+#define BS_RADIOBUTTON      0x00000004L
+#define BS_3STATE           0x00000005L
+#define BS_AUTO3STATE       0x00000006L
+#define BS_GROUPBOX         0x00000007L
+#define BS_USERBUTTON       0x00000008L
+#define BS_AUTORADIOBUTTON  0x00000009L
+#define BS_PUSHBOX          0x0000000AL
+#define BS_OWNERDRAW        0x0000000BL
+#define BS_TYPEMASK         0x0000000FL
+#define BS_LEFTTEXT         0x00000020L
+
+#define BS_TEXT             0x00000000L
+#define BS_ICON             0x00000040L
+#define BS_BITMAP           0x00000080L
+#define BS_LEFT             0x00000100L
+#define BS_RIGHT            0x00000200L
+#define BS_CENTER           0x00000300L
+#define BS_TOP              0x00000400L
+#define BS_BOTTOM           0x00000800L
+#define BS_VCENTER          0x00000C00L
+#define BS_PUSHLIKE         0x00001000L
+#define BS_MULTILINE        0x00002000L
+#define BS_NOTIFY           0x00004000L
+#define BS_FLAT             0x00008000L
+#define BS_RIGHTBUTTON      BS_LEFTTEXT
+
+#define WM_APPCOMMAND                   0x0319
+#define WM_CHAR                         0x0102
+#define WM_DEADCHAR                     0x0103
+#define WM_HOTKEY                       0x0312
+#define WM_KEYDOWN                      0x0100
+#define WM_KEYUP                        0x0101
+#define WM_SYSDEADCHAR                  0x010
+
+#define WM_LBUTTONDOWN                  0x0201
+#define WM_LBUTTONUP                    0x0202
+#define WM_LBUTTONDBLCLK                0x0203
+#define WM_RBUTTONDOWN                  0x0204
+#define WM_RBUTTONUP                    0x0205
+#define WM_RBUTTONDBLCLK                0x0206
+#define WM_MBUTTONDOWN                  0x0207
+#define WM_MBUTTONUP                    0x0208
+#define WM_MBUTTONDBLCLK                0x0209
+#define WM_MOUSELAST                    0x0209
+#define WM_PARENTNOTIFY                 0x0210
+
+#define SWP_ASYNCWINDOWPOS	0x4000
+#define SWP_DEFERERASE		0x2000
+#define SWP_DRAWFRAME		0x0020
+#define SWP_FRAMECHANGED	0x0020
+#define SWP_HIDEWINDOW		0x0080
+#define SWP_NOACTIVATE		0x0010
+#define SWP_NOCOPYBITS		0x0100
+#define SWP_NOMOVE			0x0002
+#define SWP_NOOWNERZORDER	0x0200
+#define SWP_NOREDRAW		0x0008
+#define SWP_NOREPOSITION	0x0200
+#define SWP_NOSENDCHANGING	0x0400
+#define SWP_NOSIZE			0x0001
+#define SWP_NOZORDER		0x0004
+#define SWP_SHOWWINDOW		0x0040 
+
+#define MK_LBUTTON	0x0001
+#define MK_RBUTTON	0x0002
+#define MK_SHIFT	0x0004
+#define MK_CONTROL	0x0008
+#define MK_MBUTTON	0x0010
+#define MK_ALT		0x1000
+
+#define TCN_FIRST               (0U-550U)
+#define TCN_LAST                (0U-580U)
+#define TCN_KEYDOWN             (TCN_FIRST - 0)
+#define TCN_SELCHANGE           (TCN_FIRST - 1)
+#define TCN_SELCHANGING         (TCN_FIRST - 2)
+#define TCN_GETOBJECT           (TCN_FIRST - 3)
+#define TCN_FOCUSCHANGE         (TCN_FIRST - 4)
+
+#define SC_SIZE         0xF000
+#define SC_MOVE         0xF010
+#define SC_MINIMIZE     0xF020
+#define SC_MAXIMIZE     0xF030
+#define SC_NEXTWINDOW   0xF040
+#define SC_PREVWINDOW   0xF050
+#define SC_CLOSE        0xF060
+#define SC_VSCROLL      0xF070
+#define SC_HSCROLL      0xF080
+#define SC_MOUSEMENU    0xF090
+#define SC_KEYMENU      0xF100
+#define SC_ARRANGE      0xF110
+#define SC_RESTORE      0xF120
+#define SC_TASKLIST     0xF130
+#define SC_SCREENSAVE   0xF140
+#define SC_HOTKEY       0xF150
+#define SC_DEFAULT      0xF160
+#define SC_MONITORPOWER 0xF170
+#define SC_CONTEXTHELP  0xF180
+#define SC_SEPARATOR    0xF00F
+#define SC_ICON         SC_MINIMIZE
+#define SC_ZOOM         SC_MAXIMIZE
+
 /* Window Styles */
 #define WS_OVERLAPPED    0x00000000L
 #define WS_POPUP         0x80000000L
@@ -42,6 +261,11 @@
 #define WS_POPUPWINDOW (WS_POPUP | WS_BORDER | WS_SYSMENU)
 #define WS_CHILDWINDOW (WS_CHILD)
 #define WS_TILEDWINDOW (WS_OVERLAPPEDWINDOW)
+
+#define LB_ERR (-3)
+
+#define LOWORD(a) ((WORD)(a))
+#define HIWORD(a) ((WORD)(((DWORD)(a) >> 16) & 0xFFFF))
 
 /*
  * Commands to pass to WinHelp()

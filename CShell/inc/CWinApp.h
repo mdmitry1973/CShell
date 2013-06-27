@@ -11,9 +11,10 @@
 #ifndef CWINAPP_DEFINE
 #define CWINAPP_DEFINE 1
 
+#include "CDef.h"
+
 #include <assert.h>
 
-#include "CDef.h"
 #include "CTargetEvent.h"
 #include "CString.h"
 #include "CDataExchange.h"
@@ -30,8 +31,8 @@ class CDocManager;
 
 struct CShellBitmapInfo
 {
-	std::string name;
-	std::string idstr;
+    stdString name;
+    stdString idstr;
 };
 
 class CSHELL_LIB_EXPORT CWinApp : public CCmdTarget
@@ -44,7 +45,7 @@ public:
 	
 	virtual BOOL InitInstance();
 	
-	HICON LoadIcon(LPCTSTR lpszResourceName) const;
+    HICON LoadIcon(LPTSTR lpszResourceName) const;
 	HICON LoadIcon(UINT nIDResource) const;
 	
 	BOOL Enable3dControls();
@@ -89,7 +90,7 @@ public:
 	CWnd		*m_pMainWnd;
 	CDocManager	*m_pDocManager;
 	
-	LPCTSTR m_pszAppName;
+    LPTSTR m_pszAppName;
 	int m_nCmdShow;
 	
 	static BOOL LoadBitmapInfo();

@@ -13,9 +13,11 @@
 #define __AFXWIN_H__
 
 #include "CDef.h"
-#include "guiddef.h"
 #include <algorithm>
+#include "afxext.h"
+#ifndef Q_CC_MINGW
 #include "windows.h"
+#endif
 #include "CDumpContext.h"
 #include "CSize.h"
 #include "CPoint.h"
@@ -28,10 +30,10 @@
 #include "CFile.h"
 #include "CFileFind.h"
 #include "CMemFile.h"
+#include "CWnd.h"
 #include "CDC.h"
 #include "CTargetEvent.h"
 #include "COleDataObject.h"
-#include "CWnd.h"
 #include "CRecentFileList.h"
 #include "CWinApp.h"
 #include "CButton.h"

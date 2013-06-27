@@ -10,6 +10,8 @@
 #ifndef CMDIFRAMEWND_DEFINE
 #define CMDIFRAMEWND_DEFINE 1
 
+#include "CDef.h"
+
 #include "CWnd.h"
 #include "CFrameWnd.h"
 

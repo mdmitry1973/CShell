@@ -7,10 +7,11 @@
  *
  */
 
-#include "CWnd.h"
 
 #ifndef CDIALOG_DEFINE
 #define CDIALOG_DEFINE 1
+
+#include "CWnd.h"
 
 class CSHELL_LIB_EXPORT CDialog : public CWnd
 {

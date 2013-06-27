@@ -12,7 +12,7 @@
 #include "CString.h"
 #include "CObject.h"
 #include "CTime.h"
-#include "winbase.h"
+#include "afxwin.h"
 
 #ifndef CFILEFIND_DEFINE
 #define CFILEFIND_DEFINE 1
@@ -69,4 +69,4 @@ private:
 	BOOL all;
 };
 
-#endif CFILEFIND_DEFINE
+#endif //CFILEFIND_DEFINE

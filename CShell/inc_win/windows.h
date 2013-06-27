@@ -11,7 +11,7 @@
 #define WINDOW_H 1
 
 #include "afx.h"
-#include "afxext.h"
+#include "guiddef.h"
 #include "commctrl.h"
 #include "CommDlg.h"
 #include "shlobj.h"

@@ -14,7 +14,7 @@
 #include "CDef.h"
 
 #include "CommDlg.h"
-#include "winnt.h"
+#include "afxwin.h"
 
 class CFileDialog
 {

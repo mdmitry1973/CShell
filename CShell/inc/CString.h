@@ -16,16 +16,16 @@
 
 #include "CDef.h"
 
-class CSHELL_LIB_EXPORT CString : public std::string
+class CSHELL_LIB_EXPORT CString : public stdString
 {
 	
 public:
 	
 	CString();
-	CString(const char *);
-	CString(const char *s, size_t len);
+    CString(const TCHAR *);
+    CString(const TCHAR *s, size_t len);
 	CString(const CString &str);
-	CString(char ch, int nRepeat = 1);
+    CString(TCHAR ch, int nRepeat = 1);
 	virtual ~CString();
 	
 	BOOL LoadString(HINSTANCE hInstance, UINT nID, WORD wLanguageID);
@@ -35,7 +35,7 @@ public:
 	BOOL IsEmpty( ) const;
 	
 	CString Format( UINT nFormatID, ... );
-	CString Format(const char *, ...);
+    CString Format(const TCHAR *, ...);
 	
 	int GetLength() const;
 	
@@ -72,7 +72,7 @@ public:
 	friend CString operator+(const CString& string,		const TCHAR * lpsz);
 	friend CString operator+(const TCHAR * lpsz,		const CString& string);
 	
-	CString Tokenize(const char *pszTokens, int& iStart) const;
+    CString Tokenize(const TCHAR *pszTokens, int& iStart) const;
 	
 	int Remove( TCHAR ch );
 	
@@ -80,9 +80,9 @@ public:
 
 protected:
 	
-	static std::map<int, std::string> g_mapResStrimgs;
+    static std::map<int, stdString> g_mapResStrimgs;
 	
-	char	*bufferTemp;
+    TCHAR	*bufferTemp;
 	int		m_bufferTempSize;
 };
 

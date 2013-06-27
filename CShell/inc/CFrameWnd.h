@@ -10,6 +10,8 @@
 #ifndef CFRAMEWND_DEFINE
 #define CFRAMEWND_DEFINE 1
 
+#include "CDef.h"
+#include "afxext.h"
 #include "CWnd.h"
 #include "CToolBar.h"
 #include "CMenu.h"

@@ -13,7 +13,6 @@
 #include "CDef.h"
 
 #include "CSize.h"
-#include "wingdi.h"
 
 class CBitmap
 {

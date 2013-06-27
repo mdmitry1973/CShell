@@ -11,9 +11,8 @@
 #define CDC_DEFINE 1
 
 #include "CDef.h"
-#include "windows.h"
+
 #include "CObject.h"
-#include "CWnd.h"
 #include "CBrush.h"
 #include "CPen.h"
 #include "CRgn.h"

@@ -26,12 +26,12 @@ public:
 	
 	virtual CString GetClassName() const 
 	{ 
-		return "CObject"; 
+        return _T("CObject");
 	}
 	
 	virtual CString GetBaseClassName() const 
 	{ 
-		return "CObject"; 
+        return _T("CObject");
 	}
 	
 	virtual CObject* CreateObject() 

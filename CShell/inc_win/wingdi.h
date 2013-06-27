@@ -188,6 +188,10 @@
 #define SYSPAL_NOSTATIC 2
 #define SYSPAL_NOSTATIC256 3
 
+#define GetRValue(rgb)      ((BYTE)(rgb))
+#define GetGValue(rgb)      ((BYTE)(((WORD)(rgb)) >> 8))
+#define GetBValue(rgb)      ((BYTE)((rgb)>>16))
+
 /* Logical Brush (or Pattern) */
 typedef struct tagLOGBRUSH
 {

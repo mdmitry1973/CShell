@@ -106,7 +106,7 @@ typedef struct _TTGETTITLE
     WCHAR* pszTitle;
 } TTGETTITLE, *PTTGETTITLE;
 
-#define LPSTR_TEXTCALLBACK    ((LPSTR)-1L)
+#define LPSTR_TEXTCALLBACK    ((LPTSTR)-1L)
 
 typedef struct {
     int   iButton;
