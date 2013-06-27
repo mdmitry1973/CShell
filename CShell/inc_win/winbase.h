@@ -204,6 +204,28 @@ DWORD GetPrivateProfileString(LPCSTR lpAppName,
 DWORD GetCurrentDirectory(DWORD nBufferLength, LPSTR lpBuffer);
 BOOL SetCurrentDirectory(LPCSTR lpPathName);
 
+#if defined(CSHELLQT_LIBRARY)
+
+#define lstrcpy strcpy
+#define lstrlen strlen
+#define lstrcpyn  strncpy
+#define _strdup wcsdup
+#define _tcsdup wcsdup
+#define _tcsdec strdec
+#define _unlink remove
+#define _tcsrchr strchr
+
+#define _stprintf sprintf
+#define _tcscmp strcmp
+#define _tcscpy strcpy
+
+#define _fgetts fgets
+#define _TEOF EOF
+#define _tcslen strlen
+#define _ttol atol
+
+#else
+
 #define lstrcpy strcpy
 #define lstrlen strlen
 #define lstrcpyn  strncpy
@@ -221,6 +243,8 @@ BOOL SetCurrentDirectory(LPCSTR lpPathName);
 #define _TEOF EOF
 #define _tcslen strlen
 #define _ttol atol
+
+#endif
 
 char *strupr(char *str);
 void _splitpath( const char *path, char *drive, char *dir, char *fname, char *ext );

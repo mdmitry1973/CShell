@@ -10,9 +10,6 @@
 #ifndef WIN_REG
 #define WIN_REG 1
 
-#include "CDef.h"
-
-#include "afxwin.h"
 
 typedef LONG LSTATUS;
 

@@ -22,12 +22,8 @@
 		52686FE8174C81AF009CEA6A /* CMultiDocTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 52686FE7174C81AF009CEA6A /* CMultiDocTemplate.h */; };
 		52686FEF17529923009CEA6A /* CToolBarCtrl.h in Headers */ = {isa = PBXBuildFile; fileRef = 52686FEE17529923009CEA6A /* CToolBarCtrl.h */; };
 		5268706E1752A547009CEA6A /* CMDIChildWnd.h in Headers */ = {isa = PBXBuildFile; fileRef = 5268706D1752A547009CEA6A /* CMDIChildWnd.h */; };
-		526870D41752AE86009CEA6A /* guiddef.h in Headers */ = {isa = PBXBuildFile; fileRef = 526870D31752AE86009CEA6A /* guiddef.h */; };
 		526870E21753C87E009CEA6A /* COleMessageFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 526870E11753C87E009CEA6A /* COleMessageFilter.h */; };
-		526871201753CD3B009CEA6A /* windows.h in Headers */ = {isa = PBXBuildFile; fileRef = 5268711F1753CD3B009CEA6A /* windows.h */; };
 		526871611753D599009CEA6A /* CRuntimeClass.mm in Sources */ = {isa = PBXBuildFile; fileRef = 526871601753D599009CEA6A /* CRuntimeClass.mm */; };
-		5268718A175406F0009CEA6A /* shlobj.h in Headers */ = {isa = PBXBuildFile; fileRef = 52687189175406F0009CEA6A /* shlobj.h */; };
-		526872A417545C6F009CEA6A /* winspool.h in Headers */ = {isa = PBXBuildFile; fileRef = 526872A317545C6F009CEA6A /* winspool.h */; };
 		526872BF17545CE5009CEA6A /* CommDlg.h in Headers */ = {isa = PBXBuildFile; fileRef = 526872BE17545CE5009CEA6A /* CommDlg.h */; };
 		526872C917545F74009CEA6A /* CMDIChildWnd.mm in Sources */ = {isa = PBXBuildFile; fileRef = 526872C817545F74009CEA6A /* CMDIChildWnd.mm */; };
 		526872CB17545FB5009CEA6A /* CMDIFrameWnd.mm in Sources */ = {isa = PBXBuildFile; fileRef = 526872CA17545FB5009CEA6A /* CMDIFrameWnd.mm */; };
@@ -41,8 +37,6 @@
 		52938FB8172C5D21008667D5 /* CMapPtrToPtr.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52938FB7172C5D21008667D5 /* CMapPtrToPtr.mm */; };
 		52938FC0172C5EC7008667D5 /* CPlex.h in Headers */ = {isa = PBXBuildFile; fileRef = 52938FBF172C5EC7008667D5 /* CPlex.h */; };
 		52938FC2172C5F32008667D5 /* CPlex.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52938FC1172C5F32008667D5 /* CPlex.mm */; };
-		52939072172CE5DF008667D5 /* winerror.h in Headers */ = {isa = PBXBuildFile; fileRef = 52939071172CE5DF008667D5 /* winerror.h */; };
-		5293907E172CE7BB008667D5 /* shlwapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 5293907D172CE7BB008667D5 /* shlwapi.h */; };
 		529390AE172D9E50008667D5 /* CFileFind.h in Headers */ = {isa = PBXBuildFile; fileRef = 529390AD172D9E50008667D5 /* CFileFind.h */; };
 		529390B0172D9E7B008667D5 /* CFileFind.mm in Sources */ = {isa = PBXBuildFile; fileRef = 529390AF172D9E7B008667D5 /* CFileFind.mm */; };
 		529390CB172DA2B9008667D5 /* CMemFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 529390CA172DA2B9008667D5 /* CMemFile.h */; };
@@ -54,7 +48,6 @@
 		52B42393175C481C006FE600 /* COleClientItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 52B42392175C481C006FE600 /* COleClientItem.h */; };
 		52B423C2175C4B02006FE600 /* CDocObjectServerItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 52B423C1175C4B02006FE600 /* CDocObjectServerItem.h */; };
 		52B423CE175C4B7B006FE600 /* COleDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 52B423CD175C4B7B006FE600 /* COleDataSource.h */; };
-		52B423D8175C4C1C006FE600 /* wtypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 52B423D7175C4C1C006FE600 /* wtypes.h */; };
 		52B423F5175C4E0F006FE600 /* CTypedPtrArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 52B423F3175C4E0F006FE600 /* CTypedPtrArray.h */; };
 		52B4240E175C5E6D006FE600 /* CWinThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 52B4240D175C5E6D006FE600 /* CWinThread.h */; };
 		52B42428175C62B0006FE600 /* CFileDialog.h in Headers */ = {isa = PBXBuildFile; fileRef = 52B42427175C62B0006FE600 /* CFileDialog.h */; };
@@ -64,11 +57,9 @@
 		52B4248E175DA391006FE600 /* CDocManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 52B4248D175DA391006FE600 /* CDocManager.h */; };
 		52B425D117603475006FE600 /* CFileDialog.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52B425D017603475006FE600 /* CFileDialog.mm */; };
 		52B4260217603DFE006FE600 /* CStringList.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52B4260117603DFE006FE600 /* CStringList.mm */; };
-		52B427D0176193C7006FE600 /* SDKDDKVer.h in Headers */ = {isa = PBXBuildFile; fileRef = 52B427CF176193C7006FE600 /* SDKDDKVer.h */; };
 		52B427D217619419006FE600 /* afxcontrolbars.h in Headers */ = {isa = PBXBuildFile; fileRef = 52B427D117619419006FE600 /* afxcontrolbars.h */; };
 		52B427DC176194CF006FE600 /* afxwinappex.h in Headers */ = {isa = PBXBuildFile; fileRef = 52B427DB176194CF006FE600 /* afxwinappex.h */; };
 		52B427DE176194F4006FE600 /* afxdialogex.h in Headers */ = {isa = PBXBuildFile; fileRef = 52B427DD176194F4006FE600 /* afxdialogex.h */; };
-		52B427EE176195F7006FE600 /* propkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 52B427ED176195F7006FE600 /* propkey.h */; };
 		52B427F8176197DD006FE600 /* CMFCMenuBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 52B427F7176197DD006FE600 /* CMFCMenuBar.h */; };
 		52B427FB17619892006FE600 /* CMFCToolBarImages.h in Headers */ = {isa = PBXBuildFile; fileRef = 52B427FA17619892006FE600 /* CMFCToolBarImages.h */; };
 		52D51BEF17409CFE007FEC86 /* CMDIFrameWnd.h in Headers */ = {isa = PBXBuildFile; fileRef = 52D51BEE17409CFE007FEC86 /* CMDIFrameWnd.h */; };
@@ -77,7 +68,6 @@
 		52D51C5A1740A460007FEC86 /* afxdocob.h in Headers */ = {isa = PBXBuildFile; fileRef = 52D51C591740A460007FEC86 /* afxdocob.h */; };
 		52D51C601740A47D007FEC86 /* afxadv.h in Headers */ = {isa = PBXBuildFile; fileRef = 52D51C5F1740A47D007FEC86 /* afxadv.h */; };
 		52D51C661740A498007FEC86 /* afxsock.h in Headers */ = {isa = PBXBuildFile; fileRef = 52D51C651740A498007FEC86 /* afxsock.h */; };
-		52D51C7A1740A622007FEC86 /* wingdi.h in Headers */ = {isa = PBXBuildFile; fileRef = 52D51C791740A622007FEC86 /* wingdi.h */; };
 		52DCC38F1741DE8900ACF79C /* CPen.h in Headers */ = {isa = PBXBuildFile; fileRef = 52DCC38E1741DE8900ACF79C /* CPen.h */; };
 		52DCC3911741DF2B00ACF79C /* CGdiObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 52DCC3901741DF2B00ACF79C /* CGdiObject.h */; };
 		52DCC3931741E09800ACF79C /* CBrush.h in Headers */ = {isa = PBXBuildFile; fileRef = 52DCC3921741E09800ACF79C /* CBrush.h */; };
@@ -90,10 +80,7 @@
 		52DCC4101741F19900ACF79C /* CStatic.h in Headers */ = {isa = PBXBuildFile; fileRef = 52DCC40F1741F19900ACF79C /* CStatic.h */; };
 		52DCC4211741F23100ACF79C /* CScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 52DCC4201741F23100ACF79C /* CScrollView.h */; };
 		52DCC4331741F36A00ACF79C /* CDocItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 52DCC4321741F36A00ACF79C /* CDocItem.h */; };
-		52E7680F172F739E00F6271A /* winnt.h in Headers */ = {isa = PBXBuildFile; fileRef = 52E7680E172F739E00F6271A /* winnt.h */; };
-		52E7682F172F7BB200F6271A /* winreg.h in Headers */ = {isa = PBXBuildFile; fileRef = 52E7682E172F7BB200F6271A /* winreg.h */; };
 		52E768E31730C3AD00F6271A /* winreg.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52E768E21730C3AD00F6271A /* winreg.mm */; };
-		52E76D741736070800F6271A /* winuser.h in Headers */ = {isa = PBXBuildFile; fileRef = 52E76D731736070800F6271A /* winuser.h */; };
 		52E76E651736E23400F6271A /* winuser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52E76E641736E23400F6271A /* winuser.mm */; };
 		52F4411B17716D34001CDD61 /* CObList.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52F4411A17716D34001CDD61 /* CObList.mm */; };
 		52F441F017727BC4001CDD61 /* CToolBarCtrl.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52F441EF17727BC4001CDD61 /* CToolBarCtrl.mm */; };
@@ -251,7 +238,6 @@
 		E5C8FE971719FD2D00979F57 /* CFileException.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5C8FE961719FD2D00979F57 /* CFileException.mm */; };
 		E5C8FEA51719FDFB00979F57 /* CException.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C8FEA41719FDFB00979F57 /* CException.h */; };
 		E5C8FEA71719FE2700979F57 /* CException.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5C8FEA61719FE2700979F57 /* CException.mm */; };
-		E5C8FEEC171A354800979F57 /* winbase.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C8FEEB171A354800979F57 /* winbase.h */; };
 		E5C8FEEE171A35A300979F57 /* winbase.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5C8FEED171A35A300979F57 /* winbase.mm */; };
 		E5E398D7171D14E800549555 /* CArchive.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E398D6171D14E800549555 /* CArchive.h */; };
 		E5E398DD171D156100549555 /* CStringArray.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E398DC171D156100549555 /* CStringArray.h */; };
@@ -259,6 +245,22 @@
 		E5E399CB1720F3A600549555 /* CArchiveException.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E399CA1720F3A600549555 /* CArchiveException.h */; };
 		E5E399EF1720FC2C00549555 /* CPtrArray.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E399EE1720FC2C00549555 /* CPtrArray.h */; };
 		E5E399F11720FC4100549555 /* CMapPtrToPtr.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E399F01720FC4100549555 /* CMapPtrToPtr.h */; };
+		E5EA2B23177CA54B00E437F7 /* dde.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EA2B13177CA54B00E437F7 /* dde.h */; };
+		E5EA2B24177CA54B00E437F7 /* direct.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EA2B14177CA54B00E437F7 /* direct.h */; };
+		E5EA2B25177CA54B00E437F7 /* guiddef.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EA2B15177CA54B00E437F7 /* guiddef.h */; };
+		E5EA2B26177CA54B00E437F7 /* propkey.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EA2B16177CA54B00E437F7 /* propkey.h */; };
+		E5EA2B27177CA54B00E437F7 /* SDKDDKVer.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EA2B17177CA54B00E437F7 /* SDKDDKVer.h */; };
+		E5EA2B28177CA54B00E437F7 /* shlobj.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EA2B18177CA54B00E437F7 /* shlobj.h */; };
+		E5EA2B29177CA54B00E437F7 /* shlwapi.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EA2B19177CA54B00E437F7 /* shlwapi.h */; };
+		E5EA2B2A177CA54B00E437F7 /* winbase.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EA2B1A177CA54B00E437F7 /* winbase.h */; };
+		E5EA2B2B177CA54B00E437F7 /* windows.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EA2B1B177CA54B00E437F7 /* windows.h */; };
+		E5EA2B2C177CA54B00E437F7 /* winerror.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EA2B1C177CA54B00E437F7 /* winerror.h */; };
+		E5EA2B2D177CA54B00E437F7 /* wingdi.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EA2B1D177CA54B00E437F7 /* wingdi.h */; };
+		E5EA2B2E177CA54B00E437F7 /* winnt.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EA2B1E177CA54B00E437F7 /* winnt.h */; };
+		E5EA2B2F177CA54B00E437F7 /* winreg.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EA2B1F177CA54B00E437F7 /* winreg.h */; };
+		E5EA2B30177CA54B00E437F7 /* winspool.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EA2B20177CA54B00E437F7 /* winspool.h */; };
+		E5EA2B31177CA54B00E437F7 /* winuser.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EA2B21177CA54B00E437F7 /* winuser.h */; };
+		E5EA2B32177CA54B00E437F7 /* wtypes.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EA2B22177CA54B00E437F7 /* wtypes.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -281,12 +283,8 @@
 		52686FE7174C81AF009CEA6A /* CMultiDocTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMultiDocTemplate.h; path = inc/CMultiDocTemplate.h; sourceTree = SOURCE_ROOT; };
 		52686FEE17529923009CEA6A /* CToolBarCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CToolBarCtrl.h; path = inc/CToolBarCtrl.h; sourceTree = SOURCE_ROOT; };
 		5268706D1752A547009CEA6A /* CMDIChildWnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMDIChildWnd.h; path = inc/CMDIChildWnd.h; sourceTree = SOURCE_ROOT; };
-		526870D31752AE86009CEA6A /* guiddef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guiddef.h; sourceTree = "<group>"; };
 		526870E11753C87E009CEA6A /* COleMessageFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COleMessageFilter.h; sourceTree = "<group>"; };
-		5268711F1753CD3B009CEA6A /* windows.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = windows.h; sourceTree = "<group>"; };
 		526871601753D599009CEA6A /* CRuntimeClass.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CRuntimeClass.mm; path = src/CRuntimeClass.mm; sourceTree = SOURCE_ROOT; };
-		52687189175406F0009CEA6A /* shlobj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shlobj.h; sourceTree = "<group>"; };
-		526872A317545C6F009CEA6A /* winspool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = winspool.h; sourceTree = "<group>"; };
 		526872BE17545CE5009CEA6A /* CommDlg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommDlg.h; path = inc/CommDlg.h; sourceTree = SOURCE_ROOT; };
 		526872C817545F74009CEA6A /* CMDIChildWnd.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CMDIChildWnd.mm; path = src/CMDIChildWnd.mm; sourceTree = SOURCE_ROOT; };
 		526872CA17545FB5009CEA6A /* CMDIFrameWnd.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CMDIFrameWnd.mm; path = src/CMDIFrameWnd.mm; sourceTree = SOURCE_ROOT; };
@@ -300,8 +298,6 @@
 		52938FB7172C5D21008667D5 /* CMapPtrToPtr.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CMapPtrToPtr.mm; path = src/CMapPtrToPtr.mm; sourceTree = SOURCE_ROOT; };
 		52938FBF172C5EC7008667D5 /* CPlex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPlex.h; path = inc/CPlex.h; sourceTree = SOURCE_ROOT; };
 		52938FC1172C5F32008667D5 /* CPlex.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CPlex.mm; path = src/CPlex.mm; sourceTree = SOURCE_ROOT; };
-		52939071172CE5DF008667D5 /* winerror.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = winerror.h; sourceTree = "<group>"; };
-		5293907D172CE7BB008667D5 /* shlwapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shlwapi.h; sourceTree = "<group>"; };
 		529390AD172D9E50008667D5 /* CFileFind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFileFind.h; path = inc/CFileFind.h; sourceTree = SOURCE_ROOT; };
 		529390AF172D9E7B008667D5 /* CFileFind.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CFileFind.mm; path = src/CFileFind.mm; sourceTree = SOURCE_ROOT; };
 		529390CA172DA2B9008667D5 /* CMemFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMemFile.h; path = inc/CMemFile.h; sourceTree = SOURCE_ROOT; };
@@ -313,7 +309,6 @@
 		52B42392175C481C006FE600 /* COleClientItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COleClientItem.h; sourceTree = "<group>"; };
 		52B423C1175C4B02006FE600 /* CDocObjectServerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDocObjectServerItem.h; path = inc/CDocObjectServerItem.h; sourceTree = SOURCE_ROOT; };
 		52B423CD175C4B7B006FE600 /* COleDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COleDataSource.h; sourceTree = "<group>"; };
-		52B423D7175C4C1C006FE600 /* wtypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wtypes.h; sourceTree = "<group>"; };
 		52B423F3175C4E0F006FE600 /* CTypedPtrArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTypedPtrArray.h; path = inc/CTypedPtrArray.h; sourceTree = SOURCE_ROOT; };
 		52B4240D175C5E6D006FE600 /* CWinThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWinThread.h; path = inc/CWinThread.h; sourceTree = SOURCE_ROOT; };
 		52B42427175C62B0006FE600 /* CFileDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFileDialog.h; path = inc/CFileDialog.h; sourceTree = SOURCE_ROOT; };
@@ -323,11 +318,9 @@
 		52B4248D175DA391006FE600 /* CDocManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDocManager.h; path = inc/CDocManager.h; sourceTree = SOURCE_ROOT; };
 		52B425D017603475006FE600 /* CFileDialog.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CFileDialog.mm; path = src/CFileDialog.mm; sourceTree = SOURCE_ROOT; };
 		52B4260117603DFE006FE600 /* CStringList.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CStringList.mm; path = src/CStringList.mm; sourceTree = SOURCE_ROOT; };
-		52B427CF176193C7006FE600 /* SDKDDKVer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDKDDKVer.h; sourceTree = "<group>"; };
 		52B427D117619419006FE600 /* afxcontrolbars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afxcontrolbars.h; sourceTree = "<group>"; };
 		52B427DB176194CF006FE600 /* afxwinappex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afxwinappex.h; sourceTree = "<group>"; };
 		52B427DD176194F4006FE600 /* afxdialogex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afxdialogex.h; sourceTree = "<group>"; };
-		52B427ED176195F7006FE600 /* propkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = propkey.h; sourceTree = "<group>"; };
 		52B427F7176197DD006FE600 /* CMFCMenuBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMFCMenuBar.h; path = inc/CMFCMenuBar.h; sourceTree = SOURCE_ROOT; };
 		52B427FA17619892006FE600 /* CMFCToolBarImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMFCToolBarImages.h; path = inc/CMFCToolBarImages.h; sourceTree = SOURCE_ROOT; };
 		52D51BEE17409CFE007FEC86 /* CMDIFrameWnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMDIFrameWnd.h; path = inc/CMDIFrameWnd.h; sourceTree = SOURCE_ROOT; };
@@ -336,7 +329,6 @@
 		52D51C591740A460007FEC86 /* afxdocob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afxdocob.h; sourceTree = "<group>"; };
 		52D51C5F1740A47D007FEC86 /* afxadv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afxadv.h; sourceTree = "<group>"; };
 		52D51C651740A498007FEC86 /* afxsock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afxsock.h; sourceTree = "<group>"; };
-		52D51C791740A622007FEC86 /* wingdi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wingdi.h; sourceTree = "<group>"; };
 		52DCC38E1741DE8900ACF79C /* CPen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPen.h; path = inc/CPen.h; sourceTree = SOURCE_ROOT; };
 		52DCC3901741DF2B00ACF79C /* CGdiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGdiObject.h; path = inc/CGdiObject.h; sourceTree = SOURCE_ROOT; };
 		52DCC3921741E09800ACF79C /* CBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBrush.h; path = inc/CBrush.h; sourceTree = SOURCE_ROOT; };
@@ -349,10 +341,7 @@
 		52DCC40F1741F19900ACF79C /* CStatic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CStatic.h; path = inc/CStatic.h; sourceTree = SOURCE_ROOT; };
 		52DCC4201741F23100ACF79C /* CScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CScrollView.h; path = inc/CScrollView.h; sourceTree = SOURCE_ROOT; };
 		52DCC4321741F36A00ACF79C /* CDocItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDocItem.h; path = inc/CDocItem.h; sourceTree = SOURCE_ROOT; };
-		52E7680E172F739E00F6271A /* winnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = winnt.h; sourceTree = "<group>"; };
-		52E7682E172F7BB200F6271A /* winreg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = winreg.h; sourceTree = "<group>"; };
 		52E768E21730C3AD00F6271A /* winreg.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = winreg.mm; path = src/winreg.mm; sourceTree = SOURCE_ROOT; };
-		52E76D731736070800F6271A /* winuser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = winuser.h; sourceTree = "<group>"; };
 		52E76E641736E23400F6271A /* winuser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = winuser.mm; path = src/winuser.mm; sourceTree = SOURCE_ROOT; };
 		52F4411A17716D34001CDD61 /* CObList.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CObList.mm; path = src/CObList.mm; sourceTree = SOURCE_ROOT; };
 		52F441EF17727BC4001CDD61 /* CToolBarCtrl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CToolBarCtrl.mm; path = src/CToolBarCtrl.mm; sourceTree = SOURCE_ROOT; };
@@ -511,7 +500,6 @@
 		E5C8FE961719FD2D00979F57 /* CFileException.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CFileException.mm; path = src/CFileException.mm; sourceTree = SOURCE_ROOT; };
 		E5C8FEA41719FDFB00979F57 /* CException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CException.h; path = inc/CException.h; sourceTree = SOURCE_ROOT; };
 		E5C8FEA61719FE2700979F57 /* CException.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CException.mm; path = src/CException.mm; sourceTree = SOURCE_ROOT; };
-		E5C8FEEB171A354800979F57 /* winbase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = winbase.h; sourceTree = "<group>"; };
 		E5C8FEED171A35A300979F57 /* winbase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = winbase.mm; path = src/winbase.mm; sourceTree = SOURCE_ROOT; };
 		E5E398D6171D14E800549555 /* CArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CArchive.h; sourceTree = "<group>"; };
 		E5E398DC171D156100549555 /* CStringArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CStringArray.h; sourceTree = "<group>"; };
@@ -519,6 +507,22 @@
 		E5E399CA1720F3A600549555 /* CArchiveException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CArchiveException.h; path = inc/CArchiveException.h; sourceTree = SOURCE_ROOT; };
 		E5E399EE1720FC2C00549555 /* CPtrArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPtrArray.h; path = inc/CPtrArray.h; sourceTree = SOURCE_ROOT; };
 		E5E399F01720FC4100549555 /* CMapPtrToPtr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMapPtrToPtr.h; path = inc/CMapPtrToPtr.h; sourceTree = SOURCE_ROOT; };
+		E5EA2B13177CA54B00E437F7 /* dde.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dde.h; path = inc_win/dde.h; sourceTree = SOURCE_ROOT; };
+		E5EA2B14177CA54B00E437F7 /* direct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = direct.h; path = inc_win/direct.h; sourceTree = SOURCE_ROOT; };
+		E5EA2B15177CA54B00E437F7 /* guiddef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = guiddef.h; path = inc_win/guiddef.h; sourceTree = SOURCE_ROOT; };
+		E5EA2B16177CA54B00E437F7 /* propkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = propkey.h; path = inc_win/propkey.h; sourceTree = SOURCE_ROOT; };
+		E5EA2B17177CA54B00E437F7 /* SDKDDKVer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SDKDDKVer.h; path = inc_win/SDKDDKVer.h; sourceTree = SOURCE_ROOT; };
+		E5EA2B18177CA54B00E437F7 /* shlobj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shlobj.h; path = inc_win/shlobj.h; sourceTree = SOURCE_ROOT; };
+		E5EA2B19177CA54B00E437F7 /* shlwapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shlwapi.h; path = inc_win/shlwapi.h; sourceTree = SOURCE_ROOT; };
+		E5EA2B1A177CA54B00E437F7 /* winbase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = winbase.h; path = inc_win/winbase.h; sourceTree = SOURCE_ROOT; };
+		E5EA2B1B177CA54B00E437F7 /* windows.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = windows.h; path = inc_win/windows.h; sourceTree = SOURCE_ROOT; };
+		E5EA2B1C177CA54B00E437F7 /* winerror.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = winerror.h; path = inc_win/winerror.h; sourceTree = SOURCE_ROOT; };
+		E5EA2B1D177CA54B00E437F7 /* wingdi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = wingdi.h; path = inc_win/wingdi.h; sourceTree = SOURCE_ROOT; };
+		E5EA2B1E177CA54B00E437F7 /* winnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = winnt.h; path = inc_win/winnt.h; sourceTree = SOURCE_ROOT; };
+		E5EA2B1F177CA54B00E437F7 /* winreg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = winreg.h; path = inc_win/winreg.h; sourceTree = SOURCE_ROOT; };
+		E5EA2B20177CA54B00E437F7 /* winspool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = winspool.h; path = inc_win/winspool.h; sourceTree = SOURCE_ROOT; };
+		E5EA2B21177CA54B00E437F7 /* winuser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = winuser.h; path = inc_win/winuser.h; sourceTree = SOURCE_ROOT; };
+		E5EA2B22177CA54B00E437F7 /* wtypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = wtypes.h; path = inc_win/wtypes.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -684,6 +688,22 @@
 			children = (
 				E52B0C5A1765105E006A9195 /* ole */,
 				E52B0C5917651036006A9195 /* win */,
+				E5EA2B13177CA54B00E437F7 /* dde.h */,
+				E5EA2B14177CA54B00E437F7 /* direct.h */,
+				E5EA2B15177CA54B00E437F7 /* guiddef.h */,
+				E5EA2B16177CA54B00E437F7 /* propkey.h */,
+				E5EA2B17177CA54B00E437F7 /* SDKDDKVer.h */,
+				E5EA2B18177CA54B00E437F7 /* shlobj.h */,
+				E5EA2B19177CA54B00E437F7 /* shlwapi.h */,
+				E5EA2B1A177CA54B00E437F7 /* winbase.h */,
+				E5EA2B1B177CA54B00E437F7 /* windows.h */,
+				E5EA2B1C177CA54B00E437F7 /* winerror.h */,
+				E5EA2B1D177CA54B00E437F7 /* wingdi.h */,
+				E5EA2B1E177CA54B00E437F7 /* winnt.h */,
+				E5EA2B1F177CA54B00E437F7 /* winreg.h */,
+				E5EA2B20177CA54B00E437F7 /* winspool.h */,
+				E5EA2B21177CA54B00E437F7 /* winuser.h */,
+				E5EA2B22177CA54B00E437F7 /* wtypes.h */,
 				E52B0C5817651015006A9195 /* ns */,
 				E52B0C5617650FEA006A9195 /* afx */,
 				52D51C1817409F9D007FEC86 /* CCmdUI.h */,
@@ -829,20 +849,6 @@
 		E52B0C5917651036006A9195 /* win */ = {
 			isa = PBXGroup;
 			children = (
-				52B427ED176195F7006FE600 /* propkey.h */,
-				52B427CF176193C7006FE600 /* SDKDDKVer.h */,
-				5293907D172CE7BB008667D5 /* shlwapi.h */,
-				526870D31752AE86009CEA6A /* guiddef.h */,
-				52687189175406F0009CEA6A /* shlobj.h */,
-				52939071172CE5DF008667D5 /* winerror.h */,
-				52E7680E172F739E00F6271A /* winnt.h */,
-				E5C8FEEB171A354800979F57 /* winbase.h */,
-				52E7682E172F7BB200F6271A /* winreg.h */,
-				52E76D731736070800F6271A /* winuser.h */,
-				52D51C791740A622007FEC86 /* wingdi.h */,
-				526872A317545C6F009CEA6A /* winspool.h */,
-				5268711F1753CD3B009CEA6A /* windows.h */,
-				52B423D7175C4C1C006FE600 /* wtypes.h */,
 			);
 			name = win;
 			sourceTree = "<group>";
@@ -981,7 +987,6 @@
 				E5C8FE891719DFEA00979F57 /* CTime.h in Headers */,
 				E5C8FE951719FCEA00979F57 /* CFileException.h in Headers */,
 				E5C8FEA51719FDFB00979F57 /* CException.h in Headers */,
-				E5C8FEEC171A354800979F57 /* winbase.h in Headers */,
 				E5E398D7171D14E800549555 /* CArchive.h in Headers */,
 				E5E398DD171D156100549555 /* CStringArray.h in Headers */,
 				E5E399CB1720F3A600549555 /* CArchiveException.h in Headers */,
@@ -990,20 +995,14 @@
 				52938F0A172A316C008667D5 /* afx.h in Headers */,
 				52938F94172C538E008667D5 /* CDumpContext.h in Headers */,
 				52938FC0172C5EC7008667D5 /* CPlex.h in Headers */,
-				52939072172CE5DF008667D5 /* winerror.h in Headers */,
-				5293907E172CE7BB008667D5 /* shlwapi.h in Headers */,
 				529390AE172D9E50008667D5 /* CFileFind.h in Headers */,
 				529390CB172DA2B9008667D5 /* CMemFile.h in Headers */,
-				52E7680F172F739E00F6271A /* winnt.h in Headers */,
-				52E7682F172F7BB200F6271A /* winreg.h in Headers */,
-				52E76D741736070800F6271A /* winuser.h in Headers */,
 				52D51BEF17409CFE007FEC86 /* CMDIFrameWnd.h in Headers */,
 				52D51BF917409E27007FEC86 /* CDockState.h in Headers */,
 				52D51C1917409F9D007FEC86 /* CCmdUI.h in Headers */,
 				52D51C5A1740A460007FEC86 /* afxdocob.h in Headers */,
 				52D51C601740A47D007FEC86 /* afxadv.h in Headers */,
 				52D51C661740A498007FEC86 /* afxsock.h in Headers */,
-				52D51C7A1740A622007FEC86 /* wingdi.h in Headers */,
 				52DCC38F1741DE8900ACF79C /* CPen.h in Headers */,
 				52DCC3911741DF2B00ACF79C /* CGdiObject.h in Headers */,
 				52DCC3931741E09800ACF79C /* CBrush.h in Headers */,
@@ -1031,18 +1030,13 @@
 				52686FE8174C81AF009CEA6A /* CMultiDocTemplate.h in Headers */,
 				52686FEF17529923009CEA6A /* CToolBarCtrl.h in Headers */,
 				5268706E1752A547009CEA6A /* CMDIChildWnd.h in Headers */,
-				526870D41752AE86009CEA6A /* guiddef.h in Headers */,
 				526870E21753C87E009CEA6A /* COleMessageFilter.h in Headers */,
-				526871201753CD3B009CEA6A /* windows.h in Headers */,
-				5268718A175406F0009CEA6A /* shlobj.h in Headers */,
-				526872A417545C6F009CEA6A /* winspool.h in Headers */,
 				526872BF17545CE5009CEA6A /* CommDlg.h in Headers */,
 				5268730D1754641D009CEA6A /* CRecentFileList.h in Headers */,
 				526873881755BD5F009CEA6A /* COleIPFrameWnd.h in Headers */,
 				52B42393175C481C006FE600 /* COleClientItem.h in Headers */,
 				52B423C2175C4B02006FE600 /* CDocObjectServerItem.h in Headers */,
 				52B423CE175C4B7B006FE600 /* COleDataSource.h in Headers */,
-				52B423D8175C4C1C006FE600 /* wtypes.h in Headers */,
 				52B423F5175C4E0F006FE600 /* CTypedPtrArray.h in Headers */,
 				52B4240E175C5E6D006FE600 /* CWinThread.h in Headers */,
 				52B42428175C62B0006FE600 /* CFileDialog.h in Headers */,
@@ -1050,11 +1044,9 @@
 				52B4246C175D9761006FE600 /* CSingleLock.h in Headers */,
 				52B42478175D99A1006FE600 /* COleDocument.h in Headers */,
 				52B4248E175DA391006FE600 /* CDocManager.h in Headers */,
-				52B427D0176193C7006FE600 /* SDKDDKVer.h in Headers */,
 				52B427D217619419006FE600 /* afxcontrolbars.h in Headers */,
 				52B427DC176194CF006FE600 /* afxwinappex.h in Headers */,
 				52B427DE176194F4006FE600 /* afxdialogex.h in Headers */,
-				52B427EE176195F7006FE600 /* propkey.h in Headers */,
 				52B427F8176197DD006FE600 /* CMFCMenuBar.h in Headers */,
 				52B427FB17619892006FE600 /* CMFCToolBarImages.h in Headers */,
 				E52B0B6517643361006A9195 /* CNSDocument.h in Headers */,
@@ -1064,6 +1056,22 @@
 				E52B115B1767DAFE006A9195 /* CPreviewDC.h in Headers */,
 				E52B14761768D564006A9195 /* CMutex.h in Headers */,
 				E52B14AE1768DAD4006A9195 /* CSyncObject.h in Headers */,
+				E5EA2B23177CA54B00E437F7 /* dde.h in Headers */,
+				E5EA2B24177CA54B00E437F7 /* direct.h in Headers */,
+				E5EA2B25177CA54B00E437F7 /* guiddef.h in Headers */,
+				E5EA2B26177CA54B00E437F7 /* propkey.h in Headers */,
+				E5EA2B27177CA54B00E437F7 /* SDKDDKVer.h in Headers */,
+				E5EA2B28177CA54B00E437F7 /* shlobj.h in Headers */,
+				E5EA2B29177CA54B00E437F7 /* shlwapi.h in Headers */,
+				E5EA2B2A177CA54B00E437F7 /* winbase.h in Headers */,
+				E5EA2B2B177CA54B00E437F7 /* windows.h in Headers */,
+				E5EA2B2C177CA54B00E437F7 /* winerror.h in Headers */,
+				E5EA2B2D177CA54B00E437F7 /* wingdi.h in Headers */,
+				E5EA2B2E177CA54B00E437F7 /* winnt.h in Headers */,
+				E5EA2B2F177CA54B00E437F7 /* winreg.h in Headers */,
+				E5EA2B30177CA54B00E437F7 /* winspool.h in Headers */,
+				E5EA2B31177CA54B00E437F7 /* winuser.h in Headers */,
+				E5EA2B32177CA54B00E437F7 /* wtypes.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

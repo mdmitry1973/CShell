@@ -389,7 +389,10 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SimpleDialog_Prefix.pch;
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../CShell/inc\"/**";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../../CShell/inc\"/**",
+					"\"$(SRCROOT)/../../CShell/inc_win\"/**",
+				);
 				INFOPLIST_FILE = "SimpleDialog-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
@@ -406,7 +409,10 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SimpleDialog_Prefix.pch;
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../CShell/inc\"/**";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../../CShell/inc\"/**",
+					"\"$(SRCROOT)/../../CShell/inc_win\"/**",
+				);
 				INFOPLIST_FILE = "SimpleDialog-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";

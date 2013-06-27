@@ -16,12 +16,13 @@
 #include "CommDlg.h"
 #include "shlobj.h"
 #include "winerror.h"
+#include "winbase.h"
 #include "winnt.h"
 #include "winreg.h"
 #include "winuser.h"
 #include "wingdi.h"
 #include "winspool.h"
 #include "wtypes.h"
-#include "winbase.h"
+
 
 #endif//WINDOW_H

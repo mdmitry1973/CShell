@@ -139,6 +139,36 @@ typedef DWORD *LPDWORD;
 typedef void* HANDLE;
 typedef CHAR *LPSTR;
 
+#ifdef __x86_64__ 
+typedef unsigned long long UINT_PTR;
+#else
+typedef unsigned int UINT_PTR;
+#endif
+
+#ifdef __x86_64__ 
+typedef long long LONG_PTR; 
+#else
+typedef long LONG_PTR;
+#endif
+
+#ifdef __x86_64__ 
+typedef unsigned long long ULONG_PTR;
+#else
+typedef unsigned long ULONG_PTR;
+#endif
+
+#ifdef __x86_64__
+typedef ULONG_PTR DWORD_PRT;
+#else
+typedef ULONG_PTR DWORD_PRT;
+#endif
+
+#ifdef __x86_64__ 
+typedef unsigned long long UINT_PTR;
+#else
+typedef unsigned int UINT_PTR;
+#endif
+
 #ifndef CSHELLQT_LIBRARY
 
 typedef char INT8;
@@ -202,36 +232,6 @@ typedef SCODE *PSCODE;
 
 #define UNALIGNED
 #define UNALIGNED64
-
-#ifdef __x86_64__ 
-typedef unsigned long long UINT_PTR;
-#else
-typedef unsigned int UINT_PTR;
-#endif
-
-#ifdef __x86_64__ 
-typedef long long LONG_PTR; 
-#else
-typedef long LONG_PTR;
-#endif
-
-#ifdef __x86_64__ 
-typedef unsigned long long ULONG_PTR;
-#else
-typedef unsigned long ULONG_PTR;
-#endif
-
-#ifdef __x86_64__
-typedef ULONG_PTR DWORD_PRT;
-#else
-typedef ULONG_PTR DWORD_PRT;
-#endif
-
-#ifdef __x86_64__ 
-typedef unsigned long long UINT_PTR;
-#else
-typedef unsigned int UINT_PTR;
-#endif
 
 
 #define DECLARE_DYNAMIC(class_name)\
@@ -485,5 +485,9 @@ using namespace std;
 #define THROW_LAST() (throw)
 
 #define FAR
+
+#ifndef Q_CC_MINGW
+#include "windows.h"
+#endif
 
 #endif//CDEF_DEFINE

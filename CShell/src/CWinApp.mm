@@ -26,7 +26,7 @@ CWinApp					*pMainApp = nil;
 CWinApp::CWinApp()
 {
 	pMainApp = this;
-	m_pszAppName = (const char *)malloc(1);
+	m_pszAppName = _strdup(_T(""));
 	((char *)m_pszAppName)[0] = 0;
 	m_nCmdShow = SW_SHOWNORMAL;
 }
@@ -49,7 +49,7 @@ BOOL CWinApp::InitInstance()
 	return true;
 }
 
-HICON CWinApp::LoadIcon(LPCTSTR lpszResourceName) const
+HICON CWinApp::LoadIcon(LPTSTR lpszResourceName) const
 {
 	CWinApp::LoadBitmapInfo();
 	
