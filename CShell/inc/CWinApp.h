@@ -115,8 +115,6 @@ CSHELL_LIB_EXPORT CWinApp* AfxGetApp();
 void InitCommonControls(void);
 void AfxEnableControlContainer();
 
-int AfxMessageBox(LPCTSTR lpszText, UINT nType = MB_OK, UINT nIDHelp = 0 );
-int AfxMessageBox(UINT nIDPrompt, UINT nType = MB_OK, UINT nIDHelp = (UINT)-1);
 CWnd* AfxGetMainWnd();
 
 void CShellLog(const char *);

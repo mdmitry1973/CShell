@@ -14,7 +14,7 @@
 #include "CDef.h"
 #include "CWnd.h"
 
-class CEdit : public CWnd
+class CSHELL_LIB_EXPORT CEdit : public CWnd
 {
 	
 public:

@@ -13,7 +13,7 @@
 #ifndef CSLIDERCTRL_DEFINE
 #define CSLIDERCTRL_DEFINE 1
 
-class CSliderCtrl : public CWnd
+class CSHELL_LIB_EXPORT CSliderCtrl : public CWnd
 {
 	
 public:

@@ -1,0 +1,12 @@
+#ifndef CSHELLQT_GLOBAL_H
+#define CSHELLQT_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(CSHELLQT_LIBRARY)
+#  define CSHELLQTSHARED_EXPORT Q_DECL_EXPORT
+#else
+#  define CSHELLQTSHARED_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // CSHELLQT_GLOBAL_H

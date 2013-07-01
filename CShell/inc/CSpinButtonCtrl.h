@@ -13,7 +13,7 @@
 #ifndef CSPINBUTTONCTRL_DEFINE
 #define CSPINBUTTONCTRL_DEFINE 1
 
-class CSpinButtonCtrl : public CWnd
+class CSHELL_LIB_EXPORT CSpinButtonCtrl : public CWnd
 {
 	
 public:

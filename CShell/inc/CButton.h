@@ -14,7 +14,7 @@
 #include "CDef.h"
 #include "CWnd.h"
 
-class CButton : public CWnd
+class CSHELL_LIB_EXPORT CButton : public CWnd
 {
 	
 public:

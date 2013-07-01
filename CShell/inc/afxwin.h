@@ -107,4 +107,7 @@
 #include "CPreviewDC.h"
 #include "CMutex.h"
 
+CSHELL_LIB_EXPORT int AfxMessageBox(LPCTSTR lpszText, UINT nType = MB_OK, UINT nIDHelp = 0 );
+CSHELL_LIB_EXPORT int AfxMessageBox(UINT nIDPrompt, UINT nType = MB_OK, UINT nIDHelp = (UINT)-1);
+
 #endif//AFX_WIN

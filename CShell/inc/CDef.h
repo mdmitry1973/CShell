@@ -14,6 +14,7 @@
 
 #if defined(CSHELLQT_LIBRARY)
 #include <QtCore/QtGlobal>
+#define _UNICODE
 #if defined(CSHELL_LIB_DLL)
 #  define CSHELL_LIB_EXPORT Q_DECL_EXPORT
 #else

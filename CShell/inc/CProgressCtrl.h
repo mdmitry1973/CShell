@@ -13,7 +13,7 @@
 #ifndef CPROGRESSCTRL_DEFINE
 #define CPROGRESSCTRL_DEFINE 1
 
-class CProgressCtrl : public CWnd
+class CSHELL_LIB_EXPORT CProgressCtrl : public CWnd
 {
 	
 public:

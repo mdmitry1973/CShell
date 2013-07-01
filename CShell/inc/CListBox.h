@@ -13,7 +13,7 @@
 #ifndef CLISTBOX_DEFINE
 #define CLISTBOX_DEFINE 1
 
-class CListBox : public CWnd
+class CSHELL_LIB_EXPORT CListBox : public CWnd
 {
 	
 public:

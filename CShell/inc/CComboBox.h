@@ -13,7 +13,7 @@
 #ifndef CCOMBOBOX_DEFINE
 #define CCOMBOBOX_DEFINE 1
 
-class CComboBox : public CWnd
+class CSHELL_LIB_EXPORT CComboBox : public CWnd
 {
 	
 public:
