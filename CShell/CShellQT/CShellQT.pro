@@ -13,7 +13,7 @@ TARGET = CShellQT
 TEMPLATE = lib
 
 DEFINES += CSHELLQT_LIBRARY\
-        CSHELL_LIB_DLL
+        CSHELL_USE_QT
 
 SOURCES += cshellqt.cpp\
     ../src/CWinApp.cpp \
@@ -33,7 +33,8 @@ SOURCES += cshellqt.cpp\
     CShellEventReceiver.cpp \
     ../src/CButton.cpp \
     ../src/CEdit.cpp \
-    ../src/CSpinButtonCtrl.cpp
+    ../src/CSpinButtonCtrl.cpp \
+    ../src/CScrollBar.cpp
 
 HEADERS += cshellqt.h\
         cshellqt_global.h \

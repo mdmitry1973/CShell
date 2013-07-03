@@ -8,7 +8,9 @@
  */
 
 #include <QDebug>
+#include <QObject>
 #include <QTextEdit>
+#include <QLineEdit>
 
 #include "CEdit.h"
 
@@ -52,11 +54,27 @@ DWORD CEdit::GetSel() const
 
     if (m_hWnd)
     {
-        QTextEdit *edit = (QTextEdit *)m_hWnd;
-        QTextCursor c = edit->textCursor();
+        QObject *obj = (QObject *)m_hWnd;
+        QTextEdit *edit = dynamic_cast<QTextEdit *>(obj);
 
-        nStartChar = c.selectionStart();
-        nEndChar = c.selectionEnd();
+        if (edit)
+        {
+            QTextEdit *edit = (QTextEdit *)m_hWnd;
+            QTextCursor c = edit->textCursor();
+
+            nStartChar = c.selectionStart();
+            nEndChar = c.selectionEnd();
+        }
+        else
+        {
+            QLineEdit *lineEdit = dynamic_cast<QLineEdit *>(obj);
+
+            if (lineEdit)
+            {
+                 nStartChar = lineEdit->selectionStart();
+                 nEndChar = nStartChar + lineEdit->selectedText().size();
+            }
+        }
 
         res = (short)nStartChar;
         res = ((short)nEndChar << 16) | res;
@@ -71,11 +89,26 @@ void CEdit::GetSel(int& nStartChar, int& nEndChar) const
 
     if (m_hWnd)
     {
-        QTextEdit *edit = (QTextEdit *)m_hWnd;
-        QTextCursor c = edit->textCursor();
+        QObject *obj = (QObject *)m_hWnd;
+        QTextEdit *edit = dynamic_cast<QTextEdit *>(obj);
 
-        nStartChar = c.selectionStart();
-        nEndChar = c.selectionEnd();
+        if (edit)
+        {
+            QTextCursor c = edit->textCursor();
+
+            nStartChar = c.selectionStart();
+            nEndChar = c.selectionEnd();
+        }
+        else
+        {
+            QLineEdit *lineEdit = dynamic_cast<QLineEdit *>(obj);
+
+            if (lineEdit)
+            {
+                 nStartChar = lineEdit->selectionStart();
+                 nEndChar = nStartChar + lineEdit->selectedText().size();
+            }
+        }
     }
 }
 
@@ -87,15 +120,30 @@ void CEdit::SetSel(DWORD dwSelection, BOOL bNoScroll)
     {
         int nStartChar;
         int nEndChar;
-        QTextEdit *edit = (QTextEdit *)m_hWnd;
-        QTextCursor c = edit->textCursor();
 
         nStartChar = dwSelection & 0x0000ffff;
         nEndChar = (dwSelection & 0xffff0000) >> 16;
 
-        c.setPosition(nStartChar);
-        c.setPosition(nEndChar, QTextCursor::KeepAnchor);
-        edit->setTextCursor(c);
+        QObject *obj = (QObject *)m_hWnd;
+        QTextEdit *edit = dynamic_cast<QTextEdit *>(obj);
+
+        if (edit)
+        {
+            QTextCursor c = edit->textCursor();
+
+            c.setPosition(nStartChar);
+            c.setPosition(nEndChar, QTextCursor::KeepAnchor);
+            edit->setTextCursor(c);
+        }
+        else
+        {
+            QLineEdit *lineEdit = dynamic_cast<QLineEdit *>(obj);
+
+            if (lineEdit)
+            {
+                 lineEdit->setSelection(nStartChar, nEndChar);
+            }
+        }
     }
 }
 
@@ -105,18 +153,52 @@ void CEdit::SetSel(int nStartChar, int nEndChar, BOOL bNoScroll)
 
     if (m_hWnd)
     {
-        QTextEdit *edit = (QTextEdit *)m_hWnd;
-        QTextCursor c = edit->textCursor();
+        QObject *obj = (QObject *)m_hWnd;
+        QTextEdit *edit = dynamic_cast<QTextEdit *>(obj);
 
-        c.setPosition(nStartChar);
-        c.setPosition(nEndChar, QTextCursor::KeepAnchor);
-        edit->setTextCursor(c);
+        if (edit)
+        {
+            QTextCursor c = edit->textCursor();
+
+            c.setPosition(nStartChar);
+            c.setPosition(nEndChar, QTextCursor::KeepAnchor);
+            edit->setTextCursor(c);
+        }
+        else
+        {
+            QLineEdit *lineEdit = dynamic_cast<QLineEdit *>(obj);
+
+            if (lineEdit)
+            {
+                 lineEdit->setSelection(nStartChar, nEndChar);
+            }
+        }
     }
 }
 
 void CEdit::SetLimitText(UINT nMax)
 {
-    qDebug() << "TO DO CEdit::SetLimitText";
+    assert(m_hWnd);
+
+    if (m_hWnd)
+    {
+        QObject *obj = (QObject *)m_hWnd;
+        QTextEdit *edit = dynamic_cast<QTextEdit *>(obj);
+
+        if (edit)
+        {
+            qDebug() << "TO DO CEdit::SetLimitText";
+        }
+        else
+        {
+            QLineEdit *lineEdit = dynamic_cast<QLineEdit *>(obj);
+
+            if (lineEdit)
+            {
+                 lineEdit->setMaxLength(nMax);
+            }
+        }
+    }
 }
 
 BOOL CEdit::SetCueBanner(LPCWSTR lpcwText)

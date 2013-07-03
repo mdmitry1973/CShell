@@ -106,6 +106,7 @@
 #include "CRgn.h"
 #include "CPreviewDC.h"
 #include "CMutex.h"
+#include "CScrollBar.h"
 
 CSHELL_LIB_EXPORT int AfxMessageBox(LPCTSTR lpszText, UINT nType = MB_OK, UINT nIDHelp = 0 );
 CSHELL_LIB_EXPORT int AfxMessageBox(UINT nIDPrompt, UINT nType = MB_OK, UINT nIDHelp = (UINT)-1);

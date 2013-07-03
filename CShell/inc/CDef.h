@@ -12,10 +12,10 @@
 #ifndef CDEF_DEFINE
 #define CDEF_DEFINE 1
 
-#if defined(CSHELLQT_LIBRARY)
+#if defined(CSHELL_USE_QT)
 #include <QtCore/QtGlobal>
 #define _UNICODE
-#if defined(CSHELL_LIB_DLL)
+#if defined(CSHELLQT_LIBRARY)
 #  define CSHELL_LIB_EXPORT Q_DECL_EXPORT
 #else
 #  define CSHELL_LIB_EXPORT Q_DECL_IMPORT
@@ -28,7 +28,7 @@
 #include "qt_windows.h"
 #endif
 
-#if defined(CSHELLQT_LIBRARY)
+#if defined(CSHELL_USE_QT)
 #define stdString std::wstring
 #define _T(x) L ##x
 #else
@@ -170,7 +170,7 @@ typedef unsigned long long UINT_PTR;
 typedef unsigned int UINT_PTR;
 #endif
 
-#ifndef CSHELLQT_LIBRARY
+#ifndef CSHELL_USE_QT
 
 typedef char INT8;
 typedef char *PTCHAR;
@@ -291,7 +291,7 @@ CObject* class_name::CreateObject() \
 #define DECLARE_INTERFACE_MAP()
 #define DECLARE_SERIAL(x)
 
-#ifndef CSHELLQT_LIBRARY
+#ifndef CSHELL_USE_QT
 
 typedef struct tagPOINT { 
 	LONG x; 
@@ -343,7 +343,7 @@ typedef struct _NM_UPDOWN {
 
 typedef _NM_UPDOWN NM_UPDOWN;
 
-#ifndef CSHELLQT_LIBRARY
+#ifndef CSHELL_USE_QT
 
 typedef struct tagMSG {
 	HWND   hwnd;
@@ -406,7 +406,7 @@ typedef DWORD	COLORREF;
 #define RGB(r,g,b) \
 ((COLORREF)(((BYTE)(r)|((WORD)((BYTE)(g))<<8))|(((DWORD)(BYTE)(b))<<16)))
 
-#ifndef CSHELLQT_LIBRARY
+#ifndef CSHELL_USE_QT
 
 //#define INVALID_HANDLE_VALUE 0
 #define MAX_PATH 1000
@@ -473,7 +473,7 @@ using namespace std;
 #define EXPORT
 
 #define CONST const
-#ifndef CSHELLQT_LIBRARY
+#ifndef CSHELL_USE_QT
 #define __stdcall
 #endif
 #define DEBUG_NEW new

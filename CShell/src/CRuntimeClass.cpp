@@ -14,12 +14,12 @@
 
 CRuntimeClass::CRuntimeClass()
 {
-    qDebug() << "to do CRuntimeClass";
+
 }
 
 CRuntimeClass::~CRuntimeClass()
 {
-    qDebug() << "to do CRuntimeClass";
+
 }
 	
 CObject* CRuntimeClass::CreateObject()

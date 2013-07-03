@@ -17,9 +17,11 @@
 
 class CCmdTarget;
 class CWnd;
+class CScrollBar;
 
 typedef void (CCmdTarget::*EventFun)();
 typedef void (CCmdTarget::*EventNotifyFun)(NMHDR* pNMHDR, LRESULT* pResult);
+typedef void (CCmdTarget::*EventOnScroll)(UINT nSBCode,UINT nPos, CScrollBar* pScrollBar);
 
 #define EVENT_TYPE_BN_CLICKED		0
 #define EVENT_TYPE_CBN_SELCHANGE	1
@@ -49,6 +51,8 @@ typedef void (CCmdTarget::*EventNotifyFun)(NMHDR* pNMHDR, LRESULT* pResult);
 #define EVENT_TYPE_WM_RBUTTONUP		25
 #define EVENT_TYPE_WM_KEYUP			26
 #define EVENT_TYPE_WM_LBUTTONDBLCLK	27
+#define EVENT_TYPE_WM_HSCROLL       28
+#define EVENT_TYPE_WM_VSCROLL       29
 
 //#define UDN_FIRST               (0U-721U)        // updown
 //#define UDN_DELTAPOS            (UDN_FIRST - 1)

@@ -33,6 +33,7 @@ typedef void* PtrNSWindowHandle;
 typedef void* PtrNSXMLElement;
 
 class CDC;
+class CScrollBar;
 
 #define ON_WM_CHAR() \
 AddEventHandle(0, (EventFun)(&ThisClass::OnChar), EVENT_TYPE_WM_CHAR);
@@ -54,6 +55,12 @@ AddEventHandle(0, (EventFun)(&ThisClass::OnCreate), EVENT_TYPE_WM_CONTEXTMENU);
 
 #define ON_WM_TIMER()\
 AddEventHandle(0, (EventFun)(&ThisClass::OnCreate), EVENT_TYPE_WM_TIMER);
+
+#define ON_WM_HSCROLL()\
+AddEventHandle(0, (EventFun)(&ThisClass::OnHScroll), EVENT_TYPE_WM_HSCROLL);
+
+#define ON_WM_VSCROLL()\
+AddEventHandle(0, (EventFun)(&ThisClass::OnVScroll), EVENT_TYPE_WM_VSCROLL);
 
 #define ON_WM_SIZE()\
 AddEventHandle(0, (EventFun)(&ThisClass::OnCreate), EVENT_TYPE_WM_SIZE);
@@ -284,6 +291,8 @@ public:
 	virtual void OnSetFocus(CWnd* pOldWnd);
 	virtual void OnPaint();
 	virtual int	OnCreate(LPCREATESTRUCT lpCreateStruct);
+    virtual void OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
+    virtual void OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
 	
 	virtual void OnSysCommand(UINT nID, LPARAM lParam);
 	
@@ -312,6 +321,7 @@ public:
 	
 	PtrNSWindowDelegate GetWindowDelegate();
 	PtrNSWindow			GetNSWindow();
+    void SetNSWindow(PtrNSWindow );
 	
 	//static CMenu* GetMenu(CWnd *);
 	

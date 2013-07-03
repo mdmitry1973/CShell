@@ -28,6 +28,7 @@
 #include <QSpinBox>
 #include <QListWidget>
 #include <QListView>
+#include <QPixmap>
 
 #include "CDef.h"
 #include "CShellEventReceiver.h"
@@ -59,12 +60,12 @@ CWnd::~CWnd()
 {
     QWidget *widget = (QWidget *)m_hWnd;
 
-    for(unsigned int i = 0; i < m_mapEventHandle.size(); i++)
-    {
-        QWidget *control = (QWidget *)(m_mapEventHandle[i].control);
-
-        widget->disconnect(control, 0, 0, 0);
-    }
+   // for(unsigned int i = 0; i < m_mapEventHandle.size(); i++)
+    //{
+    //    QWidget *control = (QWidget *)(m_mapEventHandle[i].control);
+    //
+    //    widget->disconnect(control, 0, 0, 0);
+    //}
 
     if (m_hWnd && mMainWindow)
 	{
@@ -592,7 +593,8 @@ bool CWnd::CreateControl(PtrNSXMLElement controlNodeIn, void *nsView)
         if (strClass.startsWith("Static") &&
             strStyles.startsWith("SS_BITMAP"))
         {
-             control = new QLabel(parent);
+             QLabel *imageLabel = new QLabel(parent);
+             control = imageLabel;
 
              std::map<int,CShellBitmapInfo>::iterator it;
              int id_bitmap = strText.toInt();
@@ -604,37 +606,18 @@ bool CWnd::CreateControl(PtrNSXMLElement controlNodeIn, void *nsView)
              if (id_bitmap &&
                  (it = bmp_map.find(id_bitmap)) != bmp_map.end())
              {
-                 /*
-                 NSBundle *resBundle = [NSBundle mainBundle];
+                 QString resPath = QDir::currentPath();
+                 QString imagePath = resPath + "\\" + QString::fromWCharArray(it->second.name.c_str());
+                 QPixmap image(imagePath);
 
-                 if (resBundle)
+                 if (image.isNull())
                  {
-                     NSString *strFullFileName = [NSString stringWithUTF8String: it->second.name.c_str()];
-                     NSString *strFileName = [strFullFileName stringByReplacingOccurrencesOfString: [strFullFileName pathExtension] withString: @""];
-
-                     strFileName = [strFileName stringByReplacingOccurrencesOfString: @"." withString: @""];
-
-                     NSString *resFilePath = [resBundle pathForResource:strFileName ofType: [strFullFileName pathExtension]];
-
-                     NSImage *imageFromBundle = [[NSImage alloc] initWithContentsOfFile:resFilePath];
-
-                     if (imageFromBundle)
-                     {
-                         control = [[[CNSImageView alloc] initWithFrame: contentRect] autorelease];
-
-                         [(CNSImageView *)control setImage:imageFromBundle];
-                         [imageFromBundle release];
-                     }
-                     else
-                     {
-                         assert(false);
-                     }
+                     qDebug() << "image.isNull";
                  }
                  else
                  {
-                     assert(false);
+                    imageLabel->setPixmap(image);
                  }
-                 */
              }
         }
         else
@@ -911,6 +894,11 @@ PtrNSWindow CWnd::GetNSWindow()
 	return m_hWnd;
 }
 
+void CWnd::SetNSWindow(PtrNSWindow hWnd)
+{
+    m_hWnd = hWnd;
+}
+
 void CWnd::AddEventHandle(int objID, EventFun fun, int eventType)
 {
 	if (m_hWnd)
@@ -919,22 +907,69 @@ void CWnd::AddEventHandle(int objID, EventFun fun, int eventType)
         QString strID;
         QObject *object =NULL;
 
-        strID.setNum(objID);
-
-        QList<QObject*> listObjs = ((QObject *)m_hWnd)->findChildren<QObject *>();
-
-        for(int i = 0; i < listObjs.count(); i++)
+        if (objID == 0)
         {
-            object = listObjs.at(i);
-
-            if (object->isWidgetType())
+            if (eventType == EVENT_TYPE_WM_HSCROLL ||
+                eventType == EVENT_TYPE_WM_VSCROLL)
             {
-               QWidget *widget =  (QWidget *)object;
+                QList<QObject*> widgets = widget->children();
 
-               if (widget->accessibleName() == strID)
-               {
-                   break;
-               }
+                for(int i = 0; i < widgets.size(); i++)
+                {
+                    QObject *obj = widgets.at(i);
+
+                    if (obj->isWidgetType())
+                    {
+                        QAbstractSlider *Slider = dynamic_cast<QAbstractSlider *>(obj);
+
+                        if (Slider)
+                        {
+                            CShellEventReceiver *funHandle =  new CShellEventReceiver();
+                            QMetaObject::Connection handle = widget->connect(qobject_cast<QAbstractSlider *>(Slider), &QAbstractSlider::sliderMoved, funHandle, &CShellEventReceiver::eventIndexFunction);
+
+                            if (handle == false)
+                            {
+                                qDebug() << "QMetaObject::Connection handle == false";
+                            }
+
+                            funHandle->mReceiverData.tag        = objID;
+                            funHandle->mReceiverData.fun        = fun;
+                            funHandle->mReceiverData.eventType	= eventType;
+                            funHandle->mReceiverData.control	= Slider;
+                            funHandle->setWindow(this);
+                        }
+                    }
+                }
+            }
+
+            CCmdTargetEventHandle handle;
+
+            handle.tag			= objID;
+            handle.fun			= fun;
+            handle.eventType	= eventType;
+            handle.control		= this;
+
+            m_mapEventHandle.push_back(handle);
+        }
+        else
+        {
+            strID.setNum(objID);
+
+            QList<QObject*> listObjs = ((QObject *)m_hWnd)->findChildren<QObject *>();
+
+            for(int i = 0; i < listObjs.count(); i++)
+            {
+                object = listObjs.at(i);
+
+                if (object->isWidgetType())
+                {
+                   QWidget *widget =  (QWidget *)object;
+
+                   if (widget->accessibleName() == strID)
+                   {
+                       break;
+                   }
+                }
             }
         }
 
@@ -984,6 +1019,40 @@ void CWnd::AddEventHandle(int objID, EventFun fun, int eventType)
                 }
             }
             else
+                /*
+            if (eventType == EVENT_TYPE_WM_HSCROLL ||
+                eventType == EVENT_TYPE_WM_VSCROLL)
+            {
+                QList<QObject*> widgets = widget->children();
+
+                for(int i = 0; i < widgets.size(); i++)
+                {
+                    QObject *obj = widgets.at(i);
+
+                    if (obj->isWidgetType())
+                    {
+                        QAbstractSlider *Slider = dynamic_cast<QAbstractSlider *>(obj);
+
+                        if (Slider)
+                        {
+                            QMetaObject::Connection handle = widget->connect(qobject_cast<QAbstractSlider *>(Slider), &QAbstractSlider::sliderMoved, funHandle, &CShellEventReceiver::eventIndexFunction);
+
+                            if (handle == false)
+                            {
+                                qDebug() << "QMetaObject::Connection handle == false";
+                            }
+
+                            funHandle->mReceiverData.tag        = objID;
+                            funHandle->mReceiverData.fun        = fun;
+                            funHandle->mReceiverData.eventType	= eventType;
+                            funHandle->mReceiverData.control	= Slider;
+                            funHandle->setWindow(this);
+                        }
+                    }
+                }
+            }
+            else
+            */
             {
                 qDebug() << "TO DO event type";
             }
@@ -992,7 +1061,6 @@ void CWnd::AddEventHandle(int objID, EventFun fun, int eventType)
             funHandle->mReceiverData.fun        = fun;
             funHandle->mReceiverData.eventType	= eventType;
             funHandle->mReceiverData.control	= object;
-
             funHandle->setWindow(this);
 
             CCmdTargetEventHandle handle;
@@ -1214,7 +1282,7 @@ CWnd* CWnd::GetDlgItem(int nID)// const
 	
 	if (it != mMapControls.end())
 	{
-		delete it->second;
+        return it->second;
 	}
 	
 	control = new CWnd;
@@ -1850,6 +1918,17 @@ void CWnd::OnPaint()
 {
     qDebug() << "TO DO CWnd::OnPaint";
 }
+
+void CWnd::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
+{
+    qDebug() << "TO DO CWnd::OnHScroll";
+}
+
+void CWnd::OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
+{
+    qDebug() << "TO DO CWnd::OnHScroll";
+}
+
 
 int	CWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {

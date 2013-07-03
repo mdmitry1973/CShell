@@ -8,11 +8,14 @@
  */
 
 #include <QDebug>
+#include <QObject>
+#include <QSlider>
 
 #include "CDef.h"
 
 #include "CTargetEvent.h"
 #include "CWnd.h"
+#include "CScrollBar.h"
 
 #define TCN_FIRST               (0U-550U)
 #define TCN_LAST                (0U-580U)
@@ -211,6 +214,27 @@ BOOL CCmdTarget::SendEventHandle(int objID, void *sender, int eventType)
 				res = TRUE;
 			}
 		}
+        else
+        if (it.eventType == EVENT_TYPE_WM_HSCROLL ||
+            it.eventType == EVENT_TYPE_WM_VSCROLL)
+        {
+            EventOnScroll fun = (EventOnScroll)it.fun;
+
+            if (fun && sender)
+            {
+                QObject *obj = (QObject *)sender;
+                QSlider *slider = dynamic_cast<QSlider *>(obj);
+
+                if (slider)
+                {
+                    CScrollBar scrollBar;
+
+                    (((CCmdTarget *)(it.control))->*fun)(SB_THUMBPOSITION, slider->tickPosition(), &scrollBar);
+                }
+                res = TRUE;
+            }
+
+        }
 		else
 		{
 			EventFun fun = it.fun;

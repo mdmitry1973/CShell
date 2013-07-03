@@ -9,6 +9,8 @@
 
 #include <QDebug>
 #include <QSpinBox>
+#include <QTextEdit>
+#include <QLineEdit>
 
 #include "CSpinButtonCtrl.h"
 
@@ -124,7 +126,27 @@ CWnd* CSpinButtonCtrl::GetBuddy() const
 
 CWnd* CSpinButtonCtrl::SetBuddy(CWnd* pWndBuddy )
 {
+    assert(pWndBuddy);
+    assert(m_hWnd);
+
 	m_pWndBuddy = pWndBuddy;
-	
+
+    QTextEdit *textEdit = (QTextEdit *)m_pWndBuddy->GetNSWindow();
+    QSpinBox *spinBox = (QSpinBox *)m_hWnd;
+    QLineEdit *lineEdit = spinBox->findChild<QLineEdit*>();
+
+    QPoint pos = textEdit->pos();
+    QPoint posSpin = spinBox->pos();
+    QSize size = spinBox->size();
+
+    size.setWidth(size.width() + (posSpin.x() - pos.x()));
+
+    spinBox->move (pos.x(), pos.y());
+    spinBox->resize(size);
+
+    m_pWndBuddy->SetNSWindow(lineEdit);
+
+    delete textEdit;
+
 	return m_pWndBuddy;
 }

@@ -8,6 +8,10 @@
  */
 
 #include <QDebug>
+#include <QDir>
+#include <QtXml>
+#include <QDomDocument>
+#include <QFile>
 #include <QCoreApplication>
 #include <QtWidgets/QMessageBox>
 
@@ -592,78 +596,69 @@ CSHELL_LIB_EXPORT int AfxMessageBox(LPCTSTR lpszText, UINT nType, UINT nIDHelp)
 
 BOOL CWinApp::LoadBitmapInfo()
 {
-    /*
 	if (g_mapBitmapInfo.size() == 0)
 	{		
-		NSBundle *resBundle = [NSBundle mainBundle];
-		
-		if (resBundle)
-		{
-			NSString *resFilePath = [resBundle pathForResource: @"Resources" ofType:@"xml"];
-			
-			if (resFilePath)
-			{
-				NSError *error = nil;
-				NSXMLDocument *doc = [[NSXMLDocument alloc] initWithData:[NSData dataWithContentsOfFile: resFilePath] options:NSXMLDocumentTidyXML error:&error];
-				
-				if (doc)
-				{
-					//<MFC_RESOURCE>
-					//<BITMAPTABLE>
-					//<BITMAP IDSTR="IDB_BITMAP1" ID="130" NAME="bitmap1.bmp"/>
-					//</BITMAPTABLE>>
-					
-					NSString *xpath = [NSString stringWithFormat: @"/MFC_RESOURCE/BITMAPTABLE/BITMAP"];
-					NSArray *arrWindowsNode = [doc nodesForXPath:xpath error:&error];
-					
-					for(int i = 0; i < [arrWindowsNode count]; i++)
-					{
-						NSXMLElement *StrNode = [arrWindowsNode objectAtIndex:i];	
-						
-						NSXMLNode *attrID = [StrNode attributeForName: @"ID"];
-						NSXMLNode *attrIDSTR = [StrNode attributeForName: @"IDSTR"];
-						NSXMLNode *attrNAME = [StrNode attributeForName: @"NAME"];
-						int ID = -1;
-						
-						if (attrID)
-						{
-							ID = [[attrID stringValue] intValue];
-						}
-						
-						if (ID != -1)
-						{
-							CShellBitmapInfo info;
-							
-							info.name = [[attrNAME stringValue] UTF8String];
-							info.idstr = [[attrIDSTR stringValue] UTF8String];
-							
-							g_mapBitmapInfo[ID] = info;
-						}
-					}
-					
-					[doc dealloc];
-				}
-				else 
-				{
-					assert(false);
-				}
-			}
-			else 
-			{
-				assert(false);
-			}
-		}
-		else 
-		{
-			assert(false);
-		}
-		
+        QString resPath = QDir::currentPath();
+        QDomDocument doc;
+        QFile file(resPath + "\\Resources.xml");
+        int errorLine, errorColumn;
+        QString errorMsg;
+
+        if (!file.open(QIODevice::ReadOnly))
+        {
+           return FALSE;
+        }
+
+        if (!doc.setContent(&file, &errorMsg, &errorLine, &errorColumn))
+        {
+            file.close();
+            return FALSE;
+        }
+
+        file.close();
+
+        QDomElement docElem = doc.documentElement();
+
+        QDomElement stringTable = docElem.firstChildElement("BITMAPTABLE");
+
+        while(!stringTable.isNull())
+        {
+            QDomElement stringTableItem = stringTable.firstChildElement("BITMAP");
+
+            while(!stringTableItem.isNull())
+            {
+                QString strValue = stringTableItem.text();
+                QDomNamedNodeMap attrs = stringTableItem.attributes();
+
+                QDomNode idAttr = attrs.namedItem("ID");
+                QDomNode idStrAttr = attrs.namedItem("IDSTR");
+                QDomNode idNameAttr = attrs.namedItem("NAME");
+
+                int ID = -1;
+
+                if (!idAttr.isNull())
+                {
+                    ID = idAttr.nodeValue().toInt();
+                }
+
+                if (ID != -1)
+                {
+                    CShellBitmapInfo info;
+
+                    info.name = idNameAttr.nodeValue().toStdWString();
+                    info.idstr = idStrAttr.nodeValue().toStdWString();
+
+                    g_mapBitmapInfo[ID] = info;
+                }
+
+                stringTableItem = stringTableItem.nextSiblingElement("BITMAP");
+            }
+
+            stringTable = stringTable.nextSiblingElement("BITMAPTABLE");
+        }
 	}
 	
 	return g_mapBitmapInfo.size();
-    */
-
-    return 0;
 }
 
 std::map<int,CShellBitmapInfo> &CWinApp::GetBitmapInfoMap()
@@ -678,77 +673,69 @@ HKEY CWinApp::GetAppRegistryKey()
 
 BOOL CWinApp::LoadIconInfo()
 {
-    /*
 	if (g_mapIconInfo.size() == 0)
-	{		
-		NSBundle *resBundle = [NSBundle mainBundle];
-		
-		if (resBundle)
-		{
-			NSString *resFilePath = [resBundle pathForResource: @"Resources" ofType:@"xml"];
-			
-			if (resFilePath)
-			{
-				NSError *error = nil;
-				NSXMLDocument *doc = [[NSXMLDocument alloc] initWithData:[NSData dataWithContentsOfFile: resFilePath] options:NSXMLDocumentTidyXML error:&error];
-				
-				if (doc)
-				{
-					//<MFC_RESOURCE>
-					//<BITMAPTABLE>
-					//<BITMAP IDSTR="IDB_BITMAP1" ID="130" NAME="bitmap1.bmp"/>
-					//</BITMAPTABLE>>
-					
-					NSString *xpath = [NSString stringWithFormat: @"/MFC_RESOURCE/ICONTABLE/ICON"];
-					NSArray *arrWindowsNode = [doc nodesForXPath:xpath error:&error];
-					
-					for(int i = 0; i < [arrWindowsNode count]; i++)
-					{
-						NSXMLElement *StrNode = [arrWindowsNode objectAtIndex:i];	
-						
-						NSXMLNode *attrID = [StrNode attributeForName: @"ID"];
-						NSXMLNode *attrIDSTR = [StrNode attributeForName: @"IDSTR"];
-						NSXMLNode *attrNAME = [StrNode attributeForName: @"NAME"];
-						int ID = -1;
-						
-						if (attrID)
-						{
-							ID = [[attrID stringValue] intValue];
-						}
-						
-						if (ID != -1)
-						{
-							CShellBitmapInfo info;
-							
-							info.name = [[attrNAME stringValue] UTF8String];
-							info.idstr = [[attrIDSTR stringValue] UTF8String];
-							
-							g_mapIconInfo[ID] = info;
-						}
-					}
-					
-					[doc dealloc];
-				}
-				else 
-				{
-					assert(false);
-				}
-			}
-			else 
-			{
-				assert(false);
-			}
-		}
-		else 
-		{
-			assert(false);
-		}
-		
+    {
+        QString resPath = QDir::currentPath();
+        QDomDocument doc;
+        QFile file(resPath + "\\Resources.xml");
+        int errorLine, errorColumn;
+        QString errorMsg;
+
+        if (!file.open(QIODevice::ReadOnly))
+        {
+           return FALSE;
+        }
+
+        if (!doc.setContent(&file, &errorMsg, &errorLine, &errorColumn))
+        {
+            file.close();
+            return FALSE;
+        }
+
+        file.close();
+
+        QDomElement docElem = doc.documentElement();
+
+        QDomElement stringTable = docElem.firstChildElement("ICONTABLE");
+
+        while(!stringTable.isNull())
+        {
+            QDomElement stringTableItem = stringTable.firstChildElement("ICON");
+
+            while(!stringTableItem.isNull())
+            {
+                QString strValue = stringTableItem.text();
+                QDomNamedNodeMap attrs = stringTableItem.attributes();
+
+                QDomNode idAttr = attrs.namedItem("ID");
+                QDomNode idStrAttr = attrs.namedItem("IDSTR");
+                QDomNode idNameAttr = attrs.namedItem("NAME");
+
+                int ID = -1;
+
+                if (!idAttr.isNull())
+                {
+                    ID = idAttr.nodeValue().toInt();
+                }
+
+                if (ID != -1)
+                {
+                    CShellBitmapInfo info;
+
+                    info.name = idNameAttr.nodeValue().toStdWString();
+                    info.idstr = idStrAttr.nodeValue().toStdWString();
+
+                    g_mapIconInfo[ID] = info;
+                }
+
+                stringTableItem = stringTableItem.nextSiblingElement("ICON");
+            }
+
+            stringTable = stringTable.nextSiblingElement("ICONTABLE");
+        }
 	}
 	
 	return g_mapIconInfo.size();
-    */
-    return 0;
 }
 
 std::map<int,CShellBitmapInfo> &CWinApp::GetIconInfoMap()

@@ -147,7 +147,7 @@ protected:
 	CArchive& operator>>(INT16 &i); 
 	CArchive& operator>>(UINT16 &i);
 	CArchive& operator>>(BOOL &dw);
-#ifndef CSHELLQT_LIBRARY
+#ifndef CSHELL_USE_QT
 	CArchive& operator>>(WORD& w);
 #endif
 	CArchive& operator>>(DWORD& dw);
