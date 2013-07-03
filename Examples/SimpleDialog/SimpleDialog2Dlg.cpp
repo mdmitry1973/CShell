@@ -54,21 +54,27 @@ CSimpleDialog2Dlg::CSimpleDialog2Dlg(CWnd* pParent /*=NULL*/)
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
+CSimpleDialog2Dlg::~CSimpleDialog2Dlg()
+{
+
+
+}
+
 void CSimpleDialog2Dlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
 
-	DDX_Control(pDX, IDC_COMBO1, m_cob_test);
-	DDX_CBIndex(pDX, IDC_COMBO1, indexComboBox);
-	DDX_Check(pDX, IDC_CHECK1, indexCheckBox);
+    DDX_Control(pDX, IDC_COMBO1, m_cob_test);
+    DDX_CBIndex(pDX, IDC_COMBO1, indexComboBox);
+    DDX_Check(pDX, IDC_CHECK1, indexCheckBox);
 
-	DDX_Control(pDX, IDC_SPIN_LEFT_MARGIN, m_spin_Data);
-	DDX_Control(pDX, IDC_EDIT_LEFT_MARGIN, m_edit_Data);
+    DDX_Control(pDX, IDC_SPIN_LEFT_MARGIN, m_spin_Data);
+    DDX_Control(pDX, IDC_EDIT_LEFT_MARGIN, m_edit_Data);
 
-	DDX_Control(pDX, IDC_SLIDER1, m_slider);
-	DDX_Control(pDX, IDC_PROGRESS1, m_progress);
+    DDX_Control(pDX, IDC_SLIDER1, m_slider);
+    DDX_Control(pDX, IDC_PROGRESS1, m_progress);
 
-	DDX_Control(pDX, IDC_LIST1, m_listBox);
+    DDX_Control(pDX, IDC_LIST1, m_listBox);
 }
 
 
@@ -82,8 +88,8 @@ BEGIN_MESSAGE_MAP(CSimpleDialog2Dlg, CDialogEx)
 	ON_BN_CLICKED(IDC_RADIO1, OnBnClickedRadio1)
 	ON_BN_CLICKED(IDC_RADIO2, OnBnClickedRadio2)
 	ON_EN_CHANGE(IDC_EDIT1, OnEnChangeEdit1)
-	ON_LBN_SELCHANGE(IDC_LIST1, OnLbnSelchangeList1)
-	ON_NOTIFY(NM_CUSTOMDRAW, IDC_SLIDER1, OnNMCustomdrawSlider1)
+    ON_LBN_SELCHANGE(IDC_LIST1, OnLbnSelchangeList1)
+	ON_WM_HSCROLL()
 END_MESSAGE_MAP()
 
 // CSimpleDialog2Dlg message handlers
@@ -91,7 +97,7 @@ END_MESSAGE_MAP()
 BOOL CSimpleDialog2Dlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
-
+/*
 	// Add "About..." menu item to system menu.
 
 	// IDM_ABOUTBOX must be in the system command range.
@@ -118,7 +124,7 @@ BOOL CSimpleDialog2Dlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
 	// TODO: Add extra initialization here
-
+*/
 	CString itemStr;
 
 	itemStr.LoadString(IDS_STRING102);
@@ -143,8 +149,8 @@ BOOL CSimpleDialog2Dlg::OnInitDialog()
 	m_progress.SetRange(0, 100);
 	m_slider.SetRange(0, 100);
 
-	m_progress.SetPos(0);
-	m_slider.SetPos(0);
+    m_progress.SetPos(50);
+    m_slider.SetPos(20);
 
 	m_listBox.AddString(_T("hello1"));
 	m_listBox.AddString(_T("hello2"));
@@ -226,7 +232,7 @@ void CSimpleDialog2Dlg::OnBnClickedButton1()
 		{
 			((CButton *)GetDlgItem(IDC_RADIO2))->SetCheck(1);
 		}
-	}
+    }
 }
 
 
@@ -277,5 +283,11 @@ void CSimpleDialog2Dlg::OnNMCustomdrawSlider1(NMHDR *pNMHDR, LRESULT *pResult)
 	// TODO: Add your control notification handler code here
 	*pResult = 0;
 
+    m_progress.SetPos(m_slider.GetPos());
+}
+
+void CSimpleDialog2Dlg::OnHScroll(UINT /*nSBCode*/, UINT /*nPos*/, CScrollBar* /*pScrollBar*/)
+{
 	m_progress.SetPos(m_slider.GetPos());
 }
+

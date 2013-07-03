@@ -13,21 +13,23 @@ class CSimpleDialog2Dlg : public CDialogEx
 public:
 	CSimpleDialog2Dlg(CWnd* pParent = NULL);	// standard constructor
 
+    virtual ~CSimpleDialog2Dlg();
+
 // Dialog Data
 	enum { IDD = IDD_SIMPLEDIALOG2_DIALOG };
 
 	protected:
 	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV support
 
-	CComboBox	m_cob_test;
+    CComboBox	m_cob_test;
 
-	CNumSpinCtrl		m_spin_Data;
-	CNumEdit			m_edit_Data;
+    CNumSpinCtrl		m_spin_Data;
+    CNumEdit			m_edit_Data;
 
-	CSliderCtrl			m_slider;
-	CProgressCtrl		m_progress;
+    CSliderCtrl			m_slider;
+    CProgressCtrl		m_progress;
 
-	CListBox			m_listBox;
+    CListBox			m_listBox;
 
 	int indexComboBox;
 	BOOL indexCheckBox;
@@ -51,4 +53,5 @@ public:
 	afx_msg void OnEnChangeEdit1();
 	afx_msg void OnLbnSelchangeList1();
 	afx_msg void OnNMCustomdrawSlider1(NMHDR *pNMHDR, LRESULT *pResult);
+	virtual void OnHScroll(UINT /*nSBCode*/, UINT /*nPos*/, CScrollBar* /*pScrollBar*/);
 };

@@ -46,8 +46,12 @@ float CNumEdit::GetValue() const
 	if (IsValid(FALSE) == VALID)
 	{
 		CString str;
-		GetWindowText(str);
-		sscanf(str, _T("%f"), &f);
+        GetWindowText(str);
+#ifdef UNICODE
+        swscanf(str, _T("%f"), &f);
+#else
+        sscanf(str, _T("%f"), &f);
+#endif
 	}
 	return f;
 }
@@ -72,8 +76,13 @@ int CNumEdit::IsValid(BOOL show_message) const
 	if ((str.GetLength() == 1) && ((str[0] == '+') || (str[0] == '-'))) 
 		res = MINUS_PLUS;
 	else
+#ifdef UNICODE
+    if (swscanf(str, _T("%f%s"), &f, lp) != 1)
+        res = INVALID_CHAR;
+#else
 	if (sscanf(str, _T("%f%s"), &f, lp) != 1) 
 		res = INVALID_CHAR;
+#endif
 	else
 	if (f > m_MaxValue) 
 	{
@@ -116,8 +125,13 @@ int CNumEdit::IsValidSymble()const
 	if ((str.GetLength() == 1) && ((str[0] == '+') || (str[0] == '-'))) 
 		res = MINUS_PLUS;
 	else
+#ifdef UNICODE
+    if (swscanf(str, _T("%f%s"), &f, lp) != 1)
+        res = INVALID_CHAR;
+#else
 	if (sscanf(str, _T("%f%s"), &f, lp) != 1) 
 		res = INVALID_CHAR;
+#endif
 	
 	return res;
 }
@@ -131,8 +145,13 @@ int CNumEdit::IsValid(const CString &str) const
 	if ((str.GetLength() == 1) && ((str[0] == '+') || (str[0] == '-'))) 
 		res = MINUS_PLUS;
 	else 
+#ifdef UNICODE
+    if (swscanf(str, _T("%f%s"), &f, lp) != 1)
+        res = INVALID_CHAR;
+#else
 	if (sscanf(str, _T("%f%s"), &f, lp) != 1) 
 		res = INVALID_CHAR;
+#endif
 	else 
 	if (f > m_MaxValue) 
 		res = OUT_OF_RANGE_MAX;
@@ -199,7 +218,7 @@ void CNumEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 			SetValue(oldValue);
 			SetSel(0, -1);
 			MSG msg;
-			while (::PeekMessage(&msg, m_hWnd, WM_CHAR, WM_CHAR, PM_REMOVE));
+            //while (::PeekMessage(&msg, m_hWnd, WM_CHAR, WM_CHAR, PM_REMOVE));
 			break;
 	}
 }
