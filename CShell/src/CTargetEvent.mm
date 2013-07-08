@@ -11,6 +11,7 @@
 
 #include "CTargetEvent.h"
 #include "CWnd.h"
+#include "CScrollBar.h"
 
 #import "CNSStepper.h"
 
@@ -69,16 +70,28 @@ BOOL CCmdTarget::SendEventHandle(int objID, void *sender, int eventType)
 				break;
 			}
 	}
-	
+		
 	if (index != -1)
 	{
 		CCmdTargetEventHandle &it = m_mapEventHandle[index];
-		
+				
 		//(NMHDR* pNMHDR, LRESULT* pResult)
 		//HWND     hwndFrom;
 		//UINT_PTR idFrom;
 		//UINT     code;
 		
+		if (it.eventType == EVENT_TYPE_WM_HSCROLL ||
+			it.eventType == EVENT_TYPE_WM_VSCROLL)
+		{	
+			int pos = 0;
+			EventOnScroll fun = (EventOnScroll)it.fun;
+			CScrollBar scrollBar;
+			
+			scrollBar.SetNSWindow(sender);
+			
+			(((CCmdTarget *)(it.control))->*fun)(SB_THUMBPOSITION, pos, &scrollBar);
+		}
+		else
 		if (it.eventType == UDN_DELTAPOS)//ON_NOTIFY_REFLECT)
 		{						
 			//UDN_DELTAPOS
