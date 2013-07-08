@@ -129,6 +129,25 @@
 #define SW_SHOWNA 8
 #define SW_RESTORE 9
 
+/*
+ * Scroll Bar Commands
+ */
+#define SB_LINEUP           0
+#define SB_LINELEFT         0
+#define SB_LINEDOWN         1
+#define SB_LINERIGHT        1
+#define SB_PAGEUP           2
+#define SB_PAGELEFT         2
+#define SB_PAGEDOWN         3
+#define SB_PAGERIGHT        3
+#define SB_THUMBPOSITION    4
+#define SB_THUMBTRACK       5
+#define SB_TOP              6
+#define SB_LEFT             6
+#define SB_BOTTOM           7
+#define SB_RIGHT            7
+#define SB_ENDSCROLL        8
+
 #define BS_PUSHBUTTON       0x00000000L
 #define BS_DEFPUSHBUTTON    0x00000001L
 #define BS_CHECKBOX         0x00000002L

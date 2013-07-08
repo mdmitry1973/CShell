@@ -16,6 +16,11 @@ CSliderCtrl::CSliderCtrl() : CWnd()
 	
 }
 
+CSliderCtrl::~CSliderCtrl()
+{
+	
+}
+
 BOOL CSliderCtrl::Create(DWORD dwStyle, const RECT& rect, CWnd* pParentWnd, UINT nID)
 {
 	return CreateEx(0, dwStyle, rect, pParentWnd, nID);

@@ -10,6 +10,7 @@
 #import "CNSDocument.h"
  
 #include "afx.h"
+#include "afxwin.h"
 #include "CObject.h"
 #include "CDocument.h"
 #include "CFrameWnd.h"

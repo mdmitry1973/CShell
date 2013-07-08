@@ -293,3 +293,8 @@ void CFrameWnd::ShowControlBar(CControlBar* pBar, BOOL bShow, BOOL bDelay)
 {
 	NSLog(@"TO DO CFrameWnd::ShowControlBar");
 }
+
+BOOL CFrameWnd::SetMenu(CMenu* pMenu)
+{
+	return CWnd::SetMenu(pMenu);
+}
