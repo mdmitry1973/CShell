@@ -17,7 +17,7 @@ class CFrameWnd;
 class CDocument;
 class CRuntimeClass;
 
-class CDocTemplate : public CCmdTarget
+class CSHELL_LIB_EXPORT CDocTemplate : public CCmdTarget
 {
 
 public:

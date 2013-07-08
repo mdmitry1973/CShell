@@ -8,17 +8,21 @@
  */
 
 #include <QDebug>
+#include <QDir>
+#include <QtXml>
+#include <QDomDocument>
+#include <QFile>
+#include <QMenu>
+#include <QMenuBar>
+#include <QAction>
 
 #include "CDef.h"
 #include "CBitmap.h"
 #include "CMenu.h"
 #include "CWnd.h"
+#include "CShellEventReceiver.h"
 
-//#import "CNSWindowDelegate.h"
-//#import "CNSWindow.h"
-//#import "CNSApplicationDelegate.h"
-
-//extern CNSApplicationDelegate	*pMainAppCocoa;
+extern CShellEventReceiver *pGMenuEvent;
 
 static std::map<std::string, long> g_menu_id_map;
 
@@ -157,13 +161,14 @@ BOOL CMenu::AppendMenu(UINT nFlags, UINT_PTR nIDNewItem, LPCTSTR lpszNewItem)
 {
 	assert(m_NMenu || m_owner);
 
-	
+    qDebug() << "TO DO CMenu::AppendMenu";
+
 	return TRUE;
 }
 
 BOOL CMenu::AppendMenu(UINT nFlags, UINT_PTR nIDNewItem, const CBitmap* pBmp)
 {
-     qDebug() << "TO DO CMenu::AppendMenu";
+    qDebug() << "TO DO CMenu::AppendMenu";
 	return TRUE;
 }
 
@@ -181,171 +186,166 @@ BOOL CMenu::InsertMenu(UINT nPosition, UINT nFlags, UINT_PTR nIDNewItem, const C
 
 BOOL CMenu::MenuParser(void *currentMenuVoid, void *rootMenuNodeVoid)
 {
-    /*
-	NSMenu *currentMenu = (NSMenu *)currentMenuVoid;
-	NSXMLElement *rootMenuNode = (NSXMLElement *)rootMenuNodeVoid;
-	
-	for(int i = 0; i < [rootMenuNode childCount]; i++)
-	{
-		NSXMLNode *node = [rootMenuNode childAtIndex:i];
-		NSString *nodeName = [node name];							
-		
-		if ([nodeName compare: @"POPUP"] == NSOrderedSame)
-		{
-			NSXMLNode *attr = [(NSXMLElement *)node attributeForName:@"Name"];
-			
-			if (attr)
-			{				
-				NSString *menuName = [attr stringValue];
-				NSMenu *menu = [[NSMenu alloc] autorelease];
-				NSMenuItem *menuItem = [[NSMenuItem alloc] autorelease];
-				
-				menuName = [menuName stringByReplacingOccurrencesOfString:@"&" withString:@""];
-				
-				[menuItem setTitle:menuName];
-				[menu setTitle:menuName];
-				[menu setAutoenablesItems: NO];
-				
-				[currentMenu addItem: menuItem];
-				[menuItem setSubmenu: menu];
-				
-				//[menuItem setState: NSOnState];
-				[menuItem setEnabled: YES];
-								
-				MenuParser(menu, node);				
-			}
-		}
-		else 
-		if ([nodeName compare: @"MENUITEM"] == NSOrderedSame)
-		{
-			NSXMLNode *attrName = [(NSXMLElement *)node attributeForName:@"Name"];
-			NSXMLNode *attrID = [(NSXMLElement *)node attributeForName:@"ID"];
-			NSXMLNode *attrStrID = [(NSXMLElement *)node attributeForName:@"IDSTR"];
-			
-			NSString *menuItemName = [attrName stringValue];
-			NSMenuItem *menuItem = [[NSMenuItem alloc] autorelease];
-			
-			if (menuItemName)
-			{
-				menuItemName = [menuItemName stringByReplacingOccurrencesOfString:@"&" withString:@""];
-				[menuItem setTitle:menuItemName];
-			}
-			
-			if (attrID)
-			{			
-				[menuItem setTag: [[attrID stringValue] intValue]];
-				
-				[menuItem setTarget:pMainAppCocoa];
-				[menuItem setAction:@selector(menuEventHandle:)];
-			}
-			else
-			if (attrStrID)
-			{
-				std::map<std::string, long>::iterator it;
-								
-				it = g_menu_id_map.find([[attrStrID stringValue] UTF8String]);
-				
-				if (it != g_menu_id_map.end())
-				{
-					[menuItem setTag: it->second];
-					[menuItem setTarget:pMainAppCocoa];
-					[menuItem setAction:@selector(menuEventHandle:)];
-				}
-				else 
-				{
-					NSLog(@"Cannot find ID for menu item");
-				}
-			}
-			
-			//[menuItem setState: NSOnState];			[
-			[menuItem setEnabled: YES];
-			
-			[currentMenu addItem: menuItem];	
-		}
-		else 
-		if ([nodeName compare: @"SEPARATOR"] == NSOrderedSame)
-		{
-			NSMenuItem *menuItem = [NSMenuItem separatorItem];
-			[currentMenu addItem: menuItem];	
-		}
-	}
-    */
+
+    QMenu *currentMenu = (QMenu *)currentMenuVoid;
+    QDomElement *rootMenuNode = (QDomElement *)rootMenuNodeVoid;
+
+    QDomElement childNode = rootMenuNode->firstChildElement();
+
+    while(!childNode.isNull())
+    {
+        QString tagName = childNode.tagName();
+
+        if (tagName.compare("POPUP") == 0)
+        {
+            QString title = childNode.attribute("Name");
+            QString idStr = childNode.attribute("IDSTR");
+            QString id = childNode.attribute("ID");
+            QString keySequence;
+            QStringList listStrings = title.split("\t");
+
+            if (listStrings.size() > 1)
+            {
+                title = listStrings[0];
+                keySequence = listStrings[1];
+            }
+
+            QMenu *newMenu = new QMenu(title);
+
+            newMenu->setTitle(title);
+            currentMenu->addMenu(newMenu);
+
+            void (QMenu::*triggeredEvent)(QAction*) = &QMenu::triggered;
+
+            pGMenuEvent->connect(newMenu, triggeredEvent, pGMenuEvent, &CShellEventReceiver::menuSelection);
+
+            MenuParser(newMenu, &childNode);
+        }
+        else
+        if (tagName.compare("MENUITEM") == 0)
+        {
+            QString title = childNode.attribute("Name");
+            QString idStr = childNode.attribute("IDSTR");
+            QString id = childNode.attribute("ID");
+            QString keySequence;
+            QStringList listStrings = title.split("\\t");
+
+            if (listStrings.size() > 1)
+            {
+                title = listStrings[0];
+                keySequence = listStrings[1];
+            }
+
+            QAction *action = currentMenu->addAction(title);
+
+            if (!keySequence.isEmpty())
+            {
+                action->setShortcut(QKeySequence(keySequence));
+            }
+
+            if (!id.isEmpty())
+            {
+                action->setData(QVariant(id.toInt()));
+            }
+            else
+            if (!idStr.isEmpty())
+            {
+                std::map<std::string, long>::iterator it;
+
+                it = g_menu_id_map.find(idStr.toStdString());
+
+                if (it != g_menu_id_map.end())
+                {
+                    action->setData(QVariant((int)(it->second)));
+                }
+                else
+                {
+                    qDebug() << "Cannot find ID for menu item";
+                }
+            }
+        }
+        else
+        if (tagName.compare("SEPARATOR") == 0)
+        {
+            currentMenu->addSeparator();
+        }
+
+        childNode = childNode.nextSiblingElement();
+    }
+
 	return TRUE;
 }
 
 BOOL CMenu::LoadMenu(LPCTSTR lpszResourceName)
 {
-	BOOL res = FALSE;
+    QString resPath = QDir::currentPath();
+    QDomDocument doc;
+    QFile file(resPath + "\\Resources.xml");
+    int errorLine, errorColumn;
+    QString errorMsg;
+
+    if (!file.open(QIODevice::ReadOnly))
+    {
+       return FALSE;
+    }
+
+    if (!doc.setContent(&file, &errorMsg, &errorLine, &errorColumn))
+    {
+        file.close();
+        return FALSE;
+    }
+
+    file.close();
+
+    QDomElement docElem = doc.documentElement();
+    QString resId = QString::fromWCharArray(lpszResourceName);
+    QDomElement menuTable = docElem.firstChildElement("MENU");
+
+    while(!menuTable.isNull())
+    {
+        QString idStr = menuTable.attribute("ID");
+
+        if (idStr.compare(resId) == 0)
+        {
+            QMenuBar *menuBar = new QMenuBar;
+
+            QDomElement menuNode = menuTable.firstChildElement("POPUP");
+
+            while(!menuNode.isNull())
+            {
+                QMenu *menu = new QMenu;
+
+                QString title = menuNode.attribute("Name");
+
+                menu->setTitle(title);
+                menuBar->addMenu(menu);
+
+                void (QMenu::*triggeredEvent)(QAction*) = &QMenu::triggered;
+
+                pGMenuEvent->connect(menu, triggeredEvent, pGMenuEvent, &CShellEventReceiver::menuSelection);
+
+
+                MenuParser(menu, &menuNode);
+
+                menuNode = menuNode.nextSiblingElement("POPUP");
+            }
+
+            m_NMenu = menuBar;
+
+            break;
+        }
+
+        menuTable = menuTable.nextSiblingElement("MENU");
+    }
 	
-    /*
-	{		
-		NSBundle *resBundle = [NSBundle mainBundle];
-		
-		if (resBundle)
-		{
-			NSString *resFilePath = [resBundle pathForResource: @"Resources" ofType:@"xml"];
-			
-			if (resFilePath)
-			{
-				NSError *error = nil;
-				NSXMLDocument *doc = [[NSXMLDocument alloc] initWithData:[NSData dataWithContentsOfFile: resFilePath] options:NSXMLDocumentTidyXML error:&error];
-				
-				if (doc)
-				{
-					//<MFC_RESOURCE>
-					//<MENU IDSTR="IDR_MAINFRAME" ID="128">
-					//<POPUP Name="&amp;File">
-					//<MENUITEM Name="E&amp;xit" IDSTR="ID_APP_EXIT">
-					//</MENUITEM>
-					//<SEPARATOR>
-					//</SEPARATOR>
-					//</POPUP>
-					
-					NSString *xpath = [NSString stringWithFormat: @"/MFC_RESOURCE/MENU[@ID='%s']", lpszResourceName];
-					NSArray *arrWindowsNode = [doc nodesForXPath:xpath error:&error];
-					
-					if ([arrWindowsNode count])
-					{
-						NSXMLElement *rootMenuNode = [arrWindowsNode objectAtIndex: 0];
-						NSMenu *menubar = [[NSMenu alloc] autorelease];
-						
-						[menubar setAutoenablesItems: NO];
-						
-						if (MenuParser(menubar, rootMenuNode))
-						{
-							m_NMenu = menubar;
-							
-							res = TRUE;
-						}
-					}
-				
-					[doc dealloc];
-				}
-				else 
-				{
-					assert(false);
-				}
-			}
-			else 
-			{
-				assert(false);
-			}
-		}
-		else 
-		{
-			assert(false);
-		}
-		
-	}
-    */
-	return res;
+    return m_NMenu ? TRUE : FALSE;
 }
 
 BOOL CMenu::LoadMenu(UINT nIDResource)
 {
-    //NSString *str = [NSString stringWithFormat: @"%d", nIDResource];
+    QString strID = QString::number(nIDResource);
 	
-    //return LoadMenu([str UTF8String]);
+    return LoadMenu(strID.toStdWString().c_str());
 }
 
 void CMenu::SetNSMenu(void *menu, CWnd *owner)

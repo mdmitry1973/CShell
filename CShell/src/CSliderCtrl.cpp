@@ -10,10 +10,20 @@
 #include <QSlider>
 
 #include "CSliderCtrl.h"
+#include "CQSlider.h"
 
 CSliderCtrl::CSliderCtrl() : CWnd()
 {
 	
+}
+
+CSliderCtrl::~CSliderCtrl()
+{
+    if (m_hWnd)
+    {
+        CQSlider *slider = (CQSlider *)m_hWnd;
+        slider->m_pWnd = NULL;
+    }
 }
 
 BOOL CSliderCtrl::Create(DWORD dwStyle, const RECT& rect, CWnd* pParentWnd, UINT nID)
@@ -24,7 +34,7 @@ BOOL CSliderCtrl::Create(DWORD dwStyle, const RECT& rect, CWnd* pParentWnd, UINT
 BOOL CSliderCtrl::CreateEx(DWORD dwExStyle, DWORD dwStyle, const RECT& rect, CWnd* pParentWnd, UINT nID)
 {
     QWidget *parentView = (QWidget *)pParentWnd->GetNSWindow();
-    QSlider *slider = new QSlider(parentView);
+    CQSlider *slider = new CQSlider(parentView);
     QRect contentRect(rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top);
 
     slider->move (contentRect.x(), contentRect.y());
@@ -32,6 +42,9 @@ BOOL CSliderCtrl::CreateEx(DWORD dwExStyle, DWORD dwStyle, const RECT& rect, CWn
     slider->setOrientation(Qt::Horizontal);
 
     slider->setAccessibleName(QString().setNum(nID));
+    slider->m_pParent = pParentWnd;
+    slider->m_pWnd = this;
+    slider->setEventConnection();
 
     m_hWnd = slider;
     mParentWin = pParentWnd;

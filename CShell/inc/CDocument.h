@@ -17,7 +17,7 @@
 class CDocTemplate;
 class CView;
 
-class CDocument : public CCmdTarget
+class CSHELL_LIB_EXPORT CDocument : public CCmdTarget
 {
 
 public:

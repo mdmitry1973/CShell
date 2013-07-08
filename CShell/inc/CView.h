@@ -17,7 +17,7 @@
 class CDocument;
 class CPrintInfo;
 
-class CView : public CWnd
+class CSHELL_LIB_EXPORT CView : public CWnd
 {
 	
 public:

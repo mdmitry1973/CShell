@@ -14,7 +14,7 @@
 #include "CDef.h"
 #include "CFrameWnd.h"
 
-class CMDIChildWnd : public CFrameWnd
+class CSHELL_LIB_EXPORT CMDIChildWnd : public CFrameWnd
 {
 	
 public:
@@ -22,6 +22,16 @@ public:
 	CMDIChildWnd();
 	
 	virtual ~CMDIChildWnd();
+
+    virtual BOOL Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName,
+                        DWORD dwStyle = WS_OVERLAPPEDWINDOW,
+                        const RECT& rect = rectDefault,
+                        CWnd* pParentWnd = NULL,
+                        LPCTSTR lpszMenuName = NULL,
+                        DWORD dwExStyle = 0,
+                        CCreateContext* pContext = NULL);
+
+    virtual BOOL SetMenu(CMenu* pMenu);
 	
 	DECLARE_DYNAMIC(CMDIChildWnd)
 };

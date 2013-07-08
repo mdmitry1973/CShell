@@ -17,7 +17,7 @@
 
 class CFrameWnd;
 
-class CToolBar : public CWnd
+class CSHELL_LIB_EXPORT CToolBar : public CWnd
 {
 	
 public:

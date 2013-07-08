@@ -13,7 +13,7 @@
 #include "CDef.h"
 #include "CDocTemplate.h"
 
-class CMultiDocTemplate : public CDocTemplate
+class CSHELL_LIB_EXPORT CMultiDocTemplate : public CDocTemplate
 {
 
 public:

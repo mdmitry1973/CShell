@@ -16,7 +16,7 @@
 
 struct CPlex;
 
-class CMapPtrToPtr : public CObject 
+class CSHELL_LIB_EXPORT CMapPtrToPtr : public CObject
 {
 	
 protected:

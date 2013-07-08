@@ -94,7 +94,7 @@ inline void _AfxByteSwap(double d, BYTE* pb)
 	*pb = dAfx.DoubleBits[0];
 }
 
-class CArchive
+class CSHELL_LIB_EXPORT CArchive
 {
 	
 public:

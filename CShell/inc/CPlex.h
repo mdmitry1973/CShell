@@ -11,7 +11,7 @@
 #ifndef CPLEX_DEFINE
 #define CPLEX_DEFINE 1
 
-struct CPlex     // warning variable length structure
+struct CSHELL_LIB_EXPORT CPlex     // warning variable length structure
 {
 	CPlex* pNext;
 //#if (_AFX_PACKING >= 8)

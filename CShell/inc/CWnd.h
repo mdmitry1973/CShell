@@ -259,7 +259,7 @@ public:
 	
 	int MessageBox(LPCTSTR lpszText, LPCTSTR lpszCaption = NULL, UINT nType = MB_OK);
 	
-	BOOL SetMenu(CMenu* pMenu);	
+    virtual BOOL SetMenu(CMenu* pMenu);
 	
 	void DrawMenuBar();
 	

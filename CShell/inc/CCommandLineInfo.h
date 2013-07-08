@@ -14,7 +14,7 @@
 #include "CDef.h"
 #include "CObject.h"
 
-class CCommandLineInfo : public CObject
+class CSHELL_LIB_EXPORT CCommandLineInfo : public CObject
 {
 	
 public:

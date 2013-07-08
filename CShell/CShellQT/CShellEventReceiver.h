@@ -16,6 +16,7 @@
 #include "CTargetEvent.h"
 
 class CWnd;
+class QAction;
 
 class CSHELL_LIB_EXPORT CShellEventReceiver : public QObject
 {
@@ -25,7 +26,7 @@ public:
     CShellEventReceiver();
     virtual ~CShellEventReceiver();
 
-    void setWindow(CWnd* receiver);
+    void setReceiver(CCmdTarget* receiver);
 
     CCmdTargetEventHandle   mReceiverData;
 
@@ -33,10 +34,11 @@ public slots:
 
     void eventFunction();
     void eventIndexFunction(int index);
+    void menuSelection(QAction*);
 
 private:
 
-    CWnd*                   mReceiver;
+    CCmdTarget  /*CWnd*/*mReceiver;
 
 };
 

@@ -29,6 +29,8 @@
 #include <QListWidget>
 #include <QListView>
 #include <QPixmap>
+#include <QMainWindow>
+#include "CQSlider.h"
 
 #include "CDef.h"
 #include "CShellEventReceiver.h"
@@ -570,9 +572,14 @@ bool CWnd::CreateControl(PtrNSXMLElement controlNodeIn, void *nsView)
 
         if (strClass.startsWith("msctls_trackbar"))
         {
-             control = new QSlider(parent);
+             CQSlider *slider = new CQSlider(parent);
 
-             ((QSlider *)control)->setOrientation(Qt::Horizontal);
+             slider->setOrientation(Qt::Horizontal);
+
+             slider->m_pParent = this;
+             slider->setEventConnection();
+
+             control = slider;
         }
         else
         if (strClass.startsWith("SysTabControl"))
@@ -907,49 +914,19 @@ void CWnd::AddEventHandle(int objID, EventFun fun, int eventType)
         QString strID;
         QObject *object =NULL;
 
+        CCmdTargetEventHandle handle;
+
+        handle.tag			= objID;
+        handle.fun			= fun;
+        handle.eventType	= eventType;
+        handle.control		= this;
+
+        m_mapEventHandle.push_back(handle);
+
         if (objID == 0)
         {
-            if (eventType == EVENT_TYPE_WM_HSCROLL ||
-                eventType == EVENT_TYPE_WM_VSCROLL)
-            {
-                QList<QObject*> widgets = widget->children();
+            qDebug() << "CWnd::AddEventHandle objID=0 event come from subclasses";
 
-                for(int i = 0; i < widgets.size(); i++)
-                {
-                    QObject *obj = widgets.at(i);
-
-                    if (obj->isWidgetType())
-                    {
-                        QAbstractSlider *Slider = dynamic_cast<QAbstractSlider *>(obj);
-
-                        if (Slider)
-                        {
-                            CShellEventReceiver *funHandle =  new CShellEventReceiver();
-                            QMetaObject::Connection handle = widget->connect(qobject_cast<QAbstractSlider *>(Slider), &QAbstractSlider::sliderMoved, funHandle, &CShellEventReceiver::eventIndexFunction);
-
-                            if (handle == false)
-                            {
-                                qDebug() << "QMetaObject::Connection handle == false";
-                            }
-
-                            funHandle->mReceiverData.tag        = objID;
-                            funHandle->mReceiverData.fun        = fun;
-                            funHandle->mReceiverData.eventType	= eventType;
-                            funHandle->mReceiverData.control	= Slider;
-                            funHandle->setWindow(this);
-                        }
-                    }
-                }
-            }
-
-            CCmdTargetEventHandle handle;
-
-            handle.tag			= objID;
-            handle.fun			= fun;
-            handle.eventType	= eventType;
-            handle.control		= this;
-
-            m_mapEventHandle.push_back(handle);
         }
         else
         {
@@ -1019,40 +996,6 @@ void CWnd::AddEventHandle(int objID, EventFun fun, int eventType)
                 }
             }
             else
-                /*
-            if (eventType == EVENT_TYPE_WM_HSCROLL ||
-                eventType == EVENT_TYPE_WM_VSCROLL)
-            {
-                QList<QObject*> widgets = widget->children();
-
-                for(int i = 0; i < widgets.size(); i++)
-                {
-                    QObject *obj = widgets.at(i);
-
-                    if (obj->isWidgetType())
-                    {
-                        QAbstractSlider *Slider = dynamic_cast<QAbstractSlider *>(obj);
-
-                        if (Slider)
-                        {
-                            QMetaObject::Connection handle = widget->connect(qobject_cast<QAbstractSlider *>(Slider), &QAbstractSlider::sliderMoved, funHandle, &CShellEventReceiver::eventIndexFunction);
-
-                            if (handle == false)
-                            {
-                                qDebug() << "QMetaObject::Connection handle == false";
-                            }
-
-                            funHandle->mReceiverData.tag        = objID;
-                            funHandle->mReceiverData.fun        = fun;
-                            funHandle->mReceiverData.eventType	= eventType;
-                            funHandle->mReceiverData.control	= Slider;
-                            funHandle->setWindow(this);
-                        }
-                    }
-                }
-            }
-            else
-            */
             {
                 qDebug() << "TO DO event type";
             }
@@ -1061,77 +1004,8 @@ void CWnd::AddEventHandle(int objID, EventFun fun, int eventType)
             funHandle->mReceiverData.fun        = fun;
             funHandle->mReceiverData.eventType	= eventType;
             funHandle->mReceiverData.control	= object;
-            funHandle->setWindow(this);
-
-            CCmdTargetEventHandle handle;
-
-            handle.tag			= objID;
-            handle.fun			= fun;
-            handle.eventType	= eventType;
-            handle.control		= this;
-
-            m_mapEventHandle.push_back(handle);
+            funHandle->setReceiver(this);
         }
-
-        /*
-		PtrNSWindowHandle	pWindowHandle = mWindowHandle;
-		CCmdTEHData			*p_mapEventHandle = &(m_mapEventHandle);
-		NSControl			*control	= nil;
-		
-		if ([(NSObject*)m_hWnd isKindOfClass: [NSWindow class]])
-		{
-			if (objID != 0)
-			{
-				control = [[(NSWindow *)m_hWnd contentView] viewWithTag: objID];   
-			}
-		}
-		else
-		if ([(NSObject*)m_hWnd isKindOfClass: [NSControl class]])
-		{
-			control = (NSControl *)m_hWnd;  
-			
-			if (objID != 0 && [control tag] != objID)
-			{
-				control = nil;
-				assert(false);
-			}
-			
-			if (objID == 0 && control)
-			{
-				objID = [control tag];
-			}
-		}
-		//else
-		//if ([(NSObject*)m_hWnd isKindOfClass: [NSView class]])
-		//{
-        //	qDebug() << "CANNOT ADD EVENT IT IS VIEWER");
-		//	return;
-		//}
-		
-		CCmdTargetEventHandle handle;
-		
-		handle.tag			= objID;
-		handle.fun			= fun;
-		handle.eventType	= eventType;
-		handle.control		= this;
-		
-		p_mapEventHandle->push_back(handle);
-
-		if (control)
-		{
-			SEL eventHandle = @selector(controlEventHandle:);
-			
-			if (pWindowHandle)
-			{
-				[control setTarget:(CNSWindowHandle *)pWindowHandle];
-				[control setAction:eventHandle];
-			}
-		}
-		else 
-		{
-            qDebug() << "CANNOT ADD EVENT IT IS VIEWER";
-		}
-        */
 	}
 }
 
@@ -1850,6 +1724,7 @@ int CWnd::MessageBox(LPCTSTR lpszText, LPCTSTR lpszCaption, UINT nType)
 BOOL CWnd::SetMenu(CMenu* pMenu)
 {
     qDebug() << "TO DO CWnd::SetMenu";
+
 	return FALSE;
 }
 

@@ -9,6 +9,7 @@
 
 #include <QDebug>
 #include <QObject>
+#include <QAction>
 
 #include "CWnd.h"
 
@@ -24,7 +25,7 @@ CShellEventReceiver::~CShellEventReceiver()
 
 }
 
-void CShellEventReceiver::setWindow(CWnd* receiver)
+void CShellEventReceiver::setReceiver(CCmdTarget* receiver)
 {
    mReceiver = receiver;
 }
@@ -42,5 +43,16 @@ void CShellEventReceiver::eventIndexFunction(int index)
     if (mReceiver)
     {
         mReceiver->SendEventHandle(mReceiverData.tag, mReceiverData.control, mReceiverData.eventType);
+    }
+}
+
+void CShellEventReceiver::menuSelection(QAction *action)
+{
+    if (action)
+    {
+        QVariant var = action->data();
+        QMenu *menu = action->menu();
+
+        mReceiver->SendEventHandle(var.toInt(), menu, EVENT_TYPE_COMMAND);
     }
 }

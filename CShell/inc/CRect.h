@@ -12,7 +12,7 @@
 
 #include "CPoint.h"
 
-class CRect : public RECT
+class CSHELL_LIB_EXPORT CRect : public RECT
 {
 	
 public:

@@ -14,7 +14,7 @@
 #include "CDef.h"
 #include "CWnd.h"
 
-class CStatusBar : public CWnd
+class CSHELL_LIB_EXPORT CStatusBar : public CWnd
 {
 	
 public:

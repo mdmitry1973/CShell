@@ -12,7 +12,7 @@
 
 #include "CObject.h"
 
-class CException : public CObject
+class CSHELL_LIB_EXPORT CException : public CObject
 {
 	
 public:

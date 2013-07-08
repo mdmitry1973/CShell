@@ -35,7 +35,7 @@ typedef CToolBar CControlBar;
 #define AFX_MBS_VISIBLE 0x01L // visible
 #define AFX_MBS_HIDDEN  0x02L // hidden
 
-class CFrameWnd : public CWnd
+class CSHELL_LIB_EXPORT CFrameWnd : public CWnd
 {
 
 public:
@@ -65,6 +65,8 @@ public:
 	virtual void RecalcLayout(BOOL bNotify = TRUE);
 	
 	void ShowControlBar(CControlBar* pBar, BOOL bShow, BOOL bDelay);
+
+    virtual BOOL SetMenu(CMenu* pMenu);
 	
 	DECLARE_DYNAMIC(CFrameWnd)
 	

@@ -10,7 +10,7 @@
 #ifndef CPOINT_DEFINE
 #define CPOINT_DEFINE 1
 
-class CPoint : public POINT
+class CSHELL_LIB_EXPORT CPoint : public POINT
 {
 	
 public:

@@ -14,6 +14,7 @@
 
 #include "CDef.h"
 #include <algorithm>
+#include "afx.h"
 #include "afxext.h"
 #ifndef Q_CC_MINGW
 #include "windows.h"

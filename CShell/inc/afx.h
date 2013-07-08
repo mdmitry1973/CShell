@@ -36,7 +36,7 @@ void AfxThrowArchiveException(int cause);
 void AfxThrowArchiveException(int cause, LPCTSTR lpszArchiveName);
 void AfxAssertValidObject(const CObject* pOb, LPCSTR lpszFileName, int nLine);
 BOOL AfxIsValidAddress(const void* lp, UINT nBytes, BOOL bReadWrite = TRUE); 
-BOOL AfxIsValidString(LPCSTR lpsz, int nLength = -1);
+BOOL AfxIsValidString(LPCTSTR lpsz, int nLength = -1);
 void AfxThrowFileException(int cause, LONG lOsError = -1, LPCTSTR lpszFileName = NULL);
 void AfxThrowMemoryException();
 void AfxThrowInvalidArgException();
@@ -49,10 +49,10 @@ AFX_MODULE_STATE* AFXAPI AfxGetAppModuleState();
 
 void AfxSetResourceHandle(HINSTANCE hInstResource); 
 BOOL AfxSocketInit(void* lpwsaData = NULL);
-BOOL AfxOleInit();
+CSHELL_LIB_EXPORT BOOL AfxOleInit();
 COleMessageFilter* AfxOleGetMessageFilter();
 
-HMODULE AfxLoadLibrary(LPCSTR lpLibFileName);
+HMODULE AfxLoadLibrary(LPCTSTR lpLibFileName);
 BOOL AfxFreeLibrary(HMODULE hLibModule);
 
 

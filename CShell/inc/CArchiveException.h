@@ -12,7 +12,7 @@
 
 #include "CException.h"
 
-class CArchiveException : public CException
+class CSHELL_LIB_EXPORT CArchiveException : public CException
 {
 	
 public:

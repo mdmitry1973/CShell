@@ -18,24 +18,32 @@
 #include "CDef.h"
 #include "CWnd.h"
 #include "CDocTemplate.h"
-
+#include "CShellEventReceiver.h"
 #include "CWinApp.h"
 
 std::map<int, CShellBitmapInfo> g_mapBitmapInfo;
 std::map<int, CShellBitmapInfo> g_mapIconInfo;
 
 CSHELL_LIB_EXPORT CWinApp *pMainApp = NULL;
+CSHELL_LIB_EXPORT CShellEventReceiver *pGMenuEvent = NULL;
 
 CWinApp::CWinApp()
 {
     pMainApp = this;
     m_pszAppName = wcsdup(_T(""));
 	m_nCmdShow = SW_SHOWNORMAL;
+    pGMenuEvent = new CShellEventReceiver;
+    pGMenuEvent->setReceiver(this);
 }
 
 CWinApp::~CWinApp()
 {
-	if (m_pszAppName)
+    if (pGMenuEvent)
+    {
+        pGMenuEvent->disconnect(pGMenuEvent, 0, 0, 0);
+    }
+
+    if (m_pszAppName)
 	{
 		free((void *)m_pszAppName);
 	}

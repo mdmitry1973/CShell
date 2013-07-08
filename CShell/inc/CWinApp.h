@@ -112,12 +112,12 @@ public:
 
 CSHELL_LIB_EXPORT CWinApp* AfxGetApp();
 
-void InitCommonControls(void);
-void AfxEnableControlContainer();
+CSHELL_LIB_EXPORT void InitCommonControls(void);
+CSHELL_LIB_EXPORT void AfxEnableControlContainer();
 
-CWnd* AfxGetMainWnd();
+CSHELL_LIB_EXPORT CWnd* AfxGetMainWnd();
 
-void CShellLog(const char *);
+CSHELL_LIB_EXPORT void CShellLog(const char *);
 
 #define TRACE0(x) CShellLog(x)
 

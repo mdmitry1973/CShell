@@ -164,7 +164,7 @@ public:
 	
 	virtual void SetMessageMap();
 	
-	virtual BOOL OnCmdMsg(UINT nID, int nCode, void* pExtra, AFX_CMDHANDLERINFO* pHandlerInfo){ return FALSE;}
+    virtual BOOL OnCmdMsg(UINT /*nID*/, int /*nCode*/, void* /*pExtra*/, AFX_CMDHANDLERINFO* /*pHandlerInfo*/){ return FALSE;}
 	
 protected:
 	

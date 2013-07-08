@@ -34,12 +34,35 @@ SOURCES += cshellqt.cpp\
     ../src/CButton.cpp \
     ../src/CEdit.cpp \
     ../src/CSpinButtonCtrl.cpp \
-    ../src/CScrollBar.cpp
+    ../src/CScrollBar.cpp \
+    ../src/CQSlider.cpp \
+    ../src/CMDIFrameWnd.cpp \
+    ../src/CMDIChildWnd.cpp \
+    ../src/CFrameWnd.cpp \
+    ../src/CPoint.cpp \
+    ../src/CRect.cpp \
+    ../src/CSize.cpp \
+    ../src/afx.cpp \
+    ../src/CCommandLineInfo.cpp \
+    ../src/CMultiDocTemplate.cpp \
+    ../src/CSingleDocTemplate.cpp \
+    ../src/CDocTemplate.cpp \
+    ../src/CDocument.cpp \
+    ../src/CArchive.cpp \
+    ../src/CArchiveException.cpp \
+    ../src/CMapPtrToPtr.cpp \
+    ../src/CPtrArray.cpp \
+    ../src/CException.cpp \
+    ../src/CPlex.cpp \
+    ../src/CView.cpp \
+    ../src/CStatusBar.cpp \
+    ../src/CToolBar.cpp
 
 HEADERS += cshellqt.h\
         cshellqt_global.h \
     ../inc/*.h \
-    CShellEventReceiver.h
+    CShellEventReceiver.h \
+    ../inc/CQSlider.h
 
 INCLUDEPATH += ../inc
 

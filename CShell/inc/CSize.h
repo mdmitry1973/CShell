@@ -10,7 +10,7 @@
 #ifndef CSIZE_DEFINE
 #define CSIZE_DEFINE 1
 
-class CSize : public SIZE
+class CSHELL_LIB_EXPORT CSize : public SIZE
 {
 	
 public:

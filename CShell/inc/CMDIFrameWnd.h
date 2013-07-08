@@ -19,7 +19,7 @@
 
 class CMDIChildWnd;
 
-class CMDIFrameWnd : public CFrameWnd
+class CSHELL_LIB_EXPORT CMDIFrameWnd : public CFrameWnd
 {
 
 public:
@@ -27,6 +27,14 @@ public:
 	CMDIFrameWnd();
 	
 	virtual ~CMDIFrameWnd();
+
+    virtual BOOL Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName,
+                        DWORD dwStyle = WS_OVERLAPPEDWINDOW,
+                        const RECT& rect = rectDefault,
+                        CWnd* pParentWnd = NULL,
+                        LPCTSTR lpszMenuName = NULL,
+                        DWORD dwExStyle = 0,
+                        CCreateContext* pContext = NULL);
 	
 	virtual BOOL LoadFrame(UINT nIDResource, DWORD dwDefaultStyle = WS_OVERLAPPEDWINDOW | FWS_ADDTOTITLE, CWnd* pParentWnd = NULL, CCreateContext* pContext = NULL);
 	

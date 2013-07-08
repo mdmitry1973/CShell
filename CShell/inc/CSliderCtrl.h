@@ -19,7 +19,8 @@ class CSHELL_LIB_EXPORT CSliderCtrl : public CWnd
 public:
 	
 	CSliderCtrl();
-	
+    virtual ~CSliderCtrl();
+
 	virtual BOOL Create(DWORD dwStyle, const RECT& rect, CWnd* pParentWnd, UINT nID);
 	virtual BOOL CreateEx(DWORD dwExStyle, DWORD dwStyle, const RECT& rect, CWnd* pParentWnd, UINT nID);
 	

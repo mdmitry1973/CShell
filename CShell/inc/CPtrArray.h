@@ -16,7 +16,7 @@
 
 class CPtrArray;
 
-class CPtrArray  : public CObject
+class CSHELL_LIB_EXPORT CPtrArray  : public CObject
 {
 	
 public:
