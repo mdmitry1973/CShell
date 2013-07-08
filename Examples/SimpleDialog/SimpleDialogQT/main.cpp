@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 
     if (!pMainApp->InitInstance())
     {
-
+        return 0;
     }
 
     pMainApp->SetMessageMap();

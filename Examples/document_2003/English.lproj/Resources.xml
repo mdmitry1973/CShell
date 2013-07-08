@@ -1,270 +1,205 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <MFC_RESOURCE>
-<ICONTABLE>
-<ICON IDSTR="IDR_MAINFRAME" ID="128" NAME="document4.ico">
-</ICON>
-</ICONTABLE>
-<ICONTABLE>
-<ICON IDSTR="IDR_document4TYPE" ID="129" NAME="document4Doc.ico">
-</ICON>
-</ICONTABLE>
-<BITMAPTABLE>
-<BITMAP IDSTR="IDR_MAINFRAME" ID="128" NAME="Toolbar.bmp">
-</BITMAP>
-</BITMAPTABLE>
-<TOOLBAR IDSTR="IDR_MAINFRAME" ID="128">
-<IDSTR>IDR_MAINFRAME</IDSTR>
-<ID>128</ID>
-<X>16</X>
-<Y>15</Y>
-<BUTTON strID="ID_FILE_NEW">
-</BUTTON>
-<BUTTON strID="ID_FILE_OPEN">
-</BUTTON>
-<BUTTON strID="ID_FILE_SAVE">
-</BUTTON>
-<SEPARATOR>
-</SEPARATOR>
-<BUTTON strID="ID_EDIT_CUT">
-</BUTTON>
-<BUTTON strID="ID_EDIT_COPY">
-</BUTTON>
-<BUTTON strID="ID_EDIT_PASTE">
-</BUTTON>
-<SEPARATOR>
-</SEPARATOR>
-<BUTTON strID="ID_FILE_PRINT">
-</BUTTON>
-<BUTTON strID="ID_APP_ABOUT">
-</BUTTON>
-</TOOLBAR>
-<MENU IDSTR="IDR_MAINFRAME" ID="128">
-<POPUP Name="&amp;File">
-<MENUITEM Name="&amp;New\tCtrl+N" IDSTR="ID_FILE_NEW">
-</MENUITEM>
-<MENUITEM Name="&amp;Open...\tCtrl+O" IDSTR="ID_FILE_OPEN">
-</MENUITEM>
-<SEPARATOR>
-</SEPARATOR>
-<MENUITEM Name="P&amp;rint Setup..." IDSTR="ID_FILE_PRINT_SETUP">
-</MENUITEM>
-<SEPARATOR>
-</SEPARATOR>
-<MENUITEM Name="Recent File" IDSTR="ID_FILE_MRU_FILE1,GRAYED">
-</MENUITEM>
-<SEPARATOR>
-</SEPARATOR>
-<MENUITEM Name="&amp;Close" IDSTR="ID_FILE_CLOSE">
-</MENUITEM>
-<MENUITEM Name="E&amp;xit" IDSTR="ID_APP_EXIT">
-</MENUITEM>
-</POPUP>
-<POPUP Name="&amp;View">
-<MENUITEM Name="&amp;Toolbar" IDSTR="ID_VIEW_TOOLBAR">
-</MENUITEM>
-<MENUITEM Name="&amp;Status Bar" IDSTR="ID_VIEW_STATUS_BAR">
-</MENUITEM>
-</POPUP>
-<POPUP Name="&amp;Help">
-<MENUITEM Name="&amp;About document4..." IDSTR="ID_APP_ABOUT">
-</MENUITEM>
-</POPUP>
-</MENU>
-<MENU IDSTR="IDR_document4TYPE" ID="129">
-<POPUP Name="&amp;File">
-<MENUITEM Name="&amp;New\tCtrl+N" IDSTR="ID_FILE_NEW">
-</MENUITEM>
-<MENUITEM Name="&amp;Open...\tCtrl+O" IDSTR="ID_FILE_OPEN">
-</MENUITEM>
-<MENUITEM Name="&amp;Close" IDSTR="ID_FILE_CLOSE">
-</MENUITEM>
-<MENUITEM Name="&amp;Save\tCtrl+S" IDSTR="ID_FILE_SAVE">
-</MENUITEM>
-<MENUITEM Name="Save &amp;As..." IDSTR="ID_FILE_SAVE_AS">
-</MENUITEM>
-<SEPARATOR>
-</SEPARATOR>
-<MENUITEM Name="&amp;Print...\tCtrl+P" IDSTR="ID_FILE_PRINT">
-</MENUITEM>
-<MENUITEM Name="Print Pre&amp;view" IDSTR="ID_FILE_PRINT_PREVIEW">
-</MENUITEM>
-<MENUITEM Name="P&amp;rint Setup..." IDSTR="ID_FILE_PRINT_SETUP">
-</MENUITEM>
-<SEPARATOR>
-</SEPARATOR>
-<MENUITEM Name="Recent File" IDSTR="ID_FILE_MRU_FILE1,GRAYED">
-</MENUITEM>
-<SEPARATOR>
-</SEPARATOR>
-<MENUITEM Name="E&amp;xit" IDSTR="ID_APP_EXIT">
-</MENUITEM>
-</POPUP>
-<POPUP Name="&amp;Edit">
-<MENUITEM Name="&amp;Undo\tCtrl+Z" IDSTR="ID_EDIT_UNDO">
-</MENUITEM>
-<SEPARATOR>
-</SEPARATOR>
-<MENUITEM Name="Cu&amp;t\tCtrl+X" IDSTR="ID_EDIT_CUT">
-</MENUITEM>
-<MENUITEM Name="&amp;Copy\tCtrl+C" IDSTR="ID_EDIT_COPY">
-</MENUITEM>
-<MENUITEM Name="&amp;Paste\tCtrl+V" IDSTR="ID_EDIT_PASTE">
-</MENUITEM>
-</POPUP>
-<POPUP Name="&amp;View">
-<MENUITEM Name="&amp;Toolbar" IDSTR="ID_VIEW_TOOLBAR">
-</MENUITEM>
-<MENUITEM Name="&amp;Status Bar" IDSTR="ID_VIEW_STATUS_BAR">
-</MENUITEM>
-</POPUP>
-<POPUP Name="&amp;Window">
-<MENUITEM Name="&amp;New Window" IDSTR="ID_WINDOW_NEW">
-</MENUITEM>
-<MENUITEM Name="&amp;Cascade" IDSTR="ID_WINDOW_CASCADE">
-</MENUITEM>
-<MENUITEM Name="&amp;Tile" IDSTR="ID_WINDOW_TILE_HORZ">
-</MENUITEM>
-<MENUITEM Name="&amp;Arrange Icons" IDSTR="ID_WINDOW_ARRANGE">
-</MENUITEM>
-</POPUP>
-<POPUP Name="&amp;Help">
-<MENUITEM Name="&amp;About document4..." IDSTR="ID_APP_ABOUT">
-</MENUITEM>
-</POPUP>
-</MENU>
-<ACCELERATORS>
-<ITEM Key="&quot;N&quot;" StrID="ID_FILE_NEW" KeySys1="VIRTKEY" KeySys2="CONTROL">
-</ITEM>
-<ITEM Key="&quot;O&quot;" StrID="ID_FILE_OPEN" KeySys1="VIRTKEY" KeySys2="CONTROL">
-</ITEM>
-<ITEM Key="&quot;S&quot;" StrID="ID_FILE_SAVE" KeySys1="VIRTKEY" KeySys2="CONTROL">
-</ITEM>
-<ITEM Key="&quot;P&quot;" StrID="ID_FILE_PRINT" KeySys1="VIRTKEY" KeySys2="CONTROL">
-</ITEM>
-<ITEM Key="&quot;Z&quot;" StrID="ID_EDIT_UNDO" KeySys1="VIRTKEY" KeySys2="CONTROL">
-</ITEM>
-<ITEM Key="&quot;X&quot;" StrID="ID_EDIT_CUT" KeySys1="VIRTKEY" KeySys2="CONTROL">
-</ITEM>
-<ITEM Key="&quot;C&quot;" StrID="ID_EDIT_COPY" KeySys1="VIRTKEY" KeySys2="CONTROL">
-</ITEM>
-<ITEM Key="&quot;V&quot;" StrID="ID_EDIT_PASTE" KeySys1="VIRTKEY" KeySys2="CONTROL">
-</ITEM>
-<ITEM Key="VK_BACK" StrID="ID_EDIT_UNDO" KeySys1="VIRTKEY" KeySys2="ALT">
-</ITEM>
-<ITEM Key="VK_DELETE" StrID="ID_EDIT_CUT" KeySys1="VIRTKEY" KeySys2="SHIFT">
-</ITEM>
-<ITEM Key="VK_INSERT" StrID="ID_EDIT_COPY" KeySys1="VIRTKEY" KeySys2="CONTROL">
-</ITEM>
-<ITEM Key="VK_INSERT" StrID="ID_EDIT_PASTE" KeySys1="VIRTKEY" KeySys2="SHIFT">
-</ITEM>
-<ITEM Key="VK_F6" StrID="ID_NEXT_PANE" KeySys1="VIRTKEY">
-</ITEM>
-<ITEM Key="VK_F6" StrID="ID_PREV_PANE" KeySys1="VIRTKEY" KeySys2="SHIFT">
-</ITEM>
-</ACCELERATORS>
-<DIALOGEX>
-<IDSTR>IDD_ABOUTBOX</IDSTR>
-<ID>100</ID>
-<BOX>0,0,364,93</BOX>
-<CAPTION>About document4</CAPTION>
-<STYLE> DS_MODALFRAME | DS_SHELLFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU</STYLE>
-<FONT> 8, "MS Shell Dlg"</FONT>
-<LTEXT>
-<TEXT>document4 Version 1.0</TEXT>
-<IDSTR>IDC_STATIC</IDSTR>
-<BOX>62,17,184,13</BOX>
-<STYLE>
-</STYLE>
-</LTEXT>
-<LTEXT>
-<TEXT>Copyright (C) 2013</TEXT>
-<IDSTR>IDC_STATIC</IDSTR>
-<BOX>62,42,184,13</BOX>
-</LTEXT>
-<DEFPUSHBUTTON>
-<TEXT>OK</TEXT>
-<IDSTR>IDOK</IDSTR>
-<BOX>275,11,77,27</BOX>
-<STYLE>WS_GROUP</STYLE>
-</DEFPUSHBUTTON>
-</DIALOGEX>
-<STRINGTABLE>
-<STR IDSTR="IDR_MAINFRAME" ID="128">document4</STR>
-<STR IDSTR="IDR_document4TYPE" ID="129">\ndocument4\ndocument4\n\n\ndocument4.Document\ndocument4.Document</STR>
-</STRINGTABLE>
-<STRINGTABLE>
-<STR IDSTR="AFX_IDS_APP_TITLE">document4</STR>
-<STR IDSTR="AFX_IDS_IDLEMESSAGE">Ready</STR>
-</STRINGTABLE>
-<STRINGTABLE>
-<STR IDSTR="ID_INDICATOR_EXT">EXT</STR>
-<STR IDSTR="ID_INDICATOR_CAPS">CAP</STR>
-<STR IDSTR="ID_INDICATOR_NUM">NUM</STR>
-<STR IDSTR="ID_INDICATOR_SCRL">SCRL</STR>
-<STR IDSTR="ID_INDICATOR_OVR">OVR</STR>
-<STR IDSTR="ID_INDICATOR_REC">REC</STR>
-</STRINGTABLE>
-<STRINGTABLE>
-<STR IDSTR="ID_FILE_NEW">Create a new document\nNew</STR>
-<STR IDSTR="ID_FILE_OPEN">Open an existing document\nOpen</STR>
-<STR IDSTR="ID_FILE_CLOSE">Close the active document\nClose</STR>
-<STR IDSTR="ID_FILE_SAVE">Save the active document\nSave</STR>
-<STR IDSTR="ID_FILE_SAVE_AS">Save the active document with a new name\nSave As</STR>
-<STR IDSTR="ID_FILE_PAGE_SETUP">Change the printing options\nPage Setup</STR>
-<STR IDSTR="ID_FILE_PRINT_SETUP">Change the printer and printing options\nPrint Setup</STR>
-<STR IDSTR="ID_FILE_PRINT">Print the active document\nPrint</STR>
-<STR IDSTR="ID_FILE_PRINT_PREVIEW">Display full pages\nPrint Preview</STR>
-<STR IDSTR="ID_APP_ABOUT">Display program information, version number and copyright\nAbout</STR>
-<STR IDSTR="ID_APP_EXIT">Quit the application; prompts to save documents\nExit</STR>
-<STR IDSTR="ID_FILE_MRU_FILE1">Open this document</STR>
-<STR IDSTR="ID_FILE_MRU_FILE2">Open this document</STR>
-<STR IDSTR="ID_FILE_MRU_FILE3">Open this document</STR>
-<STR IDSTR="ID_FILE_MRU_FILE4">Open this document</STR>
-<STR IDSTR="ID_FILE_MRU_FILE5">Open this document</STR>
-<STR IDSTR="ID_FILE_MRU_FILE6">Open this document</STR>
-<STR IDSTR="ID_FILE_MRU_FILE7">Open this document</STR>
-<STR IDSTR="ID_FILE_MRU_FILE8">Open this document</STR>
-<STR IDSTR="ID_FILE_MRU_FILE9">Open this document</STR>
-<STR IDSTR="ID_FILE_MRU_FILE10">Open this document</STR>
-<STR IDSTR="ID_FILE_MRU_FILE11">Open this document</STR>
-<STR IDSTR="ID_FILE_MRU_FILE12">Open this document</STR>
-<STR IDSTR="ID_FILE_MRU_FILE13">Open this document</STR>
-<STR IDSTR="ID_FILE_MRU_FILE14">Open this document</STR>
-<STR IDSTR="ID_FILE_MRU_FILE15">Open this document</STR>
-<STR IDSTR="ID_FILE_MRU_FILE16">Open this document</STR>
-<STR IDSTR="ID_NEXT_PANE">Switch to the next window pane\nNext Pane</STR>
-<STR IDSTR="ID_PREV_PANE">Switch back to the previous window pane\nPrevious Pane</STR>
-<STR IDSTR="ID_WINDOW_NEW">Open another window for the active document\nNew Window</STR>
-<STR IDSTR="ID_WINDOW_ARRANGE">Arrange icons at the bottom of the window\nArrange Icons</STR>
-<STR IDSTR="ID_WINDOW_CASCADE">Arrange windows so they overlap\nCascade Windows</STR>
-<STR IDSTR="ID_WINDOW_TILE_HORZ">Arrange windows as non-overlapping tiles\nTile Windows</STR>
-<STR IDSTR="ID_WINDOW_TILE_VERT">Arrange windows as non-overlapping tiles\nTile Windows</STR>
-<STR IDSTR="ID_WINDOW_SPLIT">Split the active window into panes\nSplit</STR>
-<STR IDSTR="ID_EDIT_CLEAR">Erase the selection\nErase</STR>
-<STR IDSTR="ID_EDIT_CLEAR_ALL">Erase everything\nErase All</STR>
-<STR IDSTR="ID_EDIT_COPY">Copy the selection and put it on the Clipboard\nCopy</STR>
-<STR IDSTR="ID_EDIT_CUT">Cut the selection and put it on the Clipboard\nCut</STR>
-<STR IDSTR="ID_EDIT_FIND">Find the specified text\nFind</STR>
-<STR IDSTR="ID_EDIT_PASTE">Insert Clipboard contents\nPaste</STR>
-<STR IDSTR="ID_EDIT_REPEAT">Repeat the last action\nRepeat</STR>
-<STR IDSTR="ID_EDIT_REPLACE">Replace specific text with different text\nReplace</STR>
-<STR IDSTR="ID_EDIT_SELECT_ALL">Select the entire document\nSelect All</STR>
-<STR IDSTR="ID_EDIT_UNDO">Undo the last action\nUndo</STR>
-<STR IDSTR="ID_EDIT_REDO">Redo the previously undone action\nRedo</STR>
-<STR IDSTR="ID_VIEW_TOOLBAR">Show or hide the toolbar\nToggle ToolBar</STR>
-<STR IDSTR="ID_VIEW_STATUS_BAR">Show or hide the status bar\nToggle StatusBar</STR>
-</STRINGTABLE>
-<STRINGTABLE>
-<STR IDSTR="AFX_IDS_SCSIZE">Change the window size</STR>
-<STR IDSTR="AFX_IDS_SCMOVE">Change the window position</STR>
-<STR IDSTR="AFX_IDS_SCMINIMIZE">Reduce the window to an icon</STR>
-<STR IDSTR="AFX_IDS_SCMAXIMIZE">Enlarge the window to full size</STR>
-<STR IDSTR="AFX_IDS_SCNEXTWINDOW">Switch to the next document window</STR>
-<STR IDSTR="AFX_IDS_SCPREVWINDOW">Switch to the previous document window</STR>
-<STR IDSTR="AFX_IDS_SCCLOSE">Close the active window and prompts to save the documents</STR>
-<STR IDSTR="AFX_IDS_SCRESTORE">Restore the window to normal size</STR>
-<STR IDSTR="AFX_IDS_SCTASKLIST">Activate Task List</STR>
-<STR IDSTR="AFX_IDS_MDICHILD">Activate this window</STR>
-<STR IDSTR="AFX_IDS_PREVIEW_CLOSE">Close print preview mode\nCancel Preview</STR>
-</STRINGTABLE>
+  <ICONTABLE>
+    <ICON IDSTR="IDR_MAINFRAME" ID="128" NAME="document4.ico"/>
+  </ICONTABLE>
+  <ICONTABLE>
+    <ICON IDSTR="IDR_document4TYPE" ID="129" NAME="document4Doc.ico"/>
+  </ICONTABLE>
+  <BITMAPTABLE>
+    <BITMAP IDSTR="IDR_MAINFRAME" ID="128" NAME="Toolbar.bmp"/>
+  </BITMAPTABLE>
+  <TOOLBAR IDSTR="IDR_MAINFRAME" ID="128">
+    <IDSTR>IDR_MAINFRAME</IDSTR>
+    <ID>128</ID>
+    <X>16</X>
+    <Y>15</Y>
+    <BUTTON strID="ID_FILE_NEW"/>
+    <BUTTON strID="ID_FILE_OPEN"/>
+    <BUTTON strID="ID_FILE_SAVE"/>
+    <SEPARATOR/>
+    <BUTTON strID="ID_EDIT_CUT"/>
+    <BUTTON strID="ID_EDIT_COPY"/>
+    <BUTTON strID="ID_EDIT_PASTE"/>
+    <SEPARATOR/>
+    <BUTTON strID="ID_FILE_PRINT"/>
+    <BUTTON strID="ID_APP_ABOUT"/>
+  </TOOLBAR>
+  <MENU IDSTR="IDR_MAINFRAME" ID="128">
+    <POPUP Name="&amp;File">
+      <MENUITEM Name="&amp;New\tCtrl+N" IDSTR="ID_FILE_NEW"/>
+      <MENUITEM Name="&amp;Open...\tCtrl+O" IDSTR="ID_FILE_OPEN"/>
+      <SEPARATOR/>
+      <MENUITEM Name="P&amp;rint Setup..." IDSTR="ID_FILE_PRINT_SETUP"/>
+      <SEPARATOR/>
+      <MENUITEM Name="Recent File" IDSTR="ID_FILE_MRU_FILE1,GRAYED"/>
+      <SEPARATOR/>
+      <MENUITEM Name="&amp;Close" IDSTR="ID_FILE_CLOSE"/>
+      <MENUITEM Name="E&amp;xit" IDSTR="ID_APP_EXIT"/>
+    </POPUP>
+    <POPUP Name="&amp;View">
+      <MENUITEM Name="&amp;Toolbar" IDSTR="ID_VIEW_TOOLBAR"/>
+      <MENUITEM Name="&amp;Status Bar" IDSTR="ID_VIEW_STATUS_BAR"/>
+    </POPUP>
+    <POPUP Name="&amp;Help">
+      <MENUITEM Name="&amp;About document4..." IDSTR="ID_APP_ABOUT"/>
+    </POPUP>
+  </MENU>
+  <MENU IDSTR="IDR_document4TYPE" ID="129">
+    <POPUP Name="&amp;File">
+      <MENUITEM Name="&amp;New\tCtrl+N" IDSTR="ID_FILE_NEW"/>
+      <MENUITEM Name="&amp;Open...\tCtrl+O" IDSTR="ID_FILE_OPEN"/>
+      <MENUITEM Name="&amp;Close" IDSTR="ID_FILE_CLOSE"/>
+      <MENUITEM Name="&amp;Save\tCtrl+S" IDSTR="ID_FILE_SAVE"/>
+      <MENUITEM Name="Save &amp;As..." IDSTR="ID_FILE_SAVE_AS"/>
+      <SEPARATOR/>
+      <MENUITEM Name="&amp;Print...\tCtrl+P" IDSTR="ID_FILE_PRINT"/>
+      <MENUITEM Name="Print Pre&amp;view" IDSTR="ID_FILE_PRINT_PREVIEW"/>
+      <MENUITEM Name="P&amp;rint Setup..." IDSTR="ID_FILE_PRINT_SETUP"/>
+      <SEPARATOR/>
+      <MENUITEM Name="Recent File" IDSTR="ID_FILE_MRU_FILE1,GRAYED"/>
+      <SEPARATOR/>
+      <MENUITEM Name="E&amp;xit" IDSTR="ID_APP_EXIT"/>
+    </POPUP>
+    <POPUP Name="&amp;Edit">
+      <MENUITEM Name="&amp;Undo\tCtrl+Z" IDSTR="ID_EDIT_UNDO"/>
+      <SEPARATOR/>
+      <MENUITEM Name="Cu&amp;t\tCtrl+X" IDSTR="ID_EDIT_CUT"/>
+      <MENUITEM Name="&amp;Copy\tCtrl+C" IDSTR="ID_EDIT_COPY"/>
+      <MENUITEM Name="&amp;Paste\tCtrl+V" IDSTR="ID_EDIT_PASTE"/>
+    </POPUP>
+    <POPUP Name="&amp;View">
+      <MENUITEM Name="&amp;Toolbar" IDSTR="ID_VIEW_TOOLBAR"/>
+      <MENUITEM Name="&amp;Status Bar" IDSTR="ID_VIEW_STATUS_BAR"/>
+    </POPUP>
+    <POPUP Name="&amp;Window">
+      <MENUITEM Name="&amp;New Window" IDSTR="ID_WINDOW_NEW"/>
+      <MENUITEM Name="&amp;Cascade" IDSTR="ID_WINDOW_CASCADE"/>
+      <MENUITEM Name="&amp;Tile" IDSTR="ID_WINDOW_TILE_HORZ"/>
+      <MENUITEM Name="&amp;Arrange Icons" IDSTR="ID_WINDOW_ARRANGE"/>
+    </POPUP>
+    <POPUP Name="&amp;Help">
+      <MENUITEM Name="&amp;About document4..." IDSTR="ID_APP_ABOUT"/>
+    </POPUP>
+  </MENU>
+  <ACCELERATORS>
+    <ITEM Key="&quot;N&quot;" StrID="ID_FILE_NEW" KeySys1="VIRTKEY" KeySys2="CONTROL"/>
+    <ITEM Key="&quot;O&quot;" StrID="ID_FILE_OPEN" KeySys1="VIRTKEY" KeySys2="CONTROL"/>
+    <ITEM Key="&quot;S&quot;" StrID="ID_FILE_SAVE" KeySys1="VIRTKEY" KeySys2="CONTROL"/>
+    <ITEM Key="&quot;P&quot;" StrID="ID_FILE_PRINT" KeySys1="VIRTKEY" KeySys2="CONTROL"/>
+    <ITEM Key="&quot;Z&quot;" StrID="ID_EDIT_UNDO" KeySys1="VIRTKEY" KeySys2="CONTROL"/>
+    <ITEM Key="&quot;X&quot;" StrID="ID_EDIT_CUT" KeySys1="VIRTKEY" KeySys2="CONTROL"/>
+    <ITEM Key="&quot;C&quot;" StrID="ID_EDIT_COPY" KeySys1="VIRTKEY" KeySys2="CONTROL"/>
+    <ITEM Key="&quot;V&quot;" StrID="ID_EDIT_PASTE" KeySys1="VIRTKEY" KeySys2="CONTROL"/>
+    <ITEM Key="VK_BACK" StrID="ID_EDIT_UNDO" KeySys1="VIRTKEY" KeySys2="ALT"/>
+    <ITEM Key="VK_DELETE" StrID="ID_EDIT_CUT" KeySys1="VIRTKEY" KeySys2="SHIFT"/>
+    <ITEM Key="VK_INSERT" StrID="ID_EDIT_COPY" KeySys1="VIRTKEY" KeySys2="CONTROL"/>
+    <ITEM Key="VK_INSERT" StrID="ID_EDIT_PASTE" KeySys1="VIRTKEY" KeySys2="SHIFT"/>
+    <ITEM Key="VK_F6" StrID="ID_NEXT_PANE" KeySys1="VIRTKEY"/>
+    <ITEM Key="VK_F6" StrID="ID_PREV_PANE" KeySys1="VIRTKEY" KeySys2="SHIFT"/>
+  </ACCELERATORS>
+  <DIALOGEX>
+    <IDSTR>IDD_ABOUTBOX</IDSTR>
+    <ID>100</ID>
+    <BOX>0,0,364,93</BOX>
+    <CAPTION>About document4</CAPTION>
+    <STYLE> DS_MODALFRAME | DS_SHELLFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU</STYLE>
+    <FONT> 8, "MS Shell Dlg"</FONT>
+    <LTEXT>
+      <TEXT>document4 Version 1.0</TEXT>
+      <IDSTR>IDC_STATIC</IDSTR>
+      <BOX>62,17,184,13</BOX>
+      <STYLE/>
+    </LTEXT>
+    <LTEXT>
+      <TEXT>Copyright (C) 2013</TEXT>
+      <IDSTR>IDC_STATIC</IDSTR>
+      <BOX>62,42,184,13</BOX>
+    </LTEXT>
+    <DEFPUSHBUTTON>
+      <TEXT>OK</TEXT>
+      <IDSTR>IDOK</IDSTR>
+      <BOX>275,11,77,27</BOX>
+      <STYLE>WS_GROUP</STYLE>
+    </DEFPUSHBUTTON>
+  </DIALOGEX>
+  <STRINGTABLE>
+    <STR IDSTR="IDR_MAINFRAME" ID="128">document4</STR>
+    <STR IDSTR="IDR_document4TYPE" ID="129">\ndocument4\ndocument4\n\n\ndocument4.Document\ndocument4.Document</STR>
+  </STRINGTABLE>
+  <STRINGTABLE>
+    <STR IDSTR="AFX_IDS_APP_TITLE">document4</STR>
+    <STR IDSTR="AFX_IDS_IDLEMESSAGE">Ready</STR>
+  </STRINGTABLE>
+  <STRINGTABLE>
+    <STR IDSTR="ID_INDICATOR_EXT">EXT</STR>
+    <STR IDSTR="ID_INDICATOR_CAPS">CAP</STR>
+    <STR IDSTR="ID_INDICATOR_NUM">NUM</STR>
+    <STR IDSTR="ID_INDICATOR_SCRL">SCRL</STR>
+    <STR IDSTR="ID_INDICATOR_OVR">OVR</STR>
+    <STR IDSTR="ID_INDICATOR_REC">REC</STR>
+  </STRINGTABLE>
+  <STRINGTABLE>
+    <STR IDSTR="ID_FILE_NEW">Create a new document\nNew</STR>
+    <STR IDSTR="ID_FILE_OPEN">Open an existing document\nOpen</STR>
+    <STR IDSTR="ID_FILE_CLOSE">Close the active document\nClose</STR>
+    <STR IDSTR="ID_FILE_SAVE">Save the active document\nSave</STR>
+    <STR IDSTR="ID_FILE_SAVE_AS">Save the active document with a new name\nSave As</STR>
+    <STR IDSTR="ID_FILE_PAGE_SETUP">Change the printing options\nPage Setup</STR>
+    <STR IDSTR="ID_FILE_PRINT_SETUP">Change the printer and printing options\nPrint Setup</STR>
+    <STR IDSTR="ID_FILE_PRINT">Print the active document\nPrint</STR>
+    <STR IDSTR="ID_FILE_PRINT_PREVIEW">Display full pages\nPrint Preview</STR>
+    <STR IDSTR="ID_APP_ABOUT">Display program information, version number and copyright\nAbout</STR>
+    <STR IDSTR="ID_APP_EXIT">Quit the application; prompts to save documents\nExit</STR>
+    <STR IDSTR="ID_FILE_MRU_FILE1">Open this document</STR>
+    <STR IDSTR="ID_FILE_MRU_FILE2">Open this document</STR>
+    <STR IDSTR="ID_FILE_MRU_FILE3">Open this document</STR>
+    <STR IDSTR="ID_FILE_MRU_FILE4">Open this document</STR>
+    <STR IDSTR="ID_FILE_MRU_FILE5">Open this document</STR>
+    <STR IDSTR="ID_FILE_MRU_FILE6">Open this document</STR>
+    <STR IDSTR="ID_FILE_MRU_FILE7">Open this document</STR>
+    <STR IDSTR="ID_FILE_MRU_FILE8">Open this document</STR>
+    <STR IDSTR="ID_FILE_MRU_FILE9">Open this document</STR>
+    <STR IDSTR="ID_FILE_MRU_FILE10">Open this document</STR>
+    <STR IDSTR="ID_FILE_MRU_FILE11">Open this document</STR>
+    <STR IDSTR="ID_FILE_MRU_FILE12">Open this document</STR>
+    <STR IDSTR="ID_FILE_MRU_FILE13">Open this document</STR>
+    <STR IDSTR="ID_FILE_MRU_FILE14">Open this document</STR>
+    <STR IDSTR="ID_FILE_MRU_FILE15">Open this document</STR>
+    <STR IDSTR="ID_FILE_MRU_FILE16">Open this document</STR>
+    <STR IDSTR="ID_NEXT_PANE">Switch to the next window pane\nNext Pane</STR>
+    <STR IDSTR="ID_PREV_PANE">Switch back to the previous window pane\nPrevious Pane</STR>
+    <STR IDSTR="ID_WINDOW_NEW">Open another window for the active document\nNew Window</STR>
+    <STR IDSTR="ID_WINDOW_ARRANGE">Arrange icons at the bottom of the window\nArrange Icons</STR>
+    <STR IDSTR="ID_WINDOW_CASCADE">Arrange windows so they overlap\nCascade Windows</STR>
+    <STR IDSTR="ID_WINDOW_TILE_HORZ">Arrange windows as non-overlapping tiles\nTile Windows</STR>
+    <STR IDSTR="ID_WINDOW_TILE_VERT">Arrange windows as non-overlapping tiles\nTile Windows</STR>
+    <STR IDSTR="ID_WINDOW_SPLIT">Split the active window into panes\nSplit</STR>
+    <STR IDSTR="ID_EDIT_CLEAR">Erase the selection\nErase</STR>
+    <STR IDSTR="ID_EDIT_CLEAR_ALL">Erase everything\nErase All</STR>
+    <STR IDSTR="ID_EDIT_COPY">Copy the selection and put it on the Clipboard\nCopy</STR>
+    <STR IDSTR="ID_EDIT_CUT">Cut the selection and put it on the Clipboard\nCut</STR>
+    <STR IDSTR="ID_EDIT_FIND">Find the specified text\nFind</STR>
+    <STR IDSTR="ID_EDIT_PASTE">Insert Clipboard contents\nPaste</STR>
+    <STR IDSTR="ID_EDIT_REPEAT">Repeat the last action\nRepeat</STR>
+    <STR IDSTR="ID_EDIT_REPLACE">Replace specific text with different text\nReplace</STR>
+    <STR IDSTR="ID_EDIT_SELECT_ALL">Select the entire document\nSelect All</STR>
+    <STR IDSTR="ID_EDIT_UNDO">Undo the last action\nUndo</STR>
+    <STR IDSTR="ID_EDIT_REDO">Redo the previously undone action\nRedo</STR>
+    <STR IDSTR="ID_VIEW_TOOLBAR">Show or hide the toolbar\nToggle ToolBar</STR>
+    <STR IDSTR="ID_VIEW_STATUS_BAR">Show or hide the status bar\nToggle StatusBar</STR>
+  </STRINGTABLE>
+  <STRINGTABLE>
+    <STR IDSTR="AFX_IDS_SCSIZE">Change the window size</STR>
+    <STR IDSTR="AFX_IDS_SCMOVE">Change the window position</STR>
+    <STR IDSTR="AFX_IDS_SCMINIMIZE">Reduce the window to an icon</STR>
+    <STR IDSTR="AFX_IDS_SCMAXIMIZE">Enlarge the window to full size</STR>
+    <STR IDSTR="AFX_IDS_SCNEXTWINDOW">Switch to the next document window</STR>
+    <STR IDSTR="AFX_IDS_SCPREVWINDOW">Switch to the previous document window</STR>
+    <STR IDSTR="AFX_IDS_SCCLOSE">Close the active window and prompts to save the documents</STR>
+    <STR IDSTR="AFX_IDS_SCRESTORE">Restore the window to normal size</STR>
+    <STR IDSTR="AFX_IDS_SCTASKLIST">Activate Task List</STR>
+    <STR IDSTR="AFX_IDS_MDICHILD">Activate this window</STR>
+    <STR IDSTR="AFX_IDS_PREVIEW_CLOSE">Close print preview mode\nCancel Preview</STR>
+  </STRINGTABLE>
 </MFC_RESOURCE>
