@@ -20,7 +20,7 @@
 #include "CBitmap.h"
 #include "CMenu.h"
 #include "CWnd.h"
-#include "CShellEventReceiver.h"
+#include "..\CShellQT\CShellEventReceiver.h"
 
 extern CShellEventReceiver *pGMenuEvent;
 

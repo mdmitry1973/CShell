@@ -444,7 +444,13 @@ typedef DWORD	COLORREF;
 #define traceAppMsg "%d %s %s"
 #endif
 
+#if defined(CSHELL_USE_QT)
+
+#else
 #define _MSC_VER 1700
+#define FAR
+#endif
+
 
 //#ifndef NOMINMAX
 
@@ -484,8 +490,6 @@ using namespace std;
 #define END_CATCH_ALL
 #define END_TRY catch(...){}
 #define THROW_LAST() (throw)
-
-#define FAR
 
 #ifndef Q_CC_MINGW
 #include "windows.h"

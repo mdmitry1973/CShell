@@ -29,6 +29,7 @@ HEADERS  +=\
 
 FORMS    += mainwindow.ui
 
-LIBS += ../../../CShell/build-CShellQT-Desktop_Qt_5_0_2_MinGW_32bit-Debug/debug/CShellQT.dll
+Debug:LIBS += ../../../CShell/build/MinGW_32bit-Debug/CShellQT.dll
+Release:LIBS += ../../../CShell/build/MinGW_32bit-Release/CShellQT.dll
 
-QMAKE_POST_LINK = copy /y ..\..\..\CShell\build-CShellQT-Desktop_Qt_5_0_2_MinGW_32bit-Debug\debug\CShellQT.dll .\debug\&copy /y ..\..\..\Examples\SimpleDialog\English.lproj\Resources.xml .\&copy /y ..\..\..\Examples\SimpleDialog\English.lproj\bitmap1.bmp .\
+QMAKE_POST_LINK = copy /y ..\..\..\CShell\build\MinGW_32bit-Debug\CShellQT.dll .\debug\&copy /y ..\..\..\Examples\SimpleDialog\English.lproj\Resources.xml .\&copy /y ..\..\..\Examples\SimpleDialog\English.lproj\bitmap1.bmp .\

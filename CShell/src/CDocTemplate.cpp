@@ -57,6 +57,7 @@ CDocTemplate::~CDocTemplate()
 BOOL CDocTemplate::GetDocString(CString& rString, enum DocStringIndex index) const
 {
      qDebug() << "TO DO CDocTemplate::GetDocString";
+     return FALSE;
 }
 
 void CDocTemplate::AddDocument(CDocument* pDoc)
