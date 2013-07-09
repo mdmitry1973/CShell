@@ -39,6 +39,8 @@
 #define TBSTYLE_AUTOSIZE        0x0010  // obsolete; use BTNS_AUTOSIZE instead
 #define TBSTYLE_NOPREFIX        0x0020  // obsolete; use BTNS_NOPREFIX instead
 
+#define TTF_IDISHWND            0x0001
+
 typedef struct tagTVITEMEX {
     UINT      mask;
     HTREEITEM hItem;

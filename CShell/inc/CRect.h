@@ -53,7 +53,9 @@ public:
 	void SetRect( int x1,
 				  int y1,
 				  int x2,
-				  int y2) ;
+				  int y2);
+	
+	void SetRectEmpty();
 	
 	mutable CPoint mTopLeft;
 	mutable CPoint mBottomRight;

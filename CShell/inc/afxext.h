@@ -28,6 +28,20 @@ class CFrameWnd;
 #define LM_LENGTHY  0x20    // Set if nLength is a Height instead of a Width
 #define LM_COMMIT   0x40    // Remember MRUWidth
 
+#define SBT_OWNERDRAW            0x1000
+#define SBT_NOBORDERS            0x0100
+#define SBT_POPOUT               0x0200
+#define SBT_RTLREADING           0x0400
+#define SBT_NOTABPARSING         0x0800
+
+// Styles for status bar panes
+#define SBPS_NORMAL     0x0000
+#define SBPS_NOBORDERS  SBT_NOBORDERS
+#define SBPS_POPOUT     SBT_POPOUT
+#define SBPS_OWNERDRAW  SBT_OWNERDRAW
+#define SBPS_DISABLED   0x04000000
+#define SBPS_STRETCH    0x08000000  // stretch to fill status bar
+
 struct CCreateContext
 {
 	CRuntimeClass *m_pNewViewClass;

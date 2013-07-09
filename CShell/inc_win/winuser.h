@@ -148,6 +148,43 @@
 #define SB_RIGHT            7
 #define SB_ENDSCROLL        8
 
+/*
+ * Standard Cursor IDs
+ */
+#define IDC_ARROW           MAKEINTRESOURCE(32512)
+#define IDC_IBEAM           MAKEINTRESOURCE(32513)
+#define IDC_WAIT            MAKEINTRESOURCE(32514)
+#define IDC_CROSS           MAKEINTRESOURCE(32515)
+#define IDC_UPARROW         MAKEINTRESOURCE(32516)
+#define IDC_SIZE            MAKEINTRESOURCE(32640)  /* OBSOLETE: use IDC_SIZEALL */
+#define IDC_ICON            MAKEINTRESOURCE(32641)  /* OBSOLETE: use IDC_ARROW */
+#define IDC_SIZENWSE        MAKEINTRESOURCE(32642)
+#define IDC_SIZENESW        MAKEINTRESOURCE(32643)
+#define IDC_SIZEWE          MAKEINTRESOURCE(32644)
+#define IDC_SIZENS          MAKEINTRESOURCE(32645)
+#define IDC_SIZEALL         MAKEINTRESOURCE(32646)
+#define IDC_NO              MAKEINTRESOURCE(32648) /*not in win3.1 */
+#define IDC_HAND            MAKEINTRESOURCE(32649)
+#define IDC_APPSTARTING     MAKEINTRESOURCE(32650) /*not in win3.1 */
+#define IDC_HELP            MAKEINTRESOURCE(32651)
+
+
+/*
+ * Class styles
+ */
+#define CS_VREDRAW          0x0001
+#define CS_HREDRAW          0x0002
+#define CS_DBLCLKS          0x0008
+#define CS_OWNDC            0x0020
+#define CS_CLASSDC          0x0040
+#define CS_PARENTDC         0x0080
+#define CS_NOCLOSE          0x0200
+#define CS_SAVEBITS         0x0800
+#define CS_BYTEALIGNCLIENT  0x1000
+#define CS_BYTEALIGNWINDOW  0x2000
+#define CS_GLOBALCLASS      0x4000
+
+
 #define BS_PUSHBUTTON       0x00000000L
 #define BS_DEFPUSHBUTTON    0x00000001L
 #define BS_CHECKBOX         0x00000002L
@@ -677,8 +714,40 @@ typedef struct tagMENUITEMINFO
     HBITMAP  hbmpItem;      // used if MIIM_BITMAP
 }   MENUITEMINFO,  *LPMENUITEMINFO;
 
+/*
+ * DRAWITEMSTRUCT for ownerdraw
+ */
+typedef struct tagDRAWITEMSTRUCT {
+    UINT        CtlType;
+    UINT        CtlID;
+    UINT        itemID;
+    UINT        itemAction;
+    UINT        itemState;
+    HWND        hwndItem;
+    HDC         hDC;
+    RECT        rcItem;
+    ULONG_PTR   itemData;
+} DRAWITEMSTRUCT, *PDRAWITEMSTRUCT, *LPDRAWITEMSTRUCT;
+
+/*
+ * WM_WINDOWPOSCHANGING/CHANGED struct pointed to by lParam
+ */
+typedef struct tagWINDOWPOS {
+    HWND    hwnd;
+    HWND    hwndInsertAfter;
+    int     x;
+    int     y;
+    int     cx;
+    int     cy;
+    UINT    flags;
+} WINDOWPOS, *LPWINDOWPOS, *PWINDOWPOS;
+
+
 UINT ExtractIconEx(LPCSTR lpszFile, int nIconIndex, HICON *phiconLarge, HICON *phiconSmall, UINT nIcons);
 int SHFileOperation(LPSHFILEOPSTRUCT lpFileOp);
 BOOL PostMessage(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam);
+
+HCURSOR LoadCursor(HINSTANCE hInstance, LPCTSTR lpCursorName);
+BOOL ReleaseCapture(void);
 
 #endif//WIN_USER

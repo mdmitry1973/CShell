@@ -1535,6 +1535,26 @@ CFont* CWnd::GetFont() const
 	return NULL;
 }
 
+CFrameWnd* CWnd::GetParentFrame() const
+{
+	NSLog(@"TO DO CWnd::GetParentFrame");
+	//mMainFrame->SetNSWindow();
+	
+	return NULL;//&mMainFrame;
+}
+
+CWnd* CWnd::GetCapture()
+{
+	NSLog(@"TO DO CWnd::GetCapture");
+	return NULL;
+}
+
+CWnd* CWnd::SetCapture()
+{
+	NSLog(@"TO DO CWnd::SetCapture");
+	return NULL;
+}
+
 typedef void (* fnTimer)(HWND, UINT, UINT_PTR, DWORD);
 
 @interface WinTimeHelper : NSObject
@@ -1724,6 +1744,16 @@ int CWnd::GetDlgCtrlID() const
 CWnd* CWnd::GetParent() const
 {
 	return mParentWin;
+}
+
+void CWnd::ClientToScreen(LPPOINT lpPoint ) const
+{
+	NSLog(@"TO DO CWnd::ClientToScreen");
+}
+
+void CWnd::ClientToScreen(LPRECT lpRect ) const
+{
+	NSLog(@"TO DO CWnd::ClientToScreen");
 }
 
 void CWnd::GetClientRect(LPRECT lpRect) const
@@ -2186,6 +2216,11 @@ void CWnd::OnRButtonUp(UINT nFlags, CPoint point)
 	NSLog(@"TO DO CWnd::OnRButtonUp");
 }
 
+void CWnd::OnMouseMove(UINT nFlags, CPoint point)
+{
+	NSLog(@"TO DO CWnd::OnMouseMove");
+}
+
 void CWnd::OnKillFocus(CWnd* pNewWnd)
 {
 	NSLog(@"TO DO CWnd::OnKillFocus");
@@ -2220,6 +2255,11 @@ void CWnd::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 void CWnd::OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 {
 	NSLog(@"TO DO CWnd::OnVScroll");
+}
+
+void CWnd::OnWindowPosChanged(WINDOWPOS* lpwndpos)
+{
+	NSLog(@"TO DO CWnd::OnWindowPosChanged");
 }
 
 BOOL CWnd::InitControl(int nIDC, CWnd *win)
