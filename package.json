@@ -1,0 +1,40 @@
+{
+	"license": "", 
+	"preferences": [
+		{
+			"description": "Open a new search tab next to the current tab",
+			"type": "bool",
+			"name": "nextCurrent",
+			"value": true,
+			"title": "Open a new search tab next to the current tab"
+		},
+		{
+			"type": "file",
+			"name": "storeFile",
+			"title": "Select a text file where you want to backup or restore data"
+		},
+		{
+			"type": "control",
+			"label": "Backup data",
+			"name": "BackupData",
+			"title": "Backup data"
+		},
+		{
+			"type": "control",
+			"label": "Restore data",
+			"name": "RestoreData",
+			"title": "Restore data"
+		}
+	], 
+	"contributors": [], 
+	"description": "", 
+	"author": "mdmitry1973", 
+	"url": "", 
+	"dependencies": ["api-utils", "addon-kit"], 
+	"version": "1.0.6", 
+	"lib": "lib", 
+	"fullName": "Advanced bookmaks Add-on", 
+	"main": "main", 
+	"id": "jid0-J7FCuOrjy4Iuh7hvdrQhQxLKiP0", 
+	"name": "advanced-bookmaks-add-on"
+}

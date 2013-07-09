@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<script type="text/javascript">
+    
+    var id_index = 0;
+	var arrLocalizeStrings = [];
+	var jsObject = [];
+	
+	arrLocalizeStrings.push("Remove");	//0
+	arrLocalizeStrings.push("Up");		//1
+	arrLocalizeStrings.push("Down");	//2
+	arrLocalizeStrings.push("Top");		//3
+	arrLocalizeStrings.push("Bottom");	//4
+   
+   function init_table()
+   {
+		var jsonRequesLocalizeStrings = JSON.stringify(arrLocalizeStrings);
+		
+		document.documentElement.addEventListener("SendBookMarks", function(event) {
+        //window.alert(event.detail);
+		
+			var tbl = document.getElementById("table_Bookmarks");
+			var tblBody = document.getElementById("tbody_Bookmarks");
+			var message = JSON.parse(event.detail);
+			var jsLocalizeStrings = message.arrLocalizeStrings;
+			
+			jsObject = message.bookmarks;
+			arrLocalizeStrings = [];
+			arrLocalizeStrings = jsLocalizeStrings;
+			
+			for (var i = 0; i < jsObject.length; i++)
+			{
+				// creates a table row
+				var row = document.createElement("tr");
+				
+				row.id = "id_row_" + id_index;
+			   
+				var cell = document.createElement("td");
+				var cellText = document.createElement("input");
+				cellText.type = "text";
+				cellText.id = "id_text_" + id_index;
+				//cellText.name="ShowToolTip"; 
+				cellText.size=70;
+				cellText.readonly = true;
+				cellText.disabled= true;
+				cellText.value = jsObject[i].label + " type=" + jsObject[i].type; 
+				cellText.addEventListener('mouseover', onShowToolTip, false);
+				cell.appendChild(cellText);
+				row.appendChild(cell);
+				
+				var cell = document.createElement("td");
+				var cellImage = document.createElement("input");
+				cellImage.type = "image";
+				cellImage.src = "delete.png";
+				cellImage.id = "id_del_" + id_index;
+				cellImage.name="ShowToolTip"; 
+				cellImage.title=arrLocalizeStrings[0];
+				cellImage.addEventListener('mouseover', onShowToolTip, false);
+				cellImage.onclick = function(event){doDelete(event);};
+				cell.appendChild(cellImage);
+				row.appendChild(cell);
+				
+				var cell = document.createElement("td");
+				var cellImage = document.createElement("input");
+				cellImage.type = "image";
+				cellImage.src = "upup.png";
+				cellImage.id = "id_upup_" + id_index;
+				cellImage.name="ShowToolTip"; 
+				cellImage.title=arrLocalizeStrings[3];
+				cellImage.addEventListener('mouseover', onShowToolTip, false);
+				cellImage.onclick = function(event){doUpUp(event);};
+				cell.appendChild(cellImage);
+				row.appendChild(cell);
+				
+				var cell = document.createElement("td");
+				var cellImage = document.createElement("input");
+				cellImage.type = "image";
+				cellImage.src = "up.png";
+				cellImage.id = "id_up_" + id_index;
+				cellImage.name="ShowToolTip"; 
+				cellImage.title=arrLocalizeStrings[1];
+				cellImage.addEventListener('mouseover', onShowToolTip, false);
+				cellImage.onclick = function(event){doUp(event);};
+				cell.appendChild(cellImage);
+				row.appendChild(cell);
+				
+				var cell = document.createElement("td");
+				var cellImage = document.createElement("input");
+				cellImage.type = "image";
+				cellImage.src = "down.png";
+				cellImage.id = "id_down_" + id_index;
+				cellImage.name="ShowToolTip"; 
+				cellImage.title=arrLocalizeStrings[2];
+				cellImage.addEventListener('mouseover', onShowToolTip, false);
+				cellImage.onclick = function(event){doDown(event);};
+				cell.appendChild(cellImage);
+				row.appendChild(cell);
+				
+				var cell = document.createElement("td");
+				var cellImage = document.createElement("input");
+				cellImage.type = "image";
+				cellImage.src = "downdown.png";
+				cellImage.id = "id_downdown_" + id_index;
+				cellImage.name="ShowToolTip"; 
+				cellImage.title=arrLocalizeStrings[4];
+				cellImage.addEventListener('mouseover', onShowToolTip, false);
+				cellImage.onclick = function(event){doDownDown(event);};
+				cell.appendChild(cellImage);
+				row.appendChild(cell);
+			   
+			   // add the row to the end of the table body
+				tblBody.appendChild(row);
+				
+				id_index++;
+			}
+        
+		}, false);
+      
+        var event = document.createEvent('CustomEvent');
+        event.initCustomEvent("RequesBookMarks", true, true, jsonRequesLocalizeStrings);
+        document.documentElement.dispatchEvent(event);
+        
+        var elements = document.getElementsByName("ShowToolTip");
+
+        for (var i = 0; i < elements.length; i++) 
+        {
+            elements[i].addEventListener('mouseover', onShowToolTip, false);
+        }
+   }
+   
+   function doCheckEnable()
+   {
+   /*
+       var tblBody = document.getElementById("tbody_Bookmarks");
+       var results = evaluateXPath(tblBody, "//tr");
+      
+       for (var i = 0; i < results.length; i++)
+       {
+			var results_upup = evaluateXPath(results[i], "id_upup_" + i);
+			var results_up = evaluateXPath(results[i], "id_up_" + i);
+			var results_downdown = evaluateXPath(results[i], "id_downdown_" + i);
+			var results_down = evaluateXPath(results[i], "id_down_" + i);
+			
+			window.alert("index" + i);
+			
+			if (i == 0)//first item
+			{
+				window.alert("first item");
+				
+				if (results_upup)
+				{
+					results_upup.disabled= true;
+					window.alert("results_upup.disabled= true");
+				}
+				
+				if (results_up)
+				{
+					results_up.disabled= true;
+					window.alert("results_up.disabled= true");
+				}
+			}
+			else
+			{
+				if (results_upup)
+				{
+					results_upup.disabled= false;
+				}
+				
+				if (results_up)
+				{
+					results_up.disabled= false;
+				}
+			}
+			
+			if (i == results.length - 1)//last item
+			{
+				window.alert("last item");
+				
+				if (results_downdown)
+				{
+					results_downdown.disabled= true;
+					window.alert("results_downdown.disabled= true");
+				}
+				
+				if (results_down)
+				{
+					results_down.disabled= true;
+					window.alert("results_down.disabled= true");
+				}
+			}
+			else
+			{
+				if (results_downdown)
+				{
+					results_downdown.disabled= false;
+				}
+				
+				if (results_down)
+				{
+					results_down.disabled= false;
+				}
+			}
+		}
+		*/
+   }
+   
+   function doRemoveAll()
+   {
+       var tblBody = document.getElementById("tbody_Bookmarks");
+       var results = evaluateXPath(tblBody, "//tr");
+      
+       for (var i = results.length - 1; i >= 0; i--)
+       {
+            results[i].parentNode.removeChild(results[i]);
+       }
+   }
+   
+   function doUp(evt)
+   {
+		var id = evt.currentTarget.id;
+       
+		id =id.replace("id_up_", "id_row_");
+	   
+		var  node = document.getElementById(id);
+		var  parentNode = node.parentNode;
+	   
+		if (node && parentNode) 
+        {
+			var previousSibling = node.previousSibling;
+			
+			if (previousSibling)
+			{
+				var oldNode = parentNode.removeChild(node);
+				
+				parentNode.insertBefore( oldNode, previousSibling );
+				
+				doCheckEnable();
+			}
+        }
+   }
+   
+   function doUpUp(evt)
+   {
+       var id = evt.currentTarget.id;
+       
+       id =id.replace("id_upup_", "id_row_");
+	   
+		var  node = document.getElementById(id);
+		var  parentNode = node.parentNode;
+	   
+		if (node && parentNode) 
+        {
+			var firstChild = parentNode.firstChild;
+			
+			if (firstChild && firstChild != node)
+			{
+				var oldNode = parentNode.removeChild(node);
+				
+				parentNode.insertBefore( oldNode, firstChild);
+				
+				doCheckEnable();
+			}
+        }
+   }
+   
+   function doDown(evt)
+   {
+       var id = evt.currentTarget.id;
+       
+       id =id.replace("id_down_", "id_row_");
+	   
+	   var  node = document.getElementById(id);
+		var  parentNode = node.parentNode;
+	   
+		if (node && parentNode) 
+        {
+			var nextSibling = node.nextSibling;
+			
+			if (nextSibling)
+			{
+				var oldNode = parentNode.removeChild(nextSibling);
+				
+				parentNode.insertBefore( oldNode, node);
+				
+				doCheckEnable();
+			}
+        }
+   }
+   
+   function doDownDown(evt)
+   {
+       var id = evt.currentTarget.id;
+       
+       id =id.replace("id_downdown_", "id_row_");
+	   
+	   var  node = document.getElementById(id);
+		var  parentNode = node.parentNode;
+	   
+		if (node && parentNode) 
+        {
+			var oldNode = parentNode.removeChild(node);
+				
+			parentNode.appendChild(oldNode);
+			
+			doCheckEnable();
+        }
+   }
+   
+   function doDelete(evt)
+   {
+       var id = evt.currentTarget.id;
+       
+       id =id.replace("id_del_", "id_row_");
+       
+        var  node = document.getElementById(id);
+       
+        if (node && node.parentNode) 
+        {
+             node.parentNode.removeChild(node);
+        }
+		
+		doCheckEnable();
+   }
+   
+    // Evaluate an XPath expression aExpression against a given DOM node
+    // or Document object (aNode), returning the results as an array
+    // thanks wanderingstan at morethanwarm dot mail dot com for the
+    // initial work.
+    function evaluateXPath(aNode, aExpr) {
+		var xpe = new XPathEvaluator();
+		var nsResolver = xpe.createNSResolver(aNode.ownerDocument == null ? aNode.documentElement : aNode.ownerDocument.documentElement);
+		var result = xpe.evaluate(aExpr, aNode, nsResolver, 0, null);
+		var found = [];
+		var res;
+		if (result)
+		{
+			while (res = result.iterateNext())
+				found.push(res);
+		}
+		return found;
+    }
+   
+   function doSave()
+   {
+       var tblBody = document.getElementById("tbody_Bookmarks");
+       var results = evaluateXPath(tblBody, "//tr");
+	   var jsObjectNew = [];
+	 
+       for (var i = 0; i < results.length; i++)
+       {
+			var id = results[i].id;
+		   
+			id = id.replace("id_row_", "", "gi");
+			var num = parseInt(id, 10);
+			
+			if (jsObject.length < num)
+			{
+				window.alert("jsObject.length");
+			}
+			else
+			{
+				jsObjectNew.push(jsObject[num]);
+			}
+       }
+       	   
+       var jsonString = JSON.stringify(jsObjectNew);
+        
+       var event = document.createEvent('CustomEvent');
+       event.initCustomEvent("StoreData", true, true, jsonString);
+       document.documentElement.dispatchEvent(event);
+   }
+   
+   function onShowToolTip(element) {
+   
+        var event = document.createEvent('CustomEvent');
+        event.initCustomEvent("ShowToolTip", true, true, element.currentTarget.title + moreinfo);
+        document.documentElement.dispatchEvent(event);
+    
+    }
+</script>
+</head>
+ 
+<body onload="init_table();">
+<h3 data-l10n-id="Title_Page_id">Bookmarks Manager</h3>
+<input type="image" name="ShowToolTip" title="Remove all items" src="delete.png" onclick="doRemoveAll()"><span data-l10n-id="Remove_all_itemes">Remove all itemes</span>&nbsp;&nbsp;<input type="image" name="ShowToolTip" title="Save all items in storage" src="save.png" onclick="doSave()"/><span data-l10n-id="Save_all_items_in_storage">Save all items in storage</span><br />
+<table id="table_Bookmarks" border="0"><tbody id="tbody_Bookmarks"></tbody></table> 
+</body>
+</html>
