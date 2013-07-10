@@ -10,6 +10,7 @@
 #include "CWnd.h"
 
 #import "CNSWindowHandle.h"
+#import "CNSSlider.h"
 
 @implementation CNSWindowHandle
 
@@ -29,7 +30,16 @@
 {
 	if (mWindow)
 	{
-		mWindow->SendEventHandle([sender tag], sender, -1);
+		int eventType = -1;
+		int tag = [sender tag];
+		
+		if ([sender isKindOfClass:[CNSSlider class]])
+		{
+			eventType = EVENT_TYPE_WM_HSCROLL;
+			tag = 0;
+		}
+		
+		mWindow->SendEventHandle(tag, sender, eventType);
 	}
 }
 

@@ -191,3 +191,11 @@ BOOL CRect::PtInRect(POINT point) const
 		return TRUE;
 	return FALSE;
 }
+
+void CRect::SetRectEmpty()
+{
+	left = 0;
+	right = 0;
+	top = 0;
+	bottom = 0;
+}

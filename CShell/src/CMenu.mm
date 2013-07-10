@@ -613,3 +613,16 @@ UINT CMenu::GetMenuItemID(int nPos) const
 	return 0;
 }
 
+UINT CMenu::CheckMenuItem(UINT nIDCheckItem, UINT nCheck)
+{
+	NSLog(@"TO DO CMenu::CheckMenuItem");
+	return 0;
+}
+
+BOOL CMenu::TrackPopupMenu(UINT nFlags, int x, int y, CWnd* pWnd, LPCRECT lpRect)
+{
+	NSLog(@"TO DO CMenu::TrackPopupMenu");
+	return 0;
+}
+
+

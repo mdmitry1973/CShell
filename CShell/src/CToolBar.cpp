@@ -59,6 +59,7 @@ void CToolBar::OnUpdateCmdUI(CFrameWnd* pTarget, BOOL bDisableIfNoHndler)
 DWORD CToolBar::GetBarStyle()
 {
     qDebug() << "TO DO CToolBar::EnableDocking";
+    return 0;
 }
 
 void CToolBar::SetBarStyle(DWORD dwStyle)
@@ -69,6 +70,7 @@ void CToolBar::SetBarStyle(DWORD dwStyle)
 UINT CToolBar::GetItemID(int nIndex) const
 {
     qDebug() << "TO DO CToolBar::GetItemID";
+    return 0;
 }
 
 void CToolBar::GetItemRect(int nIndex, LPRECT lpRect) const
@@ -79,6 +81,7 @@ void CToolBar::GetItemRect(int nIndex, LPRECT lpRect) const
 UINT CToolBar::GetButtonStyle(int nIndex) const
 {
     qDebug() << "TO DO CToolBar::GetButtonStyle";
+    return 0;
 }
 
 void CToolBar::SetButtonStyle(int nIndex, UINT nStyle)
@@ -89,4 +92,6 @@ void CToolBar::SetButtonStyle(int nIndex, UINT nStyle)
 CToolBarCtrl& CToolBar::GetToolBarCtrl() const
 {
     qDebug() << "TO DO CToolBar::GetToolBarCtrl";
+    static CToolBarCtrl ff;
+    return ff;
 }

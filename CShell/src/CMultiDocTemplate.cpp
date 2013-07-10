@@ -39,6 +39,7 @@ CMultiDocTemplate::~CMultiDocTemplate()
 BOOL CMultiDocTemplate::GetDocString(CString& rString, enum DocStringIndex index) const
 {
     qDebug() << "TO DO CMultiDocTemplate::GetDocString";
+    return FALSE;
 }
 
 void CMultiDocTemplate::AddDocument(CDocument* pDoc)
@@ -151,9 +152,11 @@ void CMultiDocTemplate::SetDefaultTitle(CDocument* pDocument)
 POSITION CMultiDocTemplate::GetFirstDocPosition() const
 {
     qDebug() << "TO DO CMultiDocTemplate::GetFirstDocPosition";
+    return 0;
 }
 
 CDocument* CMultiDocTemplate::GetNextDoc(POSITION& rPos) const
 {
     qDebug() << "TO DO CMultiDocTemplate::GetNextDoc";
+    return 0;
 }

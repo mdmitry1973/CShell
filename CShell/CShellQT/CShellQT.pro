@@ -16,6 +16,7 @@ DEFINES += CSHELLQT_LIBRARY\
         CSHELL_USE_QT
 
 SOURCES += cshellqt.cpp\
+      CShellEventReceiver.cpp \
     ../src/CWinApp.cpp \
     ../src/CTargetEvent.cpp \
     ../src/CObject.cpp \
@@ -30,7 +31,6 @@ SOURCES += cshellqt.cpp\
     ../src/CListBox.cpp \
     ../src/CSliderCtrl.cpp \
     ../src/CProgressCtrl.cpp \
-    CShellEventReceiver.cpp \
     ../src/CButton.cpp \
     ../src/CEdit.cpp \
     ../src/CSpinButtonCtrl.cpp \
@@ -56,13 +56,13 @@ SOURCES += cshellqt.cpp\
     ../src/CPlex.cpp \
     ../src/CView.cpp \
     ../src/CStatusBar.cpp \
-    ../src/CToolBar.cpp
+    ../src/CToolBar.cpp \
+    ../src/CToolBarCtrl.cpp
 
 HEADERS += cshellqt.h\
         cshellqt_global.h \
-    ../inc/*.h \
-    CShellEventReceiver.h \
-    ../inc/CQSlider.h
+        /inc/*.h \
+        CShellEventReceiver.h
 
 INCLUDEPATH += ../inc
 
@@ -74,5 +74,8 @@ unix:!symbian {
     }
     INSTALLS += target
 }
+
+Debug:DESTDIR = ../build/MinGW_32bit-Debug
+Release:DESTDIR = ../build/MinGW_32bit-Release
 
 OTHER_FILES +=

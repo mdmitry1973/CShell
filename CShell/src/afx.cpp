@@ -87,11 +87,13 @@ BOOL AfxEnableMemoryTracking(BOOL bTrack)
 BOOL AfxSocketInit(void* lpwsaData)
 {
     qDebug() << "TO DO AfxSocketInit";
+    return TRUE;
 }
 
 BOOL AfxOleInit()
 {
     qDebug() << "TO DO AfxOleInit";
+    return TRUE;
 }
 
 COleMessageFilter* AfxOleGetMessageFilter()

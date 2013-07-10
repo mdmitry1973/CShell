@@ -27,6 +27,17 @@ CMDIFrameWnd::~CMDIFrameWnd()
 	
 }
 
+BOOL CMDIFrameWnd::Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName,
+						  DWORD dwStyle,
+						  const RECT& rect,
+						  CWnd* pParentWnd,
+						  LPCTSTR lpszMenuName,
+						  DWORD dwExStyle,
+						  CCreateContext* pContext)
+{
+	return CFrameWnd::Create(lpszClassName, lpszWindowName, dwStyle, rect, pParentWnd, lpszMenuName, dwExStyle, pContext);
+}
+
 BOOL CMDIFrameWnd::LoadFrame(UINT nIDResource, DWORD dwDefaultStyle, CWnd* pParentWnd , CCreateContext* pContext)
 {
 	CString strResID;

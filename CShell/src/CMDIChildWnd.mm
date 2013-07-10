@@ -30,3 +30,19 @@ CMDIChildWnd::~CMDIChildWnd()
 
 }
 
+BOOL CMDIChildWnd::Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName,
+					DWORD dwStyle,
+					const RECT& rect,
+					CWnd* pParentWnd,
+					LPCTSTR lpszMenuName,
+					DWORD dwExStyle,
+					CCreateContext* pContext)
+{
+	return CFrameWnd::Create(lpszClassName, lpszWindowName, dwStyle, rect, pParentWnd, lpszMenuName, dwExStyle, pContext);
+}
+
+BOOL CMDIChildWnd::SetMenu(CMenu* pMenu)
+{
+	return CWnd::SetMenu(pMenu);
+}
+

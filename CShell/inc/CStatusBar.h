@@ -34,6 +34,11 @@ public:
 						  
 	BOOL SetIndicators(const UINT* lpIDArray, int nIDCount);
 	
+	void SetPaneInfo(int nIndex, UINT nID, UINT nStyle, int cxWidth);
+	BOOL SetPaneText(int nIndex, LPCTSTR lpszNewText, BOOL bUpdate = TRUE);
+	void SetPaneStyle(int nIndex, UINT nStyle);
+	
+	DWORD GetBarStyle();
 };
 
 #define CMFCStatusBar CStatusBar

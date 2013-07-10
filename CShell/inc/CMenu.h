@@ -52,6 +52,10 @@ public:
 	
 	BOOL DeleteMenu(UINT nPosition, UINT nFlags);
 	
+	UINT CheckMenuItem(UINT nIDCheckItem, UINT nCheck);
+	
+	BOOL TrackPopupMenu(UINT nFlags, int x, int y, CWnd* pWnd, LPCRECT lpRect = 0);
+	
 	void SetNSMenu(void *menu, CWnd *owner);
 	BOOL MenuParser(void *currentMenu, void *rootMenuNode);
 	void *GetNSMenu();

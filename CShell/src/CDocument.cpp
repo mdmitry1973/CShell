@@ -72,6 +72,7 @@ void CDocument::SetModifiedFlag(BOOL bModified)
 POSITION CDocument::GetFirstViewPosition() const
 {
     qDebug() << "TO DO CDocument::GetFirstViewPosition";
+    return 0;
 }
 
 CView* CDocument::GetNextView(POSITION& rPosition) const

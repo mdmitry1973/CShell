@@ -18,7 +18,7 @@
 #include "CDef.h"
 #include "CWnd.h"
 #include "CDocTemplate.h"
-#include "CShellEventReceiver.h"
+#include "..\CShellQT\CShellEventReceiver.h"
 #include "CWinApp.h"
 
 std::map<int, CShellBitmapInfo> g_mapBitmapInfo;
@@ -366,6 +366,7 @@ void CWinApp::OnFilePrintSetup()
 BOOL CWinApp::OnIdle(LONG lCount)
 {
     qDebug() << "TO DO CWinApp::OnIdle";
+    return TRUE;
 }
 
 void CWinApp::OnHelp()
@@ -381,11 +382,13 @@ void CWinApp::AddDocTemplate(CDocTemplate* pTemplate)
 POSITION CWinApp::GetFirstDocTemplatePosition( ) const
 {
     qDebug() << "TO DO CWinApp::GetFirstDocTemplatePosition";
+    return 0;
 }
 
 CDocTemplate *CWinApp::GetNextDocTemplate(POSITION& pos ) const
 {
     qDebug() << "TO DO CWinApp::GetNextDocTemplate";
+    return 0;
 }
 
 void CWinApp::CloseAllDocuments(BOOL bEndSession)
@@ -676,7 +679,7 @@ std::map<int,CShellBitmapInfo> &CWinApp::GetBitmapInfoMap()
 
 HKEY CWinApp::GetAppRegistryKey()
 {
-	
+    return 0;
 }
 
 BOOL CWinApp::LoadIconInfo()

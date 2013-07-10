@@ -33,7 +33,7 @@
 #include "CQSlider.h"
 
 #include "CDef.h"
-#include "CShellEventReceiver.h"
+#include "..\CShellQT\CShellEventReceiver.h"
 #include "CWinApp.h"
 #include "CMenu.h"
 #include "CWnd.h"

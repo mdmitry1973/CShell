@@ -293,8 +293,13 @@ public:
 	virtual int	OnCreate(LPCREATESTRUCT lpCreateStruct);
     virtual void OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
     virtual void OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
+	virtual void OnMouseMove(UINT nFlags, CPoint point);
+	virtual void OnWindowPosChanged(WINDOWPOS* lpwndpos);
 	
 	virtual void OnSysCommand(UINT nID, LPARAM lParam);
+	
+	void ClientToScreen(LPPOINT lpPoint ) const;
+	void ClientToScreen(LPRECT lpRect ) const;
 	
 	//not mfc methods
 	BOOL CreatFromResFile(UINT nIDTemplate, BOOL bView, CWnd *parentWnd = NULL);
@@ -319,9 +324,13 @@ public:
 	
 	virtual BOOL IsDialog();
 	
+	CFrameWnd* GetParentFrame() const;
+	static CWnd* GetCapture( );
+	CWnd* SetCapture();
+	
 	PtrNSWindowDelegate GetWindowDelegate();
 	PtrNSWindow			GetNSWindow();
-    void SetNSWindow(PtrNSWindow );
+    virtual void SetNSWindow(PtrNSWindow );
 	
 	//static CMenu* GetMenu(CWnd *);
 	
@@ -340,6 +349,7 @@ protected:
 	CDataExchange			mDX;
 	
 	CWnd					*mParentWin;
+	CFrameWnd				*mMainFrame;
 	
 	BOOL					mMainWindow;
 	BOOL					mFinished;

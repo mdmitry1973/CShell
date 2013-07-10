@@ -8,8 +8,11 @@
 
 #include "CDef.h"
 #include "CWnd.h"
+#include "CWinApp.h"
+#include "CTargetEvent.h"
 
 #import "CNSSlider.h"
+
 
 @implementation CNSSlider
 
@@ -21,6 +24,21 @@ CSHELL_IMPL_CONTROL_STANDARD_METHOD
 	self = [super init];
 	
     return self;
+}
+
+- (void)mouseUp:(NSEvent *)theEvent
+{
+	
+}
+
+-(void)controlEventHandle:(id)sender
+{
+	CWinApp* app = AfxGetApp();
+		
+	if (app)
+	{
+		app->SendEventHandle(0, self, EVENT_TYPE_WM_HSCROLL);
+	}
 }
 
 @end

@@ -822,7 +822,21 @@ bool CWnd::CreateControl(PtrNSXMLElement controlNodeIn, void *nsView)
 			
 			if (strTitle)
 			{
-				[control setStringValue: strTitle];
+				[control setStringValue: strTitle];				
+			}
+			
+			//SEL eventHandle = @selector(controlEventHandle:);
+			
+			//[control setTarget:control];
+			//[control setAction:eventHandle];
+			
+			PtrNSWindowHandle	pWindowHandle = mWindowHandle;
+			SEL eventHandle = @selector(controlEventHandle:);
+			
+			if (pWindowHandle)
+			{
+				[control setTarget:(CNSWindowHandle *)pWindowHandle];
+				[control setAction:eventHandle];
 			}
 		}
 		else 
@@ -1251,13 +1265,19 @@ PtrNSWindow CWnd::GetNSWindow()
 	return m_hWnd;
 }
 
+void CWnd::SetNSWindow(PtrNSWindow wnd)
+{
+	m_hWnd = wnd;
+}
+
 void CWnd::AddEventHandle(int objID, EventFun fun, int eventType)
 {
 	if (m_hWnd)
 	{
 		PtrNSWindowHandle	pWindowHandle = mWindowHandle;
 		CCmdTEHData			*p_mapEventHandle = &(m_mapEventHandle);
-		NSControl			*control	= nil;
+		NSControl			*control= nil;
+		NSView				*viewer = nil;
 		
 		if ([(NSObject*)m_hWnd isKindOfClass: [NSWindow class]])
 		{
@@ -1265,6 +1285,8 @@ void CWnd::AddEventHandle(int objID, EventFun fun, int eventType)
 			{
 				control = [[(NSWindow *)m_hWnd contentView] viewWithTag: objID];   
 			}
+			
+			viewer = [(NSWindow *)m_hWnd contentView];
 		}
 		else
 		if ([(NSObject*)m_hWnd isKindOfClass: [NSControl class]])
@@ -1281,14 +1303,10 @@ void CWnd::AddEventHandle(int objID, EventFun fun, int eventType)
 			{
 				objID = [control tag];
 			}
+			
+			viewer = control;
 		}
-		//else
-		//if ([(NSObject*)m_hWnd isKindOfClass: [NSView class]])
-		//{
-		//	NSLog(@"CANNOT ADD EVENT IT IS VIEWER");
-		//	return;
-		//}
-		
+	
 		CCmdTargetEventHandle handle;
 		
 		handle.tag			= objID;
@@ -1309,7 +1327,7 @@ void CWnd::AddEventHandle(int objID, EventFun fun, int eventType)
 			}
 		}
 		else 
-		{
+		{						
 			NSLog(@"CANNOT ADD EVENT IT IS VIEWER");
 		}
 	}
@@ -1517,6 +1535,26 @@ CFont* CWnd::GetFont() const
 	return NULL;
 }
 
+CFrameWnd* CWnd::GetParentFrame() const
+{
+	NSLog(@"TO DO CWnd::GetParentFrame");
+	//mMainFrame->SetNSWindow();
+	
+	return NULL;//&mMainFrame;
+}
+
+CWnd* CWnd::GetCapture()
+{
+	NSLog(@"TO DO CWnd::GetCapture");
+	return NULL;
+}
+
+CWnd* CWnd::SetCapture()
+{
+	NSLog(@"TO DO CWnd::SetCapture");
+	return NULL;
+}
+
 typedef void (* fnTimer)(HWND, UINT, UINT_PTR, DWORD);
 
 @interface WinTimeHelper : NSObject
@@ -1706,6 +1744,16 @@ int CWnd::GetDlgCtrlID() const
 CWnd* CWnd::GetParent() const
 {
 	return mParentWin;
+}
+
+void CWnd::ClientToScreen(LPPOINT lpPoint ) const
+{
+	NSLog(@"TO DO CWnd::ClientToScreen");
+}
+
+void CWnd::ClientToScreen(LPRECT lpRect ) const
+{
+	NSLog(@"TO DO CWnd::ClientToScreen");
 }
 
 void CWnd::GetClientRect(LPRECT lpRect) const
@@ -2168,6 +2216,11 @@ void CWnd::OnRButtonUp(UINT nFlags, CPoint point)
 	NSLog(@"TO DO CWnd::OnRButtonUp");
 }
 
+void CWnd::OnMouseMove(UINT nFlags, CPoint point)
+{
+	NSLog(@"TO DO CWnd::OnMouseMove");
+}
+
 void CWnd::OnKillFocus(CWnd* pNewWnd)
 {
 	NSLog(@"TO DO CWnd::OnKillFocus");
@@ -2192,6 +2245,21 @@ int	CWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 void CWnd::OnSysCommand(UINT nID, LPARAM lParam)
 {
 	NSLog(@"TO DO CWnd::OnSysCommand");
+}
+
+void CWnd::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
+{
+	NSLog(@"TO DO CWnd::OnHScroll");
+}
+
+void CWnd::OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
+{
+	NSLog(@"TO DO CWnd::OnVScroll");
+}
+
+void CWnd::OnWindowPosChanged(WINDOWPOS* lpwndpos)
+{
+	NSLog(@"TO DO CWnd::OnWindowPosChanged");
 }
 
 BOOL CWnd::InitControl(int nIDC, CWnd *win)
