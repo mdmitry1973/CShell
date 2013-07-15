@@ -14,6 +14,7 @@
 #include <QFile>
 #include <QCoreApplication>
 #include <QtWidgets/QMessageBox>
+#include <QPixmap>
 
 #include "CDef.h"
 #include "CWnd.h"
@@ -26,6 +27,8 @@ std::map<int, CShellBitmapInfo> g_mapIconInfo;
 
 CSHELL_LIB_EXPORT CWinApp *pMainApp = NULL;
 CSHELL_LIB_EXPORT CShellEventReceiver *pGMenuEvent = NULL;
+
+extern std::map<QString, QPixmap*> g_mapResBitMaps;
 
 CWinApp::CWinApp()
 {
@@ -52,6 +55,11 @@ CWinApp::~CWinApp()
 	{
 		delete m_arrDocTemplate[i];
 	}
+
+    for (std::map<QString, QPixmap*>::iterator it = g_mapResBitMaps.begin(); it != g_mapResBitMaps.end(); ++it)
+    {
+        delete it->second;
+    }
 }
 
 BOOL CWinApp::InitInstance()

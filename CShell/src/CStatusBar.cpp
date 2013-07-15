@@ -8,6 +8,8 @@
  */
 
 #include <QDebug>
+#include <QStatusBar>
+#include <QMainWindow>
 
 #include "CStatusBar.h"
 
@@ -23,14 +25,37 @@ CStatusBar::~CStatusBar()
 
 BOOL CStatusBar::Create(CWnd* pParentWnd, DWORD dwStyle, UINT nID)
 {
-    qDebug() << "TO DO CStatusBar::Create";
-	return TRUE;
+    QWidget *parent = NULL;
+
+    if (pParentWnd)
+    {
+        parent = (QWidget *)pParentWnd->GetNSWindow();
+    }
+
+    QStatusBar *statusBar = new QStatusBar(parent);
+
+    statusBar->setAccessibleName(QString().setNum(nID));
+
+    QMainWindow *mainWnd = dynamic_cast<QMainWindow *>(parent);
+
+    if (mainWnd)
+    {
+        mainWnd->setStatusBar(statusBar);
+        statusBar->showMessage("Ready");
+    }
+
+    m_hWnd = statusBar;
+    mParentWin = pParentWnd;
+
+    return TRUE;
 }
 
 BOOL CStatusBar::CreateEx(CWnd* pParentWnd, DWORD dwCtrlStyle, DWORD dwStyle, UINT nID)
 {
-    qDebug() << "TO DO CStatusBar::CreateEx";
-	return TRUE;				  
+    BOOL res = Create(pParentWnd, dwStyle, nID);
+    QStatusBar *statusBar = (QStatusBar *)m_hWnd;
+
+    return res;
 }
 
 BOOL CStatusBar::SetIndicators(const UINT* lpIDArray, int nIDCount)

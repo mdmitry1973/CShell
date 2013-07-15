@@ -39,6 +39,8 @@ public:
 	DWORD GetBitmapBits(DWORD dwCount, LPVOID lpBits) const;
 	CSize SetBitmapDimension(int nWidth, int nHeight);
 	CSize GetBitmapDimension() const;
+
+    void *mBitMap;
 	
 };
 

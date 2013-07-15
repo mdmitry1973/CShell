@@ -59,7 +59,9 @@ public:
 	void SetNSMenu(void *menu, CWnd *owner);
 	BOOL MenuParser(void *currentMenu, void *rootMenuNode);
 	void *GetNSMenu();
-	
+
+    static std::map<std::string, long> &GetStandardCommand();
+
 	void *m_NMenu;
 	CWnd *m_owner;
 	

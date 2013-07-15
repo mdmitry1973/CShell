@@ -57,11 +57,12 @@ SOURCES += cshellqt.cpp\
     ../src/CView.cpp \
     ../src/CStatusBar.cpp \
     ../src/CToolBar.cpp \
-    ../src/CToolBarCtrl.cpp
+    ../src/CToolBarCtrl.cpp \
+    ../src/CBitmap.cpp
 
 HEADERS += cshellqt.h\
         cshellqt_global.h \
-        /inc/*.h \
+        ../inc/*.h \
         CShellEventReceiver.h
 
 INCLUDEPATH += ../inc

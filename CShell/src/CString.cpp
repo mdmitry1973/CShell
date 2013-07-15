@@ -134,9 +134,7 @@ BOOL CString::LoadString(UINT nID)
 	
     *((stdString *)this) = str;
 	
-	return str.size();
-
-    return 0;
+    return str.size();
 }
 
 BOOL CString::IsEmpty( ) const

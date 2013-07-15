@@ -33,7 +33,7 @@
 #include "CQSlider.h"
 
 #include "CDef.h"
-#include "..\CShellQT\CShellEventReceiver.h"
+#include "CShellEventReceiver.h"
 #include "CWinApp.h"
 #include "CMenu.h"
 #include "CWnd.h"
@@ -1814,6 +1814,16 @@ int	CWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 void CWnd::OnSysCommand(UINT nID, LPARAM lParam)
 {
     qDebug() << "TO DO CWnd::OnSysCommand";
+}
+
+void CWnd::OnMouseMove(UINT nFlags, CPoint point)
+{
+   qDebug() << "TO DO CWnd::OnMouseMove";
+}
+
+void CWnd::OnWindowPosChanged(WINDOWPOS* lpwndpos)
+{
+   qDebug() << "TO DO CWnd::OnWindowPosChanged";
 }
 
 BOOL CWnd::InitControl(int nIDC, CWnd *win)

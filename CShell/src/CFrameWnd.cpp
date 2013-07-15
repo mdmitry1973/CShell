@@ -178,6 +178,23 @@ BOOL CFrameWnd::Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName,
         //set main frame menu
     }
 
+    CREATESTRUCT data;
+
+    data.lpCreateParams = 0;
+    data.hInstance = 0;
+    data.hMenu = (HMENU)mMenu.GetNSMenu();
+    if (pParentWnd) data.hwndParent = (HWND)pParentWnd->GetNSWindow();
+    data.cy = rect.bottom;
+    data.cx = rect.right;
+    data.y = rect.top;
+    data.x = rect.left;
+    data.style = dwStyle;
+    data.lpszName = lpszWindowName;
+    data.lpszClass = lpszClassName;
+    data.dwExStyle = dwExStyle;
+
+    OnCreate(&data);
+
 	return TRUE;				
 }
 
