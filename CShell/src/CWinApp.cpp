@@ -26,7 +26,7 @@ std::map<int, CShellBitmapInfo> g_mapBitmapInfo;
 std::map<int, CShellBitmapInfo> g_mapIconInfo;
 
 CSHELL_LIB_EXPORT CWinApp *pMainApp = NULL;
-CSHELL_LIB_EXPORT CShellEventReceiver *pGMenuEvent = NULL;
+CSHELL_LIB_EXPORT CShellEventReceiver *pGCommandEvent = NULL;
 
 extern std::map<QString, QPixmap*> g_mapResBitMaps;
 
@@ -35,15 +35,15 @@ CWinApp::CWinApp()
     pMainApp = this;
     m_pszAppName = wcsdup(_T(""));
 	m_nCmdShow = SW_SHOWNORMAL;
-    pGMenuEvent = new CShellEventReceiver;
-    pGMenuEvent->setReceiver(this);
+    pGCommandEvent = new CShellEventReceiver;
+    pGCommandEvent->setReceiver(this);
 }
 
 CWinApp::~CWinApp()
 {
-    if (pGMenuEvent)
+    if (pGCommandEvent)
     {
-        pGMenuEvent->disconnect(pGMenuEvent, 0, 0, 0);
+        pGCommandEvent->disconnect(pGCommandEvent, 0, 0, 0);
     }
 
     if (m_pszAppName)

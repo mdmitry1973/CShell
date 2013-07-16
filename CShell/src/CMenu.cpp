@@ -22,7 +22,7 @@
 #include "CWnd.h"
 #include "..\CShellQT\CShellEventReceiver.h"
 
-extern CShellEventReceiver *pGMenuEvent;
+extern CShellEventReceiver *pGCommandEvent;
 
 static std::map<std::string, long> g_menu_id_map;
 
@@ -222,7 +222,7 @@ BOOL CMenu::MenuParser(void *currentMenuVoid, void *rootMenuNodeVoid)
 
             void (QMenu::*triggeredEvent)(QAction*) = &QMenu::triggered;
 
-            pGMenuEvent->connect(newMenu, triggeredEvent, pGMenuEvent, &CShellEventReceiver::menuSelection);
+            pGCommandEvent->connect(newMenu, triggeredEvent, pGCommandEvent, &CShellEventReceiver::menuSelection);
 
             MenuParser(newMenu, &childNode);
         }
@@ -328,7 +328,7 @@ BOOL CMenu::LoadMenu(LPCTSTR lpszResourceName)
 
                 void (QMenu::*triggeredEvent)(QAction*) = &QMenu::triggered;
 
-                pGMenuEvent->connect(menu, triggeredEvent, pGMenuEvent, &CShellEventReceiver::menuSelection);
+                pGCommandEvent->connect(menu, triggeredEvent, pGCommandEvent, &CShellEventReceiver::menuSelection);
 
 
                 MenuParser(menu, &menuNode);

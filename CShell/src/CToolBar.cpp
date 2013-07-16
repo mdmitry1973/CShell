@@ -24,7 +24,11 @@
 #include "CMenu.h"
 #include "CBitmap.h"
 
+#include "..\CShellQT\CShellEventReceiver.h"
+
 extern std::map<QString, QPixmap*> g_mapResBitMaps;
+
+extern CShellEventReceiver *pGCommandEvent;
 
 CToolBar::CToolBar() : CWnd()
 {
@@ -133,6 +137,10 @@ BOOL CToolBar::LoadToolBar(LPCTSTR lpszResourceName)
     }
 
     file.close();
+
+    void (QToolBar::*actionTriggered)(QAction*) = &QToolBar::actionTriggered;
+
+    pGCommandEvent->connect(toolBar, actionTriggered, pGCommandEvent, &CShellEventReceiver::menuSelection);
 
     QDomElement docElem = doc.documentElement();
     QString resId = QString::fromWCharArray(lpszResourceName);
