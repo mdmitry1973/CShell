@@ -18,9 +18,9 @@ IMPLEMENT_DYNCREATE(Cdocument4View, CView)
 
 BEGIN_MESSAGE_MAP(Cdocument4View, CView)
 	// Standard printing commands
-	//ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
-	//ON_COMMAND(ID_FILE_PRINT_DIRECT, CView::OnFilePrint)
-	//ON_COMMAND(ID_FILE_PRINT_PREVIEW, CView::OnFilePrintPreview)
+   // ON_COMMAND(ID_FILE_PRINT, Cdocument4View::OnFilePrint)
+   // ON_COMMAND(ID_FILE_PRINT_DIRECT, Cdocument4View::OnFilePrint)
+   // ON_COMMAND(ID_FILE_PRINT_PREVIEW, Cdocument4View::OnFilePrintPreview)
 END_MESSAGE_MAP()
 
 // Cdocument4View construction/destruction
